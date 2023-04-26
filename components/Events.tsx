@@ -33,7 +33,7 @@ function StorySection() {
 }
 export default function Events() {
   return <div className="container">
-    <SectionTitle>課程活動</SectionTitle>
+    <SectionTitle id="events">課程活動</SectionTitle>
     <TimeTable />
     <div className="mt-12 md:mt-6" />
     <StorySection />
