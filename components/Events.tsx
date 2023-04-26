@@ -8,12 +8,19 @@ function EventContent({ children }: { children: React.ReactNode }) {
   return <p>{children}</p>
 }
 function EventBox({ children, border = false }: { children: React.ReactNode, border?: boolean }) {
-  return <div className={`py-6 px-10 rounded-xl bg-white bg-opacity-10 ${border ? `border-2 border-white` : ``}`}>
+  return <div className={`py-6 px-10 rounded-xl bg-white bg-opacity-10 relative ${border ? `border-2 border-white` : ``}`}>
     {children}
   </div>
 }
 function StorySection() {
   return <EventBox border>
+    <img
+      src="./images/leaf-hat.svg"
+      className="absolute
+       -top-8 right-4
+       md:top-auto  md:-bottom-[1px]
+       w-8 h-8"
+    />
     <EventTitle>故事劇情</EventTitle>
     <EventContent>
       延續 2021 年的故事，在 SITCON 艦艇號成功把小石帶回地球後，目前小石產生的開源力已經足夠讓地球完全恢復，但是人類文明的基礎——通訊系統還沒有成形，需要能操縱開源力的開拓者們重新建構，讓文明可以再次活躍；於是我們準備再次啟航，巡迴地球建立新的文明。
@@ -28,7 +35,7 @@ export default function Events() {
   return <div className="container">
     <SectionTitle>課程活動</SectionTitle>
     <TimeTable />
-    <div className="mt-6" />
+    <div className="mt-12 md:mt-6" />
     <StorySection />
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
       <EventBox>
