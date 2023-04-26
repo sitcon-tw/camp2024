@@ -6,7 +6,7 @@ function NavItem({ href, children }: {
 }
 export default function Nav() {
   return (
-    <div className="container sticky top-16">
+    <div className="container sticky top-16 z-50">
       <nav className="bg-[#7A44AF] bg-opacity-80 backdrop-blur-lg rounded-full py-4 px-6 mt-8  flex justify-between">
         <div>
           SITCON Camp 2023

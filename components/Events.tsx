@@ -18,7 +18,7 @@ function StorySection() {
       src="./images/leaf-hat.svg"
       className="absolute
        -top-8 right-4
-       md:top-auto  md:-bottom-[1px]
+       md:top-auto md:-bottom-[1px]
        w-8 h-8"
     />
     <EventTitle>故事劇情</EventTitle>
