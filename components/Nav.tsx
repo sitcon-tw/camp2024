@@ -12,7 +12,7 @@ export default function Nav() {
           SITCON Camp 2023
         </div>
         <div className="flex space-x-4">
-          <NavItem href='#'>報名資訊</NavItem>
+          <NavItem href='#application-info'>報名資訊</NavItem>
           <NavItem href='#events'>課程活動</NavItem>
           <NavItem href='#'>過往紀錄</NavItem>
           <NavItem href='#'>行為準則</NavItem>
