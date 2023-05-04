@@ -63,7 +63,7 @@ export default function Nav() {
             SITCON Camp 2023
           </div>
           <div className="space-x-4 hidden lg:flex">
-            {navItems.map((item, index) => <NavItem href={item.href} key={index}>{item.text}</NavItem>)}
+            {navItems.map((item, index) => <NavItem href={item.href} key={index} setIsNavOpen={setIsNavOpen}>{item.text}</NavItem>)}
           </div>
           <div className="lg:hidden relative">
             <button onClick={() => setIsNavOpen(!isNavOpen)} className="text-white hover:text-[#F9A8D4] font-bold">

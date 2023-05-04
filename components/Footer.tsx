@@ -41,7 +41,7 @@ export default function Footer() {
     <div className="container py-8 flex flex-col lg:flex-row gap-8">
       <div className="w-full">
         <div className="font-bold">學生計算機年會</div>
-        <div>Students' Information Technology Conference</div>
+        <div>Students&apos; Information Technology Conference</div>
         <div className="font-bold mt-8">聯繫我們</div>
         <div>
           合作聯繫：<a href="mailto:contact@sitcon.org" className="link">contact@sitcon.org</a>
