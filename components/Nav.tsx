@@ -34,12 +34,10 @@ function useMenuAnimation(isOpen: boolean) {
     animate(
       "#mobile-nav a",
       isOpen
-        ? { opacity: 1, y: 0, filter: 'blur(0px)' }
-        : { opacity: 0, y: -100, filter: 'blur(10px)' },
+        ? { opacity: 1, filter: 'blur(0px)', scale: 1 }
+        : { opacity: 0, filter: 'blur(10px)', scale: 0.3 },
       {
-        type: "spring",
-        bounce: 10,
-        duration: 0.2,
+        duration: 0.15,
         delay: isOpen ? staggerMenuItems : 0
       }
     );
