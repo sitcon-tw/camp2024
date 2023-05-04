@@ -39,8 +39,8 @@ export default function ApplicationInfo() {
           <li>三人同時報名，視為團體報名，每團以三人為限。</li>
           <li>本次夏令營預計招收學員 60 名，我們會針對報名資料做簡易審查，非先報先贏。</li>
           <li>正取學員名單將於 06/11 公佈，屆時請關注 SITCON 相關社群媒體。</li>
-          <li>正取學員需完成報名費繳交，始完成報名程序；另設有補助名額，請詳閱 <a href="https://drive.google.com/file/d/1lDPRoSkzFcM0FI5peNmJbDJA_NvWJZ5h/view" target="_blank" className="underline">補助辦法</a>。</li>
-          <li>關於退費事宜，請見 <a href="https://drive.google.com/file/d/1Cn78OIo5xOYwsL7eti4SmzNjZxt5bhG_/view" target="_blank" className="underline">退費說明文件</a>。</li>
+          <li>正取學員需完成報名費繳交，始完成報名程序；另設有補助名額，請詳閱 <a href="https://drive.google.com/file/d/1lDPRoSkzFcM0FI5peNmJbDJA_NvWJZ5h/view" target="_blank" className="link">補助辦法</a>。</li>
+          <li>關於退費事宜，請見 <a href="https://drive.google.com/file/d/1Cn78OIo5xOYwsL7eti4SmzNjZxt5bhG_/view" target="_blank" className="link">退費說明文件</a>。</li>
         </ol>
       </div>
     </div>

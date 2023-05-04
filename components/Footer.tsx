@@ -44,9 +44,9 @@ export default function Footer() {
         <div>Students' Information Technology Conference</div>
         <div className="font-bold mt-8">聯繫我們</div>
         <div>
-          合作聯繫：<a href="mailto:contact@sitcon.org" className="underline decoration-white/50 hover:decoration-white/90">contact@sitcon.org</a>
+          合作聯繫：<a href="mailto:contact@sitcon.org" className="link">contact@sitcon.org</a>
           <br />
-          報名事宜：<a href="mailto:ask@sitcon.camp" className="underline decoration-white/50 hover:decoration-white/90">ask@sitcon.camp</a>
+          報名事宜：<a href="mailto:ask@sitcon.camp" className="link">ask@sitcon.camp</a>
         </div>
       </div>
       <div className="w-full">
@@ -65,7 +65,7 @@ export default function Footer() {
         <div className="flex flex-row flex-wrap gap-2">
           {
             years.map(
-              year => <a href={`https://sitcon.camp/${year}`} target="_blank" className="underline decoration-white/50 hover:decoration-white/90" key={year}>{year}</a>
+              year => <a href={`https://sitcon.camp/${year}`} target="_blank" className="link" key={year}>{year}</a>
             )
           }
         </div>
