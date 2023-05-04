@@ -1,11 +1,5 @@
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence, useAnimate, stagger, } from "framer-motion"
-function NavItem({ href, children }: {
-  href: string,
-  children: React.ReactNode
-}) {
-  return <a href={href} className="text-white hover:text-[#F9A8D4] font-bold">{children}</a>
-}
 const staggerMenuItems = stagger(0.1, { startDelay: 0.1 });
 
 function useMenuAnimation(isOpen: boolean) {
@@ -44,6 +38,12 @@ function useMenuAnimation(isOpen: boolean) {
 }
 export default function Nav() {
   const [isNavOpen, setIsNavOpen] = useState(false)
+  function NavItem({ href, children }: {
+    href: string,
+    children: React.ReactNode
+  }) {
+    return <a href={href} className="text-white hover:text-[#F9A8D4] font-bold" onClick={() => setIsNavOpen(false)}>{children}</a>
+  }
   const scope = useMenuAnimation(isNavOpen);
   const navItems = [
     { href: '#application-info', text: '報名資訊' },
