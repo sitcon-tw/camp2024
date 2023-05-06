@@ -37,7 +37,7 @@ export default function Footer() {
       link: "https://sitcon.org/plurk"
     }
   ]
-  return <div className="mt-16 bg-[#7A44AF]">
+  return <div className="mt-16 bg-[#482869]">
     <div className="container py-8 flex flex-col lg:flex-row gap-8">
       <div className="w-full">
         <div className="font-bold">學生計算機年會</div>

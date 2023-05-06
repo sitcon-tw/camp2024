@@ -8,7 +8,7 @@ export default function Document() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet" />
       </Head>
-      <body className='bg-[#202541] text-white leading-7'>
+      <body className='bg-[#341D4A] text-white leading-7'>
         <Main />
         <NextScript />
       </body>
