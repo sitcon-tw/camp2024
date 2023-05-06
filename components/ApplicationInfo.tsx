@@ -17,7 +17,7 @@ export default function ApplicationInfo() {
     <div className="flex gap-8 flex-col lg:flex-row">
       <div className="w-full">
         <h2 className="text-2xl font-bold lg:text-center">報名時間</h2>
-        <h2 className="text-4xl font-bold mt-8">即日起 ~ 00/00</h2>
+        <h2 className="text-4xl font-bold mt-8">即日起 ~ 05/26</h2>
       </div>
       <div className="w-full">
         <h2 className="text-2xl font-bold lg:text-center">報名費用</h2>
