@@ -6,7 +6,7 @@ import Events from '../components/Events'
 import About from '../components/About'
 import Footer from '../components/Footer'
 import ApplicationInfo from '../components/ApplicationInfo'
-export default () => {
+export default function Home() {
   return (
     <>
       <Nav />

@@ -1,6 +1,6 @@
 
 import Nav from '../components/Nav'
-export default () => {
+export default function Teams() {
   return (
     <>
       <Nav />
