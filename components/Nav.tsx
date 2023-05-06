@@ -59,9 +59,9 @@ export default function Nav() {
     <>
       <div className="container fixed left-0 right-0 top-0 z-50" ref={scope}>
         <nav className="bg-[#7E47B5] bg-opacity-80 backdrop-blur-xl rounded-full py-4 px-6 mt-8 flex justify-between shadow-2xl">
-          <div>
+          <Link href="/" className="font-bold">
             SITCON Camp 2023
-          </div>
+          </Link>
           <div className="space-x-4 hidden lg:flex">
             {navItems.map((item, index) => <NavItem href={item.href} key={index} setIsNavOpen={setIsNavOpen}>{item.text}</NavItem>)}
           </div>
