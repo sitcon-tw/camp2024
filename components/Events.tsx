@@ -2,7 +2,7 @@
 import SectionTitle from "./SectionTitle";
 import TimeTable from "./TimeTable";
 function EventTitle({ children }: { children: React.ReactNode }) {
-  return <h2 className="text-xl lg:text-2xl font-bold mb-2 lg:mb-4">{children}</h2>
+  return <h2 className="text-center lg:text-left text-2xl font-bold mb-4">{children}</h2>
 }
 function EventContent({ children }: { children: React.ReactNode }) {
   return <div>{children}</div>
