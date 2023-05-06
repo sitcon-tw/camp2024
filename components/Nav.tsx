@@ -69,8 +69,10 @@ export default function Nav() {
   return (
     <>
       <div className="container fixed left-0 right-0 top-0 z-50" ref={scope}>
-        <nav className="bg-[#7E47B5] bg-opacity-80 backdrop-blur-xl rounded-full py-4 px-6 mt-8 flex justify-between shadow-2xl">
-          <div>SITCON Camp 2023</div>
+        <nav className="bg-[#01405D] bg-opacity-80 backdrop-blur-xl rounded-full py-4 px-6 mt-8 flex justify-between shadow-2xl">
+          <Link href="/" className="font-bold">
+            SITCON Camp 2023
+          </Link>
           <div className="space-x-4 hidden lg:flex">
             {navItems.map((item, index) => (
               <NavItem href={item.href} key={index} setIsNavOpen={setIsNavOpen}>
@@ -86,7 +88,7 @@ export default function Nav() {
               {isNavOpen ? "關閉" : "選單"}
             </button>
             <div
-              className="w-[200px] max-w-[80vw] absolute top-6 -right-4 m-auto bg-[#7E47B5] bg-opacity-80 backdrop-blur-xl rounded-2xl  mt-8 shadow-2xl lg:hidden overflow-hidden z-50"
+              className="w-[200px] max-w-[80vw] absolute top-6 -right-4 m-auto bg-[#01405D] bg-opacity-80 backdrop-blur-xl rounded-2xl  mt-8 shadow-2xl lg:hidden overflow-hidden z-50"
               style={{
                 pointerEvents: isNavOpen ? "auto" : "none",
                 clipPath: "inset(5% 5% 95% 95% round 10px)",
