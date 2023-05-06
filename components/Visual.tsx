@@ -1,5 +1,5 @@
 export default () => {
   return <>
-    <img src="https://pancake.tw/img/pancake-bg.jpg" className="w-full h-[100vh] object-cover" />
+    <img src="/2023/images/visual.jpg" className="w-full h-[100vh] object-cover" />
   </>
 }
