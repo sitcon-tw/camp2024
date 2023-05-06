@@ -7,6 +7,7 @@ import {
   useMotionValue,
 } from "framer-motion";
 import { wrap } from "@motionone/utils";
+import useScrollSize from "../utils/useScrollSize";
 
 interface ParallaxProps {
   children: React.ReactNode;
@@ -14,21 +15,16 @@ interface ParallaxProps {
 }
 
 function Parallax({ children, reverse = false }: ParallaxProps) {
-  const rail = useRef<HTMLDivElement>(null);
+  const [rail, { scrollWidth }] = useScrollSize()
   // calc rail width and sync to scroll
-  const railWidth = useMotionValue(1500);
-  // get rail width
+  const railWidth = useMotionValue(scrollWidth / 3);
   useEffect(() => {
-    if (rail.current) {
-      railWidth.set(rail.current.scrollWidth / 3);
-      console.log(rail.current.scrollWidth / 3)
-    }
-  }, [rail.current]);
+    railWidth.set(scrollWidth / 3);
+  }, [scrollWidth]);
   const animationTime = 25 * 1000
   const time = useTime()
 
   const timeWarped = useTransform(time, t => wrap(0, animationTime, t))
-
   const x = useTransform(
     timeWarped,
     [0, animationTime],
