@@ -10,9 +10,9 @@ export default function Home() {
     <>
       <Nav />
       <Intro />
-      <ApplicationInfo />
       <About />
       <Events />
+      <ApplicationInfo />
       <Footer />
     </>
   )
