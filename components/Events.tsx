@@ -8,7 +8,7 @@ function EventContent({ children }: { children: React.ReactNode }) {
   return <div>{children}</div>
 }
 function EventBox({ children }: { children: React.ReactNode }) {
-  return <div className={`py-6 px-6 lg:py-5 lg:px-6 rounded-xl bg-[#62378E] relative mb-4 lg:flex lg:gap-8 lg:items-center`}>
+  return <div className={`py-6 px-6 lg:py-5 lg:px-6 rounded-xl bg-black bg-opacity-10 border border-black border-opacity-20 relative mb-4 lg:flex lg:gap-8 lg:items-center`}>
     {children}
   </div>
 }
