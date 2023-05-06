@@ -60,9 +60,9 @@ export default function Nav() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const scope = useMenuAnimation(isNavOpen);
   const navItems = [
-    { href: "/#application-info", text: "報名資訊" },
     { href: "/#events", text: "課程活動" },
     { href: "/#history", text: "過往紀錄" },
+    { href: "/#application-info", text: "報名資訊" },
     { href: "/", text: "行為準則" },
     { href: "/teams", text: "籌備團隊" },
   ];
