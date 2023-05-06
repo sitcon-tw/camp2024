@@ -21,7 +21,7 @@ function Parallax({ children, reverse = false }: ParallaxProps) {
   useEffect(() => {
     railWidth.set(scrollWidth / 3);
   }, [scrollWidth]);
-  const animationTime = 25 * 1000
+  const animationTime = 40 * 1000
   const time = useTime()
 
   const timeWarped = useTransform(time, t => wrap(0, animationTime, t))
