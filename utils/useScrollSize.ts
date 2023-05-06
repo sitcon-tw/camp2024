@@ -11,6 +11,9 @@ const initialState: Result = {
 };
 
 const useScrollSize = <T extends HTMLDivElement>(): [Ref<T>, Result] => {
+  if (!process.browser) {
+    return [null, initialState];
+  }
   const elementRef = useRef<T>(null);
   const [size, setSize] = useState<Result>(initialState);
 
