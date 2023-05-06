@@ -10,7 +10,7 @@ const initialState: Result = {
   scrollHeight: 0,
 };
 
-const useScrollSize = <T extends HTMLElement>(): [Ref<T>, Result] => {
+const useScrollSize = <T extends HTMLDivElement>(): [Ref<T>, Result] => {
   const elementRef = useRef<T>(null);
   const [size, setSize] = useState<Result>(initialState);
 
