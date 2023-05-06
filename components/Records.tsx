@@ -41,7 +41,7 @@ function Parallax({ children, baseVelocity }: ParallaxProps) {
   });
   const directionFactor = useRef<number>(1);
   useAnimationFrame((time, delta) => {
-    let moveBy = ((time / 1000) % animationTime) * (railWidth.get() * -1 / animationTime) * baseVelocity
+    let moveBy = ((time / 1000) % animationTime) * (railWidth.get() * -1 / animationTime) * baseVelocity * (delta * 0.05);
 
     if (velocityFactor.get() < 0) {
       directionFactor.current = -1;
@@ -50,8 +50,6 @@ function Parallax({ children, baseVelocity }: ParallaxProps) {
     }
 
     moveBy += directionFactor.current * moveBy * velocityFactor.get();
-
-    console.log(velocityFactor.get(), directionFactor.current)
 
     baseX.set(baseX.get() + moveBy);
     if (baseX.get() < railWidth.get() * -2) {
