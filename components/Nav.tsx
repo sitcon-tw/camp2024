@@ -63,7 +63,7 @@ export default function Nav() {
     { href: "/#events", text: "課程活動" },
     { href: "/#history", text: "過往紀錄" },
     { href: "/#application-info", text: "報名資訊" },
-    { href: "/", text: "行為準則" },
+    { href: "/coc", text: "行為準則" },
     { href: "/teams", text: "籌備團隊" },
   ];
   return (
