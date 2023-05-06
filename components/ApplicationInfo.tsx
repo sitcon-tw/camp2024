@@ -28,7 +28,7 @@ export default function ApplicationInfo() {
       </div>
     </div>
     <div className="flex items-center justify-center mt-8">
-      <a href="#" className="bg-[#7A44AF] bg-opacity-80 backdrop-blur-xl rounded-full py-4 px-8 shadow-2xl text-2xl font-bold">
+      <a href="https://sitcon.kktix.cc/events/sitcon-camp2023" className="bg-[#7A44AF] bg-opacity-80 backdrop-blur-xl rounded-full py-4 px-8 shadow-2xl text-2xl font-bold" target="_blank">
         立即報名
       </a>
     </div>
