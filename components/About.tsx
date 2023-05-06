@@ -1,3 +1,4 @@
+import Link from 'next/link';
 function AboutSection({ children }: { children: React.ReactNode }) {
   return (
     <section className={`mt-16 lg:flex lg:items-start gap-8 relative`}>
@@ -34,7 +35,7 @@ export default function About() {
       </AboutTitle>
       <AboutContent>
         SITCON 歡迎不同身分、來自不同背景的與會者，也非常鼓勵女性、性少數與多元背景的參與者。
-        為了讓大家都能愉快的參加 SITCON，我們要求所有參與者閱讀社群的的行為準則（Code of Conduct），共同創造一個友善的環境。
+        為了讓大家都能愉快的參加 SITCON，我們要求所有參與者閱讀社群的的 <Link href="/coc" className='link'>行為準則（Code of Conduct）</Link>，共同創造一個友善的環境。
       </AboutContent>
     </AboutSection>
   </div>
