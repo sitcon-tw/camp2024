@@ -5,37 +5,66 @@ import {
   useTime,
   useTransform,
   useMotionValue,
+  useSpring,
+  useScroll,
+  useVelocity,
+  useAnimationFrame,
 } from "framer-motion";
 import { wrap } from "@motionone/utils";
 import useScrollSize from "../utils/useScrollSize";
 
 interface ParallaxProps {
   children: React.ReactNode;
-  reverse?: boolean;
+  baseVelocity: number;
 }
 
-function Parallax({ children, reverse = false }: ParallaxProps) {
+function Parallax({ children, baseVelocity }: ParallaxProps) {
   const [rail, { scrollWidth }] = useScrollSize()
   // calc rail width and sync to scroll
   const railWidth = useMotionValue(scrollWidth / 3);
   useEffect(() => {
     railWidth.set(scrollWidth / 3);
   }, [scrollWidth]);
-  const animationTime = 40 * 1000
-  const time = useTime()
 
-  const timeWarped = useTransform(time, t => wrap(0, animationTime, t))
-  const x = useTransform(
-    timeWarped,
-    [0, animationTime],
-    reverse
-      ? [railWidth.get() * -1, railWidth.get() * -2]
-      : [railWidth.get() * -2, railWidth.get() * -1],
-    {});
+  const animationTime = 80 * 1000
+
+
+  const baseX = useMotionValue(0);
+  const { scrollY } = useScroll();
+  const scrollVelocity = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocity, {
+    damping: 50,
+    stiffness: 400
+  });
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
+    clamp: false
+  });
+  const directionFactor = useRef<number>(1);
+  useAnimationFrame((time, delta) => {
+    let moveBy = ((time / 1000) % animationTime) * (railWidth.get() * -1 / animationTime) * baseVelocity
+
+    if (velocityFactor.get() < 0) {
+      directionFactor.current = -1;
+    } else if (velocityFactor.get() > 0) {
+      directionFactor.current = 1;
+    }
+
+    moveBy += directionFactor.current * moveBy * velocityFactor.get();
+
+    console.log(velocityFactor.get(), directionFactor.current)
+
+    baseX.set(baseX.get() + moveBy);
+    if (baseX.get() < railWidth.get() * -2) {
+      baseX.set(railWidth.get() * -1);
+    }
+    if (baseX.get() > railWidth.get() * -1) {
+      baseX.set(railWidth.get() * -2);
+    }
+  })
   return (
     <>
       <div className="relative overflow-hidden flex flex-nowrap whitespace-nowrap">
-        <motion.div ref={rail} style={{ x }} className="whitespace-nowrap flex-nowrap flex gap-4">
+        <motion.div ref={rail} style={{ x: baseX }} className="whitespace-nowrap flex-nowrap flex gap-4">
           <div className="flex flex-nowrap whitespace-nowrap gap-4 min-w-max">{children}</div>
           <div className="flex flex-nowrap whitespace-nowrap gap-4 min-w-max">{children}</div>
           <div className="flex flex-nowrap whitespace-nowrap gap-4 min-w-max">{children}</div>
@@ -78,13 +107,13 @@ export default function Records() {
     <>
       <SectionTitle id="records">過往紀錄與回饋</SectionTitle>
       <div className="container mb-8 text-center">SITCON 夏令營在為學員帶來扎實內容的同時，也希望整個學習的過程有趣且精彩！<br />以下為過往活動的紀錄與回饋，讓您更了解 SITCON 夏令營的精彩內容！</div>
-      <Parallax>
+      <Parallax baseVelocity={1}>
 
         {imgRow1.map((img, index) => (<img key={index} src={img} className="h-36 lg:h-64 inline rounded" />))}
 
       </Parallax>
       <div className="h-8"></div>
-      <Parallax reverse>
+      <Parallax baseVelocity={-1}>
         {imgRow2.map((img, index) => (<img key={index} src={img} className="h-36 lg:h-64 inline rounded" />))}
       </Parallax>
     </>
