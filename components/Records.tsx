@@ -77,6 +77,7 @@ export default function Records() {
   return (
     <>
       <SectionTitle id="records">過往紀錄與回饋</SectionTitle>
+      <div className="container mb-8 text-center">SITCON 夏令營在為學員帶來扎實內容的同時，也希望整個學習的過程有趣且精彩！<br />以下為過往活動的紀錄與回饋，讓您更了解 SITCON 夏令營的精彩內容！</div>
       <Parallax>
 
         {imgRow1.map((img, index) => (<img key={index} src={img} className="h-36 lg:h-64 inline rounded" />))}
