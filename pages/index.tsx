@@ -2,7 +2,7 @@ import Nav from "../components/Nav";
 import Visual from "../components/Visual";
 import Intro from "../components/Intro";
 import Events from "../components/Events";
-import History from "../components/History";
+import Records from "../components/Records";
 import About from "../components/About";
 import Footer from "../components/Footer";
 import ApplicationInfo from "../components/ApplicationInfo";
@@ -12,7 +12,7 @@ export default function Home() {
       <Visual />
       <Intro />
       <Events />
-      <History />
+      <Records />
       <ApplicationInfo />
       <About />
     </>
