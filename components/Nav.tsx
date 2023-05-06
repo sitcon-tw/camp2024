@@ -51,7 +51,7 @@ export default function Nav() {
   const navItems = [
     { href: '/#application-info', text: '報名資訊' },
     { href: '/#events', text: '課程活動' },
-    { href: '/', text: '過往紀錄' },
+    { href: '/#records', text: '過往紀錄' },
     { href: '/coc', text: '行為準則' },
     { href: '/teams', text: '籌備團隊' },
   ]
