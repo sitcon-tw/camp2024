@@ -16,11 +16,12 @@ interface ParallaxProps {
 function Parallax({ children, reverse = false }: ParallaxProps) {
   const rail = useRef<HTMLDivElement>(null);
   // calc rail width and sync to scroll
-  const railWidth = useMotionValue(0);
+  const railWidth = useMotionValue(1500);
   // get rail width
   useEffect(() => {
     if (rail.current) {
       railWidth.set(rail.current.scrollWidth / 3);
+      console.log(rail.current.scrollWidth / 3)
     }
   }, [rail.current]);
   const animationTime = 25 * 1000
@@ -82,12 +83,12 @@ export default function Records() {
       <SectionTitle id="records">過往紀錄與回饋</SectionTitle>
       <Parallax>
 
-        {imgRow1.map((img, index) => (<img key={index} src={img} className="h-64 inline rounded" />))}
+        {imgRow1.map((img, index) => (<img key={index} src={img} className="h-36 lg:h-64 inline rounded" />))}
 
       </Parallax>
       <div className="h-8"></div>
       <Parallax reverse>
-        {imgRow2.map((img, index) => (<img key={index} src={img} className="h-64 inline rounded" />))}
+        {imgRow2.map((img, index) => (<img key={index} src={img} className="h-36 lg:h-64 inline rounded" />))}
       </Parallax>
     </>
   )
