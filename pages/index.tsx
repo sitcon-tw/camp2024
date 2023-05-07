@@ -4,7 +4,7 @@ import Intro from "../components/Intro";
 import Events from "../components/Events";
 import Records from "../components/Records";
 import About from "../components/About";
-import Footer from "../components/Footer";
+import Reports from "../components/Reports";
 import ApplicationInfo from "../components/ApplicationInfo";
 export default function Home() {
   return (
@@ -13,6 +13,7 @@ export default function Home() {
       <Intro />
       <Events />
       <Records />
+      <Reports />
       <ApplicationInfo />
       <About />
     </>
