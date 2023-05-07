@@ -14,7 +14,11 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap"
           rel="stylesheet"
         />
-        <link data-n-head="1" rel="icon" href="/2023/images/icon.png" />
+        <link
+          href="/2023/anicons/anicons-regular.css"
+          rel="stylesheet"
+        />
+        <link rel="icon" href="/2023/images/icon.png" />
       </Head>
       <body className="bg-[#012637] text-white leading-7">
         <Main />
