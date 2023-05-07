@@ -26,7 +26,7 @@ function Parallax({ children, baseVelocity }: ParallaxProps) {
     railWidth.set(scrollWidth / 3);
   }, [scrollWidth]);
 
-  const animationTime = 80 * 1000
+  const animationTime = 10 * 1000
 
 
   const baseX = useMotionValue(0);
@@ -36,12 +36,10 @@ function Parallax({ children, baseVelocity }: ParallaxProps) {
     damping: 50,
     stiffness: 400
   });
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
-    clamp: false
-  });
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5]);
   const directionFactor = useRef<number>(1);
   useAnimationFrame((time, delta) => {
-    let moveBy = ((time / 1000) % animationTime) * (railWidth.get() * -1 / animationTime) * baseVelocity * (delta * 0.05);
+    let moveBy = (railWidth.get() / animationTime) * baseVelocity * directionFactor.current
 
     if (velocityFactor.get() < 0) {
       directionFactor.current = -1;
@@ -49,7 +47,7 @@ function Parallax({ children, baseVelocity }: ParallaxProps) {
       directionFactor.current = 1;
     }
 
-    moveBy += directionFactor.current * moveBy * velocityFactor.get();
+    moveBy += directionFactor.current * velocityFactor.get() * moveBy;
 
     baseX.set(baseX.get() + moveBy);
     if (baseX.get() < railWidth.get() * -2) {
