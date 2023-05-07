@@ -247,7 +247,7 @@ export default function Teams() {
               <EventTitle>SITCON 定期聚</EventTitle>
               <p>
                 除了辦理大型活動外，SITCON
-                也舉辦定期聚，將全台灣各地對於資訊科技相關領域有興趣的學生們串聯起來，透過彼此共享、交流來切磋精進，砥礪自主自學的風氣
+                也舉辦定期聚，將全台灣各地對於資訊科技相關領域有興趣的學生們串聯起來，透過彼此共享、交流來切磋精進，砥礪自主自學的風氣。
               </p>
             </EventContent>
             <EventImg src="../images/16009925241_a20363623a_c.jpg" />
