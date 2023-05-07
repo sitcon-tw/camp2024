@@ -258,7 +258,7 @@ export default function Teams() {
 
           {groups.map((name, index) => {
             return (<>
-              <h2 className="text-2xl font-bold my-4">{name}</h2>
+              <h2 className="text-2xl font-bold mt-8 mb-4">{name}</h2>
               <div className="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-4" key={index}>
                 {
                   members.filter(member => member.group === name).map((member, index) =>
