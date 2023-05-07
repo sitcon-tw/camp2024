@@ -1,4 +1,3 @@
-
 import {
   motion,
   useTime,
@@ -7,7 +6,6 @@ import {
   useScroll,
   easeInOut
 } from "framer-motion";
-import { useRef } from "react";
 
 import useScrollSize from "../utils/useScrollSize";
 export default function Visual() {
@@ -21,7 +19,7 @@ export default function Visual() {
     stiffness: 400
   })
   const vw = width / 100
-  const logoY = useTransform(springScrollY, [0, 1], [0, -70]);
+  const logoY = useTransform(warpScrollY, [0, 1], [0, 70]);
   const catX = useTransform(springScrollY, [0, 1], [0, -10 * vw]);
   const catY = useTransform(springScrollY, [0, 1], [0, 25]);
   const astronautX = useTransform(springScrollY, [0, 1], [0, 10 * vw]);
@@ -46,9 +44,9 @@ export default function Visual() {
         style={{ y: infoY }}
         className="absolute top-[75vh] m-auto w-full flex flex-col items-start gap-1 lg:gap-2 text-center text-white leading-4">
         <div className="lg:text-xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">日期</div>
-        <div className="text-2xl lg:text-4xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">07/20 ~ 07/24</div>
+        <div className="text-2xl font-bold lg:text-4xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">07/20 ~ 07/24</div>
         <div className="lg:text-xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded mt-2 p-1">地點</div>
-        <div className="text-2xl lg:text-4xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">陽明交通大學 光復校區</div>
+        <div className="text-2xl font-bold lg:text-4xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">陽明交通大學 光復校區</div>
       </motion.div>
     </div>
   </div >
