@@ -257,22 +257,29 @@ export default function Teams() {
           <SectionTitle id="member">夏令營籌備團隊</SectionTitle>
 
           {groups.map((name, index) => {
-            return (<>
-              <h2 className="text-2xl font-bold mt-8 mb-4">{name}</h2>
-              <div className="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-4" key={index}>
-                {
-                  members.filter(member => member.group === name).map((member, index) =>
-                    <div className="flex flex-col items-center" key={index}>
-                      <img
-                        src={`https://secure.gravatar.com/avatar/${member.md5}?s=512&d=https://sitcon.camp/2021/img/avatar.png`}
-                        className="h-24 inline rounded-full"
-                      />
-                      <div className="text-center mt-2 opacity-80">{member.name}</div>
-                    </div>
-                  )
-                }
-              </div>
-            </>)
+            return (
+              <>
+                <h2 className="text-2xl font-bold mt-8 mb-4">{name}</h2>
+                <div
+                  className="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-4"
+                  key={index}
+                >
+                  {members
+                    .filter((member) => member.group === name)
+                    .map((member, index) => (
+                      <div className="flex flex-col items-center" key={index}>
+                        <img
+                          src={`https://secure.gravatar.com/avatar/${member.md5}?s=512&d=https://sitcon.camp/2023/records-avatar/avatar.svg`}
+                          className="h-24 inline rounded-full"
+                        />
+                        <div className="text-center mt-2 opacity-80">
+                          {member.name}
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              </>
+            );
           })}
         </div>
       </div>
