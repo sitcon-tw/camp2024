@@ -24,7 +24,7 @@ function EventImg({ src }: { src: string }) {
   );
 }
 export default function Teams() {
-  const member = [
+  const members = [
     {
       group: "總召組",
       name: "Arnoldsky",
@@ -167,7 +167,8 @@ export default function Teams() {
     },
     { group: "資訊組", name: "Yuan", md5: "7e487b51f2f300989673a7bc749d75f6" },
   ];
-  let tmp_group: string;
+  //@ts-ignore
+  const groups = [...new Set(members.map((x) => x.group))];
   return (
     <>
       <div className="container">
@@ -177,7 +178,7 @@ export default function Teams() {
             About SITCON
           </h2>
           <div>
-            <h2 className="text-2xl font-bold">SITCON 學生計算機年會</h2>
+            <h2 className="text-2xl font-bold mb-2">SITCON 學生計算機年會</h2>
             <p>
               SITCON
               學生計算機年會是由學生自發舉辦，投身學生資訊教育與推廣開源精神的社群，也是一個由學生主辦、學生擔任講者、以學生為主軸的資訊研討會，給學生們一個發表交流技術的舞台。
@@ -190,12 +191,12 @@ export default function Teams() {
               對我們所做的事情感興趣？ 歡迎加入{" "}
               <a
                 href="https://groups.google.com/g/sitcon-general"
-                className="underline"
+                className="link"
               >
                 郵件論壇
               </a>{" "}
               或{" "}
-              <a href="https://sitcon.org/telegram" className="underline">
+              <a href="https://sitcon.org/telegram" className="link">
                 Telegram 群組
               </a>{" "}
               一起來規劃討論。
@@ -255,38 +256,23 @@ export default function Teams() {
         <div>
           <SectionTitle id="member">夏令營籌備團隊</SectionTitle>
 
-          {member.map((img, index) => {
-            if (img.group != tmp_group) {
-              tmp_group = img.group;
-              return (
-                <>
-                  <h2 className="text-2xl font-bold">{img.group}</h2>
-                  <div className="flex items-stretch">
-                    <div className="py-4">
+          {groups.map((name, index) => {
+            return (<>
+              <h2 className="text-2xl font-bold my-4">{name}</h2>
+              <div className="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-4" key={index}>
+                {
+                  members.filter(member => member.group === name).map((member, index) =>
+                    <div className="flex flex-col items-center" key={index}>
                       <img
-                        src={`https://secure.gravatar.com/avatar/${img.md5}?s=512&d=https://sitcon.camp/2021/img/avatar.png`}
+                        src={`https://secure.gravatar.com/avatar/${member.md5}?s=512&d=https://sitcon.camp/2021/img/avatar.png`}
                         className="h-24 inline rounded-full"
                       />
-                      <div className="text-center mt-2">{img.name}</div>
+                      <div className="text-center mt-2 opacity-80">{member.name}</div>
                     </div>
-                  </div>
-                </>
-              );
-            } else {
-              return (
-                <>
-                  <div className="flex items-stretch">
-                    <div className="py-4">
-                      <img
-                        src={`https://secure.gravatar.com/avatar/${img.md5}?s=512&d=https://sitcon.camp/2021/img/avatar.png`}
-                        className="h-24 inline rounded-full"
-                      />
-                      <div className="text-center mt-2">{img.name}</div>
-                    </div>
-                  </div>
-                </>
-              );
-            }
+                  )
+                }
+              </div>
+            </>)
           })}
         </div>
       </div>
