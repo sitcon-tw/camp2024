@@ -2,8 +2,19 @@ import SectionTitle from "./SectionTitle";
 import { motion } from "framer-motion";
 function PriceBox({ type, price }: { type: string; price: number }) {
   return (
-    <div className="border border-white border-opacity-10 py-2 px-3 rounded">
-      <div className="border-b border-white border-opacity-20 pb-1 mb-1">{type}</div>
+    <div className="bg-[#013249] py-4 px-6 rounded-xl flex-1">
+      <div className="border-b border-white border-opacity-20 pb-1 mb-1 text-xl flex items-center justify-between">
+        <div>
+          {type}
+        </div>
+        <div className="hidden sm:block">
+          {
+            Array.from({ length: type === "團體報名" ? 3 : 1 }).map((_, i) => (
+              <i key={i} className={`bx bx-user`}></i>
+            ))
+          }
+        </div>
+      </div>
       <div className="text-xl">
         <span className="text-3xl font-bold mr-2">{price.toLocaleString()}</span>
         <span>元/人</span>
@@ -42,13 +53,10 @@ export default function ApplicationInfo() {
         <ApplicationTitle>報名時間</ApplicationTitle>
         <h3 className="text-3xl">即日起 ~ 05/26</h3>
       </ApplicationCard>
-      <ApplicationCard icon="bx-dollar">
-        <ApplicationTitle>費用</ApplicationTitle>
-        <div className="flex flex-row gap-4">
-          <PriceBox type="個人報名" price={8800} />
-          <PriceBox type="團體報名" price={7600} />
-        </div>
-      </ApplicationCard>
+      <div className="flex gap-4 w-full">
+        <PriceBox type="個人報名" price={8800} />
+        <PriceBox type="團體報名" price={7600} />
+      </div>
       <div className="flex items-center justify-center mt-8">
         <motion.a
           initial={{ scale: 0.5, opacity: 0 }}
