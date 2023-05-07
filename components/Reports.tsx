@@ -23,7 +23,9 @@ function Report({ children, avatar, name, year, href }: {
       <div className="py-2 px-4 w-full">{children}</div>
       <div className="flex-1"></div>
       <div className="p-4 pt-0 flex justify-end w-full">
-        <Link href={href} target={href.startsWith("http") ? `_blank` : ``} className="link leading-4">閱讀全文 →</Link>
+        <Link href={href} target={href.startsWith("http") ? `_blank` : ``}
+          className="px-4 py-2 bg-[#013249] bg-opacity-50 hover:bg-opacity-100 rounded-full flex gap-2 items-center leading-4"
+        >閱讀全文 <i className='bx bx-chevron-right text-xl' ></i></Link>
       </div>
     </div>
   )
@@ -46,7 +48,7 @@ function More({ children }: { children: React.ReactNode, }) {
             whileInView={{ opacity: 1, height: "auto", scale: 1 }}
             exit={{ opacity: 0, height: 0, scale: 0 }}
             className="flex justify-center items-center w-full mt-2">
-            <button className="px-4 py-2 bg-[#01405D] hover:bg-[#013249] rounded-full" onClick={() => setShow(true)}>檢視更多學員心得</button>
+            <button className="px-4 py-2 bg-[#01405D] hover:bg-[#013249] rounded-full flex gap-2 items-center leading-4" onClick={() => setShow(true)}><i className='bx bx-plus text-xl' ></i> 檢視更多學員心得</button>
           </motion.div>}
       </AnimatePresence>
     </>
