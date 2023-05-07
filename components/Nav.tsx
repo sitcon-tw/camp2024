@@ -15,7 +15,7 @@ function NavItem({
       href={href}
       className="text-white hover:text-[#F9A8D4] font-bold"
       onClick={() => setIsNavOpen(false)}
-      scroll={false}
+      scroll={!href.startsWith("/#")}
     >
       {children}
     </Link>
