@@ -238,7 +238,7 @@ export default function Teams() {
               <>
                 <h2 className="text-2xl font-bold mt-8 mb-4">{name}</h2>
                 <div
-                  className="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-4"
+                  className="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-4"
                   key={index}
                 >
                   {members
