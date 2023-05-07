@@ -75,50 +75,62 @@ function More({ children }: { children: React.ReactNode }) {
 export default function Reports() {
   return (
     <>
-      <div className="container">
-        <div
-          className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-16 mx-4 scroll-mt-32 "
-          id="reports"
+      <div className="container mt-16">
+        <motion.h1
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-center text-2xl lg:text-2xl font-bold mt-1 lg:mt-3"
         >
-          <Report
-            avatar="/2023/records-avatar/340069299_243506511573764_1868312350951130034_n.jpg"
-            name="吳冠廷"
-            year="2021"
-            href="https://www.facebook.com/100003479633002/posts/3997020290423919/"
+          來聽聽學員的回饋
+        </motion.h1>
+        <motion.h1
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+        >
+          <div
+            className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4 mx-4 scroll-mt-32 "
+            id="reports"
           >
-            參加了一個禮拜的 SITCON
-            Camp，學到了網頁資安遊戲設計等知識，並從大佬身上學到了寶貴的心得和人生啟發。雖然缺少面對面溝通，但在製作
-            Discord bot
-            時，我們展現了團結和信任，取得了成就感。營隊讓我們從不同角度認識彼此，並擴展了交友圈和思維模式。這是我們製作的
-            Discord bot 的簡報介紹連結，我們做了很多東西，讓我感到開心。
-          </Report>
-          <Report
-            avatar="/2023/records-avatar/avatar.svg"
-            name="張家昀"
-            year="2021"
-            href="https://www.notion.so/2021-SITCON-CAMP-5c0e3e3391294d059c1c84b278d98642"
-          >
-            <h2 className="font-bold text-center">
-              儘管在線上舉行，
+            <Report
+              avatar="/2023/records-avatar/340069299_243506511573764_1868312350951130034_n.jpg"
+              name="吳冠廷"
+              year="2021"
+              href="https://www.facebook.com/100003479633002/posts/3997020290423919/"
+            >
+              參加了一個禮拜的 SITCON
+              Camp，學到了網頁資安遊戲設計等知識，並從大佬身上學到了寶貴的心得和人生啟發。雖然缺少面對面溝通，但在製作
+              Discord bot
+              時，我們展現了團結和信任，取得了成就感。營隊讓我們從不同角度認識彼此，並擴展了交友圈和思維模式。這是我們製作的
+              Discord bot 的簡報介紹連結，我們做了很多東西，讓我感到開心。
+            </Report>
+            <Report
+              avatar="/2023/records-avatar/avatar.svg"
+              name="張家昀"
+              year="2021"
+              href="https://www.notion.so/2021-SITCON-CAMP-5c0e3e3391294d059c1c84b278d98642"
+            >
+              <h2 className="font-bold text-center">
+                儘管在線上舉行，
+                <br />
+                卻是我見過「最理想」的學習模式
+              </h2>
               <br />
-              卻是我見過「最理想」的學習模式
-            </h2>
-            <br />
-            的精緻程度、工作人員們的用心、電的程度遠遠──超乎我的想像。他們在
-            Discord 上建立了<span className="line-through">伺服器</span>
-            艦艇，依據課程編寫主線劇情，由機器聊天室將對話的情境呈現出來。小組討論基本上會在
-            Discord 上進行。
-          </Report>
-          <Report
-            avatar="/2023/records-avatar/309683975_5494046350715307_8476200032565402966_n.jpg"
-            name="王威皓"
-            year="2021"
-            href="https://www.facebook.com/story.php?story_fbid=4235551709898117&id=100003299897396"
-          >
-            在 SITCON Camp 2021
-            中，我學到了新知識並結交了新朋友。小隊中只有我是男性且最小的，但這不是重點。我們幾乎每天都沒有睡飽，尤其最後一天為了趕專案一起熬夜到凌晨三點。感謝我的隊友們的協助，我覺得自己幫不上太多忙。希望下次能再次相遇，這七天過得很充實。
-          </Report>
-        </div>
+              的精緻程度、工作人員們的用心、電的程度遠遠──超乎我的想像。他們在
+              Discord 上建立了<span className="line-through">伺服器</span>
+              艦艇，依據課程編寫主線劇情，由機器聊天室將對話的情境呈現出來。小組討論基本上會在
+              Discord 上進行。
+            </Report>
+            <Report
+              avatar="/2023/records-avatar/309683975_5494046350715307_8476200032565402966_n.jpg"
+              name="王威皓"
+              year="2021"
+              href="https://www.facebook.com/story.php?story_fbid=4235551709898117&id=100003299897396"
+            >
+              在 SITCON Camp 2021
+              中，我學到了新知識並結交了新朋友。小隊中只有我是男性且最小的，但這不是重點。我們幾乎每天都沒有睡飽，尤其最後一天為了趕專案一起熬夜到凌晨三點。感謝我的隊友們的協助，我覺得自己幫不上太多忙。希望下次能再次相遇，這七天過得很充實。
+            </Report>
+          </div>
+        </motion.h1>
         <More>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mx-4 mt-4">
             <Report
