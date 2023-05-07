@@ -115,6 +115,7 @@ export default function Reports() {
                 卻是我見過「最理想」的學習模式
               </h2>
               <br />
+              SITCON Camp
               的精緻程度、工作人員們的用心、電的程度遠遠──超乎我的想像。他們在
               Discord 上建立了<span className="line-through">伺服器</span>
               艦艇，依據課程編寫主線劇情，由機器聊天室將對話的情境呈現出來。小組討論基本上會在
