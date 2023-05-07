@@ -13,7 +13,7 @@ function AboutTitle({ children }: { children: React.ReactNode }) {
 }
 function AboutContent({ children }: { children: React.ReactNode }) {
   return (
-    <p>{children}</p>
+    <div>{children}</div>
   )
 }
 export default function About() {
