@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence, useAnimate, stagger } from "framer-motion";
+import { motion, useAnimate, stagger } from "framer-motion";
 import Link from "next/link";
 function NavItem({
   href,
@@ -69,7 +69,7 @@ export default function Nav() {
   return (
     <>
       <div className="container fixed left-0 right-0 top-0 z-50" ref={scope}>
-        <nav className="bg-[#01405D] bg-opacity-80 backdrop-blur-xl rounded-full py-4 px-6 mt-4 lg:mt-8 flex items-center justify-between shadow-2xl">
+        <nav className="bg-[#01405D] bg-opacity-80 backdrop-blur-xl rounded-full py-4 px-6 mt-4 lg:mt-8 flex items-center justify-between shadow-2xl transition-all">
           <Link href="/" className="font-bold">
             SITCON Camp 2023
           </Link>
