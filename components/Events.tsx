@@ -1,16 +1,16 @@
 import SectionTitle from "./SectionTitle";
 import TimeTable from "./TimeTable";
-function EventTitle({ children }: { children: React.ReactNode }) {
+export function EventTitle({ children }: { children: React.ReactNode }) {
   return (
     <h2 className="text-center lg:text-left text-2xl font-bold mb-4">
       {children}
     </h2>
   );
 }
-function EventContent({ children }: { children: React.ReactNode }) {
+export function EventContent({ children }: { children: React.ReactNode }) {
   return <div>{children}</div>;
 }
-function EventBox({ children }: { children: React.ReactNode }) {
+export function EventBox({ children }: { children: React.ReactNode }) {
   return (
     <div
       className={`py-6 px-6 lg:py-5 lg:px-6 rounded-xl bg-black bg-opacity-10 border border-black border-opacity-20 relative mb-4 lg:flex lg:gap-8 lg:items-center`}
@@ -19,7 +19,7 @@ function EventBox({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
-function EventImg({ src }: { src: string }) {
+export function EventImg({ src }: { src: string }) {
   return (
     <img src={src} className="w-full lg:w-80 rounded shadow-xl mt-4 lg:mt-0" />
   );
