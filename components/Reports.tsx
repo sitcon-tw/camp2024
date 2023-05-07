@@ -83,7 +83,7 @@ export default function Reports() {
           來聽聽學員的回饋
         </motion.h1>
         <motion.h1>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4 mx-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
             <Report
               avatar="/2023/records-avatar/340069299_243506511573764_1868312350951130034_n.jpg"
               name="吳冠廷"
@@ -127,7 +127,7 @@ export default function Reports() {
           </div>
         </motion.h1>
         <More>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mx-4 mt-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
             <Report
               avatar="/2023/records-avatar/I7iV7Fo.jpeg"
               name="Vincent55"
