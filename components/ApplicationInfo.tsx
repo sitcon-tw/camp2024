@@ -1,52 +1,74 @@
 import SectionTitle from "./SectionTitle";
+import { motion } from "framer-motion";
 function PriceBox({ type, price }: { type: string; price: number }) {
   return (
-    <div className="border border-white rounded-xl flex p-4 mb-2 justify-between items-center font-bold text-xl flex-1">
-      <div>{type}</div>
-      <div>
-        <span className="text-3xl mr-2">{price.toLocaleString()}</span>
+    <div className="border border-white border-opacity-10 py-2 px-3 rounded">
+      <div className="border-b border-white border-opacity-20 pb-1 mb-1">{type}</div>
+      <div className="text-xl">
+        <span className="text-3xl font-bold mr-2">{price.toLocaleString()}</span>
         <span>元/人</span>
       </div>
     </div>
   );
 }
+function ApplicationCard({ children, icon = "bx-question-mark" }: { children: React.ReactNode, icon: string }) {
+  return (
+    <div className="bg-[#013249] rounded-xl p-4 lg:p-6 relative overflow-hidden mb-4">
+      {children}
+      <i className={`absolute text-[96px] h-[96px] w-[96px] bottom-0 top-0 right-4 m-auto text-[#015C85] opacity-50 bx ${icon}`}></i>
+    </div>
+  )
+}
+function ApplicationTitle({ children }: { children: React.ReactNode }) {
+  return (
+    <h2 className="text-2xl font-bold mb-2">
+      {children}
+    </h2>
+  )
+}
 export default function ApplicationInfo() {
   return (
     <div className="container">
-      <SectionTitle id="event-info">活動資訊</SectionTitle>
-      <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 mt-8">
-        <div className="w-full">
-          <h2 className="text-2xl font-bold">日期</h2>
-          <h2 className="text-4xl font-bold mt-8">07/20 ~ 07/24</h2>
-        </div>
-        <div className="w-full">
-          <h2 className="text-2xl font-bold">地點</h2>
-          <h2 className="text-4xl font-bold mt-8">陽明交通大學 光復校區</h2>
-        </div></div>
       <SectionTitle id="application-info">報名資訊</SectionTitle>
-      <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 mt-8">
-        <div className="w-full">
-          <h2 className="text-2xl font-bold">報名時間</h2>
-          <h2 className="text-4xl font-bold mt-8">即日起 ~ 05/26</h2>
+      <ApplicationCard icon="bx-calendar">
+        <ApplicationTitle>日期</ApplicationTitle>
+        <h3 className="text-3xl">07/20 ~ 07/24</h3>
+      </ApplicationCard>
+      <ApplicationCard icon="bx-map-alt">
+        <ApplicationTitle>地點</ApplicationTitle>
+        <h3 className="text-3xl">陽明交通大學 光復校區</h3>
+      </ApplicationCard>
+      <ApplicationCard icon="bx-time">
+        <ApplicationTitle>報名時間</ApplicationTitle>
+        <h3 className="text-3xl">即日起 ~ 05/26</h3>
+      </ApplicationCard>
+      <ApplicationCard icon="bx-dollar">
+        <ApplicationTitle>費用</ApplicationTitle>
+        <div className="flex flex-row gap-4">
+          <PriceBox type="個人報名" price={8800} />
+          <PriceBox type="團體報名" price={7600} />
         </div>
-        <div className="w-full">
-          <h2 className="text-2xl font-bold">報名費用</h2>
-          <div className="mt-4 lg:mt-8 flex gap-3 flex-col sm:flex-row lg:flex-col">
-            <PriceBox type="個人費用" price={8800} />
-            <PriceBox type="團體費用" price={7600} />
-          </div>
-        </div>
-      </div>
+      </ApplicationCard>
       <div className="flex items-center justify-center mt-8">
-        <a
+        <motion.a
+          initial={{ scale: 0.5, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.5, opacity: 0 }}
+          whileHover={{ scale: 1.1, }}
+          whileTap={{ scale: 0.9 }}
+          transition={{
+            type: "spring",
+            stiffness: 400,
+            damping: 40,
+          }}
           href="https://sitcon.kktix.cc/events/sitcon-camp2023"
-          className="bg-[#015C85] hover:bg-[#034D6F] bg-opacity-80 backdrop-blur-xl rounded-full py-4 px-8 shadow-2xl text-2xl font-bold"
+          className="bg-[#015C85] hover:bg-[#034D6F] bg-opacity-80 backdrop-blur-xl rounded-full py-6 px-10 shadow-2xl text-4xl font-bold"
           target="_blank"
         >
           立即報名
-        </a>
+        </motion.a>
       </div>
-      <div className="mt-8 p-4 lg:p-6 bg-white bg-opacity-10 rounded-xl lg:flex gap-4 lg:gap-6 items-center">
+      <div className="mt-8 p-4 lg:p-6 bg-[#013249] rounded-xl lg:flex gap-4 lg:gap-6 items-center">
         <div className="text-2xl font-bold min-w-max">注意事項</div>
         <div className="mt-4 lg:mt-0 lg:border-l lg:border-white lg:pl-6">
           <ol className="list-decimal list-inside leading-7">
