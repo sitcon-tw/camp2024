@@ -26,7 +26,7 @@ function Parallax({ children, baseVelocity }: ParallaxProps) {
     railWidth.set(scrollWidth / 3);
   }, [scrollWidth]);
 
-  const animationTime = 10 * 1000
+  const animationTime = 5 * 1000
 
 
   const baseX = useMotionValue(0);
@@ -86,7 +86,6 @@ export default function Records() {
   ]
   const imgRow2 = [
     `/2023/records/48711478201_f0b3b61d1f_k.jpg`,
-    `/2023/records/16009925241_a20363623a_c.jpg`,
     `/2023/records/48711148968_c0c5b92648_k.jpg`,
     `/2023/records/48711158398_a9e76fe8c6_k.jpg`,
     `/2023/records/48711173683_6a5438b593_k.jpg`,
@@ -104,9 +103,9 @@ export default function Records() {
       <SectionTitle id="records">過往紀錄與回饋</SectionTitle>
       <div className="container mb-8 text-center">SITCON 夏令營在為學員帶來扎實內容的同時，也希望整個學習的過程有趣且精彩！<br />以下為過往活動的紀錄與回饋，讓您更了解 SITCON 夏令營的精彩內容！</div>
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
         className="flex justify-center items-center w-full my-4 gap-4">
         <a
           className="px-4 py-2 bg-[#01405D] hover:bg-[#013249] rounded-full flex gap-2 items-center leading-4"

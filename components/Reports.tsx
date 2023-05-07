@@ -44,7 +44,7 @@ function More({ children }: { children: React.ReactNode, }) {
       <AnimatePresence>
         {!show &&
           <motion.div
-            initial={{ opacity: 0, height: 0, scale: 0 }}
+            initial={{ opacity: 0, height: "auto", scale: 0 }}
             whileInView={{ opacity: 1, height: "auto", scale: 1 }}
             exit={{ opacity: 0, height: 0, scale: 0 }}
             className="flex justify-center items-center w-full mt-2">
