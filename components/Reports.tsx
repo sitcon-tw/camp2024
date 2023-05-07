@@ -43,7 +43,7 @@ function More({ children }: { children: React.ReactNode, }) {
         {!show &&
           <motion.div
             initial={{ opacity: 0, height: 0, scale: 0 }}
-            animate={{ opacity: 1, height: "auto", scale: 1 }}
+            whileInView={{ opacity: 1, height: "auto", scale: 1 }}
             exit={{ opacity: 0, height: 0, scale: 0 }}
             className="flex justify-center items-center w-full mt-2">
             <button className="px-4 py-2 bg-[#01405D] hover:bg-[#013249] rounded-full" onClick={() => setShow(true)}>檢視更多學員心得</button>
