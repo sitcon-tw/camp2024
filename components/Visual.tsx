@@ -3,14 +3,9 @@ import {
   motion,
   useTime,
   useTransform,
-  useMotionValue,
   useSpring,
   useScroll,
-  useVelocity,
-  useAnimationFrame,
-  cubicBezier,
   easeInOut
-
 } from "framer-motion";
 import { useRef } from "react";
 export default function Visual() {
