@@ -1,6 +1,6 @@
 import SectionTitle from "./SectionTitle";
 import { motion } from "framer-motion";
-function PriceBox({ type, price }: { type: string; price: number }) {
+function PriceCard({ type, price }: { type: string; price: number }) {
   return (
     <div className="bg-[#013249] py-4 px-6 rounded-xl flex-1">
       <div className="border-b border-white border-opacity-20 pb-1 mb-1 text-xl flex items-center justify-between">
@@ -11,8 +11,8 @@ function PriceBox({ type, price }: { type: string; price: number }) {
           ))}
         </div>
       </div>
-      <div className="text-xl">
-        <span className="text-3xl font-bold mr-2">
+      <div className="md:text-xl">
+        <span className="text-2xl md:text-3xl font-bold mr-2">
           {price.toLocaleString()}
         </span>
         <span>元/人</span>
@@ -28,8 +28,8 @@ function ApplicationCard({
   icon: string;
 }) {
   return (
-    <div className="bg-[#013249] rounded-xl p-4 lg:p-6 relative overflow-hidden mb-4">
-      {children}
+    <div className="bg-[#013249] rounded-xl p-4 px-6 lg:p-6 relative overflow-hidden mb-4">
+      <div className="relative z-10">{children}</div>
       <i
         className={`absolute text-[96px] h-[96px] w-[96px] bottom-0 top-0 right-4 m-auto text-[#015C85] opacity-50 bx ${icon}`}
       ></i>
@@ -59,8 +59,8 @@ export default function ApplicationInfo() {
         <ApplicationContent>即日起 ~ 05/26</ApplicationContent>
       </ApplicationCard>
       <div className="flex gap-4 w-full">
-        <PriceBox type="個人報名" price={8800} />
-        <PriceBox type="團體報名" price={7600} />
+        <PriceCard type="個人報名" price={8800} />
+        <PriceCard type="團體報名" price={7600} />
       </div>
       <div className="flex items-center justify-center mt-8">
         <motion.a
