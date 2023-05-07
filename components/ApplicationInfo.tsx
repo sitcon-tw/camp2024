@@ -15,8 +15,8 @@ function PriceBox({ type, price }: { type: string; price: number }) {
           }
         </div>
       </div>
-      <div className="text-xl">
-        <span className="text-3xl font-bold mr-2">{price.toLocaleString()}</span>
+      <div className="lg:text-xl">
+        <span className="text-2xl lg:text-3xl font-bold mr-2">{price.toLocaleString()}</span>
         <span>元/人</span>
       </div>
     </div>
@@ -34,9 +34,16 @@ function ApplicationCard({ children, icon = "bx-question-mark" }: { children: Re
 }
 function ApplicationTitle({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="text-2xl font-bold mb-2">
+    <h2 className="text-xl lg:text-2xl font-bold mb-2">
       {children}
     </h2>
+  )
+}
+function ApplicationContent({ children }: { children: React.ReactNode }) {
+  return (
+    <h3 className="text-2xl lg:text-3xl">
+      {children}
+    </h3>
   )
 }
 export default function ApplicationInfo() {
@@ -45,15 +52,15 @@ export default function ApplicationInfo() {
       <SectionTitle id="application-info">報名資訊</SectionTitle>
       <ApplicationCard icon="bx-calendar">
         <ApplicationTitle>日期</ApplicationTitle>
-        <h3 className="text-3xl">07/20 ~ 07/24</h3>
+        <ApplicationContent>07/20 ~ 07/24</ApplicationContent>
       </ApplicationCard>
       <ApplicationCard icon="bx-map-alt">
         <ApplicationTitle>地點</ApplicationTitle>
-        <h3 className="text-3xl">陽明交通大學 光復校區</h3>
+        <ApplicationContent>陽明交通大學 光復校區</ApplicationContent>
       </ApplicationCard>
       <ApplicationCard icon="bx-time">
         <ApplicationTitle>報名時間</ApplicationTitle>
-        <h3 className="text-3xl">即日起 ~ 05/26</h3>
+        <ApplicationContent>即日起 ~ 05/26</ApplicationContent>
       </ApplicationCard>
       <div className="flex gap-4 w-full">
         <PriceBox type="個人報名" price={8800} />
