@@ -14,9 +14,10 @@ export function EventContent({ children }: { children: React.ReactNode }) {
 export function EventBox({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ ease: "easeOut", duration: 0.3 }}
       className={`py-6 px-6 lg:py-5 lg:px-6 rounded-xl bg-black bg-opacity-10 border border-black border-opacity-20 relative mb-4 lg:flex lg:gap-8 lg:items-center`}
     >
       {children}
