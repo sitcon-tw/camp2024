@@ -75,18 +75,14 @@ function More({ children }: { children: React.ReactNode }) {
 export default function Reports() {
   return (
     <>
-      <div className="container mt-16">
-        <motion.h1
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-center text-2xl lg:text-2xl font-bold mt-1 lg:mt-3"
-        >
+      <motion.div className="container mt-16"
+
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}>
+        <motion.h1 className="text-center text-2xl lg:text-2xl font-bold mt-1 lg:mt-3">
           來聽聽學員的回饋
         </motion.h1>
-        <motion.h1
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
+        <motion.h1>
           <div
             className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4 mx-4 scroll-mt-32 "
             id="reports"
@@ -189,7 +185,7 @@ export default function Reports() {
             </Report>
           </div>
         </More>
-      </div>
+      </motion.div>
     </>
   );
 }
