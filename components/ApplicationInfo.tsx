@@ -4,47 +4,43 @@ function PriceBox({ type, price }: { type: string; price: number }) {
   return (
     <div className="bg-[#013249] py-4 px-6 rounded-xl flex-1">
       <div className="border-b border-white border-opacity-20 pb-1 mb-1 text-xl flex items-center justify-between">
-        <div>
-          {type}
-        </div>
+        <div>{type}</div>
         <div className="hidden sm:block">
-          {
-            Array.from({ length: type === "團體報名" ? 3 : 1 }).map((_, i) => (
-              <i key={i} className={`bx bx-user`}></i>
-            ))
-          }
+          {Array.from({ length: type === "團體報名" ? 3 : 1 }).map((_, i) => (
+            <i key={i} className={`bx bx-user`}></i>
+          ))}
         </div>
       </div>
-      <div className="lg:text-xl">
-        <span className="text-2xl lg:text-3xl font-bold mr-2">{price.toLocaleString()}</span>
+      <div className="text-xl">
+        <span className="text-3xl font-bold mr-2">
+          {price.toLocaleString()}
+        </span>
         <span>元/人</span>
       </div>
     </div>
   );
 }
-function ApplicationCard({ children, icon = "bx-question-mark" }: { children: React.ReactNode, icon: string }) {
+function ApplicationCard({
+  children,
+  icon = "bx-question-mark",
+}: {
+  children: React.ReactNode;
+  icon: string;
+}) {
   return (
-    <div className="bg-[#013249] rounded-xl py-4 px-6 relative overflow-hidden mb-4">
-      <div className="relative z-10">
-        {children}
-      </div>
-      <i className={`absolute text-[96px] h-[96px] w-[96px] bottom-0 top-0 right-4 m-auto text-[#015C85] opacity-50 bx ${icon}`}></i>
+    <div className="bg-[#013249] rounded-xl p-4 lg:p-6 relative overflow-hidden mb-4">
+      {children}
+      <i
+        className={`absolute text-[96px] h-[96px] w-[96px] bottom-0 top-0 right-4 m-auto text-[#015C85] opacity-50 bx ${icon}`}
+      ></i>
     </div>
-  )
+  );
 }
 function ApplicationTitle({ children }: { children: React.ReactNode }) {
-  return (
-    <h2 className="text-xl lg:text-2xl font-bold mb-2">
-      {children}
-    </h2>
-  )
+  return <h2 className="text-2xl font-bold mb-2">{children}</h2>;
 }
 function ApplicationContent({ children }: { children: React.ReactNode }) {
-  return (
-    <h3 className="text-2xl lg:text-3xl">
-      {children}
-    </h3>
-  )
+  return <h3 className="text-2xl lg:text-3xl">{children}</h3>;
 }
 export default function ApplicationInfo() {
   return (
@@ -71,7 +67,7 @@ export default function ApplicationInfo() {
           initial={{ scale: 0.5, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.5, opacity: 0 }}
-          whileHover={{ scale: 1.1, }}
+          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           transition={{
             type: "spring",
@@ -79,7 +75,7 @@ export default function ApplicationInfo() {
             damping: 40,
           }}
           href="https://sitcon.kktix.cc/events/sitcon-camp2023"
-          className="bg-[#015C85] hover:bg-[#034D6F] bg-opacity-80 backdrop-blur-xl rounded-full py-6 px-10 shadow-2xl text-4xl font-bold"
+          className="bg-[#015C85] hover:bg-[#034D6F] bg-opacity-80 backdrop-blur-xl rounded-full py-5 px-12 shadow-2xl text-4xl font-bold"
           target="_blank"
         >
           立即報名
