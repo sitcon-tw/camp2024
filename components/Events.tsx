@@ -63,20 +63,20 @@ export default function Events() {
       </EventBox>
       <EventBox>
         <EventContent>
+          <EventTitle>開源精神與社群</EventTitle>
+          開源精神短講將邀請在開源社群中活躍多年的前輩，期許能夠透過前輩的經驗分享來讓學員更加認識開源（Open
+          Source），並鼓勵學員參與往後的社群活動。同時，我們也會邀請許多和資訊相關的社群前來擺攤，藉由互動遊戲、影片欣賞、專人介紹、闖關集點...等方式，讓學員認識所謂的「社群」，並對開源活動有初步了解。
+        </EventContent>
+        <EventImg src="./images/48711514086_a88a5a9fa7_c.jpg" />
+      </EventBox>
+      <EventBox>
+        <EventContent>
           <EventTitle>資訊技能樹</EventTitle>
           資訊領域廣大無邊，你知道他們的相互的關聯嗎?
           剛接觸資訊領域，卻被各種專業名詞給轟炸嗎?
           資訊技能樹，將資訊領域内重要的詞彙串連在一起，讓你以一個更全面的角度，來理解其中的知識與專業技能。在營期途中，學員將探索和收集散落在各處的知識點數，點亮屬於你獨一無二的技能樹。
         </EventContent>
         <EventImg src="./images/52365973323_8527481791_c.jpg" />
-      </EventBox>
-      <EventBox>
-        <EventContent>
-          <EventTitle>開源精神與社群</EventTitle>
-          開源精神短講將邀請在開源社群中活躍多年的前輩，期許能夠透過前輩的經驗分享來讓學員更加認識開源（Open
-          Source），並鼓勵學員參與往後的社群活動。同時，我們也會邀請許多和資訊相關的社群前來擺攤，藉由互動遊戲、影片欣賞、專人介紹、闖關集點...等方式，讓學員認識所謂的「社群」，並對開源活動有初步了解。
-        </EventContent>
-        <EventImg src="./images/48711514086_a88a5a9fa7_c.jpg" />
       </EventBox>
       <EventBox>
         <img
