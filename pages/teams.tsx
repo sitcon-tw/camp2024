@@ -188,8 +188,16 @@ export default function Teams() {
             </p>
             <p>
               對我們所做的事情感興趣？ 歡迎加入{" "}
-              <a href="https://groups.google.com/g/sitcon-general">郵件論壇</a>{" "}
-              或 <a href="https://sitcon.org/telegram">Telegram 群組</a>{" "}
+              <a
+                href="https://groups.google.com/g/sitcon-general"
+                className="underline"
+              >
+                郵件論壇
+              </a>{" "}
+              或{" "}
+              <a href="https://sitcon.org/telegram" className="underline">
+                Telegram 群組
+              </a>{" "}
               一起來規劃討論。
             </p>
           </div>
@@ -256,7 +264,6 @@ export default function Teams() {
                   <div className="flex items-stretch">
                     <div className="py-4">
                       <img
-                        key={index}
                         src={`https://secure.gravatar.com/avatar/${img.md5}?s=512&d=https://sitcon.camp/2021/img/avatar.png`}
                         className="h-24 inline rounded-full"
                       />
@@ -271,7 +278,6 @@ export default function Teams() {
                   <div className="flex items-stretch">
                     <div className="py-4">
                       <img
-                        key={index}
                         src={`https://secure.gravatar.com/avatar/${img.md5}?s=512&d=https://sitcon.camp/2021/img/avatar.png`}
                         className="h-24 inline rounded-full"
                       />
