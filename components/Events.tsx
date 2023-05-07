@@ -1,4 +1,5 @@
 import SectionTitle from "./SectionTitle";
+import { motion } from "framer-motion";
 import TimeTable from "./TimeTable";
 export function EventTitle({ children }: { children: React.ReactNode }) {
   return (
@@ -12,11 +13,14 @@ export function EventContent({ children }: { children: React.ReactNode }) {
 }
 export function EventBox({ children }: { children: React.ReactNode }) {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
       className={`py-6 px-6 lg:py-5 lg:px-6 rounded-xl bg-black bg-opacity-10 border border-black border-opacity-20 relative mb-4 lg:flex lg:gap-8 lg:items-center`}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }
 export function EventImg({ src }: { src: string }) {
