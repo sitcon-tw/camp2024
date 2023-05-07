@@ -4,7 +4,7 @@ let result = [];
 fs.readFile('./members.csv', 'utf8', (err, data) => {
   if (err) throw err;
   let members = data.split('\n');
-  for (let i = 1; i < members.length; i++) {
+  for (let i = 0; i < members.length; i++) {
     let member = members[i].split(',');
     result.push({
       group: member[0],
