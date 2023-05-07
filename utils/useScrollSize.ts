@@ -2,12 +2,16 @@ import { Ref, useLayoutEffect, useRef, useState } from 'react';
 
 type Result = {
   scrollWidth: number;
+  width: number;
   scrollHeight: number;
+  height: number;
 };
 
 const initialState: Result = {
   scrollWidth: 0,
   scrollHeight: 0,
+  width: 0,
+  height: 0,
 };
 
 const useScrollSize = <T extends HTMLDivElement>(): [Ref<T>, Result] => {
@@ -24,9 +28,11 @@ const useScrollSize = <T extends HTMLDivElement>(): [Ref<T>, Result] => {
 
     const scrollWidth = elementRef.current.scrollWidth;
     const scrollHeight = elementRef.current.scrollHeight;
+    const width = elementRef.current.clientWidth;
+    const height = elementRef.current.clientHeight;
 
     if (scrollWidth !== size.scrollWidth || scrollHeight !== size.scrollHeight) {
-      setSize({ scrollWidth, scrollHeight });
+      setSize({ scrollWidth, scrollHeight, height, width });
     }
   });
 

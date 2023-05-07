@@ -8,18 +8,19 @@ import {
   easeInOut
 } from "framer-motion";
 import { useRef } from "react";
+
+import useScrollSize from "../utils/useScrollSize";
 export default function Visual() {
-  if (!process.browser) return <></>
-  const visualRef = useRef<HTMLDivElement>(null);
+  const [visualRef, { width, height }] = useScrollSize()
   const { scrollY } = useScroll()
   const time = useTime()
   const warpTime = useTransform(time, t => t % 8000);
-  const warpScrollY = useTransform(scrollY, [0, window.innerHeight], [0, 1]);
+  const warpScrollY = useTransform(scrollY, [0, height], [0, 1]);
   const springScrollY = useSpring(warpScrollY, {
     damping: 50,
     stiffness: 400
   })
-  const vw = window.innerWidth / 100
+  const vw = width / 100
   const catX = useTransform(springScrollY, [0, 1], [0, -10 * vw]);
   const catY = useTransform(springScrollY, [0, 1], [0, 25]);
   const astronautX = useTransform(springScrollY, [0, 1], [0, 10 * vw]);
