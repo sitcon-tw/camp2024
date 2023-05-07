@@ -79,14 +79,11 @@ export default function Reports() {
 
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}>
-        <motion.h1 className="text-center text-2xl lg:text-2xl font-bold mt-1 lg:mt-3">
+        <motion.h1 className="text-center text-2xl lg:text-2xl font-bold mt-1 lg:mt-3 scroll-mt-32" id="reports">
           來聽聽學員的回饋
         </motion.h1>
         <motion.h1>
-          <div
-            className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4 mx-4 scroll-mt-32 "
-            id="reports"
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4 mx-4">
             <Report
               avatar="/2023/records-avatar/340069299_243506511573764_1868312350951130034_n.jpg"
               name="吳冠廷"
