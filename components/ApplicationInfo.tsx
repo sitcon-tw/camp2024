@@ -25,7 +25,9 @@ function PriceBox({ type, price }: { type: string; price: number }) {
 function ApplicationCard({ children, icon = "bx-question-mark" }: { children: React.ReactNode, icon: string }) {
   return (
     <div className="bg-[#013249] rounded-xl py-4 px-6 relative overflow-hidden mb-4">
-      {children}
+      <div className="relative z-10">
+        {children}
+      </div>
       <i className={`absolute text-[96px] h-[96px] w-[96px] bottom-0 top-0 right-4 m-auto text-[#015C85] opacity-50 bx ${icon}`}></i>
     </div>
   )
