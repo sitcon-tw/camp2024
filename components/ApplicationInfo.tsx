@@ -13,14 +13,24 @@ function PriceBox({ type, price }: { type: string; price: number }) {
 export default function ApplicationInfo() {
   return (
     <div className="container">
-      <SectionTitle id="application-info">報名資訊</SectionTitle>
-      <div className="flex gap-8 flex-col lg:flex-row">
+      <SectionTitle id="event-info">活動資訊</SectionTitle>
+      <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 mt-8">
         <div className="w-full">
-          <h2 className="text-2xl font-bold lg:text-center">報名時間</h2>
+          <h2 className="text-2xl font-bold">日期</h2>
+          <h2 className="text-4xl font-bold mt-8">07/20 ~ 07/24</h2>
+        </div>
+        <div className="w-full">
+          <h2 className="text-2xl font-bold">地點</h2>
+          <h2 className="text-4xl font-bold mt-8">陽明交通大學 光復校區</h2>
+        </div></div>
+      <SectionTitle id="application-info">報名資訊</SectionTitle>
+      <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 mt-8">
+        <div className="w-full">
+          <h2 className="text-2xl font-bold">報名時間</h2>
           <h2 className="text-4xl font-bold mt-8">即日起 ~ 05/26</h2>
         </div>
         <div className="w-full">
-          <h2 className="text-2xl font-bold lg:text-center">報名費用</h2>
+          <h2 className="text-2xl font-bold">報名費用</h2>
           <div className="mt-4 lg:mt-8 flex gap-3 flex-col sm:flex-row lg:flex-col">
             <PriceBox type="個人費用" price={8800} />
             <PriceBox type="團體費用" price={7600} />
@@ -30,7 +40,7 @@ export default function ApplicationInfo() {
       <div className="flex items-center justify-center mt-8">
         <a
           href="https://sitcon.kktix.cc/events/sitcon-camp2023"
-          className="bg-[#7A44AF] bg-opacity-80 backdrop-blur-xl rounded-full py-4 px-8 shadow-2xl text-2xl font-bold"
+          className="bg-[#015C85] hover:bg-[#034D6F] bg-opacity-80 backdrop-blur-xl rounded-full py-4 px-8 shadow-2xl text-2xl font-bold"
           target="_blank"
         >
           立即報名
