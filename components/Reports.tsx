@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Button from "./Button";
 function Report({
   children,
   avatar,
@@ -58,14 +59,11 @@ function More({ children }: { children: React.ReactNode }) {
             initial={{ opacity: 0, height: "auto", scale: 0 }}
             whileInView={{ opacity: 1, height: "auto", scale: 1 }}
             exit={{ opacity: 0, height: 0, scale: 0 }}
-            className="flex justify-center items-center w-full mt-2"
+            className="flex justify-center items-center w-full mt-4"
           >
-            <button
-              className="px-4 py-2 bg-[#01405D] hover:bg-[#013249] rounded-full flex gap-2 items-center leading-4"
-              onClick={() => setShow(true)}
-            >
+            <Button onClick={() => setShow(true)}>
               <i className="bx bx-plus text-xl"></i> 檢視更多學員心得
-            </button>
+            </Button>
           </motion.div>
         )}
       </AnimatePresence>

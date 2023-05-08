@@ -12,7 +12,7 @@ import {
 } from "framer-motion";
 import { wrap } from "@motionone/utils";
 import useScrollSize from "../utils/useScrollSize";
-
+import Button from "./Button";
 interface ParallaxProps {
   children: React.ReactNode;
   baseVelocity: number;
@@ -107,12 +107,8 @@ export default function Records() {
         whileInView={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         className="flex justify-center items-center w-full my-4 gap-4">
-        <a
-          className="px-4 py-2 bg-[#01405D] hover:bg-[#013249] rounded-full flex gap-2 items-center leading-4"
-          href="https://www.youtube.com/watch?v=oAtiOrpj6DQ" target="_blank">查看回顧影片<i className='bx bx-video text-xl'></i></a>
-        <a
-          className="px-4 py-2 bg-[#01405D] hover:bg-[#013249] rounded-full flex gap-2 items-center leading-4"
-          href="https://www.flickr.com/photos/sitcon/albums" target="_blank">查看更多照片<i className='bx bx-image text-xl' ></i></a>
+        <Button href="https://www.youtube.com/watch?v=oAtiOrpj6DQ" target="_blank">查看回顧影片<i className='bx bx-video text-xl'></i></Button>
+        <Button href="https://www.flickr.com/photos/sitcon/albums" target="_blank">查看更多照片<i className='bx bx-image text-xl'></i></Button>
       </motion.div>
       <Parallax baseVelocity={1}>
         {imgRow1.map((img, index) => (<img key={index} src={img} className="h-36 lg:h-64 inline rounded" />))}
