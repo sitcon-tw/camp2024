@@ -51,20 +51,22 @@ export default function Visual() {
         <div className="lg:text-xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded mt-2 p-1">地點</div>
         <div className="text-2xl font-bold lg:text-4xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">陽明交通大學 光復校區</div>
         <div className="flex gap-8">
-          <div>
+          <div className="flex flex-col items-start">
             <motion.div className="lg:text-xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">
               日期
             </motion.div>
             <motion.div className="text-2xl font-bold lg:text-4xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">
-              <span className="hidden lg:inline">0</span>7/20 ~ <span className="hidden lg:inline">0</span>7/24
+              <span className="hidden lg:inline">07/20 ~ 07/24</span>
+              <span className="lg:hidden">7/20 ~ 7/24</span>
             </motion.div>
           </div>
-          <div>
+          <div className="flex flex-col items-start">
             <motion.div className="lg:text-xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">
               報名期限
             </motion.div>
             <motion.div className="text-2xl font-bold lg:text-4xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">
-              <span className="hidden lg:inline">即日起 ~</span> <span className="hidden lg:inline">0</span>5/26 <span className="lg:hidden text-base">截止</span>
+              <span className="hidden lg:inline">即日起 ~ 05/26</span>
+              <span className="lg:hidden">5/26 截止</span>
             </motion.div>
           </div>
         </div>
