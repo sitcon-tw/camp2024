@@ -52,7 +52,6 @@ export default function Visual() {
         <div className="text-2xl font-bold lg:text-4xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">陽明交通大學 光復校區</div>
         <div className="flex gap-8">
           <div>
-
             <motion.div className="lg:text-xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">
               日期
             </motion.div>
