@@ -85,9 +85,9 @@ export default function ApplicationInfo() {
         </motion.a>
       </div>
       <ApplicationCard dense>
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col my-2 md:my-0 md:flex-row items-center md:items-center justify-between gap-2 md:gap-4">
           <div>
-            將 SITCON Camp 重要日程加入你的行事曆
+            將 SITCON Camp 重要日程加入行事曆
           </div>
           <Button href="/2023/events.ics" className="bg-black bg-opacity-10 hover:bg-black hover:bg-opacity-20 rounded-xl">
             <i className='bx bx-calendar-plus'></i>
