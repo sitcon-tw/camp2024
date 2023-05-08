@@ -1,5 +1,6 @@
 import SectionTitle from "./SectionTitle";
 import { motion } from "framer-motion";
+import Button from "./Button";
 function PriceCard({ type, price }: { type: string; price: number }) {
   return (
     <div className="bg-[#013249] py-4 px-6 rounded-xl flex-1">
@@ -22,17 +23,19 @@ function PriceCard({ type, price }: { type: string; price: number }) {
 }
 function ApplicationCard({
   children,
-  icon = "bx-question-mark",
+  icon,
+  dense = false,
 }: {
   children: React.ReactNode;
-  icon: string;
+  icon?: string;
+  dense?: boolean;
 }) {
   return (
-    <div className="bg-[#013249] rounded-xl p-4 px-6 lg:p-6 relative overflow-hidden mb-4">
+    <div className={`bg-[#013249] rounded-xl ${dense ? `py-2 px-6` : `py-4 px-6 lg:py-6`} relative overflow-hidden mb-4`}>
       <div className="relative z-10">{children}</div>
-      <i
+      {icon && <i
         className={`absolute text-[96px] h-[96px] w-[96px] bottom-0 top-0 right-4 m-auto text-[#015C85] opacity-50 bx ${icon}`}
-      ></i>
+      ></i>}
     </div>
   );
 }
@@ -62,7 +65,7 @@ export default function ApplicationInfo() {
         <PriceCard type="個人報名" price={8800} />
         <PriceCard type="團體報名" price={7600} />
       </div>
-      <div className="flex items-center justify-center mt-8">
+      <div className="flex items-center justify-center my-8">
         <motion.a
           initial={{ scale: 0.5, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -81,7 +84,18 @@ export default function ApplicationInfo() {
           立即報名
         </motion.a>
       </div>
-      <div className="mt-8 p-4 lg:p-6 bg-[#013249] rounded-xl lg:flex gap-4 lg:gap-6 items-center">
+      <ApplicationCard dense>
+        <div className="flex items-center justify-between">
+          <div>
+            將 SITCON Camp 重要日程加入你的行事曆
+          </div>
+          <Button href="/2023/events.ics" className="bg-black bg-opacity-10 hover:bg-black hover:bg-opacity-20 rounded-xl">
+            <i className='bx bx-calendar-plus'></i>
+            加入行事曆
+          </Button>
+        </div>
+      </ApplicationCard>
+      <div className="mt-4 p-4 lg:p-6 bg-[#013249] rounded-xl lg:flex gap-4 lg:gap-6 items-center">
         <div className="text-2xl font-bold min-w-max">注意事項</div>
         <div className="mt-4 lg:mt-0 lg:border-l lg:border-white lg:pl-6">
           <ol className="list-decimal list-inside leading-7">
