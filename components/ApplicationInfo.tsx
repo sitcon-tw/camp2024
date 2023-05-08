@@ -86,7 +86,7 @@ export default function ApplicationInfo() {
       </div>
       <ApplicationCard dense>
         <div className="flex flex-col-reverse my-2 md:my-0 md:flex-row items-center md:items-center justify-between gap-2 md:gap-4">
-          <div className="text-sm">
+          <div className="text-sm md:text-base">
             將 SITCON Camp 重要日程加入行事曆
           </div>
           <Button href="/2023/events.ics" className="bg-black bg-opacity-10 hover:bg-black hover:bg-opacity-20 rounded-xl">
