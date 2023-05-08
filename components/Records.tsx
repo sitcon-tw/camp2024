@@ -19,27 +19,29 @@ interface ParallaxProps {
 }
 
 function Parallax({ children, baseVelocity }: ParallaxProps) {
-  const [rail, { scrollWidth }] = useScrollSize()
+  const [rail, { scrollWidth }] = useScrollSize();
   // calc rail width and sync to scroll
   const railWidth = useMotionValue(scrollWidth / 3);
   useEffect(() => {
     railWidth.set(scrollWidth / 3);
   }, [scrollWidth]);
 
-  const animationTime = 5 * 1000
-
+  const animationTime = 5 * 1000;
 
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
     damping: 50,
-    stiffness: 400
+    stiffness: 400,
   });
   const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5]);
   const directionFactor = useRef<number>(1);
   useAnimationFrame((time, delta) => {
-    let moveBy = (railWidth.get() / animationTime) * baseVelocity * directionFactor.current
+    let moveBy =
+      (railWidth.get() / animationTime) *
+      baseVelocity *
+      directionFactor.current;
 
     if (velocityFactor.get() < 0) {
       directionFactor.current = -1;
@@ -56,16 +58,26 @@ function Parallax({ children, baseVelocity }: ParallaxProps) {
     if (baseX.get() > railWidth.get() * -1) {
       baseX.set(railWidth.get() * -2);
     }
-  })
+  });
   return (
     <>
       <div className="relative overflow-hidden flex flex-nowrap whitespace-nowrap">
-        <motion.div ref={rail} style={{ x: baseX }} className="whitespace-nowrap flex-nowrap flex gap-4">
-          <div className="flex flex-nowrap whitespace-nowrap gap-4 min-w-max">{children}</div>
-          <div className="flex flex-nowrap whitespace-nowrap gap-4 min-w-max">{children}</div>
-          <div className="flex flex-nowrap whitespace-nowrap gap-4 min-w-max">{children}</div>
+        <motion.div
+          ref={rail}
+          style={{ x: baseX }}
+          className="whitespace-nowrap flex-nowrap flex gap-4"
+        >
+          <div className="flex flex-nowrap whitespace-nowrap gap-4 min-w-max">
+            {children}
+          </div>
+          <div className="flex flex-nowrap whitespace-nowrap gap-4 min-w-max">
+            {children}
+          </div>
+          <div className="flex flex-nowrap whitespace-nowrap gap-4 min-w-max">
+            {children}
+          </div>
         </motion.div>
-      </div >
+      </div>
     </>
   );
 }
@@ -83,7 +95,7 @@ export default function Records() {
     `/2023/records/48711684617_e8d23396b3_k.jpg`,
     `/2023/records/50694221331_e465f84efc_k.jpg`,
     `/2023/records/51260350196_1e24756478_5k.jpg`,
-  ]
+  ];
   const imgRow2 = [
     `/2023/records/48711478201_f0b3b61d1f_k.jpg`,
     `/2023/records/48711148968_c0c5b92648_k.jpg`,
@@ -97,26 +109,46 @@ export default function Records() {
     `/2023/records/48711460716_f573528caf_k.jpg`,
     `/2023/records/48711504911_54e1d297c7_k.jpg`,
     `/2023/records/48711513221_eddbacab82_k.jpg`,
-  ]
+  ];
   return (
     <>
       <SectionTitle id="records">過往紀錄與回饋</SectionTitle>
-      <div className="container mb-8 text-center">SITCON 夏令營在為學員帶來扎實內容的同時，也希望整個學習的過程有趣且精彩！<br />以下為過往活動的紀錄與回饋，讓您更了解 SITCON 夏令營的精彩內容！</div>
+      <div className="container mb-8 text-center">
+        SITCON
+        夏令營在為學員帶來扎實內容的同時，也希望整個學習的過程有趣且精彩！
+        <br />
+        以下為過往活動的紀錄與回饋，讓您更了解 SITCON 夏令營的精彩內容！
+      </div>
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="flex justify-center items-center w-full my-4 gap-4">
-        <Button href="https://www.youtube.com/watch?v=oAtiOrpj6DQ" target="_blank">查看回顧影片<i className='bx bx-video text-xl'></i></Button>
-        <Button href="https://www.flickr.com/photos/sitcon/albums" target="_blank">查看更多照片<i className='bx bx-image text-xl'></i></Button>
+        className="flex justify-center items-center w-full my-4 gap-4"
+      >
+        <Button
+          href="https://www.youtube.com/watch?v=oAtiOrpj6DQ"
+          target="_blank"
+        >
+          觀賞回顧影片<i className="bx bx-video text-xl"></i>
+        </Button>
+        <Button
+          href="https://www.flickr.com/photos/sitcon/albums"
+          target="_blank"
+        >
+          查看更多照片<i className="bx bx-image text-xl"></i>
+        </Button>
       </motion.div>
       <Parallax baseVelocity={1}>
-        {imgRow1.map((img, index) => (<img key={index} src={img} className="h-36 lg:h-64 inline rounded" />))}
+        {imgRow1.map((img, index) => (
+          <img key={index} src={img} className="h-36 lg:h-64 inline rounded" />
+        ))}
       </Parallax>
       <div className="h-8"></div>
       <Parallax baseVelocity={-1}>
-        {imgRow2.map((img, index) => (<img key={index} src={img} className="h-36 lg:h-64 inline rounded" />))}
+        {imgRow2.map((img, index) => (
+          <img key={index} src={img} className="h-36 lg:h-64 inline rounded" />
+        ))}
       </Parallax>
     </>
-  )
+  );
 }
