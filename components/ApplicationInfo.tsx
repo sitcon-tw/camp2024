@@ -85,8 +85,8 @@ export default function ApplicationInfo() {
         </motion.a>
       </div>
       <ApplicationCard dense>
-        <div className="flex flex-col my-2 md:my-0 md:flex-row items-center md:items-center justify-between gap-2 md:gap-4">
-          <div>
+        <div className="flex flex-col-reverse my-2 md:my-0 md:flex-row items-center md:items-center justify-between gap-2 md:gap-4">
+          <div className="text-sm">
             將 SITCON Camp 重要日程加入行事曆
           </div>
           <Button href="/2023/events.ics" className="bg-black bg-opacity-10 hover:bg-black hover:bg-opacity-20 rounded-xl">
@@ -94,7 +94,7 @@ export default function ApplicationInfo() {
             加入行事曆
           </Button>
         </div>
-      </ApplicationCard>
+      </ApplicationCard >
       <div className="mt-4 p-4 lg:p-6 bg-[#013249] rounded-xl lg:flex gap-4 lg:gap-6 items-center">
         <div className="text-2xl font-bold min-w-max">注意事項</div>
         <div className="mt-4 lg:mt-0 lg:border-l lg:border-white lg:pl-6">
@@ -132,6 +132,6 @@ export default function ApplicationInfo() {
           </ol>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
