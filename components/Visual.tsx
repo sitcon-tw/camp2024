@@ -56,7 +56,7 @@ export default function Visual() {
               日期
             </motion.div>
             <motion.div className="text-2xl font-bold lg:text-4xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">
-              07/20 ~ 07/24
+              <span className="hidden lg:inline">0</span>7/20 ~ <span className="hidden lg:inline">0</span>7/24
             </motion.div>
           </div>
           <div>
@@ -64,7 +64,7 @@ export default function Visual() {
               報名期限
             </motion.div>
             <motion.div className="text-2xl font-bold lg:text-4xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">
-              即日起 ~ 05/26
+              <span className="hidden lg:inline">即日起 ~</span> <span className="hidden lg:inline">0</span>5/26 <span className="lg:hidden text-base">截止</span>
             </motion.div>
           </div>
         </div>
