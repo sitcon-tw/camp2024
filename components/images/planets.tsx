@@ -6,7 +6,7 @@ import {
   useScroll,
   easeInOut
 } from "framer-motion";
-export default function planets({ style, className }: {
+export default function Planets({ style, className }: {
   style?: object
   className?: string
 }) {
