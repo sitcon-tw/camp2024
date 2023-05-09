@@ -43,7 +43,7 @@ export default function Visual() {
         className="absolute top-[12.5vh] w-40 md:w-60 left-0 right-0 m-auto cursor-grab" src="/2023/visual/logo.svg" alt="logo" />
       <Planets
         style={{ y: planetY }}
-        className="absolute top-[35vh] w-[250px] sm:w-[450px] md:w-[400px] left-0 right-0 m-auto"
+        className="absolute top-[30vh] md:top-[35vh] w-[250px] sm:w-[450px] md:w-[400px] left-0 right-0 m-auto"
       />
       <motion.img
         drag
