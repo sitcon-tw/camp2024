@@ -13,10 +13,8 @@ export default function Planets({ style, className }: {
   const time = useTime()
   const warpTime = useTransform(time, t => t % 8000);
   const star1Opacity = useTransform(warpTime, [0, 4000, 8000], [0.5, 1, 0.5], { ease: easeInOut })
-  const star1Y = useTransform(warpTime, [0, 4000, 8000], [0, -25, 0], { ease: easeInOut })
   const star1Rotate = useTransform(warpTime, [0, 4000, 8000], [0, 10, 0], { ease: easeInOut })
   const star2Opacity = useTransform(warpTime, [0, 4000, 8000], [1, 0.5, 1], { ease: easeInOut })
-  const star2Y = useTransform(warpTime, [0, 4000, 8000], [0, 25, 0], { ease: easeInOut })
   const star2Rotate = useTransform(warpTime, [0, 4000, 8000], [0, -10, 0], { ease: easeInOut })
   const star2Scale = useTransform(warpTime, [0, 4000, 8000], [1, 1.2, 1], { ease: easeInOut })
   return (<motion.svg className={className} style={style} width="587" height="490" viewBox="0 0 587 490" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,10 +41,30 @@ export default function Planets({ style, className }: {
     <path fill-rule="evenodd" clip-rule="evenodd" d="M200.24 181.328C200.24 149.712 238.746 124.085 286.244 124.085C333.743 124.085 372.251 149.712 372.251 181.328C372.251 182.067 372.251 182.816 372.251 183.575C372.251 195.522 333.712 205.22 286.244 205.22C238.777 205.22 200.24 195.522 200.24 183.575C200.24 182.816 200.232 182.214 200.24 181.328Z" fill="#77B45A" stroke="white" stroke-width="5.42088" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round" />
     <path d="M103.182 332.312C21.4622 380.169 -4.18567 410.807 5.98237 430.458C30.6373 478.107 205.373 433.47 324.525 390.316C455.935 337.666 582.757 266.932 563.525 222.529C552.921 205.188 510.401 200.384 445.506 210.414" stroke="white" stroke-width="7.58806" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round" />
     <motion.path
-      style={{ opacity: star2Opacity, y: star2Y, rotate: star2Rotate, scale: star2Scale }}
+      drag
+      whileDrag={{ scale: 1.2, rotate: 45 }}
+      dragConstraints={{
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+      }}
+      dragElastic={0.05}
+      style={{ opacity: star2Opacity, rotate: star2Rotate, scale: star2Scale }}
+      className="cursor-grab"
       d="M66.8654 316.889L68.0081 322.516L73.2921 324.765L68.2932 327.591L67.7877 333.311L63.5548 329.43L57.9588 330.716L60.3418 325.492L57.3887 320.568L63.0943 321.219L66.8654 316.889Z" fill="white" />
     <motion.path
-      style={{ opacity: star1Opacity, y: star1Y, rotate: star1Rotate }}
+      drag
+      whileDrag={{ scale: 1.2, rotate: 45 }}
+      dragConstraints={{
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+      }}
+      dragElastic={0.05}
+      style={{ opacity: star1Opacity, rotate: star1Rotate }}
+      className="cursor-grab"
       d="M519.555 376.318L533.14 380.351L544.165 371.445L544.528 385.612L556.405 393.344L543.043 398.068L539.36 411.752L530.738 400.504L516.586 401.231L524.618 389.554L519.555 376.318Z" fill="white" />
     <path d="M560.013 275.568C572.972 275.568 583.476 265.063 583.476 252.105C583.476 239.146 572.972 228.642 560.013 228.642C547.055 228.642 536.55 239.146 536.55 252.105C536.55 265.063 547.055 275.568 560.013 275.568Z" fill="#77B45A" stroke="white" stroke-width="5.42102" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round" />
     <path d="M29.5017 396.1C36.7606 396.1 42.645 390.215 42.645 382.956C42.645 375.697 36.7606 369.813 29.5017 369.813C22.2429 369.813 16.3584 375.697 16.3584 382.956C16.3584 390.215 22.2429 396.1 29.5017 396.1Z" fill="#E7A35B" stroke="white" stroke-width="5.42018" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round" />

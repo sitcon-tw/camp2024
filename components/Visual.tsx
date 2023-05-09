@@ -30,14 +30,39 @@ export default function Visual() {
   return <div className="w-full h-[100vh]  overflow-hidden " ref={visualRef}>
     <div className="container relative">
       <motion.img
+        drag
+        whileDrag={{ scale: 0.8, rotate: -5 }}
+        dragConstraints={{
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+        }}
+        dragElastic={0.2}
         style={{ y: logoY }}
-        className="absolute top-[12.5vh] w-40 md:w-60 left-0 right-0 m-auto" src="/2023/visual/logo.svg" alt="logo" />
+        className="absolute top-[12.5vh] w-40 md:w-60 left-0 right-0 m-auto cursor-grab" src="/2023/visual/logo.svg" alt="logo" />
       <motion.img
+        drag
+        whileDrag={{ scale: 1.2, rotate: -5 }}
+        dragConstraints={{
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+        }}
         style={{ x: catX, y: catY }}
-        className="absolute top-[35vh] w-[150px] sm:w-[180px] md:w-[300px] right-0 m-auto" src="/2023/visual/cat.svg" alt="cat" />
+        className="absolute top-[35vh] w-[150px] sm:w-[180px] md:w-[300px] right-0 m-auto cursor-grab" src="/2023/visual/cat.svg" alt="cat" />
       <motion.img
+        drag
+        whileDrag={{ scale: 1.2, rotate: 5 }}
+        dragConstraints={{
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+        }}
         style={{ x: astronautX, y: astronautY }}
-        className="absolute top-[35vh] w-[160px] sm:w-[200px] md:w-[320px] left-0 m-auto" src="/2023/visual/astronaut.svg" alt="astronaut" />
+        className="absolute top-[35vh] w-[160px] sm:w-[200px] md:w-[320px] left-0 m-auto cursor-grab" src="/2023/visual/astronaut.svg" alt="astronaut" />
       <Planets
         style={{ y: planetY }}
         className="absolute top-[35vh] w-[250px] sm:w-[450px] md:w-[400px] left-0 right-0 m-auto"
