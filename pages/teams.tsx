@@ -1,4 +1,7 @@
 import SectionTitle from "../components/SectionTitle";
+import {
+  motion,
+} from "framer-motion";
 import { EventBox, EventImg, EventContent, EventTitle } from "@/components/Events";
 export default function Teams() {
   const members = [
@@ -236,7 +239,7 @@ export default function Teams() {
           {groups.map((name, index) => {
             return (
               <>
-                <h2 className="text-2xl font-bold mt-8 mb-4">{name}</h2>
+                <h2 className="text-2xl font-bold mt-12 mb-8">{name}</h2>
                 <div
                   className="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-4"
                   key={index}
@@ -245,13 +248,24 @@ export default function Teams() {
                     .filter((member) => member.group === name)
                     .map((member, index) => (
                       <div className="flex flex-col items-center" key={index}>
-                        <img
+                        <motion.img
+                          initial={{ opacity: 0, scale: 0.8, }}
+                          whileInView={{ opacity: 1, scale: 1, }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 260,
+                            damping: 20,
+                          }}
+                          whileTap={{ scale: 0.8 }}
                           src={`https://secure.gravatar.com/avatar/${member.md5}?s=512&d=https://sitcon.camp/2023/images/default_avatar.jpg`}
-                          className="h-24 inline rounded-full"
+                          className="h-24 inline rounded-full cursor-grab"
                         />
-                        <div className="text-center mt-2 opacity-80">
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          className="text-center mt-2 opacity-80">
                           {member.name}
-                        </div>
+                        </motion.div>
                       </div>
                     ))}
                 </div>
