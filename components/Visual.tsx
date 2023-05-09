@@ -6,7 +6,7 @@ import {
   useScroll,
   easeInOut
 } from "framer-motion";
-
+import Planets from "./images/planets";
 import useScrollSize from "../utils/useScrollSize";
 export default function Visual() {
   const [visualRef, { width, height }] = useScrollSize()
@@ -26,10 +26,6 @@ export default function Visual() {
   const astronautY = useTransform(springScrollY, [0, 1], [0, 50]);
   const planetY = useTransform(warpTime, [0, 4000, 8000], [0, 25, 0], { ease: easeInOut })
   const infoY = useTransform(warpScrollY, [0, 1], [0, -70]);
-  const dateOpacity = useTransform(warpTime, [0, 2000, 6000, 8000], [1, 0, 0, 1]);
-  const dateHeight = useTransform(warpTime, [0, 2000, 6000, 8000], ["auto", 0, 0, "auto"]);
-  const date2Opacity = useTransform(warpTime, [0, 2000, 6000, 8000], [0, 1, 1, 0]);
-  const date2Height = useTransform(warpTime, [0, 2000, 6000, 8000], [0, "auto", "auto", 0]);
 
   return <div className="w-full h-[100vh]  overflow-hidden " ref={visualRef}>
     <div className="container relative">
@@ -42,9 +38,10 @@ export default function Visual() {
       <motion.img
         style={{ x: astronautX, y: astronautY }}
         className="absolute top-[35vh] w-[160px] sm:w-[200px] md:w-[320px] left-0 m-auto" src="/2023/visual/astronaut.svg" alt="astronaut" />
-      <motion.img
+      <Planets
         style={{ y: planetY }}
-        className="absolute top-[45vh] w-[250px] sm:w-[450px] md:w-[400px] left-0 right-0 m-auto" src="/2023/visual/planet.svg" alt="planet" />
+        className="absolute top-[35vh] w-[250px] sm:w-[450px] md:w-[400px] left-0 right-0 m-auto"
+      />
       <motion.div
         style={{ y: infoY }}
         className="absolute top-[75vh] m-auto w-full flex flex-col items-start gap-1 lg:gap-2 text-white leading-4">
