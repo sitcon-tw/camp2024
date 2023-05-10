@@ -1,8 +1,11 @@
 import SectionTitle from "../components/SectionTitle";
+import { motion } from "framer-motion";
 import {
-  motion,
-} from "framer-motion";
-import { EventBox, EventImg, EventContent, EventTitle } from "@/components/Events";
+  EventBox,
+  EventImg,
+  EventContent,
+  EventTitle,
+} from "@/components/Events";
 export default function Teams() {
   const members = [
     {
@@ -249,8 +252,8 @@ export default function Teams() {
                     .map((member, index) => (
                       <div className="flex flex-col items-center" key={index}>
                         <motion.img
-                          initial={{ opacity: 0, scale: 0.8, }}
-                          whileInView={{ opacity: 1, scale: 1, }}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
                           transition={{
                             type: "spring",
                             stiffness: 260,
@@ -258,12 +261,13 @@ export default function Teams() {
                           }}
                           whileTap={{ scale: 0.8 }}
                           src={`https://secure.gravatar.com/avatar/${member.md5}?s=512&d=https://sitcon.camp/2023/images/default_avatar.jpg`}
-                          className="h-24 inline rounded-full cursor-grab"
+                          className="h-24 inline rounded-full cursor-grab active:cursor-grabbing"
                         />
                         <motion.div
                           initial={{ opacity: 0 }}
                           whileInView={{ opacity: 1 }}
-                          className="text-center mt-2 opacity-80">
+                          className="text-center mt-2 opacity-80"
+                        >
                           {member.name}
                         </motion.div>
                       </div>
