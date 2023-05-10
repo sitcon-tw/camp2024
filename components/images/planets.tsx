@@ -43,6 +43,7 @@ export default function Planets({ style, className }: {
     <motion.path
       drag
       whileDrag={{ scale: 1.2, rotate: 45 }}
+      whileTap={{ scale: 1.2, rotate: 45 }}
       dragConstraints={{
         top: 0,
         left: 0,
@@ -51,11 +52,12 @@ export default function Planets({ style, className }: {
       }}
       dragElastic={0.05}
       style={{ opacity: star2Opacity, rotate: star2Rotate, scale: star2Scale }}
-      className="cursor-grab"
+      className="cursor-grab active:cursor-grabbing"
       d="M66.8654 316.889L68.0081 322.516L73.2921 324.765L68.2932 327.591L67.7877 333.311L63.5548 329.43L57.9588 330.716L60.3418 325.492L57.3887 320.568L63.0943 321.219L66.8654 316.889Z" fill="white" />
     <motion.path
       drag
       whileDrag={{ scale: 1.2, rotate: 45 }}
+      whileTap={{ scale: 1.2, rotate: 45 }}
       dragConstraints={{
         top: 0,
         left: 0,
@@ -64,7 +66,7 @@ export default function Planets({ style, className }: {
       }}
       dragElastic={0.05}
       style={{ opacity: star1Opacity, rotate: star1Rotate }}
-      className="cursor-grab"
+      className="cursor-grab active:cursor-grabbing"
       d="M519.555 376.318L533.14 380.351L544.165 371.445L544.528 385.612L556.405 393.344L543.043 398.068L539.36 411.752L530.738 400.504L516.586 401.231L524.618 389.554L519.555 376.318Z" fill="white" />
     <path d="M560.013 275.568C572.972 275.568 583.476 265.063 583.476 252.105C583.476 239.146 572.972 228.642 560.013 228.642C547.055 228.642 536.55 239.146 536.55 252.105C536.55 265.063 547.055 275.568 560.013 275.568Z" fill="#77B45A" stroke="white" stroke-width="5.42102" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round" />
     <path d="M29.5017 396.1C36.7606 396.1 42.645 390.215 42.645 382.956C42.645 375.697 36.7606 369.813 29.5017 369.813C22.2429 369.813 16.3584 375.697 16.3584 382.956C16.3584 390.215 22.2429 396.1 29.5017 396.1Z" fill="#E7A35B" stroke="white" stroke-width="5.42018" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round" />
