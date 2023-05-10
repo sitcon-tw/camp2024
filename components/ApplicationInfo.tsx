@@ -99,7 +99,17 @@ export default function ApplicationInfo() {
         <div className="text-2xl font-bold min-w-max">注意事項</div>
         <div className="mt-4 lg:mt-0 lg:border-l lg:border-white lg:pl-6">
           <ol className="list-decimal list-inside leading-7">
-            <li>三人同時報名，視為團體報名，每團以三人為限。</li>
+            <li>
+              三人同時報名，視為團體報名，享有團體報名價格，但並不保證同時錄取，
+              <a
+                href="https://drive.google.com/file/d/1HsA7Ed4xuc-qPlLdvMvcBzOxX9k5Ja1u/view?usp=share_link"
+                target="_blank"
+                className="link"
+              >
+                請詳閱活動報名簡章
+              </a>
+              。
+            </li>
             <li>
               本次夏令營預計招收學員 60
               名，我們會針對報名資料做簡易審查，非先報先贏。
