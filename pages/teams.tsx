@@ -6,6 +6,47 @@ import {
   EventContent,
   EventTitle,
 } from "@/components/Events";
+import { useState } from "react";
+function MemberCard({ name, md5 }: {
+  name: string,
+  md5: string
+}) {
+  const [clickCount, setClickCount] = useState(0)
+  return (
+    <div className="flex flex-col items-center" onClick={e => setClickCount(clickCount + 1)}>
+      <motion.img
+        drag
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 260,
+          damping: 20,
+        }}
+        whileTap={{ scale: 0.8 }}
+        whileDrag={{ scale: 0.8 }}
+        dragConstraints={{
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+        }}
+        dragElastic={0.05}
+        src={`https://secure.gravatar.com/avatar/${md5}?s=512&d=https://sitcon.camp/2023/images/default_avatar.jpg`}
+        className="h-24 inline rounded-full cursor-grab active:cursor-grabbing"
+      />
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        className="text-center mt-2 opacity-80"
+      >
+        {clickCount >= 7 ? <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>🥞{" "}</motion.span> : ``}
+        {name}
+        {clickCount >= 7 ? <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>{" "}🥞</motion.span> : ``}
+      </motion.div>
+    </div>
+  )
+}
 export default function Teams() {
   const members = [
     {
@@ -249,38 +290,7 @@ export default function Teams() {
                 >
                   {members
                     .filter((member) => member.group === name)
-                    .map((member, index) => (
-                      <div className="flex flex-col items-center" key={index}>
-                        <motion.img
-                          drag
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{
-                            type: "spring",
-                            stiffness: 260,
-                            damping: 20,
-                          }}
-                          whileTap={{ scale: 0.8 }}
-                          whileDrag={{ scale: 0.8 }}
-                          dragConstraints={{
-                            top: 0,
-                            left: 0,
-                            right: 0,
-                            bottom: 0,
-                          }}
-                          dragElastic={0.05}
-                          src={`https://secure.gravatar.com/avatar/${member.md5}?s=512&d=https://sitcon.camp/2023/images/default_avatar.jpg`}
-                          className="h-24 inline rounded-full cursor-grab active:cursor-grabbing"
-                        />
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          whileInView={{ opacity: 1 }}
-                          className="text-center mt-2 opacity-80"
-                        >
-                          {member.name}
-                        </motion.div>
-                      </div>
-                    ))}
+                    .map((member, index) => <MemberCard name={member.name} md5={member.md5} key={index} />)}
                 </div>
               </>
             );
