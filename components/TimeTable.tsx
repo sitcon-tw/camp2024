@@ -38,6 +38,7 @@ export default function TimeTable() {
   const gridTemplateRows = ['[roomname]',
     ...times.map(x => `[🥞${x.replace(":", "")}]`),
     '[🥞end]'].join(' auto ')
+  // for mobile
   const [activeDay, setActiveDay] = useState(Object.keys(rooms)[0])
   const x = useMotionValue(0)
   const size = useWindowSize()
@@ -45,10 +46,20 @@ export default function TimeTable() {
     let vw = window.innerWidth
     let rem = parseFloat(getComputedStyle(document.documentElement).fontSize)
     x.set((-vw + rem) * Object.keys(rooms).indexOf(activeDay))
+    DayTranslateX.forEach((x, i) => {
+      x.set(0)
+    })
   }, [activeDay, size.width])
   const springX = useSpring(x, { stiffness: 300, damping: 35 })
   const swipeConfidenceThreshold = 10000;
   const swipePower = (offset: number, velocity: number) => Math.abs(offset) * velocity;
+  const DayTranslateX = [
+    useMotionValue(0),
+    useMotionValue(0),
+    useMotionValue(0),
+    useMotionValue(0),
+    useMotionValue(0),
+  ]
   return (<>
     <div className='gap-1 hidden lg:grid'
       style={{
@@ -147,7 +158,7 @@ export default function TimeTable() {
           }}
         >
           {
-            Object.keys(rooms).map((item: string) => (
+            Object.keys(rooms).map((item: string, i: number) => (
               <motion.div
                 className="flex flex-col gap-1 mt-2 w-[calc(100vw-2rem)]"
                 key={item}
@@ -157,6 +168,9 @@ export default function TimeTable() {
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.2}
                 drag='x'
+                style={{
+                  x: DayTranslateX[i],
+                }}
                 onDragEnd={(e, { offset, velocity }) => {
                   const swipe = swipePower(offset.x, velocity.x);
                   if (swipe < -swipeConfidenceThreshold) {
