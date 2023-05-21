@@ -68,7 +68,7 @@ export default function TimeTable() {
         gridColumnEnd: `🥞end`,
         gridRowEnd: `🥞2200`,
       }}
-        className='bg-blue-500 bg-opacity-5 rounded-xl'
+        className='bg-[#01405D] bg-opacity-30 rounded-xl'
       />
       {
         times.map((time, i) => (
@@ -92,7 +92,7 @@ export default function TimeTable() {
             gridColumnStart: `🥞${room}`,
             gridRowStart: `roomname`,
           }}
-            className={`text-center py-2 bg-white bg-opacity-[.025] text-white ${i === 0 && `rounded-tl-xl`} ${i === 4 && `rounded-tr-xl`}`}
+            className={`text-center py-2 bg-white bg-opacity-[.02] text-white ${i === 0 && `rounded-tl-xl`} ${i === 4 && `rounded-tr-xl`}`}
             key={room}
           >
             <div className="text-xl font-bold">
@@ -107,7 +107,7 @@ export default function TimeTable() {
       {
         schedule.sessions.map((session: any, i) => (
           <div style={parseSessionStyle(session)}
-            className='bg-white bg-opacity-5 flex flex-col justify-center items-center p-4 text-white'
+            className='bg-white bg-opacity-[.03] flex flex-col justify-center items-center p-4 text-white'
             key={`${session.room}-${session.zh.title}`}
           >
             <div className='font-bold'>
