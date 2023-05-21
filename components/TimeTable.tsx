@@ -46,21 +46,15 @@ export default function TimeTable() {
     let vw = window.innerWidth
     let rem = parseFloat(getComputedStyle(document.documentElement).fontSize)
     x.set((-vw + rem) * Object.keys(rooms).indexOf(activeDay))
-    DayTranslateX.forEach((x, i) => {
-      x.set(0)
-    })
+    DayTranslateX.set(0)
     document.getElementById(`item-${activeDay}`)?.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' })
   }, [activeDay, size.width])
   const springX = useSpring(x, { stiffness: 300, damping: 35 })
   const swipeConfidenceThreshold = 10000;
   const swipePower = (offset: number, velocity: number) => Math.abs(offset) * velocity;
-  const DayTranslateX = [
-    useMotionValue(0),
-    useMotionValue(0),
-    useMotionValue(0),
-    useMotionValue(0),
-    useMotionValue(0),
-  ]
+  const DayTranslateX = useMotionValue(0)
+
+
   return (<>
     <div className='gap-1 hidden lg:grid'
       style={{
@@ -170,9 +164,7 @@ export default function TimeTable() {
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.2}
                 drag='x'
-                style={{
-                  x: DayTranslateX[i],
-                }}
+                style={{ x: DayTranslateX }}
                 onDragEnd={(e, { offset, velocity }) => {
                   const swipe = swipePower(offset.x, velocity.x);
                   if (swipe < -swipeConfidenceThreshold) {
