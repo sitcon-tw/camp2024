@@ -24,7 +24,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
     - name: Generate Schedule Json
-      uses: CCIP-App/schedule-json-generator-action@main
+      uses: CCIP-App/schedule-json-generator-action@v2
       with:
         gcp-api-key: ${{ secrets.GCP_API_KEY }}
         spreadsheet-key: "1oeoSMCZVewDOmTjbJ_Y_u3TEkwRp-IOckvu05hd6qJc"
