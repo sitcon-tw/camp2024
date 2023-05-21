@@ -12,7 +12,7 @@ fs.readFile('./members.csv', 'utf8', (err, data) => {
       md5: md5(member[2].trim().toLowerCase())
     });
   }
-  fs.writeFile('./membersMD5.json', JSON.stringify(result), (err) => {
+  fs.writeFile('../public/members.json', JSON.stringify(result), (err) => {
     if (err) throw err;
     console.log('The file has been saved!');
   });
