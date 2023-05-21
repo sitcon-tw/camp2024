@@ -36,3 +36,4 @@ next-env.d.ts
 dist
 utils/membersMD5.json
 utils/members.csv
+public/schedule.json
