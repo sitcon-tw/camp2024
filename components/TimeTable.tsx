@@ -60,7 +60,9 @@ export default function TimeTable() {
             style={{
               gridColumnStart: `🥞time`,
               gridRowStart: `🥞${time.replace(":", "")}`,
-            }}>
+            }}
+            key={time}
+          >
             <div className={`text-white font-bold ${time.endsWith('30') ? `text-opacity-70` : ``}`}>
               {time}
             </div>
@@ -74,6 +76,7 @@ export default function TimeTable() {
             gridRowStart: `roomname`,
           }}
             className={`text-center py-2 bg-white bg-opacity-5 text-white ${i === 0 && `rounded-tl-xl`} ${i === 4 && `rounded-tr-xl`}`}
+            key={room}
           >
             <div className="text-xl font-bold">
               {room}
@@ -88,6 +91,7 @@ export default function TimeTable() {
         schedule.sessions.map((session: any, i) => (
           <div style={parseSessionStyle(session)}
             className='bg-white bg-opacity-5 flex flex-col justify-center items-center p-4 text-white'
+            key={`${session.room}-${session.zh.title}`}
           >
             <div className='font-bold'>
               {session.zh.title.split('\n')[0]}
@@ -108,6 +112,7 @@ export default function TimeTable() {
             <div
               className={`flex flex-col whitespace-nowrap px-2 py-1 cursor-pointer relative`}
               onClick={() => setActiveDay(room)}
+              key={room}
             >
               {activeDay === room && <motion.div
                 className='absolute inset-0 h-full bg-black bg-opacity-10 border border-black border-opacity-20 rounded-xl shadow-xl'
