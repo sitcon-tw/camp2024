@@ -33,8 +33,8 @@ export default function Events() {
   return (
     <div className="container">
       <SectionTitle id="events">課程活動</SectionTitle>
-      {/* <TimeTable />
-    <div className="mt-12 md:mt-6" /> */}
+      <TimeTable />
+      <div className="mt-12 md:mt-6" />
       <EventBox>
         <EventContent>
           <EventTitle>主線課程</EventTitle>
