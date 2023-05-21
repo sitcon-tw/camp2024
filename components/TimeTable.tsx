@@ -42,12 +42,12 @@ export default function TimeTable() {
       {
         times.map((time, i) => (
           <div
-            className="time-item"
+            className="time-item -translate-y-4 mr-4"
             style={{
               gridColumnStart: `🥞time`,
               gridRowStart: `🥞${parseTime(time, false)}`,
             }}>
-            <div className="time-item-content">
+            <div className={`text-white font-bold ${parseTime(time).endsWith('30') ? `text-opacity-80` : ``}`}>
               {parseTime(time)}
             </div>
           </div>
