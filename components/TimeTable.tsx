@@ -1,4 +1,6 @@
 import schedule from '../public/schedule.json'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 export default function TimeTable() {
   function parseTime(time: Date, colon: Boolean = true): string {
     let res = new Date(time).toLocaleTimeString('en-US', {
@@ -19,19 +21,23 @@ export default function TimeTable() {
   }
   const rooms: { [key: string]: string } = { "Day1": "7/20（四）", "Day2": "7/21（五）", "Day3": "7/22（六）", "Day4": "7/23（日）", "Day5": "7/24（一）" }
 
-  const times = [...new Set(
-    [...schedule.sessions.map(({ start }) => start),
-    ...schedule.sessions.map(({ end }) => end),]
-  )]
-    .map(x => new Date(x))
-    .sort()
+  const times =
+    [
+      ...new Set(
+        [
+          ...schedule.sessions.map(({ start }) => start),
+          ...schedule.sessions.map(({ end }) => end)
+        ]
+          .map(x => new Date(x))
+          .map(x => parseTime(x))
+      )
+    ]
+      .sort()
   const gridTemplateColumns = ['[🥞time]', 'auto', Object.keys(rooms).map(x => `[🥞${x}]`).join(' 1fr ') + '1fr', '[🥞end]'].join(' ')
   const gridTemplateRows = ['[roomname]',
-    ...times
-      .map(x => parseTime(x, false))
-      .sort()
-      .map(x => `[🥞${x}]`),
+    ...times.map(x => `[🥞${x.replace(":", "")}]`),
     '[🥞end]'].join(' auto ')
+  const [activeDay, setActiveDay] = useState(Object.keys(rooms)[0])
   return (<>
     <div className='gap-1 hidden lg:grid'
       style={{
@@ -39,16 +45,24 @@ export default function TimeTable() {
         gridTemplateRows,
       }}
     >
+      <div style={{
+        gridColumnStart: `🥞Day1`,
+        gridRowStart: `roomname`,
+        gridColumnEnd: `🥞end`,
+        gridRowEnd: `🥞2200`,
+      }}
+        className='bg-blue-500 bg-opacity-5 rounded-xl'
+      />
       {
         times.map((time, i) => (
           <div
             className="time-item -translate-y-4 mr-4"
             style={{
               gridColumnStart: `🥞time`,
-              gridRowStart: `🥞${parseTime(time, false)}`,
+              gridRowStart: `🥞${time.replace(":", "")}`,
             }}>
-            <div className={`text-white font-bold ${parseTime(time).endsWith('30') ? `text-opacity-80` : ``}`}>
-              {parseTime(time)}
+            <div className={`text-white font-bold ${time.endsWith('30') ? `text-opacity-70` : ``}`}>
+              {time}
             </div>
           </div>
         ))
@@ -59,7 +73,7 @@ export default function TimeTable() {
             gridColumnStart: `🥞${room}`,
             gridRowStart: `roomname`,
           }}
-            className='text-center'
+            className={`text-center py-2 bg-white bg-opacity-5 text-white ${i === 0 && `rounded-tl-xl`} ${i === 4 && `rounded-tr-xl`}`}
           >
             <div className="text-xl font-bold">
               {room}
@@ -73,7 +87,7 @@ export default function TimeTable() {
       {
         schedule.sessions.map((session: any, i) => (
           <div style={parseSessionStyle(session)}
-            className='bg-white bg-opacity-10 flex flex-col justify-center items-center p-4 text-white'
+            className='bg-white bg-opacity-5 flex flex-col justify-center items-center p-4 text-white'
           >
             <div className='font-bold'>
               {session.zh.title.split('\n')[0]}
@@ -86,6 +100,59 @@ export default function TimeTable() {
           </div>
         ))
       }
+    </div>
+    <div className='lg:hidden'>
+      <div className="flex flex-row overflow-x-scroll gap-1">
+        {
+          Object.keys(rooms).map((room, i) => (
+            <div
+              className={`flex flex-col whitespace-nowrap px-2 py-1 cursor-pointer relative`}
+              onClick={() => setActiveDay(room)}
+            >
+              {activeDay === room && <motion.div
+                className='absolute bottom-0 left-0 right-0 h-full bg-white bg-opacity-10 rounded'
+                layout
+                layoutId='activeDay'
+              />}
+              <div className="font-bold z-10">
+                {room}
+              </div>
+              <div className="text-white text-opacity-80 text-xs z-10">
+                {rooms[room]}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <div className="flex flex-col gap-1 mt-2">
+        <AnimatePresence mode="wait">
+          {
+            schedule.sessions.filter(({ room }) => room === activeDay).map((session: any, i) => (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                key={`${session.room}-${session.zh.title}`}
+              >
+                <div className='bg-black bg-opacity-10 border border-black border-opacity-20 flex flex-col px-4 py-2 text-white rounded overflow-hidden'>
+                  <div className='text-sm'>
+                    {parseTime(session.start)} - {parseTime(session.end)}
+                  </div>
+                  <div className='font-bold'>
+                    {session.zh.title.split('\n')[0]}
+                    {session.zh.title.split('\n').length >= 2 &&
+                      <span className="ml-1 text-white text-opacity-80 font-normal">
+                        {session.zh.title.split('\n')[1]}
+                      </span>
+                    }
+                  </div>
+
+                </div>
+              </motion.div>
+            ))
+          }
+        </AnimatePresence>
+      </div>
     </div>
   </>)
 }
