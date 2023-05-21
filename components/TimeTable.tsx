@@ -110,14 +110,14 @@ export default function TimeTable() {
               onClick={() => setActiveDay(room)}
             >
               {activeDay === room && <motion.div
-                className='absolute bottom-0 left-0 right-0 h-full bg-white bg-opacity-10 rounded'
+                className='absolute inset-0 h-full bg-black bg-opacity-10 border border-black border-opacity-20 rounded-xl shadow-xl'
                 layout
                 layoutId='activeDay'
               />}
               <div className="font-bold z-10">
                 {room}
               </div>
-              <div className="text-white text-opacity-80 text-xs z-10">
+              <div className="text-white text-opacity-80 text-xs z-10 mb-1">
                 {rooms[room]}
               </div>
             </div>
@@ -129,14 +129,14 @@ export default function TimeTable() {
           {
             schedule.sessions.filter(({ room }) => room === activeDay).map((session: any, i) => (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 5 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
+                exit={{ opacity: 0, y: 5 }}
                 key={`${session.room}-${session.zh.title}`}
               >
-                <div className='bg-black bg-opacity-10 border border-black border-opacity-20 flex flex-col px-4 py-2 text-white rounded overflow-hidden'>
+                <div className='bg-black bg-opacity-10 border border-black border-opacity-20 flex flex-col px-4 py-2 text-white rounded-xl overflow-hidden shadow-sm'>
                   <div className='text-sm'>
-                    {parseTime(session.start)} - {parseTime(session.end)}
+                    {parseTime(session.start)} ~ {parseTime(session.end)}
                   </div>
                   <div className='font-bold'>
                     {session.zh.title.split('\n')[0]}
