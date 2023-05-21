@@ -152,6 +152,7 @@ export default function TimeTable() {
           style={{
             x: springX
           }}
+          onClick={e => { DayTranslateX.set(0) }}
         >
           {
             Object.keys(rooms).map((item: string, i: number) => (
