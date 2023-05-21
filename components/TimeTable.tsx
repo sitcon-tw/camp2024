@@ -75,7 +75,7 @@ export default function TimeTable() {
             gridColumnStart: `🥞${room}`,
             gridRowStart: `roomname`,
           }}
-            className={`text-center py-2 bg-white bg-opacity-5 text-white ${i === 0 && `rounded-tl-xl`} ${i === 4 && `rounded-tr-xl`}`}
+            className={`text-center py-2 bg-white bg-opacity-[.025] text-white ${i === 0 && `rounded-tl-xl`} ${i === 4 && `rounded-tr-xl`}`}
             key={room}
           >
             <div className="text-xl font-bold">
