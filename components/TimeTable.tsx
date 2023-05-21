@@ -49,6 +49,7 @@ export default function TimeTable() {
     DayTranslateX.forEach((x, i) => {
       x.set(0)
     })
+    document.getElementById(`item-${activeDay}`)?.scrollIntoView({ behavior: 'smooth', inline: 'center' })
   }, [activeDay, size.width])
   const springX = useSpring(x, { stiffness: 300, damping: 35 })
   const swipeConfidenceThreshold = 10000;
@@ -133,6 +134,7 @@ export default function TimeTable() {
           Object.keys(rooms).map((room, i) => (
             <div
               className={`flex flex-col whitespace-nowrap px-2 py-1 cursor-pointer relative`}
+              id={`item-${room}`}
               onClick={() => setActiveDay(room)}
               key={room}
             >
