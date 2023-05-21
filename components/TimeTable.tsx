@@ -1,6 +1,7 @@
 import schedule from '../public/schedule.json'
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { motion, AnimatePresence, spring, useMotionValue, useSpring } from 'framer-motion'
+import useWindowSize from '@/hooks/useWindowSize'
 export default function TimeTable() {
   function parseTime(time: Date, colon: Boolean = true): string {
     let res = new Date(time).toLocaleTimeString('en-US', {
@@ -38,6 +39,18 @@ export default function TimeTable() {
     ...times.map(x => `[🥞${x.replace(":", "")}]`),
     '[🥞end]'].join(' auto ')
   const [activeDay, setActiveDay] = useState(Object.keys(rooms)[0])
+  const x = useMotionValue(0)
+  const size = useWindowSize()
+  useEffect(() => {
+    let vw = window.innerWidth
+    let rem = parseFloat(getComputedStyle(document.documentElement).fontSize)
+    x.set((-vw + rem) * Object.keys(rooms).indexOf(activeDay))
+  }, [activeDay, size.width])
+  const springX = useSpring(x, { stiffness: 300, damping: 35 })
+  const swipeConfidenceThreshold = 10000;
+  const swipePower = (offset: number, velocity: number) => {
+    return Math.abs(offset) * velocity;
+  };
   return (<>
     <div className='gap-1 hidden lg:grid'
       style={{
@@ -129,34 +142,57 @@ export default function TimeTable() {
           ))
         }
       </div>
-      <div className="flex flex-col gap-1 mt-2">
-        <AnimatePresence mode="wait">
+      <div className='w-full overflow-x-hidden'>
+        <motion.div className='min-w-[calc((100vw-1rem)*5)] flex flex-row flex-nowrap gap-4'
+          style={{
+            x: springX
+          }}
+        >
           {
-            schedule.sessions.filter(({ room }) => room === activeDay).map((session: any, i) => (
+            Object.keys(rooms).map((item: string) => (
               <motion.div
-                initial={{ opacity: 0, y: 5 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 5 }}
-                key={`${session.room}-${session.zh.title}`}
+                className="flex flex-col gap-1 mt-2 w-[calc(100vw-2rem)]"
+                key={item}
+                initial={{ opacity: 0, filter: 'blur(10px)' }}
+                whileInView={{ opacity: 1, filter: 'blur(0px)' }}
+                exit={{ opacity: 0, filter: 'blur(10px)' }}
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.5}
+                drag='x'
+                onDragEnd={(e, { offset, velocity }) => {
+                  const swipe = swipePower(offset.x, velocity.x);
+                  if (swipe < -swipeConfidenceThreshold) {
+                    setActiveDay(Object.keys(rooms)[Math.min(Object.keys(rooms).length - 1, Object.keys(rooms).indexOf(activeDay) + 1)])
+                  } else if (swipe > swipeConfidenceThreshold) {
+                    setActiveDay(Object.keys(rooms)[Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)])
+                  }
+                }}
               >
-                <div className='bg-black bg-opacity-10 border border-black border-opacity-20 flex flex-col px-4 py-2 text-white rounded-xl overflow-hidden shadow-sm'>
-                  <div className='text-sm'>
-                    {parseTime(session.start)} ~ {parseTime(session.end)}
-                  </div>
-                  <div className='font-bold'>
-                    {session.zh.title.split('\n')[0]}
-                    {session.zh.title.split('\n').length >= 2 &&
-                      <span className="ml-1 text-white text-opacity-80 font-normal">
-                        {session.zh.title.split('\n')[1]}
-                      </span>
-                    }
-                  </div>
+                {
+                  schedule.sessions.filter(({ room }) => room === item).map((session: any, i) => (
+                    <motion.div
+                      key={`${session.room}-${session.zh.title}`}
+                    >
+                      <div className='bg-black bg-opacity-10 border border-black border-opacity-20 flex flex-col px-4 py-2 text-white rounded-xl overflow-hidden shadow-sm'>
+                        <div className='text-sm'>
+                          {parseTime(session.start)} ~ {parseTime(session.end)}
+                        </div>
+                        <div className='font-bold'>
+                          {session.zh.title.split('\n')[0]}
+                          {session.zh.title.split('\n').length >= 2 &&
+                            <span className="ml-1 text-white text-opacity-80 font-normal">
+                              {session.zh.title.split('\n')[1]}
+                            </span>
+                          }
+                        </div>
 
-                </div>
-              </motion.div>
-            ))
+                      </div>
+                    </motion.div>
+                  ))
+                }
+              </motion.div>))
           }
-        </AnimatePresence>
+        </motion.div>
       </div>
     </div>
   </>)
