@@ -48,9 +48,7 @@ export default function TimeTable() {
   }, [activeDay, size.width])
   const springX = useSpring(x, { stiffness: 300, damping: 35 })
   const swipeConfidenceThreshold = 10000;
-  const swipePower = (offset: number, velocity: number) => {
-    return Math.abs(offset) * velocity;
-  };
+  const swipePower = (offset: number, velocity: number) => Math.abs(offset) * velocity;
   return (<>
     <div className='gap-1 hidden lg:grid'
       style={{
@@ -157,7 +155,7 @@ export default function TimeTable() {
                 whileInView={{ opacity: 1, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, filter: 'blur(10px)' }}
                 dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.5}
+                dragElastic={0.2}
                 drag='x'
                 onDragEnd={(e, { offset, velocity }) => {
                   const swipe = swipePower(offset.x, velocity.x);
