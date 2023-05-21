@@ -165,6 +165,7 @@ export default function TimeTable() {
                 dragElastic={0.2}
                 drag='x'
                 style={{ x: DayTranslateX }}
+                whileTap={{ x: 0 }}
                 onDragEnd={(e, { offset, velocity }) => {
                   const swipe = swipePower(offset.x, velocity.x);
                   if (swipe < -swipeConfidenceThreshold) {
