@@ -30,7 +30,7 @@ jobs:
         spreadsheet-key: "1oeoSMCZVewDOmTjbJ_Y_u3TEkwRp-IOckvu05hd6qJc"
         default-avatar: "https://sitcon.org/2018/static/img/staffs/stone.png"
         avatar-base-url: "https://sitcon.org/2018/static/img/speaker/"
-        output-path: "/public/schedule.json"
+        output-path: ./public/schedule.json
     - name: Install npm packages
       run: npm install
     - name: Build Pages
