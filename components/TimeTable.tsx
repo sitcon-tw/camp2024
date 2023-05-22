@@ -1,6 +1,6 @@
 import schedule from '../public/schedule.json'
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence, spring, useMotionValue, useSpring } from 'framer-motion'
+import { motion, useMotionValue, useSpring } from 'framer-motion'
 import useWindowSize from '@/hooks/useWindowSize'
 export default function TimeTable() {
   function parseTime(time: Date, colon: Boolean = true): string {
