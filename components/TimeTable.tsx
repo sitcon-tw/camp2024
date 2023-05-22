@@ -46,7 +46,6 @@ export default function TimeTable() {
     let vw = window.innerWidth
     let rem = parseFloat(getComputedStyle(document.documentElement).fontSize)
     x.set((-vw + rem) * Object.keys(rooms).indexOf(activeDay))
-    DayTranslateX.set(0)
     document.getElementById(`item-${activeDay}`)?.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' })
   }, [activeDay, size.width])
   const springX = useSpring(x, { stiffness: 300, damping: 35 })
@@ -174,6 +173,9 @@ export default function TimeTable() {
                   } else if (swipe > swipeConfidenceThreshold) {
                     setActiveDay(Object.keys(rooms)[Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)])
                   }
+                  setTimeout(() => {
+                    DayTranslateX.set(0)
+                  }, 200)
                 }}
               >
                 {
