@@ -7,7 +7,7 @@ import {
   easeInOut
 } from "framer-motion";
 import Planets from "./images/planets";
-import useScrollSize from "../utils/useScrollSize";
+import useScrollSize from "../hooks/useScrollSize";
 export default function Visual() {
   const [visualRef, { width, height }] = useScrollSize()
   const { scrollY } = useScroll()

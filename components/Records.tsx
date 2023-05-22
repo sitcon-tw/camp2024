@@ -11,7 +11,7 @@ import {
   useAnimationFrame,
 } from "framer-motion";
 import { wrap } from "@motionone/utils";
-import useScrollSize from "../utils/useScrollSize";
+import useScrollSize from "../hooks/useScrollSize";
 import Button from "./Button";
 interface ParallaxProps {
   children: React.ReactNode;
