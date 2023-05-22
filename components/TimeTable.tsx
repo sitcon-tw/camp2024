@@ -47,6 +47,8 @@ export default function TimeTable() {
     let rem = parseFloat(getComputedStyle(document.documentElement).fontSize)
     x.set((-vw + rem) * Object.keys(rooms).indexOf(activeDay))
     document.getElementById(`item-${activeDay}`)?.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' })
+
+    DayTranslateX.set(0)
   }, [activeDay, size.width])
   const springX = useSpring(x, { stiffness: 300, damping: 35 })
   const swipeConfidenceThreshold = 10000;
@@ -162,9 +164,11 @@ export default function TimeTable() {
                 whileInView={{ opacity: 1, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, filter: 'blur(10px)' }}
                 dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.2}
+                dragElastic={0.05}
+                dragTransition={{ bounceStiffness: 5000, bounceDamping: 100 }}
                 drag='x'
                 style={{ x: DayTranslateX }}
+                dragSnapToOrigin={true}
                 whileTap={{ x: 0 }}
                 onDragEnd={(e, { offset, velocity }) => {
                   const swipe = swipePower(offset.x, velocity.x);
@@ -173,9 +177,6 @@ export default function TimeTable() {
                   } else if (swipe > swipeConfidenceThreshold) {
                     setActiveDay(Object.keys(rooms)[Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)])
                   }
-                  setTimeout(() => {
-                    DayTranslateX.set(0)
-                  }, 200)
                 }}
               >
                 {
