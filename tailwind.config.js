@@ -19,6 +19,9 @@ module.exports = {
     extend: {
       backgroundImage: {
       },
+      opacity: {
+        '15': '0.15'
+      }
     },
   },
   plugins: [require('@tailwindcss/typography'),],
