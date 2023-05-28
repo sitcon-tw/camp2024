@@ -107,7 +107,7 @@ export default function Visual() {
                 報名期限
               </motion.div>
               <motion.div className="text-2xl font-bold lg:text-4xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">
-                <span className="hidden lg:inline">即日起 ~ 06/02</span>
+                <span className="hidden lg:inline">延長至 06/02</span>
                 <span className="lg:hidden">6/2 截止</span>
               </motion.div>
             </div>

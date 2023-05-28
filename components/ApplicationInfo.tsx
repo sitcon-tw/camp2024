@@ -65,7 +65,7 @@ export default function ApplicationInfo() {
       </ApplicationCard>
       <ApplicationCard icon="bx-time">
         <ApplicationTitle>報名時間</ApplicationTitle>
-        <ApplicationContent>即日起延長至 06/02</ApplicationContent>
+        <ApplicationContent>延長至 06/02</ApplicationContent>
       </ApplicationCard>
       <div className="flex gap-4 w-full">
         <PriceCard type="個人報名" price={8800} />
