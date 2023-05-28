@@ -31,11 +31,17 @@ function ApplicationCard({
   dense?: boolean;
 }) {
   return (
-    <div className={`bg-[#013249] rounded-xl ${dense ? `py-2 px-6` : `py-4 px-6 lg:py-6`} relative overflow-hidden mb-4`}>
+    <div
+      className={`bg-[#013249] rounded-xl ${
+        dense ? `py-2 px-6` : `py-4 px-6 lg:py-6`
+      } relative overflow-hidden mb-4`}
+    >
       <div className="relative z-10">{children}</div>
-      {icon && <i
-        className={`absolute text-[96px] h-[96px] w-[96px] bottom-0 top-0 right-4 m-auto text-[#015C85] opacity-50 bx ${icon}`}
-      ></i>}
+      {icon && (
+        <i
+          className={`absolute text-[96px] h-[96px] w-[96px] bottom-0 top-0 right-4 m-auto text-[#015C85] opacity-50 bx ${icon}`}
+        ></i>
+      )}
     </div>
   );
 }
@@ -89,12 +95,15 @@ export default function ApplicationInfo() {
           <div className="text-sm md:text-base">
             將 SITCON Camp 重要日程加入行事曆
           </div>
-          <Button href="/2023/events.ics" className="bg-blue-300 bg-opacity-10 hover:bg-blue-300 hover:bg-opacity-20 rounded-xl">
-            <i className='bx bx-calendar-plus'></i>
+          <Button
+            href="/2023/events.ics"
+            className="bg-blue-300 bg-opacity-10 hover:bg-blue-300 hover:bg-opacity-20 rounded-xl"
+          >
+            <i className="bx bx-calendar-plus"></i>
             加入行事曆
           </Button>
         </div>
-      </ApplicationCard >
+      </ApplicationCard>
       <div className="mt-4 p-4 lg:p-6 bg-[#013249] rounded-xl lg:flex gap-4 lg:gap-6 items-center">
         <div className="text-2xl font-bold min-w-max">注意事項</div>
         <div className="mt-4 lg:mt-0 lg:border-l lg:border-white lg:pl-6">
@@ -142,6 +151,6 @@ export default function ApplicationInfo() {
           </ol>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
