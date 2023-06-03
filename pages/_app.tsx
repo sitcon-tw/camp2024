@@ -51,6 +51,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 `,
         }}
       />
+      <Script
+        id="pancake"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+        console.log("%c美味的蓬蓬鬆餅都在這裡！%c https://pancake.tw ", "background-color: #13AA13; color: white; padding: 5px;", "background-color: #f2f2f2; color: white; padding: 5px;");
+`,
+        }}
+      />
     </>
   );
 }
