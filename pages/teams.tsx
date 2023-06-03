@@ -1,6 +1,6 @@
 import SectionTitle from "../components/SectionTitle";
 import { motion } from "framer-motion";
-import members from "@/public/members.json"
+import members from "@/public/members.json";
 import {
   EventBox,
   EventImg,
@@ -8,13 +8,13 @@ import {
   EventTitle,
 } from "@/components/Events";
 import { useState } from "react";
-function MemberCard({ name, md5 }: {
-  name: string,
-  md5: string
-}) {
-  const [clickCount, setClickCount] = useState(0)
+function MemberCard({ name, md5 }: { name: string; md5: string }) {
+  const [clickCount, setClickCount] = useState(0);
   return (
-    <div className="flex flex-col items-center" onClick={e => setClickCount(clickCount + 1)}>
+    <div
+      className="flex flex-col items-center"
+      onClick={(e) => setClickCount(clickCount + 1)}
+    >
       <motion.img
         drag
         initial={{ opacity: 0, scale: 0.8 }}
@@ -41,12 +41,25 @@ function MemberCard({ name, md5 }: {
         whileInView={{ opacity: 1 }}
         className="text-center mt-2 opacity-80"
       >
-        {clickCount >= 7 ? <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>🥞{" "}</motion.span> : ``}
+        {clickCount >= 7 ? (
+          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            🥞{" "}
+          </motion.span>
+        ) : (
+          ``
+        )}
         {name}
-        {clickCount >= 7 ? <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>{" "}🥞</motion.span> : ``}
+        {clickCount >= 7 ? (
+          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            {" "}
+            🥞
+          </motion.span>
+        ) : (
+          ``
+        )}
       </motion.div>
     </div>
-  )
+  );
 }
 export default function Teams() {
   //@ts-ignore
@@ -148,7 +161,13 @@ export default function Teams() {
                 >
                   {members
                     .filter((member) => member.group === name)
-                    .map((member, index) => <MemberCard name={member.name} md5={member.md5} key={index} />)}
+                    .map((member, index) => (
+                      <MemberCard
+                        name={member.name}
+                        md5={member.md5}
+                        key={index}
+                      />
+                    ))}
                 </div>
               </>
             );

@@ -1,6 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.link{
+.link {
   @apply underline decoration-white/50 hover:decoration-white/90 underline-offset-2 transition-all duration-300;
 }
