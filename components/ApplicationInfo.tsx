@@ -73,21 +73,15 @@ export default function ApplicationInfo() {
       </div>
       <div className="flex items-center justify-center my-8">
         <motion.a
-          initial={{ scale: 0.5, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.5, opacity: 0 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
           transition={{
             type: "spring",
             stiffness: 400,
             damping: 40,
           }}
-          href="https://sitcon.kktix.cc/events/sitcon-camp2023"
-          className="bg-[#015C85] hover:bg-[#034D6F] bg-opacity-80 backdrop-blur-xl rounded-full py-5 px-12 shadow-2xl text-4xl font-bold"
+          className="bg-[#ddd] bg-opacity-80 backdrop-blur-xl text-[#eee] rounded-full py-5 px-12 shadow-2xl text-4xl font-bold cursor-not-allowed"
           target="_blank"
         >
-          立即報名
+          報名已截止
         </motion.a>
       </div>
       <ApplicationCard dense>
