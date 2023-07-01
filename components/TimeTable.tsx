@@ -78,14 +78,12 @@ export default function TimeTable() {
       title: string;
       description: string;
     };
-    // Add other properties if applicable
   }
 
   const [sessionMessage, setSessionMessage] = useState<SessionMessage | null>(
     null
   );
   const handleButtonClick = (sessionInfo: any) => {
-    // alert(JSON.stringify(sessionInfo));
     setSessionMessage(sessionInfo);
   };
   const handleClose = () => {
@@ -230,7 +228,10 @@ export default function TimeTable() {
                   .filter(({ room }) => room === item)
                   .map((session: any, i) => (
                     <motion.div key={`${session.room}-${session.zh.title}`}>
-                      <div className="bg-black bg-opacity-10 border border-black border-opacity-20 flex flex-col px-4 py-2 text-white rounded-xl overflow-hidden shadow-sm">
+                      <div
+                        className="bg-black bg-opacity-10 border border-black border-opacity-20 flex flex-col px-4 py-2 text-white rounded-xl overflow-hidden shadow-sm"
+                        onClick={() => handleButtonClick(session)}
+                      >
                         <div className="text-sm">
                           {parseTime(session.start)} ~ {parseTime(session.end)}
                         </div>
