@@ -74,12 +74,10 @@ export default function TimeTable() {
   const DayTranslateX = useMotionValue(0);
 
   const [sessionMessage, setSessionMessage] = useState(null);
-
   const handleButtonClick = (sessionInfo: any) => {
     // alert(JSON.stringify(sessionInfo));
     setSessionMessage(sessionInfo);
   };
-
   const handleClose = () => {
     setSessionMessage(null);
   };
@@ -242,7 +240,6 @@ export default function TimeTable() {
           </motion.div>
         </div>
       </div>
-
       {sessionMessage && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-20">
           <div className="bg-[#2A4E63] text-white rounded-xl px-8 py-6 container w-full">
@@ -255,7 +252,15 @@ export default function TimeTable() {
                   {sessionMessage.zh.title.split("\n")[1]}
                 </div>
               </div>
-              <button onClick={handleClose}>X</button>
+              <button
+                onClick={handleClose}
+                className="text-white hover:text-[#F9A8D4] font-['Anicons_Regular'] text-xl transition-all"
+                style={{
+                  fontVariationSettings: `"TIME" 100`,
+                }}
+              >
+                A
+              </button>
             </div>
             <hr className="my-7 border-[1.3px]" />
             <div>
