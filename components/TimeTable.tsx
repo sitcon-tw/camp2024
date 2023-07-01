@@ -83,10 +83,10 @@ export default function TimeTable() {
   const [sessionMessage, setSessionMessage] = useState<SessionMessage | null>(
     null
   );
-  const handleButtonClick = (sessionInfo: any) => {
-    setSessionMessage(sessionInfo);
+  const openSessionBox = (sessionData: any) => {
+    if (sessionData.zh.description) setSessionMessage(sessionData);
   };
-  const handleClose = () => {
+  const closeSessionBox = () => {
     setSessionMessage(null);
   };
 
@@ -146,7 +146,7 @@ export default function TimeTable() {
             style={parseSessionStyle(session)}
             className="bg-white bg-opacity-[.08] flex flex-col justify-center items-center p-4 text-white"
             key={`${session.room}-${session.zh.title}`}
-            onClick={() => handleButtonClick(session)}
+            onClick={() => openSessionBox(session)}
           >
             <div className="font-bold">{session.zh.title.split("\n")[0]}</div>
             {session.zh.title.split("\n").length >= 2 && (
@@ -230,7 +230,7 @@ export default function TimeTable() {
                     <motion.div key={`${session.room}-${session.zh.title}`}>
                       <div
                         className="bg-black bg-opacity-10 border border-black border-opacity-20 flex flex-col px-4 py-2 text-white rounded-xl overflow-hidden shadow-sm"
-                        onClick={() => handleButtonClick(session)}
+                        onClick={() => openSessionBox(session)}
                       >
                         <div className="text-sm">
                           {parseTime(session.start)} ~ {parseTime(session.end)}
@@ -264,7 +264,7 @@ export default function TimeTable() {
                 </div>
               </div>
               <button
-                onClick={handleClose}
+                onClick={closeSessionBox}
                 className="text-white hover:text-[#F9A8D4] font-['Anicons_Regular'] text-xl transition-all"
                 style={{
                   fontVariationSettings: `"TIME" 100`,
