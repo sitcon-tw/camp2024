@@ -144,7 +144,12 @@ export default function TimeTable() {
         {schedule.sessions.map((session: any, i) => (
           <div
             style={parseSessionStyle(session)}
-            className="bg-white bg-opacity-[.08] flex flex-col justify-center items-center p-4 text-white hover:bg-opacity-20 hover:rounded-md hover:cursor-pointer transition-all"
+            className={
+              `bg-white bg-opacity-[.08] flex flex-col justify-center items-center p-4 text-white transition-all` +
+              (session.zh.description != ""
+                ? ` hover:bg-opacity-20 hover:rounded-md hover:cursor-pointer`
+                : ``)
+            }
             key={`${session.room}-${session.zh.title}`}
             onClick={() => openSessionBox(session)}
           >
