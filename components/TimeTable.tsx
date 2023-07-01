@@ -144,7 +144,7 @@ export default function TimeTable() {
         {schedule.sessions.map((session: any, i) => (
           <div
             style={parseSessionStyle(session)}
-            className="bg-white bg-opacity-[.08] flex flex-col justify-center items-center p-4 text-white hover:bg-opacity-20 hover:rounded-xl hover:cursor-pointer transition-all"
+            className="bg-white bg-opacity-[.08] flex flex-col justify-center items-center p-4 text-white hover:bg-opacity-20 hover:rounded-md hover:cursor-pointer transition-all"
             key={`${session.room}-${session.zh.title}`}
             onClick={() => openSessionBox(session)}
           >
@@ -252,7 +252,7 @@ export default function TimeTable() {
         </div>
       </div>
       {sessionMessage && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-20">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-[#2A4E63] text-white rounded-xl px-8 py-6 container w-full">
             <div className="flex flex-row justify-between items-center mb-2 overscroll-contain">
               <div>
