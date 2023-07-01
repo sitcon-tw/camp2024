@@ -73,7 +73,17 @@ export default function TimeTable() {
     Math.abs(offset) * velocity;
   const DayTranslateX = useMotionValue(0);
 
-  const [sessionMessage, setSessionMessage] = useState(null);
+  interface SessionMessage {
+    zh: {
+      title: string;
+      description: string;
+    };
+    // Add other properties if applicable
+  }
+
+  const [sessionMessage, setSessionMessage] = useState<SessionMessage | null>(
+    null
+  );
   const handleButtonClick = (sessionInfo: any) => {
     // alert(JSON.stringify(sessionInfo));
     setSessionMessage(sessionInfo);
