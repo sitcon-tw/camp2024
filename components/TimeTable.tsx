@@ -144,7 +144,7 @@ export default function TimeTable() {
         {schedule.sessions.map((session: any, i) => (
           <div
             style={parseSessionStyle(session)}
-            className="bg-white bg-opacity-[.08] flex flex-col justify-center items-center p-4 text-white"
+            className="bg-white bg-opacity-[.08] flex flex-col justify-center items-center p-4 text-white hover:bg-opacity-20 hover:rounded-xl hover:cursor-pointer transition-all"
             key={`${session.room}-${session.zh.title}`}
             onClick={() => openSessionBox(session)}
           >
@@ -277,6 +277,11 @@ export default function TimeTable() {
             <div>
               <div className="text-2xl">課程介紹</div>
               <div>{sessionMessage.zh.description}</div>
+            </div>
+
+            <div className="mt-4">
+              <div className="text-2xl">講者簡介</div>
+              <div></div>
             </div>
           </div>
         </div>
