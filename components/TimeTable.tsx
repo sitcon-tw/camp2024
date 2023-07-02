@@ -148,7 +148,7 @@ export default function TimeTable() {
               `bg-white bg-opacity-[.08] flex flex-col justify-center items-center p-4 text-white transition-all` +
               (session.zh.description != ""
                 ? ` hover:bg-opacity-20 hover:rounded-md hover:cursor-pointer`
-                : ``)
+                : "")
             }
             key={`${session.room}-${session.zh.title}`}
             onClick={() => openSessionBox(session)}
@@ -258,7 +258,7 @@ export default function TimeTable() {
       </div>
       {sessionMessage && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-[#2A4E63] text-white rounded-xl px-8 py-6 container w-full">
+          <div className="bg-[#2A4E63] text-white rounded-3xl px-8 py-7 container w-full">
             <div className="flex flex-row justify-between items-center mb-2 overscroll-contain">
               <div>
                 <div className="font-bold text-3xl">
@@ -280,13 +280,14 @@ export default function TimeTable() {
             </div>
             <hr className="my-7 border-[1.3px]" />
             <div>
-              <div className="text-2xl">課程介紹</div>
-              <div>{sessionMessage.zh.description}</div>
-            </div>
-
-            <div className="mt-4">
-              <div className="text-2xl">講者簡介</div>
-              <div></div>
+              <div className="flex items-center">
+                <img src="/2023/icon/pin.svg" className="w-8 h-8 mr-2" />
+                <h2 className="text-2xl">課程介紹</h2>
+              </div>
+              <div className="mt-2">
+                <div className="w- mr-2" />
+                <div className="text-xl">{sessionMessage.zh.description}</div>
+              </div>
             </div>
           </div>
         </div>
