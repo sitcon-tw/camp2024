@@ -145,9 +145,9 @@ export default function TimeTable() {
           <div
             style={parseSessionStyle(session)}
             className={
-              `bg-white bg-opacity-[.08] flex flex-col justify-center items-center p-4 text-white transition-all` +
+              `bg-white bg-opacity-[.08] flex flex-col justify-center items-center p-4 text-white transition-all relative` +
               (session.zh.description != ""
-                ? ` hover:bg-opacity-20 hover:rounded-md hover:cursor-pointer`
+                ? ` rounded-br-md hover:bg-opacity-20 hover:rounded-md hover:cursor-pointer`
                 : "")
             }
             key={`${session.room}-${session.zh.title}`}
@@ -159,6 +159,14 @@ export default function TimeTable() {
                 {session.zh.title.split("\n")[1]}
               </div>
             )}
+
+            <div
+              className={
+                session.zh.description != ""
+                  ? `absolute bottom-0 right-0 rounded-br-md w-3 h-3 border border-transparent border-b-inherit border-r-inherit`
+                  : "hidden"
+              }
+            ></div>
           </div>
         ))}
       </div>
