@@ -78,6 +78,7 @@ export default function TimeTable() {
       title: string;
       description: string;
     };
+    speakers: any;
   }
 
   const [sessionMessage, setSessionMessage] = useState<SessionMessage | null>(
@@ -296,6 +297,42 @@ export default function TimeTable() {
                 <div className="w- mr-2" />
                 <div className="text-xl">{sessionMessage.zh.description}</div>
               </div>
+            </div>
+
+            <div
+              className={`mt-4 ${
+                sessionMessage.speakers.length < 1 ? "hidden" : ""
+              }`}
+            >
+              {sessionMessage.speakers.map((speaker: any, i: number) => {
+                const matchedSpeakers = schedule.speakers.filter(
+                  ({ id }) => speaker === id
+                );
+                return (
+                  <div key={i}>
+                    {matchedSpeakers.map((matchedSpeaker: any) => (
+                      <>
+                        <div className="mt-10">
+                          <div className="flex items-center">
+                            <img
+                              src="/2023/icon/speaker.svg"
+                              className="w-8 h-8 mr-2"
+                            />
+                            <h2 className="text-2xl">
+                              講者介紹 - {matchedSpeaker.zh.name}
+                            </h2>
+                          </div>
+                          <div className="mt-2">
+                            <div className="text-xl">
+                              {matchedSpeaker.zh.bio}
+                            </div>
+                          </div>
+                        </div>
+                      </>
+                    ))}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
