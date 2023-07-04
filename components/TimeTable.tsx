@@ -85,7 +85,8 @@ export default function TimeTable() {
     null
   );
   const openSessionBox = (sessionData: any) => {
-    if (sessionData.zh.description) setSessionMessage(sessionData);
+    if (sessionData.zh.description || sessionData.speakers.length)
+      setSessionMessage(sessionData);
   };
   const closeSessionBox = () => {
     setSessionMessage(null);
@@ -147,7 +148,7 @@ export default function TimeTable() {
             style={parseSessionStyle(session)}
             className={
               `bg-white bg-opacity-[.08] flex flex-col justify-center items-center p-4 text-white transition-all relative` +
-              (session.zh.description != ""
+              (session.zh.description != "" || session.speakers.length != 0
                 ? ` rounded-br-md hover:bg-opacity-20 hover:rounded-md hover:cursor-pointer`
                 : "")
             }
@@ -163,7 +164,7 @@ export default function TimeTable() {
 
             <div
               className={
-                session.zh.description != ""
+                session.zh.description != "" || session.speakers.length != 0
                   ? `absolute bottom-0 right-0 rounded-br-md w-3 h-3 border border-transparent border-b-inherit border-r-inherit`
                   : "hidden"
               }
@@ -290,12 +291,14 @@ export default function TimeTable() {
             <hr className="my-7 border-[1.3px]" />
             <div>
               <div className="flex items-center">
-                <img src="/2023/icon/pin.svg" className="w-8 h-8 mr-2" />
-                <h2 className="text-2xl">課程介紹</h2>
+                <img src="/2023/icon/pin.svg" className="w-5 h-5 mr-2" />
+                <h2 className="text-xl">課程介紹</h2>
               </div>
               <div className="mt-2">
                 <div className="w- mr-2" />
-                <div className="text-xl">{sessionMessage.zh.description}</div>
+                <div className="text-md">
+                  {sessionMessage.zh.description || "這節課沒有介紹！"}
+                </div>
               </div>
             </div>
 
@@ -316,16 +319,21 @@ export default function TimeTable() {
                           <div className="flex items-center">
                             <img
                               src="/2023/icon/speaker.svg"
-                              className="w-8 h-8 mr-2"
+                              className="w-5 h-5 mr-2"
                             />
-                            <h2 className="text-2xl">
+                            <h2 className="text-xl">
                               講者介紹 - {matchedSpeaker.zh.name}
                             </h2>
                           </div>
-                          <div className="mt-2">
-                            <div className="text-xl">
+                          <div className="mt-2 flex items-center">
+                            <div className="text-md">
                               {matchedSpeaker.zh.bio}
                             </div>
+                            <img
+                              src={`/2023/speakers-avatar/${matchedSpeaker.id}.jpg`}
+                              alt={`${matchedSpeaker.zh.name}'s Avatar`}
+                              className="w-32 h-32 ml-auto rounded-full"
+                            />
                           </div>
                         </div>
                       </>
