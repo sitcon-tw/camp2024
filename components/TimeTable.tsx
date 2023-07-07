@@ -308,28 +308,28 @@ export default function TimeTable() {
             </div>
             <hr className="my-7 border-[1.3px]" />
             <div>
-              <div className="flex items-center">
-                <img src="/2023/icon/pin.svg" className="w-5 h-5 mr-2" />
-                <h2 className="text-xl">課程介紹</h2>
-              </div>
-              <div className="mt-2">
-                <div className="w- mr-2" />
-
-                <div className="text-md">
-                  {sessionMessage.zh.description
-                    .split("\n")
-                    .map((item: any, i: number) => {
-                      if (i === 0 && item == "")
-                        return <span>這節課沒有介紹！</span>;
-                      return (
-                        <ReactMarkdown
-                          key={i}
-                          rehypePlugins={[rehypeRaw]}
-                          // eslint-disable-next-line react/no-children-prop
-                          children={item}
-                        />
-                      );
-                    })}
+              <div className="flex items-start">
+                <img src="/2023/icon/pin.svg" className="w-5 h-5 mt-1 mr-2" />
+                <div>
+                  <h2 className="text-xl">課程介紹</h2>
+                  <div className="mt-2">
+                    <div className="text-md">
+                      {sessionMessage.zh.description
+                        .split("\n")
+                        .map((item: any, i: number) => {
+                          if (i === 0 && item == "")
+                            return <span>這節課沒有介紹！</span>;
+                          return (
+                            <ReactMarkdown
+                              key={i}
+                              rehypePlugins={[rehypeRaw]}
+                              // eslint-disable-next-line react/no-children-prop
+                              children={item}
+                            />
+                          );
+                        })}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -348,37 +348,43 @@ export default function TimeTable() {
                     {matchedSpeakers.map((matchedSpeaker: any) => (
                       <>
                         <div className="mt-10">
-                          <div className="flex items-center">
+                          <div className="flex items-start">
                             <img
                               src="/2023/icon/speaker.svg"
                               className="w-5 h-5 mr-2"
                             />
-                            <h2 className="text-xl">
-                              講者介紹 - {matchedSpeaker.zh.name}
-                            </h2>
-                          </div>
-                          <div className="mt-2 flex items-center">
-                            <div className="text-md">
-                              {matchedSpeaker.zh.bio
-                                .split("\n")
-                                .map((item: any, i: number) => {
-                                  return (
-                                    <ReactMarkdown
-                                      key={i}
-                                      components={{ a: hyperlinkRenderer }}
-                                      rehypePlugins={[rehypeRaw]}
-                                      // eslint-disable-next-line react/no-children-prop
-                                      children={item}
-                                    />
-                                  );
-                                })}
-                            </div>
+                            <div>
+                              <h2 className="text-xl">
+                                講者介紹 - {matchedSpeaker.zh.name}
+                              </h2>
+                              <div className="mt-2">
+                                <div className="mt-2 flex items-start">
+                                  <div className="text-md">
+                                    {matchedSpeaker.zh.bio
+                                      .split("\n")
+                                      .map((item: any, i: number) => {
+                                        return (
+                                          <ReactMarkdown
+                                            key={i}
+                                            components={{
+                                              a: hyperlinkRenderer,
+                                            }}
+                                            rehypePlugins={[rehypeRaw]}
+                                            // eslint-disable-next-line react/no-children-prop
+                                            children={item}
+                                          />
+                                        );
+                                      })}
+                                  </div>
 
-                            <img
-                              src={`/2023/speakers-avatar/${matchedSpeaker.id}.jpg`}
-                              alt={`${matchedSpeaker.zh.name}'s Avatar`}
-                              className="w-32 h-32 ml-auto rounded-full"
-                            />
+                                  <img
+                                    src={`/2023/speakers-avatar/${matchedSpeaker.id}.jpg`}
+                                    alt={`${matchedSpeaker.zh.name}'s Avatar`}
+                                    className="w-32 h-32 ml-auto rounded-full"
+                                  />
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </>
