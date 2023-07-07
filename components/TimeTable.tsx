@@ -353,13 +353,14 @@ export default function TimeTable() {
                               src="/2023/icon/speaker.svg"
                               className="w-5 h-5 mt-1 mr-2"
                             />
-                            <div>
+                            <div className="w-full">
                               <h2 className="text-xl">
                                 講者介紹 - {matchedSpeaker.zh.name}
                               </h2>
 
-                              <div className="mt-2 flex items-start">
-                                <div className="text-md">
+                              <div className="flex mt-2">
+                                {/* items-start */}
+                                <div className="grow text-md">
                                   {matchedSpeaker.zh.bio
                                     .split("\n")
                                     .map((item: any, i: number) => {
