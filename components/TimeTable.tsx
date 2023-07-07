@@ -2,6 +2,8 @@ import schedule from "../public/schedule.json";
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import useWindowSize from "@/hooks/useWindowSize";
+import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 export default function TimeTable() {
   function parseTime(time: Date, colon: Boolean = true): string {
     let res = new Date(time).toLocaleTimeString("en-US", {
@@ -271,7 +273,7 @@ export default function TimeTable() {
           className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
           onClick={closeSessionBox}
         >
-          <div className="bg-[#2A4E63] text-white rounded-3xl px-8 py-7 container max-h-[calc((85vh-1rem))] w-full sm:w-[calc((100vw-1rem))] lg:max-h-[calc((90vh-1rem))] overflow-y-scroll">
+          <div className="session-box bg-[#2A4E63] text-white rounded-3xl px-8 py-7 container max-h-[calc((85vh-1rem))] w-full sm:w-[calc((100vw-1rem))] lg:max-h-[calc((90vh-1rem))] overflow-y-scroll">
             <div className="flex flex-row justify-between items-center mb-2">
               <div>
                 <div className="font-bold text-3xl">
@@ -307,10 +309,12 @@ export default function TimeTable() {
                       if (i === 0 && item == "")
                         return <span>這節課沒有介紹！</span>;
                       return (
-                        <span key={i}>
-                          {item}
-                          <br />
-                        </span>
+                        <ReactMarkdown
+                          key={i}
+                          rehypePlugins={[rehypeRaw]}
+                          // eslint-disable-next-line react/no-children-prop
+                          children={item}
+                        />
                       );
                     })}
                 </div>
@@ -346,18 +350,16 @@ export default function TimeTable() {
                                 .split("\n")
                                 .map((item: any, i: number) => {
                                   return (
-                                    <>
-                                      <span
-                                        key={i}
-                                        dangerouslySetInnerHTML={{
-                                          __html: item,
-                                        }}
-                                      ></span>
-                                      <br />
-                                    </>
+                                    <ReactMarkdown
+                                      key={i}
+                                      rehypePlugins={[rehypeRaw]}
+                                      // eslint-disable-next-line react/no-children-prop
+                                      children={item}
+                                    />
                                   );
                                 })}
                             </div>
+
                             <img
                               src={`/2023/speakers-avatar/${matchedSpeaker.id}.jpg`}
                               alt={`${matchedSpeaker.zh.name}'s Avatar`}
