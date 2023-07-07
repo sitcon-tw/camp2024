@@ -357,26 +357,26 @@ export default function TimeTable() {
                               <h2 className="text-xl">
                                 講者介紹 - {matchedSpeaker.zh.name}
                               </h2>
-                              <div className="mt-2">
-                                <div className="mt-2 flex items-start">
-                                  <div className="text-md">
-                                    {matchedSpeaker.zh.bio
-                                      .split("\n")
-                                      .map((item: any, i: number) => {
-                                        return (
-                                          <ReactMarkdown
-                                            key={i}
-                                            components={{
-                                              a: hyperlinkRenderer,
-                                            }}
-                                            rehypePlugins={[rehypeRaw]}
-                                            // eslint-disable-next-line react/no-children-prop
-                                            children={item}
-                                          />
-                                        );
-                                      })}
-                                  </div>
 
+                              <div className="mt-2 flex items-start">
+                                <div className="text-md">
+                                  {matchedSpeaker.zh.bio
+                                    .split("\n")
+                                    .map((item: any, i: number) => {
+                                      return (
+                                        <ReactMarkdown
+                                          key={i}
+                                          components={{
+                                            a: hyperlinkRenderer,
+                                          }}
+                                          rehypePlugins={[rehypeRaw]}
+                                          // eslint-disable-next-line react/no-children-prop
+                                          children={item}
+                                        />
+                                      );
+                                    })}
+                                </div>
+                                <div className="flex-none w-32 h-32">
                                   <img
                                     src={`/2023/speakers-avatar/${matchedSpeaker.id}.jpg`}
                                     alt={`${matchedSpeaker.zh.name}'s Avatar`}
