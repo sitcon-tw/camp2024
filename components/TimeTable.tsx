@@ -304,13 +304,11 @@ export default function TimeTable() {
                   {sessionMessage.zh.description
                     .split("\n")
                     .map((item: any, i: number) => {
-                      console.log(i);
                       if (i === 0 && item == "")
                         return <span>這節課沒有介紹！</span>;
                       return (
                         <span key={i}>
                           {item}
-
                           <br />
                         </span>
                       );
@@ -343,15 +341,23 @@ export default function TimeTable() {
                             </h2>
                           </div>
                           <div className="mt-2 flex items-center">
-                            <div
-                              className="text-md"
-                              dangerouslySetInnerHTML={{
-                                __html: matchedSpeaker.zh.bio.replace(
-                                  "\n",
-                                  "<br>"
-                                ),
-                              }}
-                            ></div>
+                            <div className="text-md">
+                              {matchedSpeaker.zh.bio
+                                .split("\n")
+                                .map((item: any, i: number) => {
+                                  return (
+                                    <>
+                                      <span
+                                        key={i}
+                                        dangerouslySetInnerHTML={{
+                                          __html: item,
+                                        }}
+                                      ></span>
+                                      <br />
+                                    </>
+                                  );
+                                })}
+                            </div>
                             <img
                               src={`/2023/speakers-avatar/${matchedSpeaker.id}.jpg`}
                               alt={`${matchedSpeaker.zh.name}'s Avatar`}
