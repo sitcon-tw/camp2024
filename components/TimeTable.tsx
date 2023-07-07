@@ -296,9 +296,33 @@ export default function TimeTable() {
               </div>
               <div className="mt-2">
                 <div className="w- mr-2" />
+
                 <div className="text-md">
-                  {sessionMessage.zh.description || "這節課沒有介紹！"}
+                  {sessionMessage.zh.description
+                    .split("\n")
+                    .map((item: any, i: number) => {
+                      console.log(i);
+                      if (i === 0 && item == "")
+                        return <span>這節課沒有介紹！</span>;
+                      return (
+                        <span key={i}>
+                          {item}
+
+                          <br />
+                        </span>
+                      );
+                    })}
                 </div>
+
+                {/* <div
+                  className="text-md"
+                  dangerouslySetInnerHTML={{
+                    __html: sessionMessage.zh.description.replace(
+                      "\n",
+                      "<br>" || "這節課沒有介紹！"
+                    ),
+                  }}
+                ></div> */}
               </div>
             </div>
 
@@ -326,8 +350,16 @@ export default function TimeTable() {
                             </h2>
                           </div>
                           <div className="mt-2 flex items-center">
-                            <div className="text-md">
-                              {matchedSpeaker.zh.bio}
+                            <div
+                              className="text-md"
+                              dangerouslySetInnerHTML={{
+                                __html: matchedSpeaker.zh.bio.replace(
+                                  "\n",
+                                  "<br>"
+                                ),
+                              }}
+                            >
+                              {/* {matchedSpeaker.zh.bio} */}
                             </div>
                             <img
                               src={`/2023/speakers-avatar/${matchedSpeaker.id}.jpg`}
