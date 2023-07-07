@@ -96,6 +96,14 @@ export default function TimeTable() {
     setSessionMessage(null);
   };
 
+  function hyperlinkRenderer(props: any) {
+    return (
+      <a href={props.href} target="_blank">
+        {props.children}
+      </a>
+    );
+  }
+
   return (
     <>
       <div
@@ -354,6 +362,7 @@ export default function TimeTable() {
                                   return (
                                     <ReactMarkdown
                                       key={i}
+                                      components={{ a: hyperlinkRenderer }}
                                       rehypePlugins={[rehypeRaw]}
                                       // eslint-disable-next-line react/no-children-prop
                                       children={item}
