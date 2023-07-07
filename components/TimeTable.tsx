@@ -267,7 +267,10 @@ export default function TimeTable() {
         </div>
       </div>
       {sessionMessage && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+          onClick={closeSessionBox}
+        >
           <div className="bg-[#2A4E63] text-white rounded-3xl px-8 py-7 container w-full">
             <div className="flex flex-row justify-between items-center mb-2 overscroll-contain">
               <div>
