@@ -376,7 +376,7 @@ export default function TimeTable() {
                                       );
                                     })}
                                 </div>
-                                <div className="flex-none w-32 h-32">
+                                <div className="flex-none ml-[21px] w-32 h-32">
                                   <img
                                     src={`/2023/speakers-avatar/${matchedSpeaker.id}.jpg`}
                                     alt={`${matchedSpeaker.zh.name}'s Avatar`}
