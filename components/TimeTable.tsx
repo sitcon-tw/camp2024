@@ -313,16 +313,6 @@ export default function TimeTable() {
                       );
                     })}
                 </div>
-
-                {/* <div
-                  className="text-md"
-                  dangerouslySetInnerHTML={{
-                    __html: sessionMessage.zh.description.replace(
-                      "\n",
-                      "<br>" || "這節課沒有介紹！"
-                    ),
-                  }}
-                ></div> */}
               </div>
             </div>
 
@@ -358,9 +348,7 @@ export default function TimeTable() {
                                   "<br>"
                                 ),
                               }}
-                            >
-                              {/* {matchedSpeaker.zh.bio} */}
-                            </div>
+                            ></div>
                             <img
                               src={`/2023/speakers-avatar/${matchedSpeaker.id}.jpg`}
                               alt={`${matchedSpeaker.zh.name}'s Avatar`}
