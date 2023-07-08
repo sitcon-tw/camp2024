@@ -284,7 +284,7 @@ export default function TimeTable() {
           onClick={closeSessionBox}
         >
           <div
-            className="session-box bg-[#2A4E63] text-white rounded-3xl px-8 py-7 container max-h-[calc((85vh-1rem))] w-full sm:w-[calc((100vw-1rem))] lg:max-h-[calc((90vh-1rem))] overflow-y-scroll"
+            className="session-box bg-[#2A4E63] text-white rounded-3xl px-8 py-7 border border-black border-opacity-20 container max-h-[calc((85vh-1rem))] w-[calc((100vw-2rem))] lg:max-h-[calc((90vh-1rem))] overflow-y-scroll"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex flex-row justify-between items-center mb-2">
@@ -377,11 +377,11 @@ export default function TimeTable() {
                                       );
                                     })}
                                 </div>
-                                <div className="flex-none ml-[21px] w-32 h-32">
+                                <div className="flex-none ml-[21px] w-20 h-20 md:w-32 md:h-32">
                                   <img
                                     src={`/2023/speakers-avatar/${matchedSpeaker.id}.jpg`}
                                     alt={`${matchedSpeaker.zh.name}'s Avatar`}
-                                    className="w-32 h-32 rounded-full"
+                                    className="w-20 h-20 md:w-32 md:h-32 rounded-full"
                                   />
                                 </div>
                               </div>
