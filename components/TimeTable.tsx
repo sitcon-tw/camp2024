@@ -2,7 +2,12 @@
 /* eslint-disable @next/next/no-img-element */
 import schedule from "../public/schedule.json";
 import { useEffect, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  AnimatePresence,
+} from "framer-motion";
 import useWindowSize from "@/hooks/useWindowSize";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -278,125 +283,118 @@ export default function TimeTable() {
           </motion.div>
         </div>
       </div>
-      {sessionMessage && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
-          onClick={closeSessionBox}
-        >
-          <div
-            className="session-box bg-[#2A4E63] text-white rounded-3xl px-8 py-7 border border-black border-opacity-20 container max-h-[calc((85vh-1rem))] w-[calc((100vw-2rem))] lg:max-h-[calc((90vh-1rem))] overflow-y-scroll"
-            onClick={(e) => e.stopPropagation()}
+      <AnimatePresence>
+        {sessionMessage && (
+          <motion.div
+            className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 cursor-pointer backdrop-blur"
+            onClick={closeSessionBox}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           >
-            <div className="flex flex-row justify-between items-center mb-2">
-              <div>
-                <div className="font-bold text-3xl">
-                  {sessionMessage.zh.title.split("\n")[0]}
+            <motion.div
+              className="session-box bg-[#2A4E63] text-white rounded-3xl px-8 py-7 border border-black border-opacity-20 container max-h-[calc((85vh-1rem))] w-[calc((100vw-2rem))] lg:max-h-[calc((90vh-1rem))] overflow-y-scroll cursor-auto"
+              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0, y: -100 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 100 }}
+            >
+              <div className="flex justify-between items-center mb-2">
+                <div>
+                  <div className="font-bold text-3xl">
+                    {sessionMessage.zh.title.split("\n")[0]}
+                  </div>
+                  <div className="text-2xl text-white/[.85] mt-1">
+                    {sessionMessage.zh.title.split("\n")[1]}
+                  </div>
                 </div>
-                <div className="text-2xl text-white/[.85]">
-                  {sessionMessage.zh.title.split("\n")[1]}
-                </div>
+                <button
+                  onClick={closeSessionBox}
+                  className="text-white hover:text-[#F9A8D4] font-['Anicons_Regular'] text-xl transition-all"
+                  style={{
+                    fontVariationSettings: `"TIME" 100`,
+                  }}
+                >
+                  A
+                </button>
               </div>
-              <button
-                onClick={closeSessionBox}
-                className="text-white hover:text-[#F9A8D4] font-['Anicons_Regular'] text-xl transition-all"
-                style={{
-                  fontVariationSettings: `"TIME" 100`,
-                }}
-              >
-                A
-              </button>
-            </div>
-            <hr className="my-7 border-[1.3px]" />
-            <div>
+              <hr className="my-7 border-[1.3px]" />
+
               <div className="flex items-start">
                 <img src="/2023/icon/pin.svg" className="w-5 h-5 mt-1 mr-2" />
                 <div>
-                  <h2 className="text-xl">課程介紹</h2>
-                  <div className="mt-2">
-                    <div className="text-md">
-                      {sessionMessage.zh.description
-                        .split("\n")
-                        .map((item: any, i: number) => {
-                          if (i === 0 && item == "")
-                            return <span>這節課沒有介紹！</span>;
-                          return (
-                            <ReactMarkdown
-                              key={i}
-                              rehypePlugins={[rehypeRaw]}
-                              // eslint-disable-next-line react/no-children-prop
-                              children={item}
-                            />
-                          );
-                        })}
-                    </div>
+                  <h2 className="text-xl font-bold">課程介紹</h2>
+                  <div className="mt-2 text-md">
+                    {sessionMessage.zh.description
+                      .split("\n")
+                      .map((item: any, i: number) => {
+                        if (i === 0 && item == "")
+                          return <span>這節課沒有介紹！</span>;
+                        return (
+                          <ReactMarkdown
+                            key={i}
+                            rehypePlugins={[rehypeRaw]}
+                            // eslint-disable-next-line react/no-children-prop
+                            children={item}
+                          />
+                        );
+                      })}
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div
-              className={`mt-4 ${
-                sessionMessage.speakers.length < 1 ? "hidden" : ""
-              }`}
-            >
-              {sessionMessage.speakers.map((speaker: any, i: number) => {
-                const matchedSpeakers = schedule.speakers.filter(
-                  ({ id }) => speaker === id
-                );
-                return (
-                  <div key={i}>
-                    {matchedSpeakers.map((matchedSpeaker: any) => (
-                      <>
-                        <div className="mt-10">
-                          <div className="flex items-start">
+              <div
+                className={`mt-4 ${
+                  sessionMessage.speakers.length < 1 ? "hidden" : ""
+                }`}
+              >
+                {sessionMessage.speakers
+                  .map((item: any) =>
+                    schedule.speakers.find(({ id }) => id === item)
+                  )
+                  .map((item: any, i: number) => (
+                    <div className="flex items-start mt-10" key={i}>
+                      <img
+                        src="/2023/icon/speaker.svg"
+                        className="w-5 h-5 mt-1 mr-2"
+                      />
+                      <div className="w-full">
+                        <h2 className="text-xl font-bold">
+                          講者介紹 - {item.zh.name}
+                        </h2>
+                        <div className="flex mt-2">
+                          {/* items-start */}
+                          <div className="grow">
+                            {item.zh.bio
+                              .split("\n")
+                              .map((item: any, i: number) => (
+                                <ReactMarkdown
+                                  key={i}
+                                  components={{
+                                    a: hyperlinkRenderer,
+                                  }}
+                                  rehypePlugins={[rehypeRaw]}
+                                  // eslint-disable-next-line react/no-children-prop
+                                  children={item}
+                                />
+                              ))}
+                          </div>
+                          <div className="flex-none ml-[21px] w-20 h-20 md:w-32 md:h-32">
                             <img
-                              src="/2023/icon/speaker.svg"
-                              className="w-5 h-5 mt-1 mr-2"
+                              src={`/2023/speakers-avatar/${item.id}.jpg`}
+                              alt={`${item.zh.name}'s Avatar`}
+                              className="w-20 h-20 md:w-32 md:h-32 rounded-full object-cover"
                             />
-                            <div className="w-full">
-                              <h2 className="text-xl">
-                                講者介紹 - {matchedSpeaker.zh.name}
-                              </h2>
-
-                              <div className="flex mt-2">
-                                {/* items-start */}
-                                <div className="grow text-md">
-                                  {matchedSpeaker.zh.bio
-                                    .split("\n")
-                                    .map((item: any, i: number) => {
-                                      return (
-                                        <ReactMarkdown
-                                          key={i}
-                                          components={{
-                                            a: hyperlinkRenderer,
-                                          }}
-                                          rehypePlugins={[rehypeRaw]}
-                                          // eslint-disable-next-line react/no-children-prop
-                                          children={item}
-                                        />
-                                      );
-                                    })}
-                                </div>
-                                <div className="flex-none ml-[21px] w-20 h-20 md:w-32 md:h-32">
-                                  <img
-                                    src={`/2023/speakers-avatar/${matchedSpeaker.id}.jpg`}
-                                    alt={`${matchedSpeaker.zh.name}'s Avatar`}
-                                    className="w-20 h-20 md:w-32 md:h-32 rounded-full object-cover"
-                                  />
-                                </div>
-                              </div>
-                            </div>
                           </div>
                         </div>
-                      </>
-                    ))}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      )}
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
