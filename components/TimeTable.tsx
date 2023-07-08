@@ -11,6 +11,7 @@ import {
 import useWindowSize from "@/hooks/useWindowSize";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import InfoIcon from "./InfoIcon";
 export default function TimeTable() {
   function parseTime(time: Date, colon: Boolean = true): string {
     let res = new Date(time).toLocaleTimeString("en-US", {
@@ -164,9 +165,9 @@ export default function TimeTable() {
           <div
             style={parseSessionStyle(session)}
             className={
-              `bg-white bg-opacity-[.08] flex flex-col justify-center items-center p-4 text-white transition-all relative` +
+              `bg-white bg-opacity-[.08] flex flex-col justify-center items-center p-4 text-white transition-all relative border border-white border-opacity-0 ` +
               (session.zh.description != "" || session.speakers.length != 0
-                ? ` rounded-br-md hover:bg-opacity-20 hover:rounded-md hover:cursor-pointer`
+                ? `hover:bg-opacity-20 hover:cursor-pointer hover:shadow-lg hover:border-opacity-40`
                 : "")
             }
             key={`${session.room}-${session.zh.title}`}
@@ -182,10 +183,12 @@ export default function TimeTable() {
             <div
               className={
                 session.zh.description != "" || session.speakers.length != 0
-                  ? `absolute bottom-0 right-0 rounded-br-md w-3 h-3 border border-transparent border-b-inherit border-r-inherit`
+                  ? `absolute bottom-0 right-0 w-6 h-6 flex justify-center items-center scale-75`
                   : "hidden"
               }
-            ></div>
+            >
+              <InfoIcon />
+            </div>
           </div>
         ))}
       </div>
@@ -261,20 +264,26 @@ export default function TimeTable() {
                   .map((session: any, i) => (
                     <motion.div key={`${session.room}-${session.zh.title}`}>
                       <div
-                        className="bg-black bg-opacity-10 border border-black border-opacity-20 flex flex-col px-4 py-2 text-white rounded-xl overflow-hidden shadow-sm"
+                        className="bg-black bg-opacity-10 border border-black border-opacity-20 flex items-center px-4 py-2 text-white rounded-xl overflow-hidden shadow-sm"
                         onClick={() => openSessionBox(session)}
                       >
-                        <div className="text-sm">
-                          {parseTime(session.start)} ~ {parseTime(session.end)}
+                        <div className="flex flex-col flex-1">
+                          <div className="text-sm">
+                            {parseTime(session.start)} ~{" "}
+                            {parseTime(session.end)}
+                          </div>
+                          <div className="font-bold">
+                            {session.zh.title.split("\n")[0]}
+                            {session.zh.title.split("\n").length >= 2 && (
+                              <span className="ml-1 text-white text-opacity-80 font-normal">
+                                {session.zh.title.split("\n")[1]}
+                              </span>
+                            )}
+                          </div>
                         </div>
-                        <div className="font-bold">
-                          {session.zh.title.split("\n")[0]}
-                          {session.zh.title.split("\n").length >= 2 && (
-                            <span className="ml-1 text-white text-opacity-80 font-normal">
-                              {session.zh.title.split("\n")[1]}
-                            </span>
-                          )}
-                        </div>
+
+                        {(session.zh.description != "" ||
+                          session.speakers.length != 0) && <InfoIcon />}
                       </div>
                     </motion.div>
                   ))}
