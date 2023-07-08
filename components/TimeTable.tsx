@@ -166,9 +166,8 @@ export default function TimeTable() {
             style={parseSessionStyle(session)}
             className={
               `bg-white bg-opacity-[.08] flex flex-col justify-center items-center p-4 text-white transition-all relative border border-white border-opacity-0 ` +
-              (session.zh.description != "" || session.speakers.length != 0
-                ? `hover:bg-opacity-20 hover:cursor-pointer hover:shadow-lg hover:border-opacity-40`
-                : "")
+              ((session.zh.description != "" || session.speakers.length != 0) &&
+                `hover:bg-opacity-20 hover:cursor-pointer hover:shadow-lg hover:border-opacity-40`)
             }
             key={`${session.room}-${session.zh.title}`}
             onClick={() => openSessionBox(session)}
@@ -180,15 +179,11 @@ export default function TimeTable() {
               </div>
             )}
 
-            <div
-              className={
-                session.zh.description != "" || session.speakers.length != 0
-                  ? `absolute bottom-0 right-0 w-6 h-6 flex justify-center items-center scale-75`
-                  : "hidden"
-              }
-            >
-              <InfoIcon />
-            </div>
+            {(session.zh.description != "" || session.speakers.length != 0) && (
+              <div className="absolute bottom-0 right-0 w-6 h-6 flex justify-center items-center scale-75">
+                <InfoIcon />
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -203,7 +198,7 @@ export default function TimeTable() {
             >
               {activeDay === room && (
                 <motion.div
-                  className="absolute inset-0 h-full bg-white bg-opacity-20 rounded-xl shadow-xl"
+                  className="absolute inset-0 h-full bg-white bg-opacity-10 rounded-xl shadow-xl"
                   layout
                   layoutId="activeDay"
                 />
@@ -262,30 +257,27 @@ export default function TimeTable() {
                 {schedule.sessions
                   .filter(({ room }) => room === item)
                   .map((session: any, i) => (
-                    <motion.div key={`${session.room}-${session.zh.title}`}>
-                      <div
-                        className="bg-black bg-opacity-10 border border-black border-opacity-20 flex items-center px-4 py-2 text-white rounded-xl overflow-hidden shadow-sm"
-                        onClick={() => openSessionBox(session)}
-                      >
-                        <div className="flex flex-col flex-1">
-                          <div className="text-sm">
-                            {parseTime(session.start)} ~{" "}
-                            {parseTime(session.end)}
-                          </div>
-                          <div className="font-bold">
-                            {session.zh.title.split("\n")[0]}
-                            {session.zh.title.split("\n").length >= 2 && (
-                              <span className="ml-1 text-white text-opacity-80 font-normal">
-                                {session.zh.title.split("\n")[1]}
-                              </span>
-                            )}
-                          </div>
+                    <div
+                      className="bg-black bg-opacity-10 border border-black border-opacity-20 flex items-center px-4 py-2 text-white rounded-xl overflow-hidden shadow-sm"
+                      onClick={() => openSessionBox(session)}
+                      key={`${session.room}-${session.zh.title}`}
+                    >
+                      <div className="flex flex-col flex-1">
+                        <div className="text-sm">
+                          {parseTime(session.start)} ~ {parseTime(session.end)}
                         </div>
-
-                        {(session.zh.description != "" ||
-                          session.speakers.length != 0) && <InfoIcon />}
+                        <div className="font-bold">
+                          {session.zh.title.split("\n")[0]}
+                          {session.zh.title.split("\n").length >= 2 && (
+                            <span className="ml-1 text-white text-opacity-80 font-normal">
+                              {session.zh.title.split("\n")[1]}
+                            </span>
+                          )}
+                        </div>
                       </div>
-                    </motion.div>
+                      {(session.zh.description != "" ||
+                        session.speakers.length != 0) && <InfoIcon />}
+                    </div>
                   ))}
               </motion.div>
             ))}
