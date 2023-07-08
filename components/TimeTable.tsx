@@ -381,7 +381,7 @@ export default function TimeTable() {
                                   <img
                                     src={`/2023/speakers-avatar/${matchedSpeaker.id}.jpg`}
                                     alt={`${matchedSpeaker.zh.name}'s Avatar`}
-                                    className="w-20 h-20 md:w-32 md:h-32 rounded-full"
+                                    className="w-20 h-20 md:w-32 md:h-32 rounded-full object-cover"
                                   />
                                 </div>
                               </div>
