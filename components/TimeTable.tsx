@@ -294,7 +294,7 @@ export default function TimeTable() {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="session-box bg-[#2A4E63] text-white rounded-3xl px-8 py-7 border border-black border-opacity-20 container max-h-[calc((85vh-1rem))] w-[calc((100vw-2rem))] lg:max-h-[calc((90vh-1rem))] overflow-y-scroll cursor-auto"
+              className="session-box bg-[#2A4E63] text-white rounded-xl md:rounded-3xl p-5 md:p-8 border border-black border-opacity-20 container max-h-[calc((85vh-1rem))] w-[calc((100vw-2rem))] lg:max-h-[calc((90vh-1rem))] overflow-y-scroll cursor-auto"
               onClick={(e) => e.stopPropagation()}
               initial={{ opacity: 0, y: -100 }}
               animate={{ opacity: 1, y: 0 }}
@@ -302,10 +302,10 @@ export default function TimeTable() {
             >
               <div className="flex justify-between items-center mb-2">
                 <div>
-                  <div className="font-bold text-3xl">
+                  <div className="font-bold text-2xl md:text-3xl">
                     {sessionMessage.zh.title.split("\n")[0]}
                   </div>
-                  <div className="text-2xl text-white/[.85] mt-1">
+                  <div className="text-xl md:text-2xl text-white/[.85] mt-1">
                     {sessionMessage.zh.title.split("\n")[1]}
                   </div>
                 </div>
@@ -319,7 +319,7 @@ export default function TimeTable() {
                   A
                 </button>
               </div>
-              <hr className="my-7 border-[1.3px]" />
+              <hr className="my-4 md:my-7 border-[1.3px]" />
 
               <div className="flex items-start">
                 <img src="/2023/icon/pin.svg" className="w-5 h-5 mt-1 mr-2" />
