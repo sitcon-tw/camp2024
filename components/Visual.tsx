@@ -86,31 +86,18 @@ export default function Visual() {
           style={{ y: infoY }}
           className="absolute top-[75vh] m-auto w-full flex flex-col items-start gap-1 lg:gap-2 text-white leading-4"
         >
+          <motion.div className="lg:text-xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">
+            日期
+          </motion.div>
+          <motion.div className="text-2xl font-bold lg:text-4xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">
+            <span className="hidden lg:inline">07/20 ~ 07/24</span>
+            <span className="lg:hidden">7/20 ~ 7/24</span>
+          </motion.div>
           <div className="lg:text-xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded mt-2 p-1">
             地點
           </div>
           <div className="text-2xl font-bold lg:text-4xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">
             陽明交通大學 光復校區
-          </div>
-          <div className="flex gap-8">
-            <div className="flex flex-col items-start">
-              <motion.div className="lg:text-xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">
-                日期
-              </motion.div>
-              <motion.div className="text-2xl font-bold lg:text-4xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">
-                <span className="hidden lg:inline">07/20 ~ 07/24</span>
-                <span className="lg:hidden">7/20 ~ 7/24</span>
-              </motion.div>
-            </div>
-            <div className="flex flex-col items-start">
-              <motion.div className="lg:text-xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">
-                報名期限
-              </motion.div>
-              <motion.div className="text-2xl font-bold lg:text-4xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">
-                <span className="hidden lg:inline">延長至 06/02</span>
-                <span className="lg:hidden">6/2 截止</span>
-              </motion.div>
-            </div>
           </div>
         </motion.div>
       </div>
