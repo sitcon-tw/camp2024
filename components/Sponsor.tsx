@@ -3,13 +3,13 @@ export default function Sponsor() {
   return (
     <div className="container mt-16">
       {Object.entries(SponsorData).map(([title, items]) => (
-        <>
+        <div key={title}>
           <h2 className="text-xl font-bold mt-8 mb-2 lg:min-w-[200px] block">
             {title}
           </h2>
           <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4">
             {items.map((item) => (
-              <div>
+              <div key={item.name}>
                 <div
                   className={`${
                     item.name === "陽明交通大學資訊工程系學會"
@@ -27,7 +27,7 @@ export default function Sponsor() {
               </div>
             ))}
           </div>
-        </>
+        </div>
       ))}
     </div>
   );
