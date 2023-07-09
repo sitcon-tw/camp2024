@@ -6,6 +6,7 @@ import Records from "../components/Records";
 import About from "../components/About";
 import Reports from "../components/Reports";
 import ApplicationInfo from "../components/ApplicationInfo";
+import Sponsor from "@/components/Sponsor";
 export default function Home() {
   return (
     <>
@@ -16,6 +17,7 @@ export default function Home() {
       <Reports />
       <ApplicationInfo />
       <About />
+      <Sponsor />
     </>
   );
 }
