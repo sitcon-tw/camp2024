@@ -7,7 +7,7 @@ export default function Sponsor() {
           <h2 className="text-xl font-bold mt-8 mb-2 lg:min-w-[200px] block">
             {title}
           </h2>
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4">
             {items.map((item) => (
               <div key={item.name}>
                 <div
