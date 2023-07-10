@@ -382,7 +382,7 @@ export default function TimeTable() {
                           </div>
                           <div className="flex-none ml-[21px] w-20 h-20 md:w-32 md:h-32">
                             <img
-                              src={`/2023/speakers-avatar/${item.id}.jpg`}
+                              src={`/2023/speakers-avatar/${item.id}.jpeg`}
                               alt={`${item.zh.name}'s Avatar`}
                               className="w-20 h-20 md:w-32 md:h-32 rounded-full object-cover"
                             />
