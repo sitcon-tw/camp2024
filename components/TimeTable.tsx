@@ -89,6 +89,7 @@ export default function TimeTable() {
       description: string;
     };
     speakers: any;
+    slide: string;
   }
 
   const [sessionMessage, setSessionMessage] = useState<SessionMessage | null>(
@@ -334,12 +335,22 @@ export default function TimeTable() {
                         return (
                           <ReactMarkdown
                             key={i}
+                            components={{
+                              a: hyperlinkRenderer,
+                            }}
                             rehypePlugins={[rehypeRaw]}
                             // eslint-disable-next-line react/no-children-prop
                             children={item}
                           />
                         );
                       })}
+                  </div>
+                  <div className="mt-2 text-md">
+                    {sessionMessage.slide && (
+                      <a href={sessionMessage.slide} target="_blank">
+                        課程簡報
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
