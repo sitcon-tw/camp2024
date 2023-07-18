@@ -12,3 +12,9 @@
 .session-box a {
   @apply underline underline-offset-2 decoration-white/50 hover:decoration-white/90 transition-all duration-300;
 }
+
+a.slide,
+a.slide:visited,
+a.slide:hover {
+  text-decoration: none;
+}

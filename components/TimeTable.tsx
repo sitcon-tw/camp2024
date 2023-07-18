@@ -347,7 +347,11 @@ export default function TimeTable() {
                   </div>
                   <div className="mt-2 text-md">
                     {sessionMessage.slide && (
-                      <a href={sessionMessage.slide} target="_blank">
+                      <a
+                        href={sessionMessage.slide}
+                        target="_blank"
+                        className="slide rounded-md bg-[#012637]/[.5] px-3 py-1 text-white text-md hover:bg-[#012637] transition-all"
+                      >
                         課程簡報
                       </a>
                     )}
