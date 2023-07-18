@@ -350,7 +350,7 @@ export default function TimeTable() {
                       <a
                         href={sessionMessage.slide}
                         target="_blank"
-                        className="slide rounded-md bg-[#012637]/[.5] px-3 py-1 text-white text-md hover:bg-[#012637] transition-all"
+                        className="slide"
                       >
                         課程簡報
                       </a>
