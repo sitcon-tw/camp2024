@@ -90,6 +90,7 @@ export default function TimeTable() {
     };
     speakers: any;
     slide: string;
+	co_write: string;
   }
 
   const [sessionMessage, setSessionMessage] = useState<SessionMessage | null>(
@@ -353,6 +354,17 @@ export default function TimeTable() {
                         className="slide"
                       >
                         課程簡報
+                      </a>
+                    )}
+                  </div>
+                  <div className="mt-2 text-md">
+                    {sessionMessage.co_write && (
+                      <a
+                        href={sessionMessage.co_write}
+                        target="_blank"
+                        className="slide"
+                      >
+                        課程共筆
                       </a>
                     )}
                   </div>
