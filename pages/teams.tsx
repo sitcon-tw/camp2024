@@ -8,7 +8,7 @@ import {
   EventTitle,
 } from "@/components/Events";
 import { useState } from "react";
-function MemberCard({ name, md5 }: { name: string; md5: string }) {
+function MemberCard({ name, sha256 }: { name: string; sha256: string }) {
   const [clickCount, setClickCount] = useState(0);
   return (
     <div
@@ -33,7 +33,7 @@ function MemberCard({ name, md5 }: { name: string; md5: string }) {
           bottom: 0,
         }}
         dragElastic={0.05}
-        src={`https://secure.gravatar.com/avatar/${md5}?s=512&d=https://sitcon.camp/2023/images/default_avatar.jpg`}
+        src={`https://secure.gravatar.com/avatar/${sha256}?s=512&d=https://sitcon.camp/2024/images/default_avatar.jpg`}
         className="h-24 inline rounded-full cursor-grab active:cursor-grabbing"
       />
       <motion.div
@@ -164,7 +164,7 @@ export default function Teams() {
                     .map((member, index) => (
                       <MemberCard
                         name={member.name}
-                        md5={member.md5}
+                        sha256={member.sha256}
                         key={index}
                       />
                     ))}
