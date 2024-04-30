@@ -10,15 +10,15 @@ function Report({
   href,
 }: {
   children: React.ReactNode;
-  avatar: string;
+  avatar?: string;
   name: string;
   year: string;
-  href: string;
+  href?: string;
 }) {
   return (
     <div className="flex flex-col items-center bg-[#01405D] rounded">
       <div className="flex items-center justify-center gap-2 p-2 bg-black bg-opacity-10 text-white rounded-t leading-4 w-full">
-        <img src={avatar} className="w-12 h-12 rounded" />
+        <img src={avatar || "https://sitcon.camp/2024/images/default_avatar.jpg"} className="w-12 h-12 rounded" />
         <div className="flex-1">
           <div className="font-bold">{name}</div>
           <div className="opacity-70 text-sm mt-1">SITCON Camp {year} 學員</div>
@@ -28,9 +28,9 @@ function Report({
       <div className="flex-1"></div>
       <div className="p-4 pt-0 flex justify-end w-full">
         <Link
-          href={href}
-          target={href.startsWith("http") ? `_blank` : ``}
-          className="px-4 py-2 bg-[#013249] bg-opacity-50 hover:bg-opacity-100 rounded-full flex gap-2 items-center leading-4"
+          href={href || "/"}
+          target={(href || "/").startsWith("http") ? `_blank` : ``}
+          className={"px-4 py-2 bg-[#013249] bg-opacity-50 hover:bg-opacity-100 rounded-full flex gap-2 items-center leading-4 " + (!href && "hidden")}
         >
           閱讀全文 <i className="bx bx-chevron-right text-xl"></i>
         </Link>
@@ -87,6 +87,37 @@ export default function Reports() {
         <motion.h1>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
             <Report
+              avatar={undefined}
+              name="葉子琳"
+              year="2023"
+              href={undefined}
+            >
+              在 2023 年的 Camp 中我學到了蠻多平常體驗不到的！第一次體驗黑客松，跟來自各種不同年齡層的人一起合作寫專案！雖然每天都爆肝，但是最後寫出的東西真的是超級有成就感～隊輔也都超級細心，會來詢問有沒有哪裡聽不懂，擔心我們沒有跟上進度，課程上也學到了蠻多以前沒學過的，整個收穫滿滿！
+            </Report>
+            <Report
+              avatar={undefined}
+              name="張語柔"
+              year="2023"
+              href={undefined}
+            >
+              SITCON Camp 是我第一次參加資訊相關的夏令營。在接觸到活動資訊時，我被黑客松及視界咖啡館吸引，因此報名了這次夏令營。
+              營期時，能感受到工作人員對所有活動都非常用心。在基本課程時，講者及助教會不斷關心大家的學習情況並給予指導；在黑客松討論時，也都會給予對專題方向的引導及建議。
+              其中最讓我驚艷的是特殊活動—奪寶大作戰，原本以為只是小小的串場活動，但每個關卡的設計都相當用心，需要運用各式各樣的資訊技能來破解。
+              參加 SITCON Camp 後，讓我開始對其他相關的資訊社群感興趣，因此認識許多社群朋友，目前也正在積極參與各項活動的籌備！
+            </Report>
+            <Report
+              avatar={undefined}
+              name="陳品妤"
+              year="2023"
+              href={undefined}
+            >
+              Camp 的課程很充實能學到很多東西，不論是手把手教你寫 Telegram Bot，又或是 Arduino 等，都是值得嘗試看看的的東西。黑客松的部分則是一個有點痛苦（因為想不到能幹嘛然後程式一直出事之類的）、很燒腦袋但很好玩的東西，要從 0 開始生出一個專案最後可以成功使用，但成功時會很有成就感畢竟全程都是自己來、沒有人指導你，希望大家可以享受在 Camp 的日子✨
+            </Report>
+          </div>
+        </motion.h1>
+        <More>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
+            <Report
               avatar="/2024/records-avatar/340069299_243506511573764_1868312350951130034_n.jpg"
               name="吳冠廷"
               year="2021"
@@ -126,10 +157,6 @@ export default function Reports() {
               在 SITCON Camp 2021
               中，我學到了新知識並結交了新朋友。小隊中只有我是男性且最小的，但這不是重點。我們幾乎每天都沒有睡飽，尤其最後一天為了趕專案一起熬夜到凌晨三點。感謝我的隊友們的協助，我覺得自己幫不上太多忙。希望下次能再次相遇，這七天過得很充實。
             </Report>
-          </div>
-        </motion.h1>
-        <More>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
             <Report
               avatar="/2024/records-avatar/I7iV7Fo.jpeg"
               name="Vincent55"
