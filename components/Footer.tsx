@@ -1,39 +1,39 @@
 export default function Footer() {
-  let years = [2021, 2019, 2017, 2016, 2015, 2014];
+  let years = [2023, 2021, 2019, 2017, 2016, 2015, 2014];
   let socialMedias = [
     {
       title: "Facebook",
-      icon: "/2023/icon/facebook.svg",
+      icon: "/2024/icon/facebook.svg",
       link: "https://sitcon.org/facebook",
     },
     {
       title: "Flickr",
-      icon: "/2023/icon/flickr.svg",
+      icon: "/2024/icon/flickr.svg",
       link: "https://sitcon.org/flickr",
     },
     {
       title: "Instagram",
-      icon: "/2023/icon/instagram.svg",
+      icon: "/2024/icon/instagram.svg",
       link: "https://sitcon.org/instagram",
     },
     {
       title: "Telegram",
-      icon: "/2023/icon/telegram.svg",
+      icon: "/2024/icon/telegram.svg",
       link: "https://sitcon.org/telegram",
     },
     {
       title: "Twitter",
-      icon: "/2023/icon/twitter.svg",
+      icon: "/2024/icon/twitter.svg",
       link: "https://sitcon.org/twitter",
     },
     {
       title: "YouTube",
-      icon: "/2023/icon/youtube.svg",
+      icon: "/2024/icon/youtube.svg",
       link: "https://sitcon.org/youtube",
     },
     {
       title: "Plurk",
-      icon: "/2023/icon/plurk.svg",
+      icon: "/2024/icon/plurk.svg",
       link: "https://sitcon.org/plurk",
     },
   ];

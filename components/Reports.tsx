@@ -87,7 +87,7 @@ export default function Reports() {
         <motion.h1>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
             <Report
-              avatar="/2023/records-avatar/340069299_243506511573764_1868312350951130034_n.jpg"
+              avatar="/2024/records-avatar/340069299_243506511573764_1868312350951130034_n.jpg"
               name="吳冠廷"
               year="2021"
               href="https://www.facebook.com/100003479633002/posts/3997020290423919/"
@@ -99,7 +99,7 @@ export default function Reports() {
               Discord bot 的簡報介紹連結，我們做了很多東西，讓我感到開心。
             </Report>
             <Report
-              avatar="/2023/records-avatar/avatar.svg"
+              avatar="/2024/records-avatar/avatar.svg"
               name="張家昀"
               year="2021"
               href="https://www.notion.so/2021-SITCON-CAMP-5c0e3e3391294d059c1c84b278d98642"
@@ -118,7 +118,7 @@ export default function Reports() {
               Discord 上進行。
             </Report>
             <Report
-              avatar="/2023/records-avatar/309683975_5494046350715307_8476200032565402966_n.jpg"
+              avatar="/2024/records-avatar/309683975_5494046350715307_8476200032565402966_n.jpg"
               name="王威皓"
               year="2021"
               href="https://www.facebook.com/story.php?story_fbid=4235551709898117&id=100003299897396"
@@ -131,7 +131,7 @@ export default function Reports() {
         <More>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
             <Report
-              avatar="/2023/records-avatar/I7iV7Fo.jpeg"
+              avatar="/2024/records-avatar/I7iV7Fo.jpeg"
               name="Vincent55"
               year="2019"
               href="/report/vincent"
@@ -141,7 +141,7 @@ export default function Reports() {
               以我自己的經驗，我參加了…
             </Report>
             <Report
-              avatar="/2023/records-avatar/rnV72WM.jpeg"
+              avatar="/2024/records-avatar/rnV72WM.jpeg"
               name="William Mou"
               year="2017"
               href="/report/william-mou"
@@ -150,7 +150,7 @@ export default function Reports() {
               然而，有所遺漏的是，當我們獨自精進時，常常會忽略了其他更重要的技能…
             </Report>
             <Report
-              avatar="/2023/records-avatar/RlcXMX1.png"
+              avatar="/2024/records-avatar/RlcXMX1.png"
               name="陳俊宇"
               year="2019"
               href="https://forum.gamer.com.tw/C.php?bsn=60292&snA=5734&tnum=1"
@@ -161,7 +161,7 @@ export default function Reports() {
               Telegram 上做一個猜歌機器人，主要流程如下…
             </Report>
             <Report
-              avatar="/2023/records-avatar/SY6Zi2x.jpeg"
+              avatar="/2024/records-avatar/SY6Zi2x.jpeg"
               name="李杰穎"
               year="2019"
               href="https://jayin92.github.io/posts/2019-sitcon-camp/"
@@ -173,7 +173,7 @@ export default function Reports() {
               SITCON 2020 我會去的！！！（當工人感覺不錯呢）
             </Report>
             <Report
-              avatar="/2023/records-avatar/avatar.svg"
+              avatar="/2024/records-avatar/avatar.svg"
               name="楊芷安"
               year="2019"
               href="https://anjoincamp.blogspot.com/2019/08/sitcon-camp.html"

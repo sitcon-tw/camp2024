@@ -18,7 +18,7 @@ export default function Sponsor() {
                   } rounded-lg`}
                 >
                   <img
-                    src={`/2023/sponsor/${item.img}`}
+                    src={`/2024/sponsor/${item.img}`}
                     alt={item.name}
                     className="w-full h-32 object-contain"
                   />

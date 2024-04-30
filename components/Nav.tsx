@@ -71,7 +71,7 @@ export default function Nav() {
       <div className="container fixed left-0 right-0 top-0 z-50" ref={scope}>
         <nav className="bg-[#01405D] bg-opacity-80 backdrop-blur-xl rounded-full py-3 px-6 mt-4 lg:py-3 lg:px-10 lg:mt-8 flex items-center justify-between shadow-2xl transition-all">
           <Link href="/" className="font-bold">
-            <img src="/2023/icon/logo.svg" className="h-10" />
+            <img src="/2024/icon/logo.svg" className="h-10" />
           </Link>
           <div className="space-x-4 hidden lg:flex">
             {navItems.map((item, index) => (

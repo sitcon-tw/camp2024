@@ -90,7 +90,7 @@ export default function ApplicationInfo() {
             將 SITCON Camp 重要日程加入行事曆
           </div>
           <Button
-            href="/2023/events.ics"
+            href="/2024/events.ics"
             className="bg-blue-300 bg-opacity-10 hover:bg-blue-300 hover:bg-opacity-20 rounded-xl"
           >
             <i className="bx bx-calendar-plus"></i>

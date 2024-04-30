@@ -45,7 +45,7 @@ export default function Visual() {
           dragElastic={0.2}
           style={{ y: logoY }}
           className="absolute top-[12.5vh] w-40 md:w-60 left-0 right-0 m-auto cursor-grab active:cursor-grabbing"
-          src="/2023/visual/logo.svg"
+          src="/2024/visual/logo.svg"
           alt="logo"
         />
         <Planets
@@ -64,7 +64,7 @@ export default function Visual() {
           }}
           style={{ x: catX, y: catY }}
           className="absolute top-[35vh] w-[150px] sm:w-[180px] md:w-[300px] right-0 m-auto cursor-grab active:cursor-grabbing"
-          src="/2023/visual/cat.svg"
+          src="/2024/visual/cat.svg"
           alt="cat"
         />
         <motion.img
@@ -79,7 +79,7 @@ export default function Visual() {
           }}
           style={{ x: astronautX, y: astronautY }}
           className="absolute top-[35vh] w-[160px] sm:w-[200px] md:w-[320px] left-0 m-auto cursor-grab active:cursor-grabbing"
-          src="/2023/visual/astronaut.svg"
+          src="/2024/visual/astronaut.svg"
           alt="astronaut"
         />
         <motion.div

@@ -324,7 +324,7 @@ export default function TimeTable() {
               <hr className="my-4 md:my-7 border-[1.3px]" />
 
               <div className="flex items-start">
-                <img src="/2023/icon/pin.svg" className="w-5 h-5 mt-1 mr-2" />
+                <img src="/2024/icon/pin.svg" className="w-5 h-5 mt-1 mr-2" />
                 <div>
                   <h2 className="text-xl font-bold">課程介紹</h2>
                   <div className="mt-2 text-md">
@@ -381,7 +381,7 @@ export default function TimeTable() {
                   .map((item: any, i: number) => (
                     <div className="flex items-start mt-10" key={i}>
                       <img
-                        src="/2023/icon/speaker.svg"
+                        src="/2024/icon/speaker.svg"
                         className="w-5 h-5 mt-1 mr-2"
                       />
                       <div className="w-full">
@@ -407,7 +407,7 @@ export default function TimeTable() {
                           </div>
                           <div className="flex-none ml-[21px] w-20 h-20 md:w-32 md:h-32">
                             <img
-                              src={`/2023/speakers-avatar/${item.id}.jpeg`}
+                              src={`/2024/speakers-avatar/${item.id}.jpeg`}
                               alt={`${item.zh.name}'s Avatar`}
                               className="w-20 h-20 md:w-32 md:h-32 rounded-full object-cover"
                             />
