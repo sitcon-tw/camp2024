@@ -114,10 +114,9 @@ export default function Records() {
     <>
       <SectionTitle id="records">過往紀錄與回饋</SectionTitle>
       <div className="container mb-8 text-center">
-        SITCON
-        夏令營在為學員帶來扎實內容的同時，也希望整個學習的過程有趣且精彩！
+        SITCON 夏令營在為學員帶來扎實內容的同時，也希望整個學習的過程有趣且精彩 ! 
         <br />
-        以下為過往活動的紀錄與回饋，讓您更了解 SITCON 夏令營的精彩內容！
+        以下為過往活動的影音紀錄。
       </div>
       <motion.div
         initial={{ opacity: 0 }}
