@@ -32,8 +32,7 @@ function ApplicationCard({
 }) {
   return (
     <div
-      className={`bg-[#013249] rounded-xl ${dense ? "py-2 px-6" : "py-4 px-6 lg:py-6"
-        } relative overflow-hidden mb-4`}
+      className={`bg-[#013249] rounded-xl ${dense ? "py-2 px-6" : "py-4 px-6 lg:py-6"} relative overflow-hidden mb-4`}
     >
       <div className="relative z-10">{children}</div>
       {icon && (
@@ -67,9 +66,12 @@ export default function ApplicationInfo() {
         <ApplicationContent>即日起 ~ 2024/5/24（五）23:59 止</ApplicationContent>
       </ApplicationCard>
       <div className="flex w-full gap-4">
+        <PriceCard type="早鳥票" price={7900} />
         <PriceCard type="個人報名" price={8800} />
+      </div>
+      <div className="flex w-full gap-4 my-4">
         <PriceCard type="團體報名" price={7800} />
-        <PriceCard type="提前一晚入住營隊" price={100} />
+        <PriceCard type="提前一晚入住營隊" price={700} />
       </div>
       {/* // TODO: 修改報名連結 */}
       <div className="flex items-center justify-center my-8">
@@ -125,7 +127,7 @@ export default function ApplicationInfo() {
               正取學員需完成報名費繳交，始完成報名程序；另設有補助名額，請詳閱
               {" "}
               <a
-                href="https://drive.google.com/file/d/1xxH_sT-XrqC5WUgt8LuYJNBgPW_o368i/view?usp=sharing"
+                href="https://drive.google.com/file/d/17VY3TcxK4a9FY7T23qX6fmGA7C8UsLDP/view?usp=sharing"
                 target="_blank"
                 className="link"
               >
