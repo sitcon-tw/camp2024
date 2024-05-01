@@ -14,7 +14,6 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap"
           rel="stylesheet"
         />
-        <link href="/2024/anicons/anicons-regular.css" rel="stylesheet" />
         <link
           href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
           rel="stylesheet"
