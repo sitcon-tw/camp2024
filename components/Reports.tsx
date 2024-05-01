@@ -4,12 +4,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import Button from "./Button";
 function Report({
   children,
+  avatar256,
   avatar,
   name,
   year,
   href,
 }: {
   children: React.ReactNode;
+  avatar256?: string;
   avatar?: string;
   name: string;
   year: string;
@@ -18,7 +20,7 @@ function Report({
   return (
     <div className="flex flex-col items-center bg-[#01405D] rounded">
       <div className="flex items-center justify-center w-full gap-2 p-2 leading-4 text-white bg-black rounded-t bg-opacity-10">
-        <img src={avatar || "https://sitcon.camp/2024/images/default_avatar.jpg"} className="w-12 h-12 rounded" alt={"Student Avatar" + name} />
+        <img src={avatar || `https://secure.gravatar.com/avatar/${avatar256}?s=512&d=https://sitcon.camp/2024/images/default_avatar.jpg`} className="w-12 h-12 rounded" alt={"Student Avatar" + name} />
         <div className="flex-1">
           <div className="font-bold">{name}</div>
           <div className="mt-1 text-sm opacity-70">SITCON Camp {year} 學員</div>
@@ -71,6 +73,8 @@ function More({ children }: { children: React.ReactNode }) {
   );
 }
 export default function Reports() {
+  // TODO: Add single page for each report from 2024
+  // TODO: Make report a json file
   return (
     <>
       <motion.div
@@ -87,6 +91,7 @@ export default function Reports() {
         <motion.h1>
           <div className="grid grid-cols-1 gap-4 mt-4 lg:grid-cols-3">
             <Report
+              avatar256="0cdb4ee94c986dfa2ead475a1a92374d3bd0dd9443ec228153a023f52a52bea9"
               avatar={undefined}
               name="葉子琳"
               year="2023"
@@ -95,6 +100,7 @@ export default function Reports() {
               在 2023 年的 Camp 中我學到了蠻多平常體驗不到的！第一次體驗黑客松，跟來自各種不同年齡層的人一起合作寫專案！雖然每天都爆肝，但是最後寫出的東西真的是超級有成就感～隊輔也都超級細心，會來詢問有沒有哪裡聽不懂，擔心我們沒有跟上進度，課程上也學到了蠻多以前沒學過的，整個收穫滿滿！
             </Report>
             <Report
+              avatar256="900485640805279ca13d7186b8076bfc015d0bd7f442a1ec74fccb3b5ac29a27"
               avatar={undefined}
               name="張語柔"
               year="2023"
@@ -106,6 +112,7 @@ export default function Reports() {
               參加 SITCON Camp 後，讓我開始對其他相關的資訊社群感興趣，因此認識許多社群朋友，目前也正在積極參與各項活動的籌備！
             </Report>
             <Report
+              avatar256="eb828e3a9dea0da5b51fc9deb2c3c926fed78af10bbe53194326a847dc252c30"
               avatar={undefined}
               name="陳品妤"
               year="2023"
