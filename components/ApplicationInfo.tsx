@@ -71,6 +71,7 @@ export default function ApplicationInfo() {
         <PriceCard type="團體報名" price={7800} />
         <PriceCard type="提前一晚入住營隊" price={100} />
       </div>
+      {/* // TODO: 修改報名連結 */}
       <div className="flex items-center justify-center my-8">
         <motion.a
           transition={{
@@ -81,7 +82,7 @@ export default function ApplicationInfo() {
           className="bg-[#ddd] bg-opacity-80 backdrop-blur-xl text-[#eee] rounded-full py-5 px-12 shadow-2xl text-4xl font-bold cursor-not-allowed"
           target="_blank"
         >
-          報名已截止
+          未開放報名
         </motion.a>
       </div>
       <ApplicationCard dense>
@@ -103,38 +104,40 @@ export default function ApplicationInfo() {
         <div className="mt-4 lg:mt-0 lg:border-l lg:border-white lg:pl-6">
           <ol className="leading-7 list-decimal list-inside">
             <li>
-              三人同時報名，視為團體報名，享有團體報名價格，但並不保證同時錄取，
+              三人同時報名，視為團體報名，每團以三人為限，詳見
+              {" "}
               <a
-                href="https://drive.google.com/file/d/1HsA7Ed4xuc-qPlLdvMvcBzOxX9k5Ja1u/view?usp=share_link"
+                href="https://drive.google.com/file/d/1Hr9xbTVnlLSAz3gMEIs2i5jyot4slRIC/view?usp=sharing"
                 target="_blank"
                 className="link"
               >
-                請詳閱活動報名簡章
+                報名簡章
               </a>
               。
             </li>
             <li>
-              本次夏令營預計招收學員 60
-              名，我們會針對報名資料做簡易審查，非先報先贏。
+              本次夏令營預計招收學員 60 名，我們會針對報名資料做簡易審查，非先報先贏。
             </li>
             <li>
-              正取學員名單將於 06/11 公佈，屆時請關注 SITCON 相關社群媒體。
+              正取學員名單最晚將於 6/8（六）前公佈，屆時請關注 SITCON 相關社群媒體及 Email 信箱。
             </li>
             <li>
-              正取學員需完成報名費繳交，始完成報名程序；另設有補助名額，請詳閱{" "}
+              正取學員需完成報名費繳交，始完成報名程序；另設有補助名額，請詳閱
+              {" "}
               <a
-                href="https://drive.google.com/file/d/1lDPRoSkzFcM0FI5peNmJbDJA_NvWJZ5h/view"
+                href="https://drive.google.com/file/d/1xxH_sT-XrqC5WUgt8LuYJNBgPW_o368i/view?usp=sharing"
                 target="_blank"
                 className="link"
               >
-                補助辦法
+                報名費用補助辦法
               </a>
               。
             </li>
             <li>
-              關於退費事宜，請見{" "}
+              關於退費事宜，請見
+              {" "}
               <a
-                href="https://drive.google.com/file/d/1Cn78OIo5xOYwsL7eti4SmzNjZxt5bhG_/view"
+                href="https://drive.google.com/file/d/1f7nnTB7IskhPWIXk4FV9iiDKLKjpi78F/view?usp=sharing"
                 target="_blank"
                 className="link"
               >
