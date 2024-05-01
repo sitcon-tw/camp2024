@@ -81,10 +81,11 @@ export default function ApplicationInfo() {
             stiffness: 400,
             damping: 40,
           }}
-          className="bg-[#ddd] bg-opacity-80 backdrop-blur-xl text-[#eee] rounded-full py-5 px-12 shadow-2xl text-4xl font-bold cursor-not-allowed"
+          className="bg-[#013249] bg-opacity-100 backdrop-blur-xl text-[#eee] rounded-full py-5 px-12 shadow-2xl text-4xl font-bold cursor-pointer hover:bg-opacity-60"
           target="_blank"
+          href="https://sitcon.kktix.cc/events/sitcon-camp2024"
         >
-          未開放報名
+          前往報名
         </motion.a>
       </div>
       <ApplicationCard dense>
