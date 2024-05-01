@@ -115,7 +115,7 @@ export default function TimeTable() {
   return (
     <>
       <div
-        className="gap-1 hidden lg:grid"
+        className="hidden gap-1 lg:grid"
         style={{
           gridTemplateColumns,
           gridTemplateRows,
@@ -132,7 +132,7 @@ export default function TimeTable() {
         />
         {times.map((time, i) => (
           <div
-            className="time-item -translate-y-4 mr-4"
+            className="mr-4 -translate-y-4 time-item"
             style={{
               gridColumnStart: `🥞time`,
               gridRowStart: `🥞${time.replace(":", "")}`,
@@ -140,9 +140,8 @@ export default function TimeTable() {
             key={time}
           >
             <div
-              className={`text-white font-bold ${
-                time.endsWith("30") ? `text-opacity-70` : ``
-              }`}
+              className={`text-white font-bold ${time.endsWith("30") ? `text-opacity-70` : ``
+                }`}
             >
               {time}
             </div>
@@ -154,9 +153,8 @@ export default function TimeTable() {
               gridColumnStart: `🥞${room}`,
               gridRowStart: `roomname`,
             }}
-            className={`text-center py-2 bg-white bg-opacity-[.02] text-white ${
-              i === 0 && `rounded-tl-xl`
-            } ${i === 4 && `rounded-tr-xl`}`}
+            className={`text-center py-2 bg-white bg-opacity-[.02] text-white ${i === 0 && `rounded-tl-xl`
+              } ${i === 4 && `rounded-tr-xl`}`}
             key={room}
           >
             <div className="text-xl font-bold">{room}</div>
@@ -182,7 +180,7 @@ export default function TimeTable() {
             )}
 
             {(session.zh.description != "" || session.speakers.length != 0) && (
-              <div className="absolute bottom-0 right-0 w-6 h-6 flex justify-center items-center scale-75">
+              <div className="absolute bottom-0 right-0 flex items-center justify-center w-6 h-6 scale-75">
                 <InfoIcon />
               </div>
             )}
@@ -190,7 +188,7 @@ export default function TimeTable() {
         ))}
       </div>
       <div className="lg:hidden">
-        <div className="flex flex-row overflow-x-scroll gap-1">
+        <div className="flex flex-row gap-1 overflow-x-scroll">
           {Object.keys(rooms).map((room, i) => (
             <div
               className={`flex flex-col whitespace-nowrap px-2 py-1 cursor-pointer relative`}
@@ -200,13 +198,13 @@ export default function TimeTable() {
             >
               {activeDay === room && (
                 <motion.div
-                  className="absolute inset-0 h-full bg-white bg-opacity-10 rounded-xl shadow-xl"
+                  className="absolute inset-0 h-full bg-white shadow-xl bg-opacity-10 rounded-xl"
                   layout
                   layoutId="activeDay"
                 />
               )}
-              <div className="font-bold z-10">{room}</div>
-              <div className="text-white text-opacity-80 text-xs z-10 mb-1">
+              <div className="z-10 font-bold">{room}</div>
+              <div className="z-10 mb-1 text-xs text-white text-opacity-80">
                 {rooms[room]}
               </div>
             </div>
@@ -241,16 +239,16 @@ export default function TimeTable() {
                   if (swipe < -swipeConfidenceThreshold) {
                     setActiveDay(
                       Object.keys(rooms)[
-                        Math.min(
-                          Object.keys(rooms).length - 1,
-                          Object.keys(rooms).indexOf(activeDay) + 1
-                        )
+                      Math.min(
+                        Object.keys(rooms).length - 1,
+                        Object.keys(rooms).indexOf(activeDay) + 1
+                      )
                       ]
                     );
                   } else if (swipe > swipeConfidenceThreshold) {
                     setActiveDay(
                       Object.keys(rooms)[
-                        Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)
+                      Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)
                       ]
                     );
                   }
@@ -260,7 +258,7 @@ export default function TimeTable() {
                   .filter(({ room }) => room === item)
                   .map((session: any, i) => (
                     <div
-                      className="bg-black bg-opacity-10 border border-black border-opacity-20 flex items-center px-4 py-2 text-white rounded-xl overflow-hidden shadow-sm"
+                      className="flex items-center px-4 py-2 overflow-hidden text-white bg-black border border-black shadow-sm bg-opacity-10 border-opacity-20 rounded-xl"
                       onClick={() => openSessionBox(session)}
                       key={`${session.room}-${session.zh.title}`}
                     >
@@ -271,7 +269,7 @@ export default function TimeTable() {
                         <div className="font-bold">
                           {session.zh.title.split("\n")[0]}
                           {session.zh.title.split("\n").length >= 2 && (
-                            <span className="ml-1 text-white text-opacity-80 font-normal">
+                            <span className="ml-1 font-normal text-white text-opacity-80">
                               {session.zh.title.split("\n")[1]}
                             </span>
                           )}
@@ -289,7 +287,7 @@ export default function TimeTable() {
       <AnimatePresence>
         {sessionMessage && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 cursor-pointer backdrop-blur"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 cursor-pointer backdrop-blur"
             onClick={closeSessionBox}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -302,9 +300,9 @@ export default function TimeTable() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 100 }}
             >
-              <div className="flex justify-between items-center mb-2">
+              <div className="flex items-center justify-between mb-2">
                 <div>
-                  <div className="font-bold text-2xl md:text-3xl">
+                  <div className="text-2xl font-bold md:text-3xl">
                     {sessionMessage.zh.title.split("\n")[0]}
                   </div>
                   <div className="text-xl md:text-2xl text-white/[.85] mt-1">
@@ -332,7 +330,7 @@ export default function TimeTable() {
                       .split("\n")
                       .map((item: any, i: number) => {
                         if (i === 0 && item == "")
-                          return <span>這節課沒有介紹！</span>;
+                          return <span key={i}>這節課沒有介紹！</span>;
                         return (
                           <ReactMarkdown
                             key={i}
@@ -346,7 +344,7 @@ export default function TimeTable() {
                         );
                       })}
                   </div>
-                  <div className="mt-2 text-md flex gap-2">
+                  <div className="flex gap-2 mt-2 text-md">
                     {sessionMessage.slide && (
                       <a
                         href={sessionMessage.slide}
@@ -370,9 +368,8 @@ export default function TimeTable() {
               </div>
 
               <div
-                className={`mt-4 ${
-                  sessionMessage.speakers.length < 1 ? "hidden" : ""
-                }`}
+                className={`mt-4 ${sessionMessage.speakers.length < 1 ? "hidden" : ""
+                  }`}
               >
                 {sessionMessage.speakers
                   .map((item: any) =>
@@ -409,7 +406,7 @@ export default function TimeTable() {
                             <img
                               src={`/2024/speakers-avatar/${item.id}.jpeg`}
                               alt={`${item.zh.name}'s Avatar`}
-                              className="w-20 h-20 md:w-32 md:h-32 rounded-full object-cover"
+                              className="object-cover w-20 h-20 rounded-full md:w-32 md:h-32"
                             />
                           </div>
                         </div>
