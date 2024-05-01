@@ -106,10 +106,13 @@ export default function ApplicationInfo() {
         <div className="mt-4 lg:mt-0 lg:border-l lg:border-white lg:pl-6">
           <ol className="leading-7 list-decimal list-inside">
             <li>
-              三人同時報名，視為團體報名，每團以三人為限，詳見
+              若在 5/12（日）23:59 前報名即享有早鳥價，享有早鳥價者仍可享有團報優惠。
+            </li>
+            <li>
+              三人同時報名，視為團體報名，享有團體報名價格，但並不保證同時錄取，每團以三人為限，詳見
               {" "}
               <a
-                href="https://drive.google.com/file/d/1Hr9xbTVnlLSAz3gMEIs2i5jyot4slRIC/view?usp=sharing"
+                href="https://drive.google.com/file/d/1UWNkiYLvLZKY6VM1_XnRy5gbtV74DLcY/view?usp=sharing"
                 target="_blank"
                 className="link"
               >
