@@ -90,8 +90,8 @@ export default function Visual() {
             日期
           </motion.div>
           <motion.div className="text-2xl font-bold lg:text-4xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded p-1">
-            <span className="hidden lg:inline">07/20 ~ 07/24</span>
-            <span className="lg:hidden">7/20 ~ 7/24</span>
+            <span className="hidden lg:inline">07/17 ~ 07/21</span>
+            <span className="lg:hidden">7/17 ~ 7/21</span>
           </motion.div>
           <div className="lg:text-xl bg-[#012637] bg-opacity-80 backdrop-blur-xl rounded mt-2 p-1">
             地點
