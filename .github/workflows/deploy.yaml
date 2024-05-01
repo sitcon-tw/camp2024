@@ -10,46 +10,63 @@ jobs:
     runs-on: ubuntu-latest
     environment: github-pages
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 20
-    - uses: actions/cache@v3
-      with:
-        path: |
-          ~/.npm
-          ${{ github.workspace }}/.next/cache
-        # Generate a new cache whenever packages or source files change.
-        key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-        # If source files changed but packages didn't, rebuild from a prior cache.
-        restore-keys: |
-          ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
-    - name: Generate Schedule Json
-      uses: CCIP-App/schedule-json-generator-action@v2
-      with:
-        gcp-api-key: ${{ secrets.GCP_API_KEY }}
-        spreadsheet-key: "1oeoSMCZVewDOmTjbJ_Y_u3TEkwRp-IOckvu05hd6qJc"
-        default-avatar: "https://sitcon.org/2018/static/img/staffs/stone.png"
-        avatar-base-url: "https://sitcon.org/2018/static/img/speaker/"
-        output-path: ./public/schedule.json
-    - name: Install npm packages
-      run: npm install
-    - name: Build Pages
-      run: npm run build
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
-    - name: Trigger workflow in other repo
-      uses: actions/github-script@v6
-      with:
-        github-token: ${{ secrets.GHA_WORKFLOW_TRIGGER }}
-        script: |
-          const result = await github.rest.actions.createWorkflowDispatch({
-            owner: 'sitcon-tw',
-            repo: 'camp',
-            workflow_id: 'updateSubmodules.yml',
-            ref: 'gh-pages'
-          })
-          console.log(result)
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: pnpm/action-setup@v3
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: |
+            ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+      - name: Generate Schedule Json
+        uses: CCIP-App/schedule-json-generator-action@v2
+        with:
+          gcp-api-key: ${{ secrets.GCP_API_KEY }}
+          spreadsheet-key: "1M7PGplyFfh1pRSnCYplGowvuI85NkAgaTjs8LaKBdEc"
+          default-avatar: "https://sitcon.org/2018/static/img/staffs/stone.png"
+          avatar-base-url: "https://sitcon.org/2018/static/img/speaker/"
+          output-path: ./public/schedule.json
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build Pages
+        run: pnpm build
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+      - name: Trigger workflow in other repo
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GHA_WORKFLOW_TRIGGER }}
+          script: |
+            const result = await github.rest.actions.createWorkflowDispatch({
+              owner: 'sitcon-tw',
+              repo: 'camp',
+              workflow_id: 'updateSubmodules.yml',
+              ref: 'gh-pages'
+            })
+            console.log(result)

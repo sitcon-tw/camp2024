@@ -2,5 +2,5 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Development
 - Download [`schedule.json`](https://sitcon.camp/2024/schedule.json) and put it in `public/`
-- `npm install`
-- `npm run dev`
+- `pnpm install`
+- `pnpm run dev`
