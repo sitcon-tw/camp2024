@@ -4,7 +4,7 @@ import Button from "./Button";
 function PriceCard({ type, price }: { type: string; price: number }) {
   return (
     <div className="bg-[#013249] py-4 px-6 rounded-xl flex-1">
-      <div className="border-b border-white border-opacity-20 pb-1 mb-1 text-xl flex items-center justify-between">
+      <div className="flex items-center justify-between pb-1 mb-1 text-xl border-b border-white border-opacity-20">
         <div>{type}</div>
         <div className="hidden sm:block">
           {Array.from({ length: type === "團體報名" ? 3 : 1 }).map((_, i) => (
@@ -13,7 +13,7 @@ function PriceCard({ type, price }: { type: string; price: number }) {
         </div>
       </div>
       <div className="md:text-xl">
-        <span className="text-2xl md:text-3xl font-bold mr-2">
+        <span className="mr-2 text-2xl font-bold md:text-3xl">
           {price.toLocaleString()}
         </span>
         <span>元/人</span>
@@ -32,9 +32,8 @@ function ApplicationCard({
 }) {
   return (
     <div
-      className={`bg-[#013249] rounded-xl ${
-        dense ? "py-2 px-6" : "py-4 px-6 lg:py-6"
-      } relative overflow-hidden mb-4`}
+      className={`bg-[#013249] rounded-xl ${dense ? "py-2 px-6" : "py-4 px-6 lg:py-6"
+        } relative overflow-hidden mb-4`}
     >
       <div className="relative z-10">{children}</div>
       {icon && (
@@ -46,7 +45,7 @@ function ApplicationCard({
   );
 }
 function ApplicationTitle({ children }: { children: React.ReactNode }) {
-  return <h2 className="text-2xl font-bold mb-2">{children}</h2>;
+  return <h2 className="mb-2 text-2xl font-bold">{children}</h2>;
 }
 function ApplicationContent({ children }: { children: React.ReactNode }) {
   return <h3 className="text-2xl lg:text-3xl">{children}</h3>;
@@ -57,7 +56,7 @@ export default function ApplicationInfo() {
       <SectionTitle id="application-info">報名資訊</SectionTitle>
       <ApplicationCard icon="bx-calendar">
         <ApplicationTitle>日期</ApplicationTitle>
-        <ApplicationContent>07/20 ~ 07/24</ApplicationContent>
+        <ApplicationContent>07/17 ~ 07/21</ApplicationContent>
       </ApplicationCard>
       <ApplicationCard icon="bx-map-alt">
         <ApplicationTitle>地點</ApplicationTitle>
@@ -65,11 +64,12 @@ export default function ApplicationInfo() {
       </ApplicationCard>
       <ApplicationCard icon="bx-time">
         <ApplicationTitle>報名時間</ApplicationTitle>
-        <ApplicationContent>延長至 06/02</ApplicationContent>
+        <ApplicationContent>即日起 ~ 2024/5/24（五）23:59 止</ApplicationContent>
       </ApplicationCard>
-      <div className="flex gap-4 w-full">
+      <div className="flex w-full gap-4">
         <PriceCard type="個人報名" price={8800} />
-        <PriceCard type="團體報名" price={7600} />
+        <PriceCard type="團體報名" price={7800} />
+        <PriceCard type="提前一晚入住營隊" price={100} />
       </div>
       <div className="flex items-center justify-center my-8">
         <motion.a
@@ -85,7 +85,7 @@ export default function ApplicationInfo() {
         </motion.a>
       </div>
       <ApplicationCard dense>
-        <div className="flex flex-col-reverse my-2 md:my-0 md:flex-row items-center md:items-center justify-between gap-2 md:gap-4">
+        <div className="flex flex-col-reverse items-center justify-between gap-2 my-2 md:my-0 md:flex-row md:items-center md:gap-4">
           <div className="text-sm md:text-base">
             將 SITCON Camp 重要日程加入行事曆
           </div>
@@ -101,7 +101,7 @@ export default function ApplicationInfo() {
       <div className="mt-4 p-4 lg:p-6 bg-[#013249] rounded-xl lg:flex gap-4 lg:gap-6 items-center">
         <div className="text-2xl font-bold min-w-max">注意事項</div>
         <div className="mt-4 lg:mt-0 lg:border-l lg:border-white lg:pl-6">
-          <ol className="list-decimal list-inside leading-7">
+          <ol className="leading-7 list-decimal list-inside">
             <li>
               三人同時報名，視為團體報名，享有團體報名價格，但並不保證同時錄取，
               <a
