@@ -13,8 +13,8 @@ export default function Sponsor() {
                 <div
                   className={`${
                     item.name === "陽明交通大學資訊工程系學會"
-                      ? `bg-[#730208]`
-                      : `bg-white`
+                      ? "bg-[#730208]"
+                      : "bg-white"
                   } rounded-lg`}
                 >
                   <img

@@ -17,22 +17,22 @@ function Report({
 }) {
   return (
     <div className="flex flex-col items-center bg-[#01405D] rounded">
-      <div className="flex items-center justify-center gap-2 p-2 bg-black bg-opacity-10 text-white rounded-t leading-4 w-full">
-        <img src={avatar || "https://sitcon.camp/2024/images/default_avatar.jpg"} className="w-12 h-12 rounded" />
+      <div className="flex items-center justify-center w-full gap-2 p-2 leading-4 text-white bg-black rounded-t bg-opacity-10">
+        <img src={avatar || "https://sitcon.camp/2024/images/default_avatar.jpg"} className="w-12 h-12 rounded" alt={"Student Avatar" + name} />
         <div className="flex-1">
           <div className="font-bold">{name}</div>
-          <div className="opacity-70 text-sm mt-1">SITCON Camp {year} 學員</div>
+          <div className="mt-1 text-sm opacity-70">SITCON Camp {year} 學員</div>
         </div>
       </div>
-      <div className="py-2 px-4 w-full">{children}</div>
+      <div className="w-full px-4 py-2">{children}</div>
       <div className="flex-1"></div>
-      <div className="p-4 pt-0 flex justify-end w-full">
+      <div className="flex justify-end w-full p-4 pt-0">
         <Link
           href={href || "/"}
-          target={(href || "/").startsWith("http") ? `_blank` : ``}
+          target={(href || "/").startsWith("http") ? "_blank" : ""}
           className={"px-4 py-2 bg-[#013249] bg-opacity-50 hover:bg-opacity-100 rounded-full flex gap-2 items-center leading-4 " + (!href && "hidden")}
         >
-          閱讀全文 <i className="bx bx-chevron-right text-xl"></i>
+          閱讀全文 <i className="text-xl bx bx-chevron-right"></i>
         </Link>
       </div>
     </div>
@@ -59,10 +59,10 @@ function More({ children }: { children: React.ReactNode }) {
             initial={{ opacity: 0, height: "auto", scale: 0 }}
             whileInView={{ opacity: 1, height: "auto", scale: 1 }}
             exit={{ opacity: 0, height: 0, scale: 0 }}
-            className="flex justify-center items-center w-full mt-4"
+            className="flex items-center justify-center w-full mt-4"
           >
             <Button onClick={() => setShow(true)}>
-              <i className="bx bx-plus text-xl"></i> 檢視更多學員心得
+              <i className="text-xl bx bx-plus"></i> 檢視更多學員心得
             </Button>
           </motion.div>
         )}
@@ -79,13 +79,13 @@ export default function Reports() {
         whileInView={{ opacity: 1, y: 0 }}
       >
         <motion.h1
-          className="text-center text-2xl lg:text-2xl font-bold mt-1 lg:mt-3 scroll-mt-32"
+          className="mt-1 text-2xl font-bold text-center lg:text-2xl lg:mt-3 scroll-mt-32"
           id="reports"
         >
           來聽聽學員的回饋
         </motion.h1>
         <motion.h1>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
+          <div className="grid grid-cols-1 gap-4 mt-4 lg:grid-cols-3">
             <Report
               avatar={undefined}
               name="葉子琳"
@@ -116,7 +116,7 @@ export default function Reports() {
           </div>
         </motion.h1>
         <More>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
+          <div className="grid grid-cols-1 gap-4 mt-4 lg:grid-cols-3">
             <Report
               avatar="/2024/records-avatar/340069299_243506511573764_1868312350951130034_n.jpg"
               name="吳冠廷"

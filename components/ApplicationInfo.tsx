@@ -8,7 +8,7 @@ function PriceCard({ type, price }: { type: string; price: number }) {
         <div>{type}</div>
         <div className="hidden sm:block">
           {Array.from({ length: type === "團體報名" ? 3 : 1 }).map((_, i) => (
-            <i key={i} className={`bx bx-user`}></i>
+            <i key={i} className={"bx bx-user"}></i>
           ))}
         </div>
       </div>
@@ -33,7 +33,7 @@ function ApplicationCard({
   return (
     <div
       className={`bg-[#013249] rounded-xl ${
-        dense ? `py-2 px-6` : `py-4 px-6 lg:py-6`
+        dense ? "py-2 px-6" : "py-4 px-6 lg:py-6"
       } relative overflow-hidden mb-4`}
     >
       <div className="relative z-10">{children}</div>

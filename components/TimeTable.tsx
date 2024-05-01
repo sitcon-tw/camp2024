@@ -23,8 +23,8 @@ export default function TimeTable() {
     return colon ? res : res.replace(":", "");
   }
   function parseSessionStyle(session: any) {
-    let start = `🥞` + parseTime(session.start, false);
-    let end = `🥞` + parseTime(session.end, false);
+    let start = "🥞" + parseTime(session.start, false);
+    let end = "🥞" + parseTime(session.end, false);
     return {
       gridColumnStart: `🥞${session.room}`,
       gridRow: `${start} / ${end}`,
@@ -76,6 +76,8 @@ export default function TimeTable() {
     });
 
     DayTranslateX.set(0);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeDay, size.width]);
   const springX = useSpring(x, { stiffness: 300, damping: 35 });
   const swipeConfidenceThreshold = 10000;
@@ -123,10 +125,10 @@ export default function TimeTable() {
       >
         <div
           style={{
-            gridColumnStart: `🥞Day1`,
-            gridRowStart: `roomname`,
-            gridColumnEnd: `🥞end`,
-            gridRowEnd: `🥞2200`,
+            gridColumnStart: "🥞Day1",
+            gridRowStart: "roomname",
+            gridColumnEnd: "🥞end",
+            gridRowEnd: "🥞2200",
           }}
           className="bg-[#01405D] bg-opacity-30 rounded-xl"
         />
@@ -134,14 +136,14 @@ export default function TimeTable() {
           <div
             className="mr-4 -translate-y-4 time-item"
             style={{
-              gridColumnStart: `🥞time`,
+              gridColumnStart: "🥞time",
               gridRowStart: `🥞${time.replace(":", "")}`,
             }}
             key={time}
           >
             <div
-              className={`text-white font-bold ${time.endsWith("30") ? `text-opacity-70` : ``
-                }`}
+              className={`text-white font-bold ${time.endsWith("30") ? "text-opacity-70" : ""
+              }`}
             >
               {time}
             </div>
@@ -151,10 +153,10 @@ export default function TimeTable() {
           <div
             style={{
               gridColumnStart: `🥞${room}`,
-              gridRowStart: `roomname`,
+              gridRowStart: "roomname",
             }}
-            className={`text-center py-2 bg-white bg-opacity-[.02] text-white ${i === 0 && `rounded-tl-xl`
-              } ${i === 4 && `rounded-tr-xl`}`}
+            className={`text-center py-2 bg-white bg-opacity-[.02] text-white ${i === 0 && "rounded-tl-xl"
+            } ${i === 4 && "rounded-tr-xl"}`}
             key={room}
           >
             <div className="text-xl font-bold">{room}</div>
@@ -165,9 +167,9 @@ export default function TimeTable() {
           <div
             style={parseSessionStyle(session)}
             className={
-              `bg-white bg-opacity-[.08] flex flex-col justify-center items-center p-4 text-white transition-all relative border border-white border-opacity-0 ` +
+              "bg-white bg-opacity-[.08] flex flex-col justify-center items-center p-4 text-white transition-all relative border border-white border-opacity-0 " +
               ((session.zh.description != "" || session.speakers.length != 0) &&
-                `hover:bg-opacity-20 hover:cursor-pointer hover:shadow-lg hover:border-opacity-40`)
+                "hover:bg-opacity-20 hover:cursor-pointer hover:shadow-lg hover:border-opacity-40")
             }
             key={`${session.room}-${session.zh.title}`}
             onClick={() => openSessionBox(session)}
@@ -191,7 +193,7 @@ export default function TimeTable() {
         <div className="flex flex-row gap-1 overflow-x-scroll">
           {Object.keys(rooms).map((room, i) => (
             <div
-              className={`flex flex-col whitespace-nowrap px-2 py-1 cursor-pointer relative`}
+              className={"flex flex-col whitespace-nowrap px-2 py-1 cursor-pointer relative"}
               id={`item-${room}`}
               onClick={() => setActiveDay(room)}
               key={room}
@@ -239,16 +241,16 @@ export default function TimeTable() {
                   if (swipe < -swipeConfidenceThreshold) {
                     setActiveDay(
                       Object.keys(rooms)[
-                      Math.min(
-                        Object.keys(rooms).length - 1,
-                        Object.keys(rooms).indexOf(activeDay) + 1
-                      )
+                        Math.min(
+                          Object.keys(rooms).length - 1,
+                          Object.keys(rooms).indexOf(activeDay) + 1
+                        )
                       ]
                     );
                   } else if (swipe > swipeConfidenceThreshold) {
                     setActiveDay(
                       Object.keys(rooms)[
-                      Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)
+                        Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)
                       ]
                     );
                   }
@@ -313,7 +315,7 @@ export default function TimeTable() {
                   onClick={closeSessionBox}
                   className="text-white hover:text-[#F9A8D4] font-['Anicons_Regular'] text-xl transition-all"
                   style={{
-                    fontVariationSettings: `"TIME" 100`,
+                    fontVariationSettings: "\"TIME\" 100",
                   }}
                 >
                   A
@@ -369,7 +371,7 @@ export default function TimeTable() {
 
               <div
                 className={`mt-4 ${sessionMessage.speakers.length < 1 ? "hidden" : ""
-                  }`}
+                }`}
               >
                 {sessionMessage.speakers
                   .map((item: any) =>

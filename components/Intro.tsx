@@ -6,18 +6,18 @@ export default function Intro() {
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-center lg:text-xl font-bold mt-16"
+          className="mt-16 font-bold text-center lg:text-xl"
         >
           樂趣之餘，不忘學習
         </motion.h2>
         <motion.h1
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-center text-2xl lg:text-3xl font-bold mt-1 lg:mt-3"
+          className="mt-1 text-2xl font-bold text-center lg:text-3xl lg:mt-3"
         >
           由資訊社群所打造，超高知識含量的夏令營
         </motion.h1>
-        <div className="flex justify-center items-center flex-col gap-8 lg:flex-row mt-8">
+        <div className="flex flex-col items-center justify-center gap-8 mt-8 lg:flex-row">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +40,8 @@ export default function Intro() {
           </motion.p>
           <img
             src="/2024/images/48711198528_e7ac02a80b_k.jpg"
-            className="w-full lg:w-80 object-cover rounded lg:rotate-3 shadow"
+            className="object-cover w-full rounded shadow lg:w-80 lg:rotate-3"
+            alt="SITCON Camp Image"
           />
         </div>
       </div>

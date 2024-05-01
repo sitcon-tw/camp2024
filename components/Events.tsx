@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import TimeTable from "./TimeTable";
 export function EventTitle({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="text-center lg:text-left text-2xl font-bold mb-4">
+    <h2 className="mb-4 text-2xl font-bold text-center lg:text-left">
       {children}
     </h2>
   );
@@ -18,7 +18,7 @@ export function EventBox({ children }: { children: React.ReactNode }) {
       whileInView={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ ease: "easeOut", duration: 0.3 }}
-      className={`py-6 px-6 lg:py-5 lg:px-6 rounded-xl bg-black bg-opacity-10 border border-black border-opacity-20 relative mb-4 lg:flex lg:gap-8 lg:items-center`}
+      className={"py-6 px-6 lg:py-5 lg:px-6 rounded-xl bg-black bg-opacity-10 border border-black border-opacity-20 relative mb-4 lg:flex lg:gap-8 lg:items-center"}
     >
       {children}
     </motion.div>
@@ -26,7 +26,7 @@ export function EventBox({ children }: { children: React.ReactNode }) {
 }
 export function EventImg({ src }: { src: string }) {
   return (
-    <img src={src} className="w-full lg:w-80 rounded shadow-xl mt-4 lg:mt-0" />
+    <img src={src} className="w-full mt-4 rounded shadow-xl lg:w-80 lg:mt-0" alt={"Event Image"} />
   );
 }
 export default function Events() {
@@ -86,11 +86,8 @@ export default function Events() {
       <EventBox>
         <img
           src="./images/leaf-hat.svg"
-          className="absolute
-      hidden lg:block
-       right-4
-       -bottom-[1px]
-       w-8 h-8"
+          className="absolute hidden lg:block right-4 -bottom-[1px] w-8 h-8"
+          alt="Leaf Hat"
         />
         <EventContent>
           <EventTitle>故事劇情</EventTitle>

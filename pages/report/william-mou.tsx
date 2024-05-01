@@ -14,5 +14,5 @@ export default function Records() {
         ><i className='bx bx-chevron-left text-xl' ></i> 返回首頁</Link>
       </div>
     </>
-  )
+  );
 }

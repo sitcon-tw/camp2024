@@ -52,7 +52,7 @@ function useMenuAnimation(isOpen: boolean) {
         delay: isOpen ? staggerMenuItems : 0,
       }
     );
-  }, [isOpen]);
+  }, [animate, isOpen, staggerMenuItems]);
 
   return scope;
 }
@@ -68,24 +68,24 @@ export default function Nav() {
   ];
   return (
     <>
-      <div className="container fixed left-0 right-0 top-0 z-50" ref={scope}>
+      <div className="container fixed top-0 left-0 right-0 z-50" ref={scope}>
         <nav className="bg-[#01405D] bg-opacity-80 backdrop-blur-xl rounded-full py-3 px-6 mt-4 lg:py-3 lg:px-10 lg:mt-8 flex items-center justify-between shadow-2xl transition-all">
           <Link href="/" className="font-bold">
-            <img src="/2024/icon/logo.svg" className="h-10" />
+            <img src="/2024/icon/logo.svg" className="h-10" alt="Logo" />
           </Link>
-          <div className="space-x-4 hidden lg:flex">
+          <div className="hidden space-x-4 lg:flex">
             {navItems.map((item, index) => (
               <NavItem href={item.href} key={index} setIsNavOpen={setIsNavOpen}>
                 {item.text}
               </NavItem>
             ))}
           </div>
-          <div className="lg:hidden relative">
+          <div className="relative lg:hidden">
             <button
               onClick={() => setIsNavOpen(!isNavOpen)}
               className="text-white hover:text-[#F9A8D4] font-['Anicons_Regular'] text-xl transition-all"
               style={{
-                fontVariationSettings: isNavOpen ? `"TIME" 100` : `"TIME" 1`,
+                fontVariationSettings: isNavOpen ? "\"TIME\" 100" : "\"TIME\" 1",
               }}
             >
               A
@@ -98,7 +98,7 @@ export default function Nav() {
               }}
               id="mobile-nav"
             >
-              <div className="py-4 px-6 flex flex-col justify-between space-y-4">
+              <div className="flex flex-col justify-between px-6 py-4 space-y-4">
                 {navItems.map((item, index) => (
                   <NavItem
                     href={item.href}

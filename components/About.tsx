@@ -1,7 +1,7 @@
 import Link from "next/link";
 function AboutSection({ children }: { children: React.ReactNode }) {
   return (
-    <section className={`mt-16 lg:flex lg:items-start gap-8 relative`}>
+    <section className={"mt-16 lg:flex lg:items-start gap-8 relative"}>
       {children}
     </section>
   );
@@ -28,7 +28,7 @@ export default function About() {
           除了技術研討之外，還有許多從學生角度出發的經驗分享、專題研究成果或探討學生相關議題等等議程。
           我們也曾舉辦黑客松、工作坊，和各地學校社團舉辦聯合講座等等。
           <div className="h-3" />
-          <Link href={`/teams`} className="link">
+          <Link href={"/teams"} className="link">
             {" "}
             了解更多
           </Link>
@@ -49,7 +49,7 @@ export default function About() {
           </Link>
           ，共同創造一個友善的環境。
           <div className="h-3" />
-          <Link href={`/coc`} className="link">
+          <Link href={"/coc"} className="link">
             {" "}
             了解更多
           </Link>

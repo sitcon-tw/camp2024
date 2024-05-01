@@ -46,7 +46,7 @@ function MemberCard({ name, sha256 }: { name: string; sha256: string }) {
             🥞{" "}
           </motion.span>
         ) : (
-          ``
+          ""
         )}
         {name}
         {clickCount >= 7 ? (
@@ -55,7 +55,7 @@ function MemberCard({ name, sha256 }: { name: string; sha256: string }) {
             🥞
           </motion.span>
         ) : (
-          ``
+          ""
         )}
       </motion.div>
     </div>

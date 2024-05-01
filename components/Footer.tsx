@@ -39,11 +39,11 @@ export default function Footer() {
   ];
   return (
     <div className="mt-16 bg-[#013249]">
-      <div className="container py-8 flex flex-col lg:flex-row gap-8">
+      <div className="container flex flex-col gap-8 py-8 lg:flex-row">
         <div className="w-full">
           <div className="font-bold">學生計算機年會</div>
           <div>Students&apos; Information Technology Conference</div>
-          <div className="font-bold mt-8">聯繫我們</div>
+          <div className="mt-8 font-bold">聯繫我們</div>
           <div>
             合作聯繫：
             <a href="mailto:contact@sitcon.org" className="link">
@@ -68,12 +68,13 @@ export default function Footer() {
               >
                 <img
                   src={socialMedia.icon}
-                  className="w-5 h-5 inline-block invert"
+                  className="inline-block w-5 h-5 invert"
+                  alt={socialMedia.title + " Icon"}
                 />
               </a>
             ))}
           </div>
-          <div className="font-bold mt-8">歷年網站</div>
+          <div className="mt-8 font-bold">歷年網站</div>
           <div className="flex flex-row flex-wrap gap-2">
             {years.map((year) => (
               <a

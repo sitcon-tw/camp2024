@@ -8,13 +8,13 @@ export default function Planets({ style, className }: {
   style?: object
   className?: string
 }) {
-  const time = useTime()
+  const time = useTime();
   const warpTime = useTransform(time, t => t % 8000);
-  const star1Opacity = useTransform(warpTime, [0, 4000, 8000], [0.5, 1, 0.5], { ease: easeInOut })
-  const star1Rotate = useTransform(warpTime, [0, 4000, 8000], [0, 10, 0], { ease: easeInOut })
-  const star2Opacity = useTransform(warpTime, [0, 4000, 8000], [1, 0.5, 1], { ease: easeInOut })
-  const star2Rotate = useTransform(warpTime, [0, 4000, 8000], [0, -10, 0], { ease: easeInOut })
-  const star2Scale = useTransform(warpTime, [0, 4000, 8000], [1, 1.2, 1], { ease: easeInOut })
+  const star1Opacity = useTransform(warpTime, [0, 4000, 8000], [0.5, 1, 0.5], { ease: easeInOut });
+  const star1Rotate = useTransform(warpTime, [0, 4000, 8000], [0, 10, 0], { ease: easeInOut });
+  const star2Opacity = useTransform(warpTime, [0, 4000, 8000], [1, 0.5, 1], { ease: easeInOut });
+  const star2Rotate = useTransform(warpTime, [0, 4000, 8000], [0, -10, 0], { ease: easeInOut });
+  const star2Scale = useTransform(warpTime, [0, 4000, 8000], [1, 1.2, 1], { ease: easeInOut });
   return (<motion.svg className={className} style={style} width="587" height="490" viewBox="0 0 587 490" fill="none" xmlns="http://www.w3.org/2000/svg">
     <mask id="mask0_222_2" maskUnits="userSpaceOnUse" x="95" y="177" width="383" height="313">
       <path d="M477.355 177.029H95.1289V489.588H477.355V177.029Z" fill="white" />
@@ -87,5 +87,5 @@ export default function Planets({ style, className }: {
       style={{ opacity: star1Opacity }}
       d="M255.429 68.6711C257.795 68.6711 259.712 66.7534 259.712 64.3878C259.712 62.0222 257.795 60.1046 255.429 60.1046C253.064 60.1046 251.146 62.0222 251.146 64.3878C251.146 66.7534 253.064 68.6711 255.429 68.6711Z" fill="#A5C8A2" />
   </motion.svg>
-  )
+  );
 }
