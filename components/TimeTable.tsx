@@ -131,7 +131,7 @@ export default function TimeTable() {
             gridColumnStart: "🥞Day1",
             gridRowStart: "roomname",
             gridColumnEnd: "🥞end",
-            gridRowEnd: "🥞2200",
+            gridRowEnd: "🥞2130",
           }}
           className="bg-[#01405D] bg-opacity-30 rounded-xl"
         />
