@@ -18,7 +18,7 @@ function Report({
   href?: string;
 }) {
   return (
-    <div className="flex flex-col items-center bg-[#01405D] rounded">
+    <div className="flex flex-col items-center bg-[#01405D] rounded h-[15rem] lg:h-[25rem]">
       <div className="flex items-center justify-center w-full gap-2 p-2 leading-4 text-white bg-black rounded-t bg-opacity-10">
         <img src={avatar || `https://secure.gravatar.com/avatar/${avatar256}?s=512&d=https://sitcon.camp/2024/images/default_avatar.jpg`} className="w-12 h-12 rounded" alt={"Student Avatar" + name} />
         <div className="flex-1">
@@ -95,30 +95,27 @@ export default function Reports() {
               avatar={undefined}
               name="葉子琳"
               year="2023"
-              href={undefined}
+              href={"/report/ye-zi-lin"}
             >
-              在 2023 年的 Camp 中我學到了蠻多平常體驗不到的！第一次體驗黑客松，跟來自各種不同年齡層的人一起合作寫專案！雖然每天都爆肝，但是最後寫出的東西真的是超級有成就感～隊輔也都超級細心，會來詢問有沒有哪裡聽不懂，擔心我們沒有跟上進度，課程上也學到了蠻多以前沒學過的，整個收穫滿滿！
+              在 2023 年的 Camp 中我學到了蠻多平常體驗不到的！第一次體驗黑客松，跟來自各種不同年齡層的人一起合作寫專案！雖然每天 …
             </Report>
             <Report
               avatar256="900485640805279ca13d7186b8076bfc015d0bd7f442a1ec74fccb3b5ac29a27"
               avatar={undefined}
               name="張語柔"
               year="2023"
-              href={undefined}
+              href={"/report/zhang-yu-rou"}
             >
-              SITCON Camp 是我第一次參加資訊相關的夏令營。在接觸到活動資訊時，我被黑客松及視界咖啡館吸引，因此報名了這次夏令營。
-              營期時，能感受到工作人員對所有活動都非常用心。在基本課程時，講者及助教會不斷關心大家的學習情況並給予指導；在黑客松討論時，也都會給予對專題方向的引導及建議。
-              其中最讓我驚艷的是特殊活動—奪寶大作戰，原本以為只是小小的串場活動，但每個關卡的設計都相當用心，需要運用各式各樣的資訊技能來破解。
-              參加 SITCON Camp 後，讓我開始對其他相關的資訊社群感興趣，因此認識許多社群朋友，目前也正在積極參與各項活動的籌備！
+              SITCON Camp 是我第一次參加資訊相關的夏令營。在接觸到活動資訊時，我被黑客松及視界咖啡館吸引，因此報名了這次夏令營 …
             </Report>
             <Report
               avatar256="eb828e3a9dea0da5b51fc9deb2c3c926fed78af10bbe53194326a847dc252c30"
               avatar={undefined}
               name="陳品妤"
               year="2023"
-              href={undefined}
+              href={"/report/chen-pin-yu"}
             >
-              Camp 的課程很充實能學到很多東西，不論是手把手教你寫 Telegram Bot，又或是 Arduino 等，都是值得嘗試看看的的東西。黑客松的部分則是一個有點痛苦（因為想不到能幹嘛然後程式一直出事之類的）、很燒腦袋但很好玩的東西，要從 0 開始生出一個專案最後可以成功使用，但成功時會很有成就感畢竟全程都是自己來、沒有人指導你，希望大家可以享受在 Camp 的日子✨
+              Camp 的課程很充實能學到很多東西，不論是手把手教你寫 Telegram Bot，又或是 Arduino 等，都是值得嘗試看看的的東西 …
             </Report>
           </div>
         </motion.h1>
@@ -152,8 +149,7 @@ export default function Reports() {
               SITCON Camp
               的精緻程度、工作人員們的用心、電的程度遠遠──超乎我的想像。他們在
               Discord 上建立了<span className="line-through">伺服器</span>
-              艦艇，依據課程編寫主線劇情，由機器聊天室將對話的情境呈現出來。小組討論基本上會在
-              Discord 上進行。
+              艦艇，依據課程編寫主線劇情，由機器聊天室將對話的情境呈現出來。
             </Report>
             <Report
               avatar="/2024/records-avatar/309683975_5494046350715307_8476200032565402966_n.jpg"
