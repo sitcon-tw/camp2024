@@ -1,6 +1,9 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import schedule from "../public/schedule.json";
+
+// import schedule from "../public/schedule.json";
+import schedule from "../public/schedule2.json";
+
 import { useEffect, useState } from "react";
 import {
   motion,
@@ -12,6 +15,7 @@ import useWindowSize from "@/hooks/useWindowSize";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import InfoIcon from "./InfoIcon";
+
 export default function TimeTable() {
   function parseTime(time: Date, colon: Boolean = true): string {
     let res = new Date(time).toLocaleTimeString("en-US", {
@@ -31,13 +35,12 @@ export default function TimeTable() {
     };
   }
   const rooms: { [key: string]: string } = {
-    Day1: "7/20（四）",
-    Day2: "7/21（五）",
-    Day3: "7/22（六）",
-    Day4: "7/23（日）",
-    Day5: "7/24（一）",
+    Day1: "7/17 (三)",
+    Day2: "7/18 (四)",
+    Day3: "7/19 (五)",
+    Day4: "7/20 (六)",
+    Day5: "7/21 (日)",
   };
-
   const times = [
     ...new Set(
       [
@@ -143,7 +146,7 @@ export default function TimeTable() {
           >
             <div
               className={`text-white font-bold ${time.endsWith("30") ? "text-opacity-70" : ""
-              }`}
+                }`}
             >
               {time}
             </div>
@@ -156,7 +159,7 @@ export default function TimeTable() {
               gridRowStart: "roomname",
             }}
             className={`text-center py-2 bg-white bg-opacity-[.02] text-white ${i === 0 && "rounded-tl-xl"
-            } ${i === 4 && "rounded-tr-xl"}`}
+              } ${i === 4 && "rounded-tr-xl"}`}
             key={room}
           >
             <div className="text-xl font-bold">{room}</div>
@@ -241,16 +244,16 @@ export default function TimeTable() {
                   if (swipe < -swipeConfidenceThreshold) {
                     setActiveDay(
                       Object.keys(rooms)[
-                        Math.min(
-                          Object.keys(rooms).length - 1,
-                          Object.keys(rooms).indexOf(activeDay) + 1
-                        )
+                      Math.min(
+                        Object.keys(rooms).length - 1,
+                        Object.keys(rooms).indexOf(activeDay) + 1
+                      )
                       ]
                     );
                   } else if (swipe > swipeConfidenceThreshold) {
                     setActiveDay(
                       Object.keys(rooms)[
-                        Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)
+                      Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)
                       ]
                     );
                   }
@@ -371,7 +374,7 @@ export default function TimeTable() {
 
               <div
                 className={`mt-4 ${sessionMessage.speakers.length < 1 ? "hidden" : ""
-                }`}
+                  }`}
               >
                 {sessionMessage.speakers
                   .map((item: any) =>

@@ -73,7 +73,6 @@ export default function ApplicationInfo() {
         <PriceCard type="團體報名" price={7800} />
         <PriceCard type="提前一晚入住營隊" price={700} />
       </div>
-      {/* // TODO: 修改報名連結 */}
       <div className="flex items-center justify-center my-8">
         <motion.a
           transition={{

@@ -73,7 +73,6 @@ function More({ children }: { children: React.ReactNode }) {
   );
 }
 export default function Reports() {
-  // TODO: Add single page for each report from 2024
   // TODO: Make report a json file
   return (
     <>
