@@ -73,8 +73,8 @@ export default function Events() {
         </EventContent>
         <EventImg src="./images/48711514086_a88a5a9fa7_c.jpg" />
       </EventBox>
-      {/* // TODO: 闖關活動內容補齊 */}
-      <EventBox>
+      {/* // TODO: 闖關活動內容以及故事劇情內容補齊 */}
+      {/* <EventBox>
         <img
           src="./images/leaf-hat.svg"
           className="absolute hidden lg:block right-4 -bottom-[1px] w-8 h-8"
@@ -91,7 +91,7 @@ export default function Events() {
           這一次，我們能一如既往的突破重重考驗、順利完成任務，讓 2000
           多年前的美麗文明再次復甦嗎？
         </EventContent>
-      </EventBox>
+      </EventBox> */}
     </div >
   );
 }
