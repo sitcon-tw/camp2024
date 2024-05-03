@@ -37,5 +37,3 @@ dist
 utils/membersSHA256.json
 utils/members.csv
 public/schedule.json
-
-pnpm-lock.yaml
