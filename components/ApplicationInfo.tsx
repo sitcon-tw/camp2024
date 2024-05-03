@@ -63,7 +63,7 @@ export default function ApplicationInfo() {
       </ApplicationCard>
       <ApplicationCard icon="bx-time">
         <ApplicationTitle>報名時間</ApplicationTitle>
-        <ApplicationContent>即日起 ~ 2024/5/24（五）23:59 止</ApplicationContent>
+        <ApplicationContent>即日起 ~ 5/24(五) 23:59</ApplicationContent>
       </ApplicationCard>
       <div className="flex w-full gap-4">
         <PriceCard type="早鳥票" price={7900} />
@@ -71,7 +71,7 @@ export default function ApplicationInfo() {
       </div>
       <div className="flex w-full gap-4 my-4">
         <PriceCard type="團體報名" price={7800} />
-        <PriceCard type="提前一晚入住營隊" price={700} />
+        <PriceCard type="前一晚入住營隊" price={700} />
       </div>
       <div className="flex items-center justify-center my-8">
         <motion.a
