@@ -36,4 +36,5 @@ next-env.d.ts
 dist
 utils/membersSHA256.json
 utils/members.csv
+utils/members/json
 public/schedule.json
