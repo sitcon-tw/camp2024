@@ -7,7 +7,18 @@ const googleTagManagerId = "GTM-NKHHNVV";
 import Head from "next/head";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+
+import React from "react";
+
 export default function App({ Component, pageProps }: AppProps) {
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    if (window.innerWidth < 1024) {
+      setIsMobile(true);
+    }
+  }, []);
+
   return (
     <>
       <Head>
@@ -36,9 +47,14 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <meta name="twitter:site" content="@sitcontw" />
       </Head>
-      <Nav />
-      <Component {...pageProps} />
-      <Footer />
+      <div style={{ display: (isMobile ? "none" : "0") }}>
+        <Nav />
+        <Component {...pageProps} />
+        <Footer />
+      </div>
+      <div style={{ display: (isMobile ? "0" : "none") }}>
+        <Component {...pageProps} />
+      </div>
       <Script
         id="gtm"
         strategy="afterInteractive"
@@ -58,6 +74,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           __html: `
         console.log("%c美味的蓬蓬鬆餅都在這裡！%c https://pancake.tw ", "background-color: #13AA13; color: white; padding: 5px;", "background-color: #f2f2f2; color: white; padding: 5px;");
 `,
+        }}
+      />
+
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+          if(!window.location.pathname.includes("mobile") && window.innerWidth <= 1024) {
+            window.location.replace("/2024/mobile");
+          }
+        `
+        }}
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+          if(window.location.pathname.includes("mobile") && window.innerWidth > 1024) {
+            window.location.replace("/2024");
+          }
+        `
         }}
       />
     </>
