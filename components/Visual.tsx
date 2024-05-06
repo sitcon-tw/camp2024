@@ -32,7 +32,7 @@ export default function Visual() {
   return (
     <div className="w-full h-[100vh]  overflow-hidden " ref={visualRef}>
       <div className="container relative">
-        <motion.img
+        {/* <motion.img
           drag
           whileDrag={{ scale: 0.8, rotate: -5 }}
           whileTap={{ scale: 0.8, rotate: -5 }}
@@ -47,7 +47,7 @@ export default function Visual() {
           className="absolute top-[12.5vh] w-40 md:w-60 left-0 right-0 m-auto cursor-grab active:cursor-grabbing"
           src="/2024/visual/logo.svg"
           alt="logo"
-        />
+        /> */}
         <Planets
           style={{ y: planetY }}
           className="absolute top-[30vh] md:top-[35vh] w-[250px] sm:w-[450px] md:w-[400px] left-0 right-0 m-auto"
