@@ -83,32 +83,23 @@ function Parallax({ children, baseVelocity }: ParallaxProps) {
 }
 export default function Records() {
   const imgRow1 = [
-    "/2024/records/48711514086_fe8bcd70a3_k.jpg",
-    "/2024/records/48711521701_10787293f0_c.jpg",
-    "/2024/records/48711645867_304b3f2727_k.jpg",
-    "/2024/records/48711654047_e36f5fe98d_k.jpg",
-    "/2024/records/48711655747_6f4d128066_k.jpg",
-    "/2024/records/48711667217_a251f33169_k.jpg",
-    "/2024/records/48711673932_dd4e775482_k.jpg",
-    "/2024/records/48711675447_324a2915f4_k.jpg",
-    "/2024/records/48711678192_f77e8b5d4b_c.jpg",
-    "/2024/records/48711684617_e8d23396b3_k.jpg",
-    "/2024/records/50694221331_e465f84efc_k.jpg",
-    "/2024/records/51260350196_1e24756478_5k.jpg",
+    "./images/53110516472_b081fd3d1a_c.jpg",
+    "./images/53110519457_81e1bc3781_c.jpg",
+    "./images/53111096906_8957a8857f_c.jpg",
+    "./images/53111098411_c2fb7a1bcd_c.jpg",
+    "./images/53111100071_8a4e7dd19b_c.jpg",
+    "./images/53111305319_71e7df2bdd_c.jpg",
+    "./images/53111601933_33b0392702_c.jpg",
   ];
   const imgRow2 = [
-    "/2024/records/48711478201_f0b3b61d1f_k.jpg",
-    "/2024/records/48711148968_c0c5b92648_k.jpg",
-    "/2024/records/48711158398_a9e76fe8c6_k.jpg",
-    "/2024/records/48711173683_6a5438b593_k.jpg",
-    "/2024/records/48711180203_df7f6ba7b3_k.jpg",
-    "/2024/records/48711185743_0289ac2d95_k.jpg",
-    "/2024/records/48711198528_e7ac02a80b_k.jpg",
-    "/2024/records/48711417321_9811d901a1_k.jpg",
-    "/2024/records/48711432406_1dc02a6270_k.jpg",
-    "/2024/records/48711460716_f573528caf_k.jpg",
-    "/2024/records/48711504911_54e1d297c7_k.jpg",
-    "/2024/records/48711513221_eddbacab82_k.jpg",
+    "./images/53111301199_3a9ebea5dd_c.jpg",
+    "./images/53111303304_4947c6c347_c.jpg",
+    "./images/53111304989_64db175cda_c.jpg",
+    "./images/53111511580_604ecbd2d8_c.jpg",
+    "./images/53111513390_7fd95246eb_c.jpg",
+    "./images/53111600553_81f2d2127e_c.jpg",
+    "./images/53111602443_d4050f381a_c.jpg",
+    "./images/53111604048_911606f8a9_c.jpg",
   ];
   return (
     <>
@@ -129,6 +120,12 @@ export default function Records() {
           target="_blank"
         >
           觀賞回顧影片<i className="text-xl bx bx-video"></i>
+        </Button>
+        <Button
+          href="https://www.youtube.com/watch?v=22tBfn5gaAc"
+          target="_blank"
+        >
+          觀賞訪談影片<i className="text-xl bx bx-video"></i>
         </Button>
         <Button
           href="https://www.flickr.com/photos/sitcon/albums"

@@ -43,7 +43,7 @@ export default function Events() {
           <br />
           在課程中，透過講師的精心準備的課程，穿插多個動手實作練習，並即時搭配多位助教及講師的協助，確保每位學員都能夠得到充分的關注和指導，讓每一位學員都可以跟上課程進度，並且在課程中不斷進步。
         </EventContent>
-        <EventImg src="./images/48711667217_0b818aeca8_c.jpg" />
+        <EventImg src="./images/53111094241_0442d799b2_c.jpg" />
       </EventBox>
       <EventBox>
         <EventContent>
@@ -64,14 +64,14 @@ export default function Events() {
           <EventTitle>視界咖啡館</EventTitle>
           視界咖啡館參考自世界咖啡館（The World Café），在本次夏令營中，我們邀請到各領域及社群知名前輩，將傳統座談會形式改以聊天的樣貌呈現。學員可以與資訊界的名人們近距離互動，期望透過縮短講者與學員之間的距離，講者可以更針對學員給出建議，也鼓勵學員踴躍提問、參與，進而產生良好的雙向交流。
         </EventContent>
-        <EventImg src="./images/48711201653_9cb1cb0e66_c.jpg" />
+        <EventImg src="./images/53110517522_254f76817b_c.jpg" />
       </EventBox>
       <EventBox>
         <EventContent>
           <EventTitle>開源精神與社群</EventTitle>
           開源精神短講將邀請在開源社群中活躍多年的前輩，期許能夠透過前輩的經驗分享來讓學員更加認識開源（Open Source），並鼓勵學員參與往後的社群活動。同時，我們也會邀請許多和資訊相關的社群前來擺攤，藉由互動遊戲、影片欣賞、專人介紹、闖關集點...等方式，讓學員認識所謂的「社群」，並對開源活動有初步了解。
         </EventContent>
-        <EventImg src="./images/48711514086_a88a5a9fa7_c.jpg" />
+        <EventImg src="./images/53111600473_89d572cbcb_c.jpg" />
       </EventBox>
       {/* // TODO: 闖關活動內容以及故事劇情內容補齊 */}
       {/* <EventBox>
