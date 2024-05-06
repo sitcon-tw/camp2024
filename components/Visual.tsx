@@ -50,7 +50,7 @@ export default function Visual() {
         /> */}
         <Planets
           style={{ y: planetY }}
-          className="absolute top-[30vh] md:top-[35vh] w-[250px] sm:w-[450px] md:w-[400px] left-0 right-0 m-auto"
+          className="absolute top-[15vh] md:top-[35vh] w-[250px] sm:w-[450px] md:w-[400px] left-0 right-0 m-auto"
         />
         <motion.img
           drag
@@ -63,7 +63,7 @@ export default function Visual() {
             bottom: 0,
           }}
           style={{ x: catX, y: catY }}
-          className="absolute top-[35vh] w-[150px] sm:w-[180px] md:w-[300px] right-0 m-auto cursor-grab active:cursor-grabbing"
+          className="absolute top-[20vh] w-[150px] sm:w-[180px] md:w-[300px] right-0 m-auto cursor-grab active:cursor-grabbing"
           src="/2024/visual/cat.svg"
           alt="cat"
         />
@@ -78,7 +78,7 @@ export default function Visual() {
             bottom: 0,
           }}
           style={{ x: astronautX, y: astronautY }}
-          className="absolute top-[35vh] w-[160px] sm:w-[200px] md:w-[320px] left-0 m-auto cursor-grab active:cursor-grabbing"
+          className="absolute top-[20vh] w-[160px] sm:w-[200px] md:w-[320px] left-0 m-auto cursor-grab active:cursor-grabbing"
           src="/2024/visual/astronaut.svg"
           alt="astronaut"
         />
