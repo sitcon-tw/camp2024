@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 
-// import schedule from "../public/schedule.json";
-import schedule from "../public/schedule2.json";
+import schedule from "../public/schedule.json";
 
 import { useEffect, useState } from "react";
 import {
@@ -409,7 +408,7 @@ export default function TimeTable() {
                           </div>
                           <div className="flex-none ml-[21px] w-20 h-20 md:w-32 md:h-32">
                             <img
-                              src={`/2024/speakers-avatar/${item.id}.jpeg`}
+                              src={item.avatar}
                               alt={`${item.zh.name}'s Avatar`}
                               className="object-cover w-20 h-20 rounded-full md:w-32 md:h-32"
                             />
