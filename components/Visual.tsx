@@ -64,7 +64,7 @@ export default function Visual() {
           }}
           style={{ x: catX, y: catY }}
           className="absolute top-[20vh] w-[150px] sm:w-[180px] md:w-[300px] right-0 m-auto cursor-grab active:cursor-grabbing"
-          src="/2024/visual/cat.svg"
+          src="/2024/visual/cat.png"
           alt="cat"
         />
         <motion.img
@@ -79,8 +79,8 @@ export default function Visual() {
           }}
           style={{ x: astronautX, y: astronautY }}
           className="absolute top-[20vh] w-[160px] sm:w-[200px] md:w-[320px] left-0 m-auto cursor-grab active:cursor-grabbing"
-          src="/2024/visual/astronaut.svg"
-          alt="astronaut"
+          src="/2024/visual/ramen.png"
+          alt="ramen"
         />
         <motion.div
           style={{ y: infoY }}
