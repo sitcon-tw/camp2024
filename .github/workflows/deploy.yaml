@@ -47,7 +47,7 @@ jobs:
           gcp-api-key: ${{ secrets.GCP_API_KEY }}
           spreadsheet-key: "1RhdS1kzHHFRjGiRAx95wnDAzQ_U6ENvLrVgy7oQ0miE"
           default-avatar: "https://sitcon.org/2022/imgs/deafult_avatar.jpg"
-          avatar-base-url: "https://sitcon.camp/2024/speakers-avatar"
+          avatar-base-url: "https://sitcon.camp/2024/speakers-avatar/"
           output-path: ./public/schedule.json
       - name: Install dependencies
         run: pnpm install
