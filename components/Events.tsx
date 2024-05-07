@@ -73,25 +73,13 @@ export default function Events() {
         </EventContent>
         <EventImg src="./images/53111600473_89d572cbcb_c.jpg" />
       </EventBox>
-      {/* // TODO: 闖關活動內容以及故事劇情內容補齊 */}
-      {/* <EventBox>
-        <img
-          src="./images/leaf-hat.svg"
-          className="absolute hidden lg:block right-4 -bottom-[1px] w-8 h-8"
-          alt="Leaf Hat"
-        />
+      <EventBox>
         <EventContent>
-          <EventTitle>故事劇情</EventTitle>
-          延續 2021 年的故事，在 SITCON
-          艦艇號成功把小石帶回地球後，目前小石產生的開源力已經足夠讓地球完全恢復，但是人類文明的基礎——通訊系統還沒有成形，需要能操縱開源力的開拓者們重新建構，讓文明可以再次活躍；於是我們準備再次啟航，巡迴地球建立新的文明。
-          <br />
-          同時，一個前所未見的危機，即將襲擊 SITCON 艦艇與嶄新的人類文明……
-          <br />
-          <br />
-          這一次，我們能一如既往的突破重重考驗、順利完成任務，讓 2000
-          多年前的美麗文明再次復甦嗎？
+          <EventTitle>闖關活動</EventTitle>
+          在遊戲中融入程式，讓夏令營的學員們可以在團隊合作中，一起享受解謎的樂趣和刺激，同時學習更多元的知識內容。有趣的故事和豐富的解謎，歡迎挑戰！
         </EventContent>
-      </EventBox> */}
+        <EventImg src="./images/53111601698_7e4ba45812_c.jpg" />
+      </EventBox>
     </div >
   );
 }
