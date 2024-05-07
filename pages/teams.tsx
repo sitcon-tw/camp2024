@@ -8,12 +8,29 @@ import {
   EventTitle,
 } from "@/components/Events";
 import { useState } from "react";
+import { useSpring, animated } from "react-spring";
+
 function MemberCard({ name, sha256 }: { name: string; sha256: string }) {
   const [clickCount, setClickCount] = useState(0);
+  const [rotation, setRotation] = useState(0);
+
+  const animatedStyles = useSpring({
+    transform: `rotate(${rotation}deg)`,
+    config: { mass: 5, tension: 500, friction: 50 }
+  });
+
+  const handleClick = () => {
+    setClickCount(clickCount + 1);
+    if (clickCount === 6) {
+      setRotation(rotation + 360);
+    }
+  };
+
   return (
-    <div
+    <animated.div
+      style={animatedStyles}
       className="flex flex-col items-center"
-      onClick={(e) => setClickCount(clickCount + 1)}
+      onClick={handleClick}
     >
       <motion.img
         drag
@@ -58,9 +75,10 @@ function MemberCard({ name, sha256 }: { name: string; sha256: string }) {
           ""
         )}
       </motion.div>
-    </div>
+    </animated.div>
   );
 }
+
 export default function Teams() {
   //@ts-ignore
   const groups = [...new Set(members.map((x) => x.group))];
