@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="og:site_name" content="SITCON" />
         <meta property="og:url" content="https://sitcon.camp/2024/" />
         <meta property="og:type" content="website" />
-        {/* <meta property="og:image" name="twitter:image" content="/2024/og.png" /> */}
+        <meta property="og:image" name="twitter:image" content="/2024/og.png" />
         <meta property="og:locale" content="zh_TW" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
