@@ -8,7 +8,7 @@ import {
 } from "framer-motion";
 import Planets from "./images/planets";
 import useScrollSize from "../hooks/useScrollSize";
-import { useState } from 'react';
+import { useState } from "react";
 export default function Visual() {
   const [visualRef, { width, height }] = useScrollSize();
   const { scrollY } = useScroll();
