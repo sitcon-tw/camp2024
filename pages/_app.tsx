@@ -7,17 +7,11 @@ const googleTagManagerId = "GTM-NKHHNVV";
 import Head from "next/head";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import Mobile from "@/components/mobile";
 
 import React from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [isMobile, setIsMobile] = React.useState(false);
-
-  React.useEffect(() => {
-    if (window.innerWidth < 1024) {
-      setIsMobile(true);
-    }
-  }, []);
 
   return (
     <>
@@ -47,24 +41,24 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <meta name="twitter:site" content="@sitcontw" />
       </Head>
-      <div style={{ display: (isMobile ? "none" : "0") }}>
+      <div className="max-lg:hidden">
         <Nav />
         <Component {...pageProps} />
         <Footer />
       </div>
-      <div style={{ display: (isMobile ? "0" : "none") }}>
-        <Component {...pageProps} />
+      <div className="lg:hidden">
+        <Mobile />
       </div>
       <Script
         id="gtm"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${googleTagManagerId}');
-`,
+                  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                  })(window,document,'script','dataLayer','${googleTagManagerId}');
+                  `,
         }}
       />
       <Script
@@ -72,28 +66,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-        // console.log("%c美味的蓬蓬鬆餅都在這裡！%c https://pancake.tw ", "background-color: #13AA13; color: white; padding: 5px;", "background-color: #f2f2f2; color: white; padding: 5px;");
-        console.log("%c既然你看到這裡了，那趕快去報名 SITCON Camp！", "font-size: 40px; background-color: yellow; color: red;");
-`,
-        }}
-      />
-
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-          if(!window.location.pathname.includes("mobile") && window.innerWidth <= 1024) {
-            window.location.replace("/2024/mobile");
-          }
-        `
-        }}
-      />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-          if(window.location.pathname.includes("mobile") && window.innerWidth > 1024) {
-            window.location.replace("/2024");
-          }
-        `
+                  // console.log("%c美味的蓬蓬鬆餅都在這裡！%c https://pancake.tw ", "background-color: #13AA13; color: white; padding: 5px;", "background-color: #f2f2f2; color: white; padding: 5px;");
+                  console.log("%c既然你看到這裡了，那趕快去報名 SITCON Camp！", "font-size: 40px; background-color: yellow; color: red;");
+                  `,
         }}
       />
     </>
