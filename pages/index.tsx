@@ -7,17 +7,27 @@ import About from "../components/About";
 import Reports from "../components/Reports";
 import ApplicationInfo from "../components/ApplicationInfo";
 import Sponsor from "@/components/Sponsor";
+import { Fragment } from "react";
+
+// Mobile
+import Mobile from "@/components/mobile";
+
 export default function Home() {
   return (
     <>
-      <Visual />
-      <Intro />
-      <Events />
-      <Records />
-      <Reports />
-      <ApplicationInfo />
-      <About />
-      <Sponsor />
+      <div className="max-lg:hidden">
+        <Visual />
+        <Intro />
+        <Events />
+        <Records />
+        <Reports />
+        <ApplicationInfo />
+        <About />
+        <Sponsor />
+      </div>
+      <div className="lg:hidden">
+        <Mobile />
+      </div>
     </>
   );
 }

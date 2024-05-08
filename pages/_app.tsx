@@ -47,7 +47,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Footer />
       </div>
       <div className="lg:hidden">
-        <Mobile />
+        <Component {...pageProps} />
       </div>
       <Script
         id="gtm"
