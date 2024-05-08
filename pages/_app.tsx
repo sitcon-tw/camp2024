@@ -38,7 +38,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="og:site_name" content="SITCON" />
         <meta property="og:url" content="https://sitcon.camp/2024/" />
         <meta property="og:type" content="website" />
-        {/* <meta property="og:image" name="twitter:image" content="/2024/og.png" /> */}
+        <meta property="og:image" name="twitter:image" content="https://sitcon.camp/2024/og.png" />
         <meta property="og:locale" content="zh_TW" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -72,7 +72,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-        console.log("%c美味的蓬蓬鬆餅都在這裡！%c https://pancake.tw ", "background-color: #13AA13; color: white; padding: 5px;", "background-color: #f2f2f2; color: white; padding: 5px;");
+        // console.log("%c美味的蓬蓬鬆餅都在這裡！%c https://pancake.tw ", "background-color: #13AA13; color: white; padding: 5px;", "background-color: #f2f2f2; color: white; padding: 5px;");
+        console.log("%c既然你看到這裡了，那趕快去報名 SITCON Camp！", "font-size: 40px; background-color: yellow; color: red;");
 `,
         }}
       />

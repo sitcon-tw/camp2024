@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import Planets from "./images/planets";
 import useScrollSize from "../hooks/useScrollSize";
+import { useState } from "react";
 export default function Visual() {
   const [visualRef, { width, height }] = useScrollSize();
   const { scrollY } = useScroll();
@@ -28,6 +29,13 @@ export default function Visual() {
     ease: easeInOut,
   });
   const infoY = useTransform(warpScrollY, [0, 1], [0, -70]);
+  const [clickCount, setClickCount] = useState(0);
+
+  const handleTap = () => {
+    setClickCount(prevCount => prevCount + 1);
+  };
+
+  const shouldShake = clickCount >= 5;
 
   return (
     <div className="w-full h-[100vh]  overflow-hidden " ref={visualRef}>
@@ -56,15 +64,13 @@ export default function Visual() {
           drag
           whileDrag={{ scale: 1.2, rotate: -5 }}
           whileTap={{ scale: 1.2, rotate: -5 }}
-          dragConstraints={{
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-          }}
+          onTap={handleTap}
+          animate={shouldShake ? { rotate: [-5, 5, -5, 5, -5] } : {}}
+          transition={shouldShake ? { duration: 0.2, repeat: Infinity } : {}}
+          dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
           style={{ x: catX, y: catY }}
           className="absolute top-[20vh] w-[150px] sm:w-[180px] md:w-[300px] right-0 m-auto cursor-grab active:cursor-grabbing"
-          src="/2024/visual/cat.svg"
+          src="/2024/visual/cat.png"
           alt="cat"
         />
         <motion.img
@@ -79,8 +85,8 @@ export default function Visual() {
           }}
           style={{ x: astronautX, y: astronautY }}
           className="absolute top-[20vh] w-[160px] sm:w-[200px] md:w-[320px] left-0 m-auto cursor-grab active:cursor-grabbing"
-          src="/2024/visual/astronaut.svg"
-          alt="astronaut"
+          src="/2024/visual/ramen.png"
+          alt="ramen"
         />
         <motion.div
           style={{ y: infoY }}

@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 
-// import schedule from "../public/schedule.json";
-import schedule from "../public/schedule2.json";
+import schedule from "../public/schedule.json";
 
 import { useEffect, useState } from "react";
 import {
@@ -145,8 +144,9 @@ export default function TimeTable() {
             key={time}
           >
             <div
-              className={`text-white font-bold ${time.endsWith("30") ? "text-opacity-70" : ""
-                }`}
+              className={`text-white font-bold ${
+                time.endsWith("30") ? "text-opacity-70" : ""
+              }`}
             >
               {time}
             </div>
@@ -158,8 +158,9 @@ export default function TimeTable() {
               gridColumnStart: `🥞${room}`,
               gridRowStart: "roomname",
             }}
-            className={`text-center py-2 bg-white bg-opacity-[.02] text-white ${i === 0 && "rounded-tl-xl"
-              } ${i === 4 && "rounded-tr-xl"}`}
+            className={`text-center py-2 bg-white bg-opacity-[.02] text-white ${
+              i === 0 && "rounded-tl-xl"
+            } ${i === 4 && "rounded-tr-xl"}`}
             key={room}
           >
             <div className="text-xl font-bold">{room}</div>
@@ -196,7 +197,9 @@ export default function TimeTable() {
         <div className="flex flex-row gap-1 overflow-x-scroll">
           {Object.keys(rooms).map((room, i) => (
             <div
-              className={"flex flex-col whitespace-nowrap px-2 py-1 cursor-pointer relative"}
+              className={
+                "flex flex-col whitespace-nowrap px-2 py-1 cursor-pointer relative"
+              }
               id={`item-${room}`}
               onClick={() => setActiveDay(room)}
               key={room}
@@ -244,16 +247,16 @@ export default function TimeTable() {
                   if (swipe < -swipeConfidenceThreshold) {
                     setActiveDay(
                       Object.keys(rooms)[
-                      Math.min(
-                        Object.keys(rooms).length - 1,
-                        Object.keys(rooms).indexOf(activeDay) + 1
-                      )
+                        Math.min(
+                          Object.keys(rooms).length - 1,
+                          Object.keys(rooms).indexOf(activeDay) + 1
+                        )
                       ]
                     );
                   } else if (swipe > swipeConfidenceThreshold) {
                     setActiveDay(
                       Object.keys(rooms)[
-                      Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)
+                        Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)
                       ]
                     );
                   }
@@ -373,8 +376,9 @@ export default function TimeTable() {
               </div>
 
               <div
-                className={`mt-4 ${sessionMessage.speakers.length < 1 ? "hidden" : ""
-                  }`}
+                className={`mt-4 ${
+                  sessionMessage.speakers.length < 1 ? "hidden" : ""
+                }`}
               >
                 {sessionMessage.speakers
                   .map((item: any) =>
@@ -409,7 +413,7 @@ export default function TimeTable() {
                           </div>
                           <div className="flex-none ml-[21px] w-20 h-20 md:w-32 md:h-32">
                             <img
-                              src={`/2024/speakers-avatar/${item.id}.jpeg`}
+                              src={item.avatar}
                               alt={`${item.zh.name}'s Avatar`}
                               className="object-cover w-20 h-20 rounded-full md:w-32 md:h-32"
                             />
