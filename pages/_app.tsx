@@ -7,12 +7,10 @@ const googleTagManagerId = "GTM-NKHHNVV";
 import Head from "next/head";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-import Mobile from "@/components/mobile";
 
 import React from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
-
   return (
     <>
       <Head>
@@ -32,7 +30,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="og:site_name" content="SITCON" />
         <meta property="og:url" content="https://sitcon.camp/2024/" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" name="twitter:image" content="https://sitcon.camp/2024/og.png" />
+        <meta
+          property="og:image"
+          name="twitter:image"
+          content="https://sitcon.camp/2024/og.png"
+        />
         <meta property="og:locale" content="zh_TW" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -47,6 +49,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Footer />
       </div>
       <div className="lg:hidden">
+        <Nav />
         <Component {...pageProps} />
       </div>
       <Script

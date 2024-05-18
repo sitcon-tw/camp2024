@@ -1,4 +1,4 @@
-import { Ref, useLayoutEffect, useRef, useState } from 'react';
+import { Ref, useLayoutEffect, useRef, useState } from "react";
 
 type Result = {
   scrollWidth: number;
@@ -31,7 +31,10 @@ const useScrollSize = <T extends HTMLDivElement>(): [Ref<T>, Result] => {
     const width = elementRef.current.clientWidth;
     const height = elementRef.current.clientHeight;
 
-    if (scrollWidth !== size.scrollWidth || scrollHeight !== size.scrollHeight) {
+    if (
+      scrollWidth !== size.scrollWidth ||
+      scrollHeight !== size.scrollHeight
+    ) {
       setSize({ scrollWidth, scrollHeight, height, width });
     }
   });
