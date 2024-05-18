@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, useAnimate, stagger } from "framer-motion";
+import StartRegister from "./nav/StartRegister";
 import Link from "next/link";
 function NavItem({
   href,
@@ -13,7 +14,7 @@ function NavItem({
   return (
     <Link
       href={href}
-      className="text-white hover:text-[#F9A8D4] font-bold"
+      className="text-white hover:text-[#F9A8D4] font-medium text-xl border-b-[1px] border-blue-50 py-6 lg:border-0"
       onClick={() => setIsNavOpen(false)}
       scroll={!href.startsWith("/#")}
     >
@@ -21,45 +22,11 @@ function NavItem({
     </Link>
   );
 }
-function useMenuAnimation(isOpen: boolean) {
-  const staggerMenuItems = stagger(0.1, { startDelay: 0.05 });
-  const [scope, animate] = useAnimate();
-
-  useEffect(() => {
-    animate(
-      "#mobile-nav",
-      {
-        clipPath: isOpen
-          ? "inset(0% 0% 0% 0% round 10px)"
-          : "inset(0% 10% 100% 90% round 10px)",
-        y: isOpen ? 0 : -20,
-        opacity: isOpen ? 1 : 0,
-      },
-      {
-        type: "spring",
-        bounce: 0,
-        duration: 0.5,
-      }
-    );
-
-    animate(
-      "#mobile-nav a",
-      isOpen
-        ? { opacity: 1, filter: "blur(0px)", scale: 1 }
-        : { opacity: 0, filter: "blur(10px)", scale: 0.3 },
-      {
-        duration: 0.15,
-        delay: isOpen ? staggerMenuItems : 0,
-      }
-    );
-  }, [animate, isOpen, staggerMenuItems]);
-
-  return scope;
-}
 export default function Nav() {
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const scope = useMenuAnimation(isNavOpen);
   const navItems = [
+    { href: "/", text: "開始報名" },
+    { href: "/#about", text: "關於我們" },
     { href: "/#events", text: "課程活動" },
     { href: "/#records", text: "過往紀錄" },
     { href: "/#application-info", text: "報名資訊" },
@@ -68,8 +35,8 @@ export default function Nav() {
   ];
   return (
     <>
-      <div className="container fixed top-0 left-0 right-0 z-50" ref={scope}>
-        <nav className="bg-[#01405D] bg-opacity-80 backdrop-blur-xl rounded-full py-3 px-6 mt-4 lg:py-3 lg:px-10 lg:mt-8 flex items-center justify-between shadow-2xl transition-all">
+      <div className="fixed top-0 left-0 right-0 z-50" >
+        <nav className="bg-opacity-80 bg-gradient-to-b from-[#060A11] to-[#0C142020] py-3 px-6 lg:py-3 lg:px-10 flex items-center justify-between shadow-2xl transition-all">
           <Link href="/" className="font-bold">
             <img src="/2024/icon/logo.svg" className="h-10" alt="Logo" />
           </Link>
@@ -80,38 +47,41 @@ export default function Nav() {
               </NavItem>
             ))}
           </div>
-          <div className="relative lg:hidden">
+          <div className="flex flex-row gap-4">
+            <StartRegister></StartRegister>
             <button
               onClick={() => setIsNavOpen(!isNavOpen)}
-              className="text-white hover:text-[#F9A8D4] font-['Anicons_Regular'] text-xl transition-all"
+              className="text-white font-['Anicons_Regular'] text-xl transition-all lg:hidden"
               style={{
                 fontVariationSettings: isNavOpen ? "\"TIME\" 100" : "\"TIME\" 1",
               }}
             >
               A
             </button>
-            <div
-              className="w-[200px] max-w-[80vw] absolute top-6 -right-4 m-auto bg-[#01405D] bg-opacity-80 backdrop-blur-xl rounded-2xl  mt-8 shadow-2xl lg:hidden overflow-hidden z-50"
-              style={{
-                pointerEvents: isNavOpen ? "auto" : "none",
-                clipPath: "inset(5% 5% 95% 95% round 10px)",
-              }}
-              id="mobile-nav"
-            >
-              <div className="flex flex-col justify-between px-6 py-4 space-y-4">
-                {navItems.map((item, index) => (
-                  <NavItem
-                    href={item.href}
-                    key={index}
-                    setIsNavOpen={setIsNavOpen}
-                  >
-                    {item.text}
-                  </NavItem>
-                ))}
-              </div>
-            </div>
           </div>
         </nav>
+        <div className="lg:hidden">
+          <div
+            className="w-[100vw] h-[100dvh] absolute top-0 m-auto bg-[#0E1826] lg:hidden overflow-hidden -z-10 transition-all pt-16"
+            style={{
+              pointerEvents: isNavOpen ? "auto" : "none",
+              right: isNavOpen ? "0" : "-100vw",
+            }}
+            id="mobile-nav"
+          >
+            <div className="flex flex-col justify-between px-10 py-4 space-y-4">
+              {navItems.map((item, index) => (
+                <NavItem
+                  href={item.href}
+                  key={index}
+                  setIsNavOpen={setIsNavOpen}
+                >
+                  {item.text}
+                </NavItem>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
