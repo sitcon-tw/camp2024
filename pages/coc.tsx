@@ -1,12 +1,21 @@
-import SectionTitle from "../components/SectionTitle";
+import { motion } from "framer-motion";
+
 export default function COC() {
   return (
-    <>
-      <SectionTitle id="coc">行為準則</SectionTitle>
-      <h2 className="mb-4 -mt-4 text-2xl font-bold text-center">
+    <div className="bg-[url('/2024/images/coc-bg.svg')] pt-[4rem] pb-[5rem]">
+      <motion.h1
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="text-2xl font-bold text-[#FFF] text-center pt-[2rem]"
+        id={"coc"}
+      >
+        行為準則
+      </motion.h1>
+      <h2 className="mb-4 text-xl text-center">
         Code of Conduct
       </h2>
-      <div className="container prose prose-invert lg:prose-xl">
+      <div className="container px-6 prose prose-invert lg:prose-xl">
         <p>
           SITCON
           冀望打造屬於學生自己的舞台，而我們也致力於為社群中的每位成員提供更友善、開放的環境。我們相信每位參與社群活動的夥伴都值得被尊重，而我們會盡力提供最安全的環境，讓參與
@@ -46,6 +55,6 @@ export default function COC() {
           打造為更友善、更溫暖的所在；讓每一位參與者，都能在社群的交流中共同成長、在人與人的互動中找到自信——而這正是我們所珍惜的、屬於學生社群的真正精神。
         </p>
       </div>
-    </>
+    </div>
   );
 }
