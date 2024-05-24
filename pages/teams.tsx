@@ -51,12 +51,12 @@ function MemberCard({ name, sha256 }: { name: string; sha256: string }) {
         }}
         dragElastic={0.05}
         src={`https://secure.gravatar.com/avatar/${sha256}?s=512&d=https://sitcon.camp/2024/images/default_avatar.jpg`}
-        className="h-24 inline rounded-full cursor-grab active:cursor-grabbing"
+        className="inline h-24 rounded-full cursor-grab active:cursor-grabbing"
       />
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="text-center mt-2 opacity-80"
+        className="mt-2 text-center opacity-80"
       >
         {clickCount >= 7 ? (
           <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -84,14 +84,22 @@ export default function Teams() {
   const groups = [...new Set(members.map((x) => x.group))];
   return (
     <>
-      <div className="container">
+      <div className="container bg-[url('/2024/images/coc-bg.svg')] pt-[4rem] pb-[5rem]">
         <div>
-          <SectionTitle id="teams">籌備團隊</SectionTitle>
-          <h2 className="text-center text-2xl font-bold -mt-4 mb-4">
+          <motion.h1
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="text-2xl font-bold text-[#FFF] text-center pt-[2rem]"
+            id={"coc"}
+          >
+            籌備團隊
+          </motion.h1>
+          <h2 className="mb-[3rem] text-xl text-center">
             About SITCON
           </h2>
-          <div>
-            <h2 className="text-2xl font-bold mb-2">SITCON 學生計算機年會</h2>
+          <div className="px-6">
+            <h2 className="mb-2 text-xl font-bold text-center">SITCON 學生計算機年會</h2>
             <p>
               SITCON
               學生計算機年會是由學生自發舉辦，投身學生資訊教育與推廣開源精神的社群，也是一個由學生主辦、學生擔任講者、以學生為主軸的資訊研討會，給學生們一個發表交流技術的舞台。
@@ -172,7 +180,7 @@ export default function Teams() {
           {groups.map((name, index) => {
             return (
               <>
-                <h2 className="text-2xl font-bold mt-12 mb-8">{name}</h2>
+                <h2 className="mt-12 mb-8 text-2xl font-bold">{name}</h2>
                 <div
                   className="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-4"
                   key={index}
