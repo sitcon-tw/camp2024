@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { motion, useAnimate, stagger } from "framer-motion";
+import {  useState } from "react";
 import StartRegister from "./nav/StartRegister";
 import Link from "next/link";
 function NavItem({

@@ -5,6 +5,9 @@ const nextConfig = {
   basePath: "/2024",
   output: "export",
   distDir: "dist",
+  images: {
+    unoptimized: true,
+  },
 };
 
 console.log("🥞 url:", "http://localhost:3000/2024/");
