@@ -1,9 +1,9 @@
 import SectionTitle from "../components/SectionTitle";
-export default function Records() {
+export default function COC() {
   return (
     <>
       <SectionTitle id="coc">行為準則</SectionTitle>
-      <h2 className="text-center text-2xl font-bold -mt-4 mb-4">
+      <h2 className="mb-4 -mt-4 text-2xl font-bold text-center">
         Code of Conduct
       </h2>
       <div className="container prose prose-invert lg:prose-xl">
