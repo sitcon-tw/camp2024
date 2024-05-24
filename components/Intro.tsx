@@ -2,18 +2,18 @@ import { motion } from "framer-motion";
 export default function Intro() {
   return (
     <>
-      <div className="container">
+      <div className="bg-[#0C1420] container p-8">
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="mt-16 font-bold text-center lg:text-xl"
+          className="font-medium text-sm"
         >
           樂趣之餘，不忘學習
         </motion.h2>
         <motion.h1
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="mt-1 text-2xl font-bold text-center lg:text-3xl lg:mt-3"
+          className="text-md font-bold"
         >
           由資訊社群所打造，超高知識含量的夏令營
         </motion.h1>
@@ -21,6 +21,7 @@ export default function Intro() {
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
+            className="text-xs font-thin tracking-wider leading-relaxed"
           >
             有鑑於資訊領域逐漸成為科技時代的重要學門，社群與開源精神亦持續抬頭，SITCON 團隊認為將資訊教育向下扎根，為在資訊科學領域有興趣的學生提供一個親切而良好的機會入門，並播灑開源種子，是一件相當重要且值得去做的事情。
             <br />
@@ -32,7 +33,7 @@ export default function Intro() {
           </motion.p>
           <img
             src="/2024/images/48711198528_e7ac02a80b_k.jpg"
-            className="object-cover w-full rounded shadow lg:w-80 lg:rotate-3"
+            className="object-cover w-full rounded-3xl shadow lg:w-80 lg:rotate-3"
             alt="SITCON Camp Image"
           />
         </div>

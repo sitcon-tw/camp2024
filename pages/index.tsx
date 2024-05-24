@@ -16,7 +16,7 @@ export default function Home() {
         <Intro />
         <Events />
         <Records />
-        <Reports />
+        <Reports /> 
         <ApplicationInfo />
         <About />
         <Sponsor />
