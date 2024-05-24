@@ -14,7 +14,7 @@ function NavItem({
   return (
     <Link
       href={href}
-      className="text-white hover:text-[#F9A8D4] font-medium text-xl border-b-[1px] border-blue-50 py-6 lg:border-0"
+      className="text-white hover:text-[#F9A8D4] font-medium text-xl border-b-[1px] border-blue-50 py-4 lg:border-0"
       onClick={() => setIsNavOpen(false)}
       scroll={!href.startsWith("/#")}
     >
