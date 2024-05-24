@@ -35,7 +35,7 @@ export default function Nav() {
   return (
     <>
       <div className="fixed top-0 left-0 right-0 z-50" >
-        <nav className="bg-opacity-80 bg-gradient-to-b from-[#060A11] to-[#0C142020] py-3 px-6 lg:py-3 lg:px-10 flex items-center justify-between shadow-2xl transition-all">
+        <nav className="bg-opacity-80 bg-gradient-to-b from-[#060A11] to-[#0C142020] py-3 px-6 lg:py-3 lg:px-10 flex items-center justify-between shadow-2xl transition-all h-[4rem]">
           <Link href="/" className="font-bold">
             <img src="/2024/icon/logo.svg" className="h-10" alt="Logo" />
           </Link>
