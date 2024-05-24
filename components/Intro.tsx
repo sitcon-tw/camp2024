@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { motion } from "framer-motion";
+
 export default function Intro() {
   return (
     <>
@@ -43,7 +45,53 @@ export default function Intro() {
             alt="SITCON Camp Image"
           />
         </div>
+        <div className="cards py-8 flex flex-col gap-8 items-center">
+          <Card
+            iconPath="/2024/intro/sitcon-icon.svg"
+            title="關於 SITCON"
+            description="SITCON 學生計算機年會是由學生自發舉辦，投身學生資訊教育與推廣開源精神的社群， 也是一個由學生主辦、學生擔任講者、以學生為主軸的資訊研討會，給學生們一個發表交流技術的舞台。 除了技術研討之外，還有許多從學生角度出發的經驗分享、專題研究成果或探討學生相關議題等等議程。 我們也曾舉辦黑客松、工作坊，和各地學校社團舉辦聯合講座等等。"
+            moreLink="/2024/about"
+          />
+          <Card
+            iconPath="/2024/intro/coc-icon.svg"
+            title="行為準則"
+            description="SITCON 歡迎不同身分、來自不同背景的與會者，也非常鼓勵女性、性少數與多元背景的參與者。為了讓大家都能愉快的參加 SITCON，我們要求所有參與者閱讀社群的的行為準則（Code of Conduct），共同創造一個友善的環境。"
+            moreLink="/2024/coc"
+          />
+        </div>
       </div>
     </>
+  );
+}
+
+function Card({
+  iconPath,
+  title,
+  description,
+  moreLink,
+}: {
+  iconPath: string;
+  title: string;
+  description: string;
+  moreLink: string;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      className="bg-[#9999991a] rounded-[2rem] lg:rounded-[4rem] p-8 flex flex-col gap-2 border-[1px] backdrop-blur-2xl"
+    >
+      <img src={iconPath} className="w-6 lg:w-12" alt="" />
+      <h2 className=" text-2xl lg:text-[2.5rem] font-bold">{title}</h2>
+      <p className="text-sm font-thin leading-5 tracking-wider py-4">
+        {description}
+      </p>
+      <Link
+        href={moreLink}
+        className="text-sm font-thin capitalize px-10 py-2 rounded-full border-[1px] self-end"
+      >
+        more
+      </Link>
+    </motion.div>
   );
 }
