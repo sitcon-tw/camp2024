@@ -1,4 +1,3 @@
-import SectionTitle from "./SectionTitle";
 import { motion } from "framer-motion";
 import TimeTable from "./TimeTable";
 export function EventTitle({ children }: { children: React.ReactNode }) {
@@ -39,8 +38,6 @@ export default function Events() {
           <span><img src="/2024/images/sitcon.svg" height="2rem" width="auto" alt="sitcon2" /></span>
         </div>
       </div>
-
-
       <TimeTable />
       <div className="mt-12 md:mt-6" />
       <EventBox>

@@ -156,19 +156,19 @@ export default function TimeTable() {
               gridColumnStart: `🥞${room}`,
               gridRowStart: "roomname",
             }}
-            className={`text-center py-2 bg-white bg-opacity-[.02] text-white ${i === 0 && "rounded-tl-xl"
-            } ${i === 4 && "rounded-tr-xl"}`}
+            className={`text-center py-2 bg-white bg-opacity-[.02] text-[#1E3D6C] ${i === 0 && "rounded-tl-xl"
+              } ${i === 4 && "rounded-tr-xl"}`}
             key={room}
           >
             <div className="text-xl font-bold">{room}</div>
-            <div className="text-white text-opacity-80">{rooms[room]}</div>
+            <div className="text-[#1E3D6C] text-opacity-80">{rooms[room]}</div>
           </div>
         ))}
         {schedule.sessions.map((session: any, i) => (
           <div
             style={parseSessionStyle(session)}
             className={
-              "bg-white bg-opacity-[.08] flex flex-col justify-center items-center p-4 text-white transition-all relative border border-white border-opacity-0 " +
+              "bg-white bg-opacity-[.08] flex flex-col justify-center items-center p-4 text-[#1E3D6C] transition-all relative border border-[#1E3D6C] border-opacity-0 " +
               ((session.zh.description != "" || session.speakers.length != 0) &&
                 "hover:bg-opacity-20 hover:cursor-pointer hover:shadow-lg hover:border-opacity-40")
             }
@@ -177,7 +177,7 @@ export default function TimeTable() {
           >
             <div className="font-bold">{session.zh.title.split("\n")[0]}</div>
             {session.zh.title.split("\n").length >= 2 && (
-              <div className="text-sm text-white text-opacity-80">
+              <div className="text-sm text-[#1E3D6C] text-opacity-80">
                 {session.zh.title.split("\n")[1]}
               </div>
             )}
@@ -191,7 +191,7 @@ export default function TimeTable() {
         ))}
       </div>
       <div className="lg:hidden">
-        <div className="flex flex-row gap-1 overflow-x-scroll">
+        <div className="flex flex-row justify-between gap-1 overflow-x-scroll">
           {Object.keys(rooms).map((room, i) => (
             <div
               className={
@@ -203,13 +203,13 @@ export default function TimeTable() {
             >
               {activeDay === room && (
                 <motion.div
-                  className="absolute inset-0 h-full bg-white shadow-xl bg-opacity-10 rounded-xl"
+                  className="absolute inset-0 h-full bg-[#1E3D6C] bg-opacity-10 rounded-xl"
                   layout
                   layoutId="activeDay"
                 />
               )}
-              <div className="z-10 font-bold">{room}</div>
-              <div className="z-10 mb-1 text-xs text-white text-opacity-80">
+              <div className="z-10 font-bold text-[#1E3D6C] text-center">{room}</div>
+              <div className="z-10 mb-1 text-xs text-[#1E3D6C] text-opacity-80 text-center">
                 {rooms[room]}
               </div>
             </div>
@@ -244,16 +244,16 @@ export default function TimeTable() {
                   if (swipe < -swipeConfidenceThreshold) {
                     setActiveDay(
                       Object.keys(rooms)[
-                        Math.min(
-                          Object.keys(rooms).length - 1,
-                          Object.keys(rooms).indexOf(activeDay) + 1
-                        )
+                      Math.min(
+                        Object.keys(rooms).length - 1,
+                        Object.keys(rooms).indexOf(activeDay) + 1
+                      )
                       ]
                     );
                   } else if (swipe > swipeConfidenceThreshold) {
                     setActiveDay(
                       Object.keys(rooms)[
-                        Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)
+                      Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)
                       ]
                     );
                   }
@@ -263,7 +263,7 @@ export default function TimeTable() {
                   .filter(({ room }) => room === item)
                   .map((session: any, i) => (
                     <div
-                      className="flex items-center px-4 py-2 overflow-hidden text-white bg-black border border-black shadow-sm bg-opacity-10 border-opacity-20 rounded-xl"
+                      className="flex items-center px-4 py-2 overflow-hidden text-[#1E3D6C] bg-black border border-black shadow-sm bg-opacity-10 border-opacity-20 rounded-xl"
                       onClick={() => openSessionBox(session)}
                       key={`${session.room}-${session.zh.title}`}
                     >
@@ -274,7 +274,7 @@ export default function TimeTable() {
                         <div className="font-bold">
                           {session.zh.title.split("\n")[0]}
                           {session.zh.title.split("\n").length >= 2 && (
-                            <span className="ml-1 font-normal text-white text-opacity-80">
+                            <span className="ml-1 font-normal text-[#1E3D6C] text-opacity-80">
                               {session.zh.title.split("\n")[1]}
                             </span>
                           )}
@@ -299,7 +299,7 @@ export default function TimeTable() {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="session-box bg-[#2A4E63] text-white rounded-xl md:rounded-3xl p-5 md:p-8 border border-black border-opacity-20 container max-h-[calc((85vh-1rem))] w-[calc((100vw-2rem))] lg:max-h-[calc((90vh-1rem))] overflow-y-scroll cursor-auto"
+              className="session-box bg-[#2A4E63] text-[#1E3D6C] rounded-xl md:rounded-3xl p-5 md:p-8 border border-black border-opacity-20 container max-h-[calc((85vh-1rem))] w-[calc((100vw-2rem))] lg:max-h-[calc((90vh-1rem))] overflow-y-scroll cursor-auto"
               onClick={(e) => e.stopPropagation()}
               initial={{ opacity: 0, y: -100 }}
               animate={{ opacity: 1, y: 0 }}
@@ -310,13 +310,13 @@ export default function TimeTable() {
                   <div className="text-2xl font-bold md:text-3xl">
                     {sessionMessage.zh.title.split("\n")[0]}
                   </div>
-                  <div className="text-xl md:text-2xl text-white/[.85] mt-1">
+                  <div className="text-xl md:text-2xl text-[#1E3D6C]/[.85] mt-1">
                     {sessionMessage.zh.title.split("\n")[1]}
                   </div>
                 </div>
                 <button
                   onClick={closeSessionBox}
-                  className="text-white hover:text-[#F9A8D4] font-['Anicons_Regular'] text-xl transition-all"
+                  className="text-[#1E3D6C] hover:text-[#F9A8D4] font-['Anicons_Regular'] text-xl transition-all"
                   style={{
                     fontVariationSettings: "\"TIME\" 100",
                   }}
@@ -374,7 +374,7 @@ export default function TimeTable() {
 
               <div
                 className={`mt-4 ${sessionMessage.speakers.length < 1 ? "hidden" : ""
-                }`}
+                  }`}
               >
                 {sessionMessage.speakers
                   .map((item: any) =>
