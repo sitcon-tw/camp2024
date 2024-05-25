@@ -202,7 +202,7 @@ export default function TimeTable() {
             >
               {activeDay === room && (
                 <motion.div
-                  className="absolute inset-0 h-full bg-[#CBD2E0] rounded-xl"
+                  className="absolute inset-0 h-full bg-[#CBD2E0] rounded-full"
                   layout
                   layoutId="activeDay"
                 />
@@ -260,7 +260,7 @@ export default function TimeTable() {
                   .filter(({ room }) => room === item)
                   .map((session: any, i) => (
                     <div
-                      className="flex items-center px-4 py-2 overflow-hidden text-[#1E3D6C] bg-[#CBD2E0] border border-[#1E3D6C] rounded-xl"
+                      className="flex items-center px-4 py-2 overflow-hidden text-[#1E3D6C] bg-[#CBD2E0] border border-[#1E3D6C] rounded-full"
                       onClick={() => openSessionBox(session)}
                       key={`${session.room}-${session.zh.title}`}
                     >
