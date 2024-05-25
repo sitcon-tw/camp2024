@@ -156,8 +156,7 @@ export default function TimeTable() {
               gridColumnStart: `🥞${room}`,
               gridRowStart: "roomname",
             }}
-            className={`text-center py-2 bg-white bg-opacity-[.02] text-[#1E3D6C] ${i === 0 && "rounded-tl-xl"
-              } ${i === 4 && "rounded-tr-xl"}`}
+            className={`text-center py-2 bg-white bg-opacity-[.02] text-[#1E3D6C] ${i === 0 && "rounded-tl-xl"} ${i === 4 && "rounded-tr-xl"}`}
             key={room}
           >
             <div className="text-xl font-bold">{room}</div>
@@ -195,7 +194,7 @@ export default function TimeTable() {
           {Object.keys(rooms).map((room, i) => (
             <div
               className={
-                "flex flex-col whitespace-nowrap px-2 py-1 cursor-pointer relative"
+                "flex flex-col whitespace-nowrap px-[2rem] py-1 cursor-pointer relative"
               }
               id={`item-${room}`}
               onClick={() => setActiveDay(room)}
@@ -217,7 +216,7 @@ export default function TimeTable() {
         </div>
         <div className="w-full overflow-x-hidden">
           <motion.div
-            className="min-w-[calc((100vw-1rem)*5)] flex flex-row flex-nowrap gap-4"
+            className="w-[calc((100vw)*5)] flex flex-row flex-nowrap gap-[3rem]"
             style={{
               x: springX,
             }}
@@ -227,7 +226,7 @@ export default function TimeTable() {
           >
             {Object.keys(rooms).map((item: string, i: number) => (
               <motion.div
-                className="flex flex-col gap-1 mt-2 w-[calc(100vw-2rem)]"
+                className="flex flex-col gap-2 mt-2 min-w-[calc(100vw-4rem)]"
                 key={item}
                 initial={{ opacity: 0, filter: "blur(10px)" }}
                 whileInView={{ opacity: 1, filter: "blur(0px)" }}

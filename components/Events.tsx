@@ -25,13 +25,13 @@ export function EventBox({ children }: { children: React.ReactNode }) {
 }
 export function EventImg({ src }: { src: string }) {
   return (
-    <img src={src} className="w-full mt-4 rounded shadow-xl lg:w-80 lg:mt-0" alt={"Event Image"} />
+    <img src={src} className="w-full mt-4 rounded shadow-xl lg:w-[18rem] lg:mt-0" alt={"Event Image"} />
   );
 }
 export default function Events() {
   return (
-    <div className="container bg-[linear-gradient(#E6E9F1,#C5CFE0)] rounded-t-[2rem] -mt-5">
-      <div className="flex pt-8 pb-8">
+    <div className="container bg-[linear-gradient(#E6E9F1,#C5CFE0)] rounded-t-[2rem] -mt-5 px-[2rem]">
+      <div className="flex py-8">
         <div className="flex items-center gap-2 mx-auto text-3xl font-bold text-center">
           <span><img src="/2024/images/sitcon.svg" height="2rem" width="auto" alt="sitcon1" /></span>
           <h1 className="text-2xl text-center text-[#1E3D6C]">課程活動</h1>
@@ -39,7 +39,7 @@ export default function Events() {
         </div>
       </div>
       <TimeTable />
-      <div className="mt-12 md:mt-6" />
+      <div className="mt-[5rem]" />
       <EventBox>
         <EventContent>
           <EventTitle>主線課程</EventTitle>
