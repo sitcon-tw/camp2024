@@ -2,13 +2,15 @@ import { motion } from "framer-motion";
 import TimeTable from "./TimeTable";
 export function EventTitle({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="mb-4 text-2xl font-bold text-center lg:text-left">
-      {children}
+    <h2 className="flex mb-[2rem] text-2xl font-bold text-center text-black">
+      <div className="flex justify-between gap-2 mx-auto">
+        {children}
+      </div>
     </h2>
   );
 }
 export function EventContent({ children }: { children: React.ReactNode }) {
-  return <div>{children}</div>;
+  return <div className="text-black">{children}</div>;
 }
 export function EventBox({ children }: { children: React.ReactNode }) {
   return (
@@ -17,7 +19,7 @@ export function EventBox({ children }: { children: React.ReactNode }) {
       whileInView={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ ease: "easeOut", duration: 0.3 }}
-      className={"py-6 px-6 lg:py-5 lg:px-6 rounded-xl bg-black bg-opacity-10 border border-black border-opacity-20 relative mb-4 lg:flex lg:gap-8 lg:items-center"}
+      className={"pb-6 px-6 rounded-[5rem] bg-white relative mb-[5rem] shadow-2xl"}
     >
       {children}
     </motion.div>
@@ -25,7 +27,7 @@ export function EventBox({ children }: { children: React.ReactNode }) {
 }
 export function EventImg({ src }: { src: string }) {
   return (
-    <img src={src} className="w-full mt-4 rounded shadow-xl lg:w-[18rem] lg:mt-0" alt={"Event Image"} />
+    <img src={src} className="w-full mt-[2rem] rounded-[4rem] shadow-xl" alt={"Event Image"} />
   );
 }
 export default function Events() {
@@ -41,8 +43,11 @@ export default function Events() {
       <TimeTable />
       <div className="mt-[5rem]" />
       <EventBox>
+        <div className="h-[1.5rem] flex mb-[2rem]">
+          <img src="/2024/images/rectangle-pink.svg" height="100%" width={"auto"} alt="pink rectangle" className="mx-auto" />
+        </div>
         <EventContent>
-          <EventTitle>主線課程</EventTitle>
+          <EventTitle><img src="/2024/images/main-course.svg" alt="main course" />主線課程</EventTitle>
           講師們會帶著大家從零開始認識 Python，從基礎語法、各種資料結構，到 function、套件管理，最終目標是做出屬於自己的 Telegram 聊天機器人！
           <br />
           <br />
