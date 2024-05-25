@@ -23,3 +23,8 @@ a.slide:hover {
   text-decoration: none;
   @apply rounded-md bg-[#012637]/[.5] px-3 py-1 text-white hover:bg-[#012637] transition-all;
 }
+
+.camp-text {
+  -webkit-text-stroke: 1px #ead377;
+  color: transparent;
+}
