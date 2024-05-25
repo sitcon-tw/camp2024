@@ -9,6 +9,9 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
 import React from "react";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -43,7 +46,7 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <meta name="twitter:site" content="@sitcontw" />
       </Head>
-      <div>
+      <div className={inter.className}>
         <Nav />
         <Component {...pageProps} />
         <Footer />

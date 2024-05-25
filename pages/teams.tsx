@@ -8,16 +8,10 @@ import {
   EventTitle,
 } from "@/components/Events";
 import { useState } from "react";
-import { useSpring, animated } from "react-spring";
 
 function MemberCard({ name, sha256 }: { name: string; sha256: string }) {
   const [clickCount, setClickCount] = useState(0);
   const [rotation, setRotation] = useState(0);
-
-  const animatedStyles = useSpring({
-    transform: `rotate(${rotation}deg)`,
-    config: { mass: 5, tension: 500, friction: 50 }
-  });
 
   const handleClick = () => {
     setClickCount(clickCount + 1);
@@ -27,8 +21,7 @@ function MemberCard({ name, sha256 }: { name: string; sha256: string }) {
   };
 
   return (
-    <animated.div
-      style={animatedStyles}
+    <div
       className="flex flex-col items-center"
       onClick={handleClick}
     >
@@ -75,7 +68,7 @@ function MemberCard({ name, sha256 }: { name: string; sha256: string }) {
           ""
         )}
       </motion.div>
-    </animated.div>
+    </div>
   );
 }
 

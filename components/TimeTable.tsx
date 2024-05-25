@@ -144,9 +144,7 @@ export default function TimeTable() {
             key={time}
           >
             <div
-              className={`text-white font-bold ${
-                time.endsWith("30") ? "text-opacity-70" : ""
-              }`}
+              className={`text-[#1E3D6C] font-bold ${time.endsWith("30") ? "text-opacity-70" : ""}`}
             >
               {time}
             </div>
@@ -158,8 +156,7 @@ export default function TimeTable() {
               gridColumnStart: `🥞${room}`,
               gridRowStart: "roomname",
             }}
-            className={`text-center py-2 bg-white bg-opacity-[.02] text-white ${
-              i === 0 && "rounded-tl-xl"
+            className={`text-center py-2 bg-white bg-opacity-[.02] text-white ${i === 0 && "rounded-tl-xl"
             } ${i === 4 && "rounded-tr-xl"}`}
             key={room}
           >
@@ -376,8 +373,7 @@ export default function TimeTable() {
               </div>
 
               <div
-                className={`mt-4 ${
-                  sessionMessage.speakers.length < 1 ? "hidden" : ""
+                className={`mt-4 ${sessionMessage.speakers.length < 1 ? "hidden" : ""
                 }`}
               >
                 {sessionMessage.speakers

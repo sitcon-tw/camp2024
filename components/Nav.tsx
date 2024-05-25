@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import StartRegister from "./nav/StartRegister";
 import Link from "next/link";
 function NavItem({

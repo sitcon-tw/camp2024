@@ -7,7 +7,7 @@ export default function Visual() {
     <div className="bg-[#01405D] bg-[url('/2024/visual/visual-background.png')] bg-center bg-cover h-[65dvh] flex flex-col px-4 pt-20 pb-24 items-stretch box-border relative">
       <div className="flex flex-col items-end self-end title">
         <p className="text-3xl font-bold drop-shadow-2xl bg-clip-text">
-          學生計算機年會<span className={"camp-text " + inter.className}>夏令營</span>
+          學生計算機年會<span className={"camp-text"}>夏令營</span>
         </p>
         <p>2024 sitcon camp</p>
       </div>

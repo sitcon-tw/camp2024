@@ -31,8 +31,16 @@ export function EventImg({ src }: { src: string }) {
 }
 export default function Events() {
   return (
-    <div className="container">
-      <SectionTitle id="events">課程活動</SectionTitle>
+    <div className="container bg-[linear-gradient(#E6E9F1,#C5CFE0)] rounded-t-[2rem] -mt-5">
+      <div className="flex pt-8 pb-8">
+        <div className="flex items-center gap-2 mx-auto text-3xl font-bold text-center">
+          <span><img src="/2024/images/sitcon.svg" height="2rem" width="auto" alt="sitcon1" /></span>
+          <h1 className="text-2xl text-center text-[#1E3D6C]">課程活動</h1>
+          <span><img src="/2024/images/sitcon.svg" height="2rem" width="auto" alt="sitcon2" /></span>
+        </div>
+      </div>
+
+
       <TimeTable />
       <div className="mt-12 md:mt-6" />
       <EventBox>
