@@ -297,7 +297,7 @@ export default function TimeTable() {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="session-box bg-[#2A4E63] text-[#1E3D6C] rounded-xl md:rounded-3xl p-5 md:p-8 border border-black border-opacity-20 container max-h-[calc((85vh-1rem))] w-[calc((100vw-2rem))] lg:max-h-[calc((90vh-1rem))] overflow-y-scroll cursor-auto"
+              className="session-box bg-[linear-gradient(#E6E9F1,#C5CFE0)] text-[#1E3D6C] rounded-xl md:rounded-3xl p-5 md:p-8 border border-black border-opacity-20 container max-h-[calc((85vh-1rem))] w-[calc((100vw-2rem))] lg:max-h-[calc((90vh-1rem))] overflow-y-scroll cursor-auto"
               onClick={(e) => e.stopPropagation()}
               initial={{ opacity: 0, y: -100 }}
               animate={{ opacity: 1, y: 0 }}
@@ -314,7 +314,7 @@ export default function TimeTable() {
                 </div>
                 <button
                   onClick={closeSessionBox}
-                  className="text-[#1E3D6C] hover:text-[#F9A8D4] font-['Anicons_Regular'] text-xl transition-all"
+                  className="text-[#1E3D6C] hover:opacity-50 font-['Anicons_Regular'] text-xl transition-all -mt-10"
                   style={{
                     fontVariationSettings: "\"TIME\" 100",
                   }}
@@ -371,8 +371,7 @@ export default function TimeTable() {
               </div>
 
               <div
-                className={`mt-4 ${sessionMessage.speakers.length < 1 ? "hidden" : ""
-                  }`}
+                className={`mt-4 ${sessionMessage.speakers.length < 1 ? "hidden" : ""}`}
               >
                 {sessionMessage.speakers
                   .map((item: any) =>
@@ -409,7 +408,7 @@ export default function TimeTable() {
                             <img
                               src={item.avatar}
                               alt={`${item.zh.name}'s Avatar`}
-                              className="object-cover w-20 h-20 rounded-full md:w-32 md:h-32"
+                              className="object-cover w-20 h-20 border rounded-full md:w-32 md:h-32 border-[#1E3D6C]"
                             />
                           </div>
                         </div>
