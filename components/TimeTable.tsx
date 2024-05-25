@@ -203,7 +203,7 @@ export default function TimeTable() {
             >
               {activeDay === room && (
                 <motion.div
-                  className="absolute inset-0 h-full bg-[#1E3D6C] bg-opacity-10 rounded-xl"
+                  className="absolute inset-0 h-full bg-[#CBD2E0] rounded-xl"
                   layout
                   layoutId="activeDay"
                 />
@@ -243,18 +243,16 @@ export default function TimeTable() {
                   const swipe = swipePower(offset.x, velocity.x);
                   if (swipe < -swipeConfidenceThreshold) {
                     setActiveDay(
-                      Object.keys(rooms)[
-                      Math.min(
+                      Object.keys(rooms)[Math.min(
                         Object.keys(rooms).length - 1,
                         Object.keys(rooms).indexOf(activeDay) + 1
                       )
                       ]
                     );
                   } else if (swipe > swipeConfidenceThreshold) {
-                    setActiveDay(
-                      Object.keys(rooms)[
+                    setActiveDay(Object.keys(rooms)[
                       Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)
-                      ]
+                    ]
                     );
                   }
                 }}
@@ -263,7 +261,7 @@ export default function TimeTable() {
                   .filter(({ room }) => room === item)
                   .map((session: any, i) => (
                     <div
-                      className="flex items-center px-4 py-2 overflow-hidden text-[#1E3D6C] bg-black border border-black shadow-sm bg-opacity-10 border-opacity-20 rounded-xl"
+                      className="flex items-center px-4 py-2 overflow-hidden text-[#1E3D6C] bg-[#CBD2E0] border border-[#1E3D6C] rounded-xl"
                       onClick={() => openSessionBox(session)}
                       key={`${session.room}-${session.zh.title}`}
                     >
@@ -274,7 +272,7 @@ export default function TimeTable() {
                         <div className="font-bold">
                           {session.zh.title.split("\n")[0]}
                           {session.zh.title.split("\n").length >= 2 && (
-                            <span className="ml-1 font-normal text-[#1E3D6C] text-opacity-80">
+                            <span className="ml-1 font-normal text-[#1E3D6C] text-opacity-60">
                               {session.zh.title.split("\n")[1]}
                             </span>
                           )}
