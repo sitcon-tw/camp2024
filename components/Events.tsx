@@ -19,7 +19,7 @@ export function EventBox({ children }: { children: React.ReactNode }) {
       whileInView={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ ease: "easeOut", duration: 0.3 }}
-      className={"pb-6 px-6 rounded-[5rem] bg-white relative mb-[2rem] shadow-2xl"}
+      className={"pb-6 px-6 rounded-[5rem] bg-white relative mb-[2rem] shadow-2xl h-full"}
     >
       {children}
     </motion.div>
@@ -43,11 +43,14 @@ export default function Events() {
       <TimeTable />
       <div className="mt-[5rem]" />
       <EventBox>
-        <div className="h-[1.5rem] flex mb-[2rem]">
-          <img src="/2024/images/rectangle-pink.svg" height="100%" width={"auto"} alt="pink rectangle" className="mx-auto" />
+        <div className="flex mb-[2rem]">
+          <img src="/2024/images/rectangle-pink.svg" height="100%" width={"auto"} alt="pink rectangle" className="mx-auto " />
         </div>
         <EventContent>
-          <EventTitle><img src="/2024/images/main-course.svg" alt="main course" />主線課程</EventTitle>
+          <EventTitle>
+            <img src="/2024/images/main-course.svg" alt="主線課程" height={"2rem"} width={"auto"} />
+            主線課程
+          </EventTitle>
           講師們會帶著大家從零開始認識 Python，從基礎語法、各種資料結構，到 function、套件管理，最終目標是做出屬於自己的 Telegram 聊天機器人！
           <br />
           <br />
@@ -56,51 +59,66 @@ export default function Events() {
         <EventImg src="./images/53111094241_0442d799b2_c.jpg" />
       </EventBox>
       <EventBox>
-        <div className="h-[1.5rem] flex mb-[2rem]">
+        <div className="flex mb-[2rem]">
           <img src="/2024/images/rectangle-blue.svg" height="100%" width={"auto"} alt="pink rectangle" className="mx-auto" />
         </div>
         <EventContent>
-          <EventTitle>Hackathon</EventTitle>
+          <EventTitle>
+            <img src="/2024/images/hackathon.svg" alt="Ｈackathon" height={"2rem"} width={"auto"} />
+            Hackathon
+          </EventTitle>
           黑客松（Hackathon）是「黑客」（Hack；原指早期為電腦系統找尋不完美的地方，或是探索不同的解法，來改善電腦系統）與「馬拉松」（Marathon）的組合字，顧名思義，也就像是程式設計、工程界的馬拉松：由有興趣的一群人在有限的時間內，發揮自己的專長做出一個有特色的專案。
         </EventContent>
         <EventImg src="./images/48711682947_ebcb764c42_c.jpg" />
       </EventBox>
       <EventBox>
-        <div className="h-[1.5rem] flex mb-[2rem]">
+        <div className="flex mb-[2rem]">
           <img src="/2024/images/rectangle-green.svg" height="100%" width={"auto"} alt="pink rectangle" className="mx-auto" />
         </div>
         <EventContent>
-          <EventTitle>廣度課程</EventTitle>
+          <EventTitle>
+            <img src="/2024/images/main-course.svg" alt="廣度課程" height={"2rem"} width={"auto"} />
+            廣度課程
+          </EventTitle>
           為避免單一的教學方式限制了學員對資訊領域的視野，夏令營在設計時，特別安排了廣度課程。讓學員在學習基礎課程之餘，也能學到資訊領域的其他層面，增加自身資訊技能的廣度。其中，我們邀請到了許多在資訊圈打滾多年的權威人士分享自身經驗，期許能為迷茫中的學員，點亮未來的一盞明燈，找到屬於自己的資訊路。
         </EventContent>
         <EventImg src="./images/48711498916_9f781599dc_c.jpg" />
       </EventBox>
       <EventBox>
-        <div className="h-[1.5rem] flex mb-[2rem]">
+        <div className="flex mb-[2rem]">
           <img src="/2024/images/rectangle-orange.svg" height="100%" width={"auto"} alt="pink rectangle" className="mx-auto" />
         </div>
         <EventContent>
-          <EventTitle>視界咖啡館</EventTitle>
+          <EventTitle>
+            <img src="/2024/images/main-course.svg" alt="視界咖啡館" height={"2rem"} width={"auto"} />
+            視界咖啡館
+          </EventTitle>
           視界咖啡館參考自世界咖啡館（The World Café），在本次夏令營中，我們邀請到各領域及社群知名前輩，將傳統座談會形式改以聊天的樣貌呈現。學員可以與資訊界的名人們近距離互動，期望透過縮短講者與學員之間的距離，講者可以更針對學員給出建議，也鼓勵學員踴躍提問、參與，進而產生良好的雙向交流。
         </EventContent>
         <EventImg src="./images/53110517522_254f76817b_c.jpg" />
       </EventBox>
       <EventBox>
-        <div className="h-[1.5rem] flex mb-[2rem]">
+        <div className="flex mb-[2rem]">
           <img src="/2024/images/rectangle-red.svg" height="100%" width={"auto"} alt="pink rectangle" className="mx-auto" />
         </div>
         <EventContent>
-          <EventTitle>開源精神與社群</EventTitle>
+          <EventTitle>
+            <img src="/2024/images/main-course.svg" alt="開源精神與社群" height={"2rem"} width={"auto"} />
+            開源精神與社群
+          </EventTitle>
           開源精神短講將邀請在開源社群中活躍多年的前輩，期許能夠透過前輩的經驗分享來讓學員更加認識開源（Open Source），並鼓勵學員參與往後的社群活動。同時，我們也會邀請許多和資訊相關的社群前來擺攤，藉由互動遊戲、影片欣賞、專人介紹、闖關集點...等方式，讓學員認識所謂的「社群」，並對開源活動有初步了解。
         </EventContent>
         <EventImg src="./images/53111600473_89d572cbcb_c.jpg" />
       </EventBox>
       <EventBox>
-        <div className="h-[1.5rem] flex mb-[2rem]">
+        <div className="flex mb-[2rem]">
           <img src="/2024/images/rectangle-purple.svg" height="100%" width={"auto"} alt="pink rectangle" className="mx-auto" />
         </div>
         <EventContent>
-          <EventTitle>闖關活動</EventTitle>
+          <EventTitle>
+            <img src="/2024/images/main-course.svg" alt="闖關活動" height={"2rem"} width={"auto"} />
+            闖關活動
+          </EventTitle>
           在遊戲中融入程式，讓夏令營的學員們可以在團隊合作中，一起享受解謎的樂趣和刺激，同時學習更多元的知識內容。有趣的故事和豐富的解謎，歡迎挑戰！
         </EventContent>
         <EventImg src="./images/53111601698_7e4ba45812_c.jpg" />
