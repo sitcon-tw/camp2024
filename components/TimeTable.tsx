@@ -144,7 +144,9 @@ export default function TimeTable() {
             key={time}
           >
             <div
-              className={`text-[#1E3D6C] font-bold ${time.endsWith("30") ? "text-opacity-70" : ""}`}
+              className={`text-[#1E3D6C] font-bold ${
+                time.endsWith("30") ? "text-opacity-70" : ""
+              }`}
             >
               {time}
             </div>
@@ -156,7 +158,9 @@ export default function TimeTable() {
               gridColumnStart: `🥞${room}`,
               gridRowStart: "roomname",
             }}
-            className={`text-center py-2 bg-white bg-opacity-[.02] text-[#1E3D6C] ${i === 0 && "rounded-tl-xl"} ${i === 4 && "rounded-tr-xl"}`}
+            className={`text-center py-2 bg-white bg-opacity-[.02] text-[#1E3D6C] ${
+              i === 0 && "rounded-tl-xl"
+            } ${i === 4 && "rounded-tr-xl"}`}
             key={room}
           >
             <div className="text-xl font-bold">{room}</div>
@@ -207,7 +211,9 @@ export default function TimeTable() {
                   layoutId="activeDay"
                 />
               )}
-              <div className="z-10 font-bold text-[#1E3D6C] text-center">{room}</div>
+              <div className="z-10 font-bold text-[#1E3D6C] text-center">
+                {room}
+              </div>
               <div className="z-10 mb-1 text-xs text-[#1E3D6C] text-opacity-80 text-center">
                 {rooms[room]}
               </div>
@@ -216,7 +222,7 @@ export default function TimeTable() {
         </div>
         <div className="w-full overflow-x-hidden">
           <motion.div
-            className="w-[calc((100vw)*5)] flex flex-row flex-nowrap gap-[3rem]"
+            className="w-[calc((100vw-2rem)*5)] flex flex-row flex-nowrap gap-[3rem]"
             style={{
               x: springX,
             }}
@@ -226,7 +232,7 @@ export default function TimeTable() {
           >
             {Object.keys(rooms).map((item: string, i: number) => (
               <motion.div
-                className="flex flex-col gap-2 mt-2 min-w-[calc(100vw-4rem)]"
+                className="flex flex-col gap-2 mt-2 w-[calc((100vw)-2rem)]"
                 key={item}
                 initial={{ opacity: 0, filter: "blur(10px)" }}
                 whileInView={{ opacity: 1, filter: "blur(0px)" }}
@@ -242,16 +248,18 @@ export default function TimeTable() {
                   const swipe = swipePower(offset.x, velocity.x);
                   if (swipe < -swipeConfidenceThreshold) {
                     setActiveDay(
-                      Object.keys(rooms)[Math.min(
-                        Object.keys(rooms).length - 1,
-                        Object.keys(rooms).indexOf(activeDay) + 1
-                      )
+                      Object.keys(rooms)[
+                        Math.min(
+                          Object.keys(rooms).length - 1,
+                          Object.keys(rooms).indexOf(activeDay) + 1
+                        )
                       ]
                     );
                   } else if (swipe > swipeConfidenceThreshold) {
-                    setActiveDay(Object.keys(rooms)[
-                      Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)
-                    ]
+                    setActiveDay(
+                      Object.keys(rooms)[
+                        Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)
+                      ]
                     );
                   }
                 }}
@@ -268,7 +276,7 @@ export default function TimeTable() {
                         <div className="text-sm">
                           {parseTime(session.start)} ~ {parseTime(session.end)}
                         </div>
-                        <div className="font-bold">
+                        <div className="font-bold text-ellipsis overflow-hidden">
                           {session.zh.title.split("\n")[0]}
                           {session.zh.title.split("\n").length >= 2 && (
                             <span className="ml-1 font-normal text-[#1E3D6C] text-opacity-60">
@@ -315,7 +323,7 @@ export default function TimeTable() {
                   onClick={closeSessionBox}
                   className="text-[#1E3D6C] hover:opacity-50 font-['Anicons_Regular'] text-xl transition-all -mt-10"
                   style={{
-                    fontVariationSettings: "\"TIME\" 100",
+                    fontVariationSettings: '"TIME" 100',
                   }}
                 >
                   A
@@ -370,7 +378,9 @@ export default function TimeTable() {
               </div>
 
               <div
-                className={`mt-4 ${sessionMessage.speakers.length < 1 ? "hidden" : ""}`}
+                className={`mt-4 ${
+                  sessionMessage.speakers.length < 1 ? "hidden" : ""
+                }`}
               >
                 {sessionMessage.speakers
                   .map((item: any) =>
