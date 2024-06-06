@@ -119,7 +119,7 @@ export default function TimeTable() {
   return (
     <>
       <div
-        className="hidden gap-1 lg:grid"
+        className="hidden lg:grid"
         style={{
           gridTemplateColumns,
           gridTemplateRows,
@@ -144,9 +144,7 @@ export default function TimeTable() {
             key={time}
           >
             <div
-              className={`text-[#1E3D6C] font-bold ${
-                time.endsWith("30") ? "text-opacity-70" : ""
-              }`}
+              className={`text-[#1E3D6C] font-bold ${time.endsWith("30") ? "text-opacity-70" : ""}`}
             >
               {time}
             </div>
@@ -158,9 +156,7 @@ export default function TimeTable() {
               gridColumnStart: `🥞${room}`,
               gridRowStart: "roomname",
             }}
-            className={`text-center py-2 bg-white bg-opacity-[.02] text-[#1E3D6C] ${
-              i === 0 && "rounded-tl-xl"
-            } ${i === 4 && "rounded-tr-xl"}`}
+            className={`text-center py-2 bg-white bg-opacity-[.02] text-[#1E3D6C] ${i === 0 && "rounded-tl-xl"} ${i === 4 && "rounded-tr-xl"}`}
             key={room}
           >
             <div className="text-xl font-bold">{room}</div>
@@ -222,7 +218,7 @@ export default function TimeTable() {
         </div>
         <div className="w-full overflow-x-hidden">
           <motion.div
-            className="w-[calc((100vw-2rem)*5)] flex flex-row flex-nowrap gap-[3rem]"
+            className="w-[calc((100dvw*5)-4rem)] flex flex-row flex-nowrap gap-[3rem]"
             style={{
               x: springX,
             }}
@@ -232,7 +228,7 @@ export default function TimeTable() {
           >
             {Object.keys(rooms).map((item: string, i: number) => (
               <motion.div
-                className="flex flex-col gap-2 mt-2 w-[calc((100vw)-2rem)]"
+                className="flex flex-col gap-2 mt-2 w-[calc((100dvw)-4rem)]"
                 key={item}
                 initial={{ opacity: 0, filter: "blur(10px)" }}
                 whileInView={{ opacity: 1, filter: "blur(0px)" }}
@@ -249,16 +245,16 @@ export default function TimeTable() {
                   if (swipe < -swipeConfidenceThreshold) {
                     setActiveDay(
                       Object.keys(rooms)[
-                        Math.min(
-                          Object.keys(rooms).length - 1,
-                          Object.keys(rooms).indexOf(activeDay) + 1
-                        )
+                      Math.min(
+                        Object.keys(rooms).length - 1,
+                        Object.keys(rooms).indexOf(activeDay) + 1
+                      )
                       ]
                     );
                   } else if (swipe > swipeConfidenceThreshold) {
                     setActiveDay(
                       Object.keys(rooms)[
-                        Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)
+                      Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)
                       ]
                     );
                   }
@@ -276,7 +272,7 @@ export default function TimeTable() {
                         <div className="text-sm">
                           {parseTime(session.start)} ~ {parseTime(session.end)}
                         </div>
-                        <div className="font-bold text-ellipsis overflow-hidden">
+                        <div className="overflow-hidden font-bold text-ellipsis">
                           {session.zh.title.split("\n")[0]}
                           {session.zh.title.split("\n").length >= 2 && (
                             <span className="ml-1 font-normal text-[#1E3D6C] text-opacity-60">
@@ -378,9 +374,8 @@ export default function TimeTable() {
               </div>
 
               <div
-                className={`mt-4 ${
-                  sessionMessage.speakers.length < 1 ? "hidden" : ""
-                }`}
+                className={`mt-4 ${sessionMessage.speakers.length < 1 ? "hidden" : ""
+                  }`}
               >
                 {sessionMessage.speakers
                   .map((item: any) =>
