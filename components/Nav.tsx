@@ -24,17 +24,12 @@ function NavItem({
 export default function Nav() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const navItems = [
-    { href: "/", text: "開始報名" },
-    { href: "/#about", text: "關於我們" },
-    { href: "/#events", text: "課程活動" },
-    { href: "/#records", text: "過往紀錄" },
-    { href: "/#application-info", text: "報名資訊" },
     { href: "/coc", text: "行為準則" },
     { href: "/teams", text: "籌備團隊" },
   ];
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 z-50" >
+      <div className="fixed top-0 left-0 right-0 z-[999999999999999]" >
         <nav className="bg-opacity-80 bg-gradient-to-b from-[#060A11] to-[#0C142020] py-3 px-6 lg:py-3 lg:px-10 flex items-center justify-between shadow-2xl transition-all h-[4rem]">
           <Link href="/" className="font-bold">
             <img src="/2024/icon/logo.svg" className="h-10" alt="Logo" />

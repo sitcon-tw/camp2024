@@ -323,7 +323,7 @@ export default function TimeTable() {
                   onClick={closeSessionBox}
                   className="text-[#1E3D6C] hover:opacity-50 font-['Anicons_Regular'] text-xl transition-all -mt-10"
                   style={{
-                    fontVariationSettings: '"TIME" 100',
+                    fontVariationSettings: "\"TIME\" 100",
                   }}
                 >
                   A

@@ -28,3 +28,7 @@ a.slide:hover {
   -webkit-text-stroke: 1px #ead377;
   color: transparent;
 }
+
+*::-webkit-scrollbar {
+  width: 0;
+}

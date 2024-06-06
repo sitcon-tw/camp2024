@@ -23,7 +23,7 @@ export default function Intro() {
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-sm font-thin tracking-wider leading-relaxed"
+            className="text-sm font-thin leading-relaxed tracking-wider"
           >
             有鑑於資訊領域逐漸成為科技時代的重要學門，社群與開源精神亦持續抬頭，SITCON
             團隊認為將資訊教育向下扎根，為在資訊科學領域有興趣的學生提供一個親切而良好的機會入門，並播灑開源種子，是一件相當重要且值得去做的事情。
@@ -41,22 +41,22 @@ export default function Intro() {
           </motion.p>
           <img
             src="/2024/images/48711198528_e7ac02a80b_k.jpg"
-            className="object-cover w-full rounded-3xl shadow lg:w-80 lg:rotate-3"
+            className="object-cover w-full shadow rounded-3xl lg:w-80 lg:rotate-3"
             alt="SITCON Camp Image"
           />
         </div>
-        <div className="cards py-8 flex flex-col gap-8 items-center">
+        <div className="flex flex-col items-center gap-8 py-8 cards">
           <Card
             iconPath="/2024/intro/sitcon-icon.svg"
             title="關於 SITCON"
             description="SITCON 學生計算機年會是由學生自發舉辦，投身學生資訊教育與推廣開源精神的社群， 也是一個由學生主辦、學生擔任講者、以學生為主軸的資訊研討會，給學生們一個發表交流技術的舞台。 除了技術研討之外，還有許多從學生角度出發的經驗分享、專題研究成果或探討學生相關議題等等議程。 我們也曾舉辦黑客松、工作坊，和各地學校社團舉辦聯合講座等等。"
-            moreLink="/2024/about"
+            moreLink="/teams"
           />
           <Card
             iconPath="/2024/intro/coc-icon.svg"
             title="行為準則"
             description="SITCON 歡迎不同身分、來自不同背景的與會者，也非常鼓勵女性、性少數與多元背景的參與者。為了讓大家都能愉快的參加 SITCON，我們要求所有參與者閱讀社群的的行為準則（Code of Conduct），共同創造一個友善的環境。"
-            moreLink="/2024/coc"
+            moreLink="/coc"
           />
         </div>
       </div>
@@ -83,7 +83,7 @@ function Card({
     >
       <img src={iconPath} className="w-6 lg:w-12" alt="" />
       <h2 className=" text-2xl lg:text-[2.5rem] font-bold">{title}</h2>
-      <p className="text-sm font-thin leading-5 tracking-wider py-4">
+      <p className="py-4 text-sm font-thin leading-5 tracking-wider">
         {description}
       </p>
       <Link

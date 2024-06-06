@@ -77,7 +77,7 @@ export default function Teams() {
   const groups = [...new Set(members.map((x) => x.group))];
   return (
     <>
-      <div className="container bg-[url('/2024/images/coc-bg.svg')] pt-[4rem] pb-[5rem]">
+      <div className="container bg-[url('/2024/images/coc-bg.svg')] pt-[4rem] pb-[5rem] bg-cover">
         <div>
           <motion.h1
             initial={{ opacity: 0 }}
@@ -121,7 +121,7 @@ export default function Teams() {
           <SectionTitle id="history">我們舉辦過的活動</SectionTitle>
           <EventBox>
             <EventContent>
-              <EventTitle>SITCON 年會</EventTitle>
+              <EventTitle><p className="mt-5">SITCON 年會</p></EventTitle>
               <p>
                 SITCON
                 年會是由一群熱愛分享、熱愛資訊領域的學生自主籌辦的活動，致力於資訊教育的普及與推廣。
@@ -134,7 +134,7 @@ export default function Teams() {
           </EventBox>
           <EventBox>
             <EventContent>
-              <EventTitle>Hour of Code</EventTitle>
+              <EventTitle><p className="mt-5">Hour of Code</p></EventTitle>
               <p>
                 Hour of Code
                 是個一小時介紹計算機科學的活動，希望在揭開程式設計的神秘面紗的同時，說明它是任何人都可以學習的基礎知識，並期望擴展人們在計算機科學領域的參與。
@@ -144,7 +144,7 @@ export default function Teams() {
           </EventBox>
           <EventBox>
             <EventContent>
-              <EventTitle>SITCON 夏令營</EventTitle>
+              <EventTitle><p className="mt-5">SITCON 夏令營</p></EventTitle>
               <p>
                 SITCON
                 團隊認為將資訊教育向下扎根、為對資訊科學領域有興趣的學生提供一個親切而良好的機會入門，並撒播開源種子，是一件相當重要且值得去做的事情。
@@ -158,7 +158,7 @@ export default function Teams() {
           </EventBox>
           <EventBox>
             <EventContent>
-              <EventTitle>SITCON 定期聚</EventTitle>
+              <EventTitle><p className="mt-5">SITCON 定期聚</p></EventTitle>
               <p>
                 除了辦理大型活動外，SITCON
                 也舉辦定期聚，將全台灣各地對於資訊科技相關領域有興趣的學生們串聯起來，透過彼此共享、交流來切磋精進，砥礪自主自學的風氣。
@@ -168,7 +168,7 @@ export default function Teams() {
           </EventBox>
         </div>
         <div>
-          <SectionTitle id="member">夏令營籌備團隊</SectionTitle>
+          <SectionTitle id="member"><p className="mt-5">夏令營籌備團隊</p></SectionTitle>
 
           {groups.map((name, index) => {
             return (

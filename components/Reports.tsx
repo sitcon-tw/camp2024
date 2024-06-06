@@ -2,6 +2,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "./Button";
+
+
 function Report({
   children,
   avatar256,
@@ -18,107 +20,132 @@ function Report({
   href?: string;
 }) {
   return (
-    <div className="flex flex-col items-center bg-[#01405D] rounded h-[15rem] lg:h-[25rem]">
-      <div className="flex items-center justify-center w-full gap-2 p-2 leading-4 text-white bg-black rounded-t bg-opacity-10">
-        <img src={avatar || `https://secure.gravatar.com/avatar/${avatar256}?s=512&d=https://sitcon.camp/2024/images/default_avatar.jpg`} className="w-12 h-12 rounded" alt={"Student Avatar" + name} />
-        <div className="flex-1">
-          <div className="font-bold">{name}</div>
-          <div className="mt-1 text-sm opacity-70">SITCON Camp {year} 學員</div>
+    <div className="flex flex-col bg-[#ffffff] w-[18rem] h-[23rem] rounded-[2rem] p-[1rem]">
+      <div className="flex">
+        <div className="flex flex-col flex-1">
+          <div className="text-2xl font-bold text-black">{name}</div>
+          <div className="mt-1 text-sm text-[#A5A5A5]">SITCON Camp {year} 學員</div>
+        </div>
+        <div className="flex-none border-[#C8C8C8] border rounded-full">
+          <img src={avatar || `https://secure.gravatar.com/avatar/${avatar256}?s=512&d=https://sitcon.camp/2024/images/default_avatar.jpg`} className="w-16 h-16 rounded-full" alt={"Student Avatar" + name} />
         </div>
       </div>
-      <div className="w-full px-4 py-2">{children}</div>
-      <div className="flex-1"></div>
-      <div className="flex justify-end w-full p-4 pt-0">
-        <Link
-          href={href || "/"}
-          target={(href || "/").startsWith("http") ? "_blank" : ""}
-          className={"px-4 py-2 bg-[#013249] bg-opacity-50 hover:bg-opacity-100 rounded-full flex gap-2 items-center leading-4 " + (!href && "hidden")}
-        >
-          閱讀全文 <i className="text-xl bx bx-chevron-right"></i>
-        </Link>
+      <hr className="bg-[#C8C8C8] w-full h-[0.1rem] my-4" />
+      <div className="flex flex-col text-sm h-[calc(100%-6.225rem)]">
+        <div className="flex-1 text-black h-[calc(100%-3.75rem)] text-ellipsis overflow-hidden">
+          {children}
+        </div>
+        <div className="flex justify-end flex-none w-full h-[2.75rem] mt-[1rem]">
+          <Link
+            href={href || "?"}
+            target={(href || "/").startsWith("http") ? "_blank" : ""}
+            className={"px-4 py-2 bg-[#1E3D6C] rounded-full flex items-center leading-4 " + (!href && "hidden")}
+          >
+            閱讀全文
+            <i className="text-xl bx bx-chevron-right" />
+          </Link>
+        </div>
       </div>
     </div>
   );
 }
-function More({ children }: { children: React.ReactNode }) {
-  const [show, setShow] = useState(false);
-  return (
-    <>
-      <AnimatePresence>
-        {show && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-          >
-            {children}
-          </motion.div>
-        )}
-      </AnimatePresence>
-      <AnimatePresence>
-        {!show && (
-          <motion.div
-            initial={{ opacity: 0, height: "auto", scale: 0 }}
-            whileInView={{ opacity: 1, height: "auto", scale: 1 }}
-            exit={{ opacity: 0, height: 0, scale: 0 }}
-            className="flex items-center justify-center w-full mt-4"
-          >
-            <Button onClick={() => setShow(true)}>
-              <i className="text-xl bx bx-plus"></i> 檢視更多學員心得
-            </Button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
-  );
-}
+// function More({ children }: { children: React.ReactNode }) {
+//   const [show, setShow] = useState(false);
+//   return (
+//     <>
+//       <AnimatePresence>
+//         {show && (
+//           <motion.div
+//             initial={{ opacity: 0, height: 0 }}
+//             animate={{ opacity: 1, height: "auto" }}
+//             exit={{ opacity: 0, height: 0 }}
+//           >
+//             {children}
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
+//       <AnimatePresence>
+//         {!show && (
+//           <motion.div
+//             initial={{ opacity: 0, height: "auto", scale: 0 }}
+//             whileInView={{ opacity: 1, height: "auto", scale: 1 }}
+//             exit={{ opacity: 0, height: 0, scale: 0 }}
+//             className="flex items-center justify-center w-full mt-4"
+//           >
+//             <Button onClick={() => setShow(true)}>
+//               <i className="text-xl bx bx-plus"></i> 檢視更多學員心得
+//             </Button>
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
+//     </>
+//   );
+// }
 export default function Reports() {
   // TODO: Make report a json file
   return (
-    <>
+    <div className="bg-[#0E1826] pb-[5rem] pt-[5rem]">
       <motion.div
-        className="container mt-16"
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
       >
         <motion.h1
-          className="mt-1 text-2xl font-bold text-center lg:text-2xl lg:mt-3 scroll-mt-32"
+          className="text-2xl font-bold text-center lg:text-2xl scroll-mt-32"
           id="reports"
         >
           來聽聽學員的回饋
         </motion.h1>
-        <motion.h1>
-          <div className="grid grid-cols-1 gap-4 mt-4 lg:grid-cols-3">
-            <Report
-              avatar256="0cdb4ee94c986dfa2ead475a1a92374d3bd0dd9443ec228153a023f52a52bea9"
-              avatar={undefined}
-              name="葉子琳"
-              year="2023"
-              href={"/report/ye-zi-lin"}
-            >
-              在 2023 年的 Camp 中我學到了蠻多平常體驗不到的！第一次體驗黑客松，跟來自各種不同年齡層的人一起合作寫專案！雖然每天 …
-            </Report>
-            <Report
-              avatar256="900485640805279ca13d7186b8076bfc015d0bd7f442a1ec74fccb3b5ac29a27"
-              avatar={undefined}
-              name="張語柔"
-              year="2023"
-              href={"/report/zhang-yu-rou"}
-            >
-              SITCON Camp 是我第一次參加資訊相關的夏令營。在接觸到活動資訊時，我被黑客松及視界咖啡館吸引，因此報名了這次夏令營 …
-            </Report>
-            <Report
-              avatar256="eb828e3a9dea0da5b51fc9deb2c3c926fed78af10bbe53194326a847dc252c30"
-              avatar={undefined}
-              name="陳品妤"
-              year="2023"
-              href={"/report/chen-pin-yu"}
-            >
-              Camp 的課程很充實能學到很多東西，不論是手把手教你寫 Telegram Bot，又或是 Arduino 等，都是值得嘗試看看的的東西 …
-            </Report>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="flex items-center justify-center w-full gap-4 my-4 pb-[2rem]"
+        >
+          <Button
+            href="https://www.youtube.com/watch?v=22tBfn5gaAc"
+            target="_blank"
+            className="bg-transparent border border-white"
+          >
+            <i className="text-xl bx bx-video" />
+            觀賞訪談影片
+          </Button>
+        </motion.div>
+        <motion.div>
+          <div className="flex w-[100dvw] overflow-hidden">
+            <div className="overflow-auto px-[2rem] flex student mx-auto">
+              <div className="flex gap-[1rem] pb-5 mx-auto">
+                <Report
+                  avatar256="0cdb4ee94c986dfa2ead475a1a92374d3bd0dd9443ec228153a023f52a52bea9"
+                  avatar={undefined}
+                  name="葉子琳"
+                  year="2023"
+                  href={"/report/ye-zi-lin"}
+                >
+                  在 2023 年的 Camp 中我學到了蠻多平常體驗不到的！第一次體驗黑客松，跟來自各種不同年齡層的人一起合作寫專案！雖然每天都爆肝，但是最後寫出的東西真的是超級有成就感～隊輔也都超級細心，會來詢問有沒有哪裡聽不懂，擔心我們沒有跟上進度，課程上也學到了蠻多以前沒學過的，整個收穫滿滿！
+                </Report>
+                <Report
+                  avatar256="900485640805279ca13d7186b8076bfc015d0bd7f442a1ec74fccb3b5ac29a27"
+                  avatar={undefined}
+                  name="張語柔"
+                  year="2023"
+                  href={"/report/zhang-yu-rou"}
+                >
+                  SITCON Camp 是我第一次參加資訊相關的夏令營。在接觸到活動資訊時，我被黑客松及視界咖啡館吸引，因此報名了這次夏令營。營期時，能感受到工作人員對所有活動都非常用心。在基本課程時，講者及助教會不斷關心大家的學習情況並給予指導；在黑客松討論時，也都會給予對專題方向的引導及建議。其中最讓我驚艷的是特殊活動—奪寶大作戰，原本以為只是小小的串場活動，但每個關卡的設計都相當用心，需要運用各式各樣的資訊技能來破解。參加 SITCON Camp 後，讓我開始對其他相關的資訊社群感興趣，因此認識許多社群朋友，目前也正在積極參與各項活動的籌備！
+                </Report>
+                <Report
+                  avatar256="eb828e3a9dea0da5b51fc9deb2c3c926fed78af10bbe53194326a847dc252c30"
+                  avatar={undefined}
+                  name="陳品妤"
+                  year="2023"
+                  href={"/report/chen-pin-yu"}
+                >
+                  Camp 的課程很充實能學到很多東西，不論是手把手教你寫 Telegram Bot，又或是 Arduino 等，都是值得嘗試看看的的東西。黑客松的部分則是一個有點痛苦（因為想不到能幹嘛然後程式一直出事之類的）、很燒腦袋但很好玩的東西，要從 0 開始生出一個專案最後可以成功使用，但成功時會很有成就感畢竟全程都是自己來、沒有人指導你，希望大家可以享受在 Camp 的日子✨
+                </Report>
+              </div>
+            </div>
           </div>
-        </motion.h1>
-        <More>
+        </motion.div>
+        {/* <More>
           <div className="grid grid-cols-1 gap-4 mt-4 lg:grid-cols-3">
             <Report
               avatar="/2024/records-avatar/340069299_243506511573764_1868312350951130034_n.jpg"
@@ -213,8 +240,8 @@ export default function Reports() {
               debug 啊~
             </Report>
           </div>
-        </More>
+        </More> */}
       </motion.div>
-    </>
+    </div>
   );
 }
