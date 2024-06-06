@@ -8,16 +8,10 @@ import {
   EventTitle,
 } from "@/components/Events";
 import { useState } from "react";
-import { useSpring, animated } from "react-spring";
 
 function MemberCard({ name, sha256 }: { name: string; sha256: string }) {
   const [clickCount, setClickCount] = useState(0);
   const [rotation, setRotation] = useState(0);
-
-  const animatedStyles = useSpring({
-    transform: `rotate(${rotation}deg)`,
-    config: { mass: 5, tension: 500, friction: 50 }
-  });
 
   const handleClick = () => {
     setClickCount(clickCount + 1);
@@ -27,8 +21,7 @@ function MemberCard({ name, sha256 }: { name: string; sha256: string }) {
   };
 
   return (
-    <animated.div
-      style={animatedStyles}
+    <div
       className="flex flex-col items-center"
       onClick={handleClick}
     >
@@ -51,12 +44,12 @@ function MemberCard({ name, sha256 }: { name: string; sha256: string }) {
         }}
         dragElastic={0.05}
         src={`https://secure.gravatar.com/avatar/${sha256}?s=512&d=https://sitcon.camp/2024/images/default_avatar.jpg`}
-        className="h-24 inline rounded-full cursor-grab active:cursor-grabbing"
+        className="inline h-24 rounded-full cursor-grab active:cursor-grabbing"
       />
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="text-center mt-2 opacity-80"
+        className="mt-2 text-center opacity-80"
       >
         {clickCount >= 8 ? (
           <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -75,7 +68,7 @@ function MemberCard({ name, sha256 }: { name: string; sha256: string }) {
           ""
         )}
       </motion.div>
-    </animated.div>
+    </div>
   );
 }
 
@@ -84,14 +77,22 @@ export default function Teams() {
   const groups = [...new Set(members.map((x) => x.group))];
   return (
     <>
-      <div className="container">
+      <div className="container bg-[url('/2024/images/coc-bg.svg')] pt-[4rem] pb-[5rem] bg-cover">
         <div>
-          <SectionTitle id="teams">籌備團隊</SectionTitle>
-          <h2 className="text-center text-2xl font-bold -mt-4 mb-4">
+          <motion.h1
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="text-2xl font-bold text-[#FFF] text-center pt-[2rem]"
+            id={"coc"}
+          >
+            籌備團隊
+          </motion.h1>
+          <h2 className="mb-[3rem] text-xl text-center">
             About SITCON
           </h2>
-          <div>
-            <h2 className="text-2xl font-bold mb-2">SITCON 學生計算機年會</h2>
+          <div className="px-6">
+            <h2 className="mb-2 text-xl font-bold text-center">SITCON 學生計算機年會</h2>
             <p>
               SITCON
               學生計算機年會是由學生自發舉辦，投身學生資訊教育與推廣開源精神的社群，也是一個由學生主辦、學生擔任講者、以學生為主軸的資訊研討會，給學生們一個發表交流技術的舞台。
@@ -120,7 +121,7 @@ export default function Teams() {
           <SectionTitle id="history">我們舉辦過的活動</SectionTitle>
           <EventBox>
             <EventContent>
-              <EventTitle>SITCON 年會</EventTitle>
+              <EventTitle><p className="mt-5">SITCON 年會</p></EventTitle>
               <p>
                 SITCON
                 年會是由一群熱愛分享、熱愛資訊領域的學生自主籌辦的活動，致力於資訊教育的普及與推廣。
@@ -133,7 +134,7 @@ export default function Teams() {
           </EventBox>
           <EventBox>
             <EventContent>
-              <EventTitle>Hour of Code</EventTitle>
+              <EventTitle><p className="mt-5">Hour of Code</p></EventTitle>
               <p>
                 Hour of Code
                 是個一小時介紹計算機科學的活動，希望在揭開程式設計的神秘面紗的同時，說明它是任何人都可以學習的基礎知識，並期望擴展人們在計算機科學領域的參與。
@@ -143,7 +144,7 @@ export default function Teams() {
           </EventBox>
           <EventBox>
             <EventContent>
-              <EventTitle>SITCON 夏令營</EventTitle>
+              <EventTitle><p className="mt-5">SITCON 夏令營</p></EventTitle>
               <p>
                 SITCON
                 團隊認為將資訊教育向下扎根、為對資訊科學領域有興趣的學生提供一個親切而良好的機會入門，並撒播開源種子，是一件相當重要且值得去做的事情。
@@ -157,7 +158,7 @@ export default function Teams() {
           </EventBox>
           <EventBox>
             <EventContent>
-              <EventTitle>SITCON 定期聚</EventTitle>
+              <EventTitle><p className="mt-5">SITCON 定期聚</p></EventTitle>
               <p>
                 除了辦理大型活動外，SITCON
                 也舉辦定期聚，將全台灣各地對於資訊科技相關領域有興趣的學生們串聯起來，透過彼此共享、交流來切磋精進，砥礪自主自學的風氣。
@@ -167,12 +168,12 @@ export default function Teams() {
           </EventBox>
         </div>
         <div>
-          <SectionTitle id="member">夏令營籌備團隊</SectionTitle>
+          <SectionTitle id="member"><p className="mt-5">夏令營籌備團隊</p></SectionTitle>
 
           {groups.map((name, index) => {
             return (
               <>
-                <h2 className="text-2xl font-bold mt-12 mb-8">{name}</h2>
+                <h2 className="mt-12 mb-8 text-2xl font-bold">{name}</h2>
                 <div
                   className="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-4"
                   key={index}

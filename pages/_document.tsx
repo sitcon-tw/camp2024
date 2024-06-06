@@ -20,7 +20,7 @@ export default function Document() {
         />
         <link rel="icon" href="/2024/images/icon.png" />
       </Head>
-      <body className="bg-[#012637] text-white leading-7">
+      <body className={"bg-black text-white"}>
         <Main />
         <NextScript />
       </body>

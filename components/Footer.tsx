@@ -38,7 +38,7 @@ export default function Footer() {
     },
   ];
   return (
-    <div className="mt-16 bg-[#013249]">
+    <div className=" bg-[linear-gradient(#172941,#161426)]">
       <div className="container flex flex-col gap-8 py-8 lg:flex-row">
         <div className="w-full">
           <div className="font-bold">學生計算機年會</div>

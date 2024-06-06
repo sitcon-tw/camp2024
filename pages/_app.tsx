@@ -7,6 +7,12 @@ const googleTagManagerId = "GTM-NKHHNVV";
 import Head from "next/head";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+
+import React from "react";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
@@ -27,7 +33,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="og:site_name" content="SITCON" />
         <meta property="og:url" content="https://sitcon.camp/2024/" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" name="twitter:image" content="https://sitcon.camp/2024/og.png" />
+        <meta
+          property="og:image"
+          name="twitter:image"
+          content="https://sitcon.camp/2024/og.png"
+        />
         <meta property="og:locale" content="zh_TW" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -36,19 +46,21 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <meta name="twitter:site" content="@sitcontw" />
       </Head>
-      <Nav />
-      <Component {...pageProps} />
-      <Footer />
+      <div className={inter.className}>
+        <Nav />
+        <Component {...pageProps} />
+        <Footer />
+      </div>
       <Script
         id="gtm"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${googleTagManagerId}');
-`,
+                  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                  })(window,document,'script','dataLayer','${googleTagManagerId}');
+                  `,
         }}
       />
       <Script
@@ -56,9 +68,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-        // console.log("%c美味的蓬蓬鬆餅都在這裡！%c https://pancake.tw ", "background-color: #13AA13; color: white; padding: 5px;", "background-color: #f2f2f2; color: white; padding: 5px;");
-        console.log("%c既然你看到這裡了，那趕快去報名 SITCON Camp！", "font-size: 40px; background-color: yellow; color: red;");
-`,
+                  // console.log("%c美味的蓬蓬鬆餅都在這裡！%c https://pancake.tw ", "background-color: #13AA13; color: white; padding: 5px;", "background-color: #f2f2f2; color: white; padding: 5px;");
+                  console.log("%c既然你看到這裡了，那趕快去報名 SITCON Camp！", "font-size: 40px; background-color: yellow; color: red;");
+                  `,
         }}
       />
     </>
