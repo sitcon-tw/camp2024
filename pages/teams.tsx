@@ -51,7 +51,7 @@ function MemberCard({ name, sha256 }: { name: string; sha256: string }) {
         whileInView={{ opacity: 1 }}
         className="mt-2 text-center opacity-80"
       >
-        {clickCount >= 7 ? (
+        {clickCount >= 8 ? (
           <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             🥞{" "}
           </motion.span>
@@ -59,7 +59,7 @@ function MemberCard({ name, sha256 }: { name: string; sha256: string }) {
           ""
         )}
         {name}
-        {clickCount >= 7 ? (
+        {clickCount >= 8 ? (
           <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             {" "}
             🥞
