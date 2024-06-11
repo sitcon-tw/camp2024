@@ -1,5 +1,3 @@
-import StartRegister from "./nav/StartRegister";
-
 export default function ApplicationInfo() {
   return (
     <>
