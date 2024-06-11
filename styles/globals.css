@@ -29,6 +29,11 @@ a.slide:hover {
   color: transparent;
 }
 
+.event-info {
+  -webkit-text-stroke: 1px #ffffff;
+  color: transparent;
+}
+
 *::-webkit-scrollbar {
   width: 0;
 }

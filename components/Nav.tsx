@@ -48,7 +48,7 @@ export default function Nav() {
                   // href="https://sitcon.kktix.cc/events/sitcon-camp2024"
                   target="_blank"
                 >
-                  <p className="bg-white text-lg font-medium text-[#1E3D6C] px-8 py-1 rounded-full h-full">報名截止</p>
+                  <p className="bg-white text-base lg:text-lg font-medium text-[#1E3D6C] lg:px-8 lg:py-1 py-0.5 px-4 rounded-full h-auto">報名截止</p>
                 </a>
               </div>
             </div>
