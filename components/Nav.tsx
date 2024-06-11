@@ -44,7 +44,7 @@ export default function Nav() {
             <div className="flex-1 my-auto">
               <div className="flex mx-auto my-auto">
                 <a
-                  className="bg-gradient-to-b from-[#78C2FF] to-[#9C7DFF] rounded-full p-1 opacity-60 cursor-not-allowed"
+                  className="bg-gradient-to-b from-[#78C2FF] to-[#9C7DFF] rounded-full p-1 cursor-not-allowed"
                   // href="https://sitcon.kktix.cc/events/sitcon-camp2024"
                   target="_blank"
                 >
