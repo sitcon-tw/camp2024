@@ -132,7 +132,7 @@ export default function TimeTable() {
             gridColumnEnd: "🥞end",
             gridRowEnd: "🥞2130",
           }}
-          className="bg-[#01405D] bg-opacity-30 rounded-xl"
+          className="rounded-xl"
         />
         {times.map((time, i) => (
           <div
@@ -156,7 +156,7 @@ export default function TimeTable() {
               gridColumnStart: `🥞${room}`,
               gridRowStart: "roomname",
             }}
-            className={`text-center py-2 bg-white bg-opacity-[.02] text-[#1E3D6C] ${i === 0 && "rounded-tl-xl"} ${i === 4 && "rounded-tr-xl"}`}
+            className={"text-center py-2 bg-white text-[#1E3D6C] rounded-[0.5rem] mr-1 mb-1"}
             key={room}
           >
             <div className="text-xl font-bold">{room}</div>
@@ -167,9 +167,9 @@ export default function TimeTable() {
           <div
             style={parseSessionStyle(session)}
             className={
-              "bg-white bg-opacity-[.08] flex flex-col justify-center items-center p-4 text-[#1E3D6C] transition-all relative border border-[#1E3D6C] border-opacity-0 " +
+              "bg-white flex flex-col justify-center items-center p-4 text-[#1E3D6C] transition-all relative border border-[#1E3D6C] border-opacity-0 rounded-[0.5rem] mb-1 mr-1 " +
               ((session.zh.description != "" || session.speakers.length != 0) &&
-                "hover:bg-opacity-20 hover:cursor-pointer hover:shadow-lg hover:border-opacity-40")
+                "hover:bg-opacity-70 hover:cursor-pointer hover:shadow-lg hover:border-opacity-40")
             }
             key={`${session.room}-${session.zh.title}`}
             onClick={() => openSessionBox(session)}
@@ -264,7 +264,7 @@ export default function TimeTable() {
                   .filter(({ room }) => room === item)
                   .map((session: any, i) => (
                     <div
-                      className="flex items-center px-4 py-2 overflow-hidden text-[#1E3D6C] bg-[#CBD2E0] border border-[#1E3D6C] rounded-full"
+                      className="flex items-center px-4 py-2 overflow-hidden text-[#1E3D6C] bg-[#ffffff] border border-[#1E3D6C] rounded-full"
                       onClick={() => openSessionBox(session)}
                       key={`${session.room}-${session.zh.title}`}
                     >
@@ -293,7 +293,7 @@ export default function TimeTable() {
       <AnimatePresence>
         {sessionMessage && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 cursor-pointer backdrop-blur"
+            className="fixed inset-0 z-[999999] flex items-center justify-center bg-black bg-opacity-50 cursor-pointer backdrop-blur"
             onClick={closeSessionBox}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -325,7 +325,7 @@ export default function TimeTable() {
                   A
                 </button>
               </div>
-              <hr className="my-4 md:my-7 border-[1.3px]" />
+              <hr className="my-4 md:my-7 border-[1px] border-[#1E3D6C]" />
 
               <div className="flex items-start">
                 <img src="/2024/icon/pin.svg" className="w-5 h-5 mt-1 mr-2" />

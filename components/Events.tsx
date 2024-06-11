@@ -36,7 +36,7 @@ export function EventImg({ src }: { src: string }) {
 }
 export default function Events() {
   return (
-    <div className="bg-[linear-gradient(#E6E9F1,#C5CFE0)] rounded-[2rem] -mt-5 -mb-10 px-[2rem] pb-[2rem]">
+    <div className="bg-[linear-gradient(#E6E9F1,#C3CEDF)] rounded-[2rem] -mt-5 -mb-10 px-[2rem] pb-[2rem]">
       <div className=" max-w-[1024px] mx-auto">
         <div className="flex py-8">
           <div className="flex items-center gap-2 mx-auto text-3xl font-bold text-center">
