@@ -9,7 +9,7 @@ export default function Visual() {
         <p className="text-3xl font-bold drop-shadow-2xl bg-clip-text">
           學生計算機年會<span className={"camp-text"}>夏令營</span>
         </p>
-        <p>2024 sitcon camp</p>
+        <p>2024 SITCON Camp</p>
       </div>
       <div className="box-border self-start flex-grow overflow-hidden">
         <img
