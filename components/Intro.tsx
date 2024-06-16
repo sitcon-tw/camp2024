@@ -46,7 +46,7 @@ export default function Intro() {
               alt="SITCON Camp Image"
             />
           </div>
-          <div className="flex flex-col items-center gap-8 py-8 cards">
+          <div className="flex items-center gap-8 py-8 mt-10 max-lg:flex-col cards">
             <Card
               iconPath="/2024/intro/sitcon-icon.svg"
               title="關於 SITCON"
@@ -81,11 +81,11 @@ function Card({
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
-      className="bg-[#9999991a] rounded-[2rem] lg:rounded-[4rem] p-8 flex flex-col gap-2 border-[1px] backdrop-blur-2xl"
+      className="bg-[#9999991a] rounded-[2rem] p-8 flex flex-col gap-2 border-[1px] backdrop-blur-2xl lg:w-[50%] lg:h-[22rem]"
     >
-      <img src={iconPath} className="w-6 lg:w-12" alt="" />
-      <h2 className=" text-2xl lg:text-[2.5rem] font-bold">{title}</h2>
-      <p className="py-4 text-sm font-thin leading-5 tracking-wider">
+      <img src={iconPath} className="w-6 lg:w-8" alt="" />
+      <h2 className=" text-2xl lg:text-[1.75rem] font-bold">{title}</h2>
+      <p className="py-4 text-sm font-thin leading-5 tracking-wider h-[10rem]">
         {description}
       </p>
       <Link
@@ -94,6 +94,6 @@ function Card({
       >
         more
       </Link>
-    </motion.div>
+    </motion.div >
   );
 }

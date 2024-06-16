@@ -1,7 +1,7 @@
 export default function Visual() {
   return (
     <div className="bg-[#01405D] bg-[url('/2024/visual/visual-background.png')] bg-center bg-cover ">
-      <div className="h-[65dvh] flex flex-col px-4 pt-20 pb-24 items-stretch box-border relative max-w-[70rem] mx-auto">
+      <div className="h-[65dvh] flex flex-col px-4 pt-20 pb-24 items-stretch box-border relative lg:max-w-[70rem] mx-auto">
         <div className="flex flex-col items-end self-end title">
           <p className="lg:absolute lg:text-4xl text-3xl font-bold drop-shadow-2xl bg-clip-text lg:top-[8rem] lg:right-[4rem]">
             學生計算機年會<span className={"camp-text"}>夏令營</span>
