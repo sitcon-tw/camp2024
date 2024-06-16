@@ -8,7 +8,7 @@ export function EventTitle({ children }: { children: React.ReactNode }) {
   );
 }
 export function EventContent({ children }: { children: React.ReactNode }) {
-  return <div className="text-black lg:w-[calc(100%-28.5rem)]">{children}</div>;
+  return <div className="text-black lg:w-[calc(100%-23.5rem)]">{children}</div>;
 }
 export function EventBox({ children }: { children: React.ReactNode }) {
   return (
@@ -18,7 +18,7 @@ export function EventBox({ children }: { children: React.ReactNode }) {
       exit={{ opacity: 0, y: 20 }}
       transition={{ ease: "easeOut", duration: 0.3 }}
       className={
-        "lg:py-6 lg:pr-6 max-lg:pb-6 max-lg:px-6 rounded-[3rem] bg-white relative mb-[2rem] shadow-2xl max-lg:h-full z-50 lg:h-full"
+        "lg:py-6 lg:pr-6 max-lg:pb-6 max-lg:px-6 rounded-[3rem] bg-white relative mb-[2rem] shadow-2xl max-lg:h-full z-50 lg:h-[16rem]"
       }
     >
       {children}
@@ -29,7 +29,7 @@ export function EventImg({ src }: { src: string }) {
   return (
     <img
       src={src}
-      className="max-lg:w-full max-lg:mt-[2rem] shadow-xl rounded-[2rem] lg:h-[17rem] lg:w-[25rem] lg:object-cover my-auto lg:ml-[1rem]"
+      className="max-lg:w-full max-lg:mt-[2rem] shadow-xl rounded-[2rem] lg:h-[13rem] lg:w-[20rem] lg:object-cover my-auto lg:ml-[1rem]"
       alt={"Event Image"}
     />
   );
@@ -66,7 +66,7 @@ export default function Events() {
             <div className="bg-[linear-gradient(90deg,#EAB9D4,#E78EBF)] w-[50%] h-[1rem] mx-auto rounded-b-full" />
           </div>
           <div className="lg:flex">
-            <div className="bg-[linear-gradient(180deg,#EAB9D4,#E78EBF)] h-[12rem] w-[1rem] mx-auto rounded-r-full max-lg:hidden my-auto mr-[2rem]" />
+            <div className="bg-[linear-gradient(180deg,#EAB9D4,#E78EBF)] h-[10rem] w-[1rem] mx-auto rounded-r-full max-lg:hidden my-auto mr-[2rem]" />
             <EventContent>
               <EventTitle>
                 <img
@@ -90,7 +90,7 @@ export default function Events() {
             <div className="bg-[linear-gradient(90deg,#B1DAED,#809CF3)] w-[50%] h-[1rem] mx-auto rounded-b-full" />
           </div>
           <div className="lg:flex">
-            <div className="bg-[linear-gradient(180deg,#B1DAED,#809CF3)] h-[12rem] w-[1rem] mx-auto rounded-r-full max-lg:hidden my-auto mr-[2rem]" />
+            <div className="bg-[linear-gradient(180deg,#B1DAED,#809CF3)] h-[10rem] w-[1rem] mx-auto rounded-r-full max-lg:hidden my-auto mr-[2rem]" />
             <EventContent>
               <EventTitle>
                 <img
@@ -110,7 +110,7 @@ export default function Events() {
             <div className="bg-[linear-gradient(90deg,#92EBEB,#55C6C6)] w-[50%] h-[1rem] mx-auto rounded-b-full" />
           </div>
           <div className="lg:flex">
-            <div className="bg-[linear-gradient(180deg,#92EBEB,#55C6C6)] h-[12rem] w-[1rem] mx-auto rounded-r-full max-lg:hidden my-auto mr-[2rem]" />
+            <div className="bg-[linear-gradient(180deg,#92EBEB,#55C6C6)] h-[10rem] w-[1rem] mx-auto rounded-r-full max-lg:hidden my-auto mr-[2rem]" />
             <EventContent>
               <EventTitle>
                 <img
@@ -130,7 +130,7 @@ export default function Events() {
             <div className="bg-[linear-gradient(90deg,#FFAE6D,#F98849)] w-[50%] h-[1rem] mx-auto rounded-b-full" />
           </div>
           <div className="lg:flex">
-            <div className="bg-[linear-gradient(180deg,#FFAE6D,#F98849)] h-[12rem] w-[1rem] mx-auto rounded-r-full max-lg:hidden my-auto mr-[2rem]" />
+            <div className="bg-[linear-gradient(180deg,#FFAE6D,#F98849)] h-[10rem] w-[1rem] mx-auto rounded-r-full max-lg:hidden my-auto mr-[2rem]" />
             <EventContent>
               <EventTitle>
                 <img
@@ -151,7 +151,7 @@ export default function Events() {
             <div className="bg-[linear-gradient(90deg,#FF8585,#FF5858)] w-[50%] h-[1rem] mx-auto rounded-b-full" />
           </div>
           <div className="lg:flex">
-            <div className="bg-[linear-gradient(180deg,#FF8585,#FF5858)] h-[12rem] w-[1rem] rounded-r-full max-lg:hidden my-auto mr-[2rem]" />
+            <div className="bg-[linear-gradient(180deg,#FF8585,#FF5858)] h-[10rem] w-[1rem] rounded-r-full max-lg:hidden my-auto mr-[2rem]" />
             <EventContent>
               <EventTitle>
                 <img
@@ -172,7 +172,7 @@ export default function Events() {
             <div className="bg-[linear-gradient(90deg,#6C5AC1,#C2A5F4)] w-[50%] h-[1rem] mx-auto rounded-b-full" />
           </div>
           <div className="lg:flex">
-            <div className="bg-[linear-gradient(180deg,#6C5AC1,#C2A5F4)] h-[12rem] w-[1rem] mx-auto rounded-r-full max-lg:hidden my-auto mr-[2rem]" />
+            <div className="bg-[linear-gradient(180deg,#6C5AC1,#C2A5F4)] h-[10rem] w-[1rem] mx-auto rounded-r-full max-lg:hidden my-auto mr-[2rem]" />
             <EventContent>
               <EventTitle>
                 <img
