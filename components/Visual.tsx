@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function Visual() {
   return (
     <div className="bg-[#01405D] bg-[url('/2024/visual/visual-background.png')] bg-center bg-cover ">
@@ -9,10 +11,20 @@ export default function Visual() {
           <p className="lg:text-[#EAD377] lg:text-2xl lg:absolute text-lg lg:top-[10.5rem] lg:right-[4rem]">2024 SITCON Camp</p>
         </div>
         <div className="box-border self-start flex-grow overflow-hidden">
-          <img
+          <motion.img
+            drag
+            whileDrag={{ scale: 0.8, rotate: -5 }}
+            whileTap={{ scale: 0.8, rotate: -5 }}
+            dragConstraints={{
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+            }}
+            dragElastic={0.2}
+            className="lg:absolute w-auto max-h-full lg:top-[10rem] lg:h-[60%] lg:left-[5rem]"
             src="/2024/visual/cat-and-text.png"
             alt="cat and text"
-            className="lg:absolute w-auto max-h-full lg:top-[10rem] lg:h-[60%] lg:left-[5rem]"
           />
         </div>
         <div className="absolute -bottom-[5.5rem] left-[50vw] -translate-x-1/2 w-[calc(100%-4rem)] lg:hidden">
