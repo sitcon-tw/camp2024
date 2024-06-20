@@ -7,7 +7,7 @@ export default function Sponsor() {
           <h2 className="text-2xl font-bold mb-2 lg:min-w-[200px] block pb-[1rem] pt-[4rem]">
             {title}
           </h2>
-          <div className="flex flex-col gap-8">
+          <div className="flex gap-8 max-lg:flex-col">
             {items.map((item) => (
               <div key={item.name} className="mx-auto">
                 <div
