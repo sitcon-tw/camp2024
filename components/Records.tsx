@@ -10,7 +10,6 @@ import {
   useVelocity,
   useAnimationFrame,
 } from "framer-motion";
-import { wrap } from "@motionone/utils";
 import useScrollSize from "../hooks/useScrollSize";
 import Button from "./Button";
 interface ParallaxProps {
@@ -138,7 +137,11 @@ export default function Records() {
           查看更多照片
         </Button>
       </motion.div>
-      <img src={"/2024/images/53111287494_19d4bec65f_k.png"} alt="picture" className="mx-auto" />
+      <div className="flex w-full max-w-[55rem] mx-auto">
+        <img src={"/2024/images/53111287494_19d4bec65f_k.png"} alt="picture" className="mx-auto" />
+        <img src={"/2024/images/53111587148_7c389b9ae9_k.png"} alt="picture" className="mx-auto max-lg:hidden" />
+      </div>
+
       {/* <Parallax baseVelocity={1}>
         {imgRow1.map((img, index) => (
           <img key={index} src={img} className="inline rounded h-36 lg:h-64" alt={"Image Row 1-" + index} />
