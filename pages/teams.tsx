@@ -77,13 +77,13 @@ export default function Teams() {
   const groups = [...new Set(members.map((x) => x.group))];
   return (
     <>
-      <div className="container bg-[url('/2024/images/coc-bg.svg')] pt-[4rem] pb-[5rem] bg-cover">
-        <div>
+      <div className="bg-[url('/2024/images/coc-bg.svg')] pt-[4rem] pb-[5rem] bg-cover w-full px-[2rem]">
+        <div className="max-w-[1024px] mx-auto">
           <motion.h1
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="text-2xl font-bold text-[#FFF] text-center pt-[2rem]"
+            className="text-3xl font-bold text-[#FFF] text-center pt-[4rem]"
             id={"coc"}
           >
             籌備團隊
@@ -117,32 +117,42 @@ export default function Teams() {
             </p>
           </div>
         </div>
-        <div>
+        <div className="mt-[5rem] max-w-[1024px] mx-auto">
           <SectionTitle id="history">我們舉辦過的活動</SectionTitle>
           <EventBox>
-            <EventContent>
-              <EventTitle><p className="mt-5">SITCON 年會</p></EventTitle>
-              <p>
+            <div className="flex mb-[2rem] lg:hidden">
+              <div className="bg-[linear-gradient(90deg,#B8FD90,#07A920)] w-[50%] h-[1rem] mx-auto rounded-b-full" />
+            </div>
+            <div className="lg:flex">
+              <div className="bg-[linear-gradient(180deg,#B8FD90,#07A920)] h-[10rem] w-[1rem] mx-auto rounded-r-full max-lg:hidden my-auto mr-[2rem]" />
+              <EventContent>
+                <EventTitle>
+                  SITCON 年會
+                </EventTitle>
                 SITCON
                 年會是由一群熱愛分享、熱愛資訊領域的學生自主籌辦的活動，致力於資訊教育的普及與推廣。
-              </p>
-              <p>
                 藉由舉辦多軌議程、議程、論壇的交流與討論，期望將資訊領域的知識與不同領域背景人才交換新知！
-              </p>
-            </EventContent>
-            <EventImg src="../images/sitcon.jpg" />
+              </EventContent>
+              <EventImg src="../images/sitcon.jpg" />
+            </div>
           </EventBox>
           <EventBox>
-            <EventContent>
-              <EventTitle><p className="mt-5">Hour of Code</p></EventTitle>
-              <p>
+            <div className="flex mb-[2rem] lg:hidden">
+              <div className="bg-[linear-gradient(90deg,#C68BFA,#3C07AA)] w-[50%] h-[1rem] mx-auto rounded-b-full" />
+            </div>
+            <div className="lg:flex">
+              <div className="bg-[linear-gradient(180deg,#C68BFA,#3C07AA)] h-[10rem] w-[1rem] mx-auto rounded-r-full max-lg:hidden my-auto mr-[2rem]" />
+              <EventContent>
+                <EventTitle>
+                  Hour of Code
+                </EventTitle>
                 Hour of Code
                 是個一小時介紹計算機科學的活動，希望在揭開程式設計的神秘面紗的同時，說明它是任何人都可以學習的基礎知識，並期望擴展人們在計算機科學領域的參與。
-              </p>
-            </EventContent>
-            <EventImg src="../images/50694221331_e465f84efc_k.jpg" />
+              </EventContent>
+              <EventImg src="../images/50694221331_e465f84efc_k.jpg" />
+            </div>
           </EventBox>
-          <EventBox>
+          {/* <EventBox>
             <EventContent>
               <EventTitle><p className="mt-5">SITCON 夏令營</p></EventTitle>
               <p>
@@ -155,19 +165,45 @@ export default function Teams() {
               </p>
             </EventContent>
             <EventImg src="../images/51260350196_1e24756478_5k.jpg" />
+          </EventBox> */}
+          <EventBox>
+            <div className="flex mb-[2rem] lg:hidden">
+              <div className="bg-[linear-gradient(90deg,#FFDF8F,#EAA826)] w-[50%] h-[1rem] mx-auto rounded-b-full" />
+            </div>
+            <div className="lg:flex">
+              <div className="bg-[linear-gradient(180deg,#FFDF8F,#EAA826)] h-[10rem] w-[1rem] mx-auto rounded-r-full max-lg:hidden my-auto mr-[2rem]" />
+              <EventContent>
+                <EventTitle>
+                  SITCON 夏令營
+                </EventTitle>
+                SITCON
+                團隊認為將資訊教育向下扎根、為對資訊科學領域有興趣的學生提供一個親切而良好的機會入門，並撒播開源種子，是一件相當重要且值得去做的事情。
+                <br />
+                <br />
+                透過主線課程、社群闖關、視界咖啡館、黑客松等活動，讓學員充分吸收新知、動手實作、尋找自己的愛好及興趣，進而加入我們一起推動
+                Open Source。
+              </EventContent>
+              <EventImg src="../images/sitcon.jpg" />
+            </div>
           </EventBox>
           <EventBox>
-            <EventContent>
-              <EventTitle><p className="mt-5">SITCON 定期聚</p></EventTitle>
-              <p>
+            <div className="flex mb-[2rem] lg:hidden">
+              <div className="bg-[linear-gradient(90deg,#FF9191,#FF5454)] w-[50%] h-[1rem] mx-auto rounded-b-full" />
+            </div>
+            <div className="lg:flex">
+              <div className="bg-[linear-gradient(180deg,#FF9191,#FF5454)] h-[10rem] w-[1rem] mx-auto rounded-r-full max-lg:hidden my-auto mr-[2rem]" />
+              <EventContent>
+                <EventTitle>
+                  SITCON 定期聚
+                </EventTitle>
                 除了辦理大型活動外，SITCON
                 也舉辦定期聚，將全台灣各地對於資訊科技相關領域有興趣的學生們串聯起來，透過彼此共享、交流來切磋精進，砥礪自主自學的風氣。
-              </p>
-            </EventContent>
-            <EventImg src="../images/16009925241_a20363623a_c.jpg" />
+              </EventContent>
+              <EventImg src="../images/16009925241_a20363623a_c.jpg" />
+            </div>
           </EventBox>
         </div>
-        <div>
+        <div className="max-w-[1024px] mx-auto mt-[5rem]">
           <SectionTitle id="member"><p className="mt-5">夏令營籌備團隊</p></SectionTitle>
 
           {groups.map((name, index) => {
