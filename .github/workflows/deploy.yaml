@@ -45,7 +45,7 @@ jobs:
         uses: CCIP-App/schedule-json-generator-action@v2
         with:
           gcp-api-key: ${{ secrets.GCP_API_KEY }}
-          spreadsheet-key: "1M7PGplyFfh1pRSnCYplGowvuI85NkAgaTjs8LaKBdEc"
+          spreadsheet-key: "1RhdS1kzHHFRjGiRAx95wnDAzQ_U6ENvLrVgy7oQ0miE"
           default-avatar: "https://sitcon.org/2022/imgs/deafult_avatar.jpg"
           avatar-base-url: "https://sitcon.camp/2024/speakers-avatar/"
           output-path: ./public/schedule.json
