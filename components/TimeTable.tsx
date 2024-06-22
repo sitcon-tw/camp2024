@@ -374,8 +374,7 @@ export default function TimeTable() {
               </div>
 
               <div
-                className={`mt-4 ${sessionMessage.speakers.length < 1 ? "hidden" : ""
-                  }`}
+                className={`mt-4 ${sessionMessage.speakers.length < 1 ? "hidden" : ""}`}
               >
                 {sessionMessage.speakers
                   .map((item: any) =>

@@ -101,7 +101,7 @@ export default function Records() {
   //   "./images/53111604048_911606f8a9_c.jpg",
   // ];
   return (
-    <div className="bg-[#0E1826] -z-50 relative pt-[5rem]">
+    <div className="bg-[#0E1826] relative pt-[5rem]">
       <div className="flex py-8">
         <div className="flex items-center gap-2 mx-auto text-3xl font-bold text-center">
           <h1 className="text-2xl text-center text-[#ffffff]">過往紀錄與回饋</h1>
@@ -118,7 +118,7 @@ export default function Records() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="flex items-center justify-center w-full gap-4 my-4 pb-[2rem]"
+        className="flex items-center justify-center w-full gap-4 my-4 pb-[2rem] z-[9999999]"
       >
         <Button
           href="https://www.youtube.com/watch?v=oAtiOrpj6DQ"

@@ -22,8 +22,8 @@ export default function Visual() {
               bottom: 0,
             }}
             dragElastic={0.2}
-            className="lg:absolute w-auto max-h-full lg:top-[10rem] lg:h-[60%] lg:left-[5rem]"
-            src="/2024/visual/cat-and-text.png"
+            className="absolute w-auto max-h-full lg:top-[10rem] lg:h-[60%] lg:left-[5rem] max-lg:h-[55%] max-lg:top-[8rem] max-lg:left-0"
+            src="/2024/visual/visual-cat.png"
             alt="cat and text"
           />
         </div>

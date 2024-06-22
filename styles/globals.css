@@ -37,3 +37,19 @@ a.slide:hover {
 *::-webkit-scrollbar {
   width: 0;
 }
+
+.rainbow-text {
+  background-image: linear-gradient(
+    to left,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}

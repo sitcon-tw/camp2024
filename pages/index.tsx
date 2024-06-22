@@ -11,16 +11,14 @@ import Sponsor from "@/components/Sponsor";
 export default function Home() {
   return (
     <>
-      <div>
-        <Visual />
-        <Intro />
-        <Events />
-        <Records />
-        <Reports />
-        <ApplicationInfo />
-        {/* <About /> */}
-        <Sponsor />
-      </div>
+      <Visual />
+      <Intro />
+      <Events />
+      <Records />
+      <Reports />
+      <ApplicationInfo />
+      {/* <About /> */}
+      <Sponsor />
     </>
   );
 }
