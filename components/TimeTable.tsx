@@ -95,13 +95,14 @@ export default function TimeTable() {
     speakers: any;
     slide: string;
     co_write: string;
+    type: string;
   }
 
   const [sessionMessage, setSessionMessage] = useState<SessionMessage | null>(
     null
   );
   const openSessionBox = (sessionData: any) => {
-    if (sessionData.zh.description || sessionData.speakers.length)
+    if (sessionData.zh.description || sessionData.speakers.length || sessionData.type === "Home")
       setSessionMessage(sessionData);
   };
   const closeSessionBox = () => {
@@ -168,7 +169,7 @@ export default function TimeTable() {
             style={parseSessionStyle(session)}
             className={
               "bg-white flex flex-col justify-center items-center p-4 text-[#1E3D6C] transition-all relative border border-[#1E3D6C] border-opacity-0 rounded-[0.5rem] mb-1 mr-1 " +
-              ((session.zh.description != "" || session.speakers.length != 0) &&
+              ((session.zh.description != "" || session.speakers.length != 0 || session.type === "Home") &&
                 "hover:bg-opacity-70 hover:cursor-pointer hover:shadow-lg hover:border-opacity-40")
             }
             key={`${session.room}-${session.zh.title}`}
@@ -181,7 +182,7 @@ export default function TimeTable() {
               </div>
             )}
 
-            {(session.zh.description != "" || session.speakers.length != 0) && (
+            {(session.zh.description != "" || session.speakers.length != 0 || session.type === "Home") && (
               <div className="absolute bottom-0 right-0 flex items-center justify-center w-6 h-6 scale-75">
                 <InfoIcon />
               </div>
@@ -244,18 +245,11 @@ export default function TimeTable() {
                   const swipe = swipePower(offset.x, velocity.x);
                   if (swipe < -swipeConfidenceThreshold) {
                     setActiveDay(
-                      Object.keys(rooms)[
-                      Math.min(
-                        Object.keys(rooms).length - 1,
-                        Object.keys(rooms).indexOf(activeDay) + 1
-                      )
-                      ]
+                      Object.keys(rooms)[Math.min(Object.keys(rooms).length - 1, Object.keys(rooms).indexOf(activeDay) + 1)]
                     );
                   } else if (swipe > swipeConfidenceThreshold) {
                     setActiveDay(
-                      Object.keys(rooms)[
-                      Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)
-                      ]
+                      Object.keys(rooms)[Math.max(0, Object.keys(rooms).indexOf(activeDay) - 1)]
                     );
                   }
                 }}
@@ -281,8 +275,11 @@ export default function TimeTable() {
                           )}
                         </div>
                       </div>
-                      {(session.zh.description != "" ||
-                        session.speakers.length != 0) && <InfoIcon />}
+                      {
+                        (session.zh.description !== "" ||
+                          session.speakers.length !== 0 ||
+                          session.type === "Home")
+                        && <InfoIcon />}
                     </div>
                   ))}
               </motion.div>
@@ -300,13 +297,13 @@ export default function TimeTable() {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="session-box bg-[linear-gradient(#E6E9F1,#C5CFE0)] text-[#1E3D6C] rounded-xl md:rounded-3xl p-5 md:p-8 border border-black border-opacity-20 container max-h-[calc((85vh-1rem))] w-[calc((100vw-2rem))] lg:max-h-[calc((90vh-1rem))] overflow-y-scroll cursor-auto"
+              className="session-box bg-[linear-gradient(#E6E9F1,#C5CFE0)] text-[#1E3D6C] rounded-xl md:rounded-3xl p-5 md:p-8 border border-black border-opacity-20 container max-h-[calc((85vh-2rem))] w-[calc((100vw-2rem))] lg:max-h-[calc((90vh-20rem))] overflow-y-scroll cursor-auto "
               onClick={(e) => e.stopPropagation()}
               initial={{ opacity: 0, y: -100 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 100 }}
             >
-              <div className="flex items-center justify-between mb-2">
+              <div className={"flex items-center justify-between mb-2 " + ((sessionMessage.type === "Home") && "hidden")}>
                 <div>
                   <div className="text-2xl font-bold md:text-3xl">
                     {sessionMessage.zh.title.split("\n")[0]}
@@ -317,7 +314,7 @@ export default function TimeTable() {
                 </div>
                 <button
                   onClick={closeSessionBox}
-                  className="text-[#1E3D6C] hover:opacity-50 font-['Anicons_Regular'] text-xl transition-all -mt-10"
+                  className={"text-[#1E3D6C] hover:opacity-50 font-['Anicons_Regular'] text-xl transition-all -mt-10 " + ((sessionMessage.type === "Home") && "hidden")}
                   style={{
                     fontVariationSettings: "\"TIME\" 100",
                   }}
@@ -325,9 +322,9 @@ export default function TimeTable() {
                   A
                 </button>
               </div>
-              <hr className="my-4 md:my-7 border-[1px] border-[#1E3D6C]" />
+              <hr className={"my-4 md:my-7 border-[1px] border-[#1E3D6C] " + ((sessionMessage.type === "Home") && "hidden")} />
 
-              <div className="flex items-start">
+              <div className={"flex items-start " + ((sessionMessage.type === "Home") && "hidden")}>
                 <img src="/2024/icon/pin.svg" className="w-5 h-5 mt-1 mr-2" />
                 <div>
                   <h2 className="text-xl font-bold">課程介紹</h2>
@@ -370,8 +367,10 @@ export default function TimeTable() {
                       </a>
                     )}
                   </div>
+
                 </div>
               </div>
+              <p className="text-2xl font-bold">{sessionMessage.type === "Home" && "等營隊開始再回來看看？"}</p>
 
               <div
                 className={`mt-4 ${sessionMessage.speakers.length < 1 ? "hidden" : ""}`}
@@ -422,7 +421,7 @@ export default function TimeTable() {
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence >
     </>
   );
 }
