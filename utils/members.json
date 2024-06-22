@@ -125,14 +125,9 @@
        "sha256":"014f25869988e740766b2247d49013b50118675df2d0918f9f4f86e565732a3b"
     },
     {
-       "group":"隊輔組",
+       "group":"紀錄組",
        "name":"Rong",
        "sha256":"04f83da4399cd6bfab355adda458adf23f88d6d43e0daef99d0184924bdd5902"
-    },
-    {
-       "group":"隊輔組",
-       "name":"果果",
-       "sha256":"c488a1aed90f20e9da3a0827d3e2ee88061ae704c2ae313934293984d6eca810"
     },
     {
        "group":"隊輔組",
