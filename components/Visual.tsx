@@ -8,7 +8,6 @@ export default function Visual() {
           <p className="lg:absolute lg:text-4xl text-3xl font-bold drop-shadow-2xl bg-clip-text lg:top-[8rem] lg:right-[4rem]">
             學生計算機年會<span className={"camp-text"}>夏令營</span>
           </p>
-          </style>
           <p className="lg:text-[#EAD377] lg:text-2xl lg:absolute text-lg lg:top-[10.5rem] lg:right-[4rem]">2024 SITCON Camp</p>
         </div>
         <div className="box-border self-start flex-grow overflow-hidden">
