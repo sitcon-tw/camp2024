@@ -380,7 +380,7 @@ export default function TimeTable() {
                 <div className="flex mx-auto space-x-8">
                   <div className="flex flex-col flex-1 w-24">
                     <img src="https://secure.gravatar.com/avatar/4b88b204ce2f3e5ed3a77a3e67f851edadcb6c3fe911a79fa8d3d9fa3759f95f?s=512&amp;d=https://sitcon.camp/2024/images/default_avatar.jpg" className="inline h-24 rounded-full cursor-grab active:cursor-grabbing" draggable="false" />
-                    <p className="mt-1 text-xl font-bold text-center">Hacowo</p>
+                    <p className="mt-1 text-xl font-bold text-center">Haco</p>
                   </div>
                   <div className="flex flex-col flex-1 w-24">
                     <img src="https://secure.gravatar.com/avatar/014f25869988e740766b2247d49013b50118675df2d0918f9f4f86e565732a3b?s=512&d=https://sitcon.camp/2024/images/default_avatar.jpg" className="inline h-24 rounded-full cursor-grab active:cursor-grabbing" draggable="false" />
