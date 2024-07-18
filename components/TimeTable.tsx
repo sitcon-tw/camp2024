@@ -372,13 +372,14 @@ export default function TimeTable() {
               </div>
               <p className="mx-auto text-2xl font-bold text-center">{sessionMessage.type === "Home" && "每日簽到獎勵"}</p>
               <p className="mx-auto text-base text-center text-gray-500">{sessionMessage.type === "Home" && "任務將會每日刷新，請每日追蹤任務刷新！"}</p>
-              <img src="/2024/daily/1a444b5ffc/qr.webp" alt="gift" className={"mx-auto mt-4 " + ((sessionMessage.type !== "Home") && "hidden")} />
+              <img src="/2024/daily/1a444b5ffc/qr.png" alt="gift" className={"mx-auto mt-4 " + ((sessionMessage.type !== "Home") && "hidden")} />
 
               <p className="mx-auto text-2xl font-bold text-center mt-7">{sessionMessage.type === "Home" && "營期任務"}</p>
               <p className="mx-auto text-base text-center text-gray-500">{sessionMessage.type === "Home" && "請在時間內找到以下四位人類，任務將會在所有小隊完成或時間到後刷新！"}</p>
               <div className={"flex h-auto p-5 mt-4 rounded-xl " + ((sessionMessage.type !== "Home") && "hidden")}>
                 <div className="flex mx-auto space-x-8">
-                  <div className="flex flex-col flex-1 w-24">
+                  任務已結束，等待任務刷新！
+                  {/* <div className="flex flex-col flex-1 w-24">
                     <img src="https://secure.gravatar.com/avatar/4b88b204ce2f3e5ed3a77a3e67f851edadcb6c3fe911a79fa8d3d9fa3759f95f?s=512&amp;d=https://sitcon.camp/2024/images/default_avatar.jpg" className="inline h-24 rounded-full cursor-grab active:cursor-grabbing" draggable="false" />
                     <p className="mt-1 text-xl font-bold text-center">Haco</p>
                   </div>
@@ -393,7 +394,7 @@ export default function TimeTable() {
                   <div className="flex flex-col flex-1 w-24">
                     <img src="https://secure.gravatar.com/avatar/f5ae171c2ca27f7170d361f5bcf9c5ceb0fd94c07dcc9e5ab675fd97ab6428ed?s=512&d=https://sitcon.camp/2024/images/default_avatar.jpg" className="inline h-24 rounded-full cursor-grab active:cursor-grabbing" draggable="false" />
                     <p className="mt-1 text-xl font-bold text-center">繁月</p>
-                  </div>
+                  </div> */}
                   {/* <div className="flex flex-col flex-1 w-24">
                     <img src="https://secure.gravatar.com/avatar/4b88b204ce2f3e5ed3a77a3e67f851edadcb6c3fe911a79fa8d3d9fa3759f95f?s=512&amp;d=https://sitcon.camp/2024/images/default_avatar.jpg" className="inline h-24 rounded-full cursor-grab active:cursor-grabbing" draggable="false" />
                     <p className="mt-1 text-xl font-bold text-center">Haco</p>
