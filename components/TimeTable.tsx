@@ -95,6 +95,7 @@ export default function TimeTable() {
     speakers: any;
     slide: string;
     co_write: string;
+    record: string;
     type: string;
   }
 
@@ -364,6 +365,15 @@ export default function TimeTable() {
                         className="slide"
                       >
                         課程共筆
+                      </a>
+                    )}
+                    {sessionMessage.record && (
+                      <a
+                        href={sessionMessage.record }
+                        target="_blank"
+                        className="slide"
+                      >
+                        課程錄影
                       </a>
                     )}
                   </div>
